@@ -1,0 +1,45 @@
+# Példa
+
+## Az adatok bemutatása
+
+A következőkben a *languageR* csomag `lexdec` nevű példaadatát fogjuk elemezni,
+amely egy lexikális döntési feladat válaszidő-eredményeit tartalmazza. A 
+*languageR* csomag telepítése után az adatokat betöltheted a szokásos `data()`
+paranccsal: 
+
+```{r}
+data(lexdec, package = "languageR")
+# bővebb infó (a languageR betöltése nélkül):
+?languageR::lexdec
+```
+
+- az adatok struktúrája (csak az első 10 változót megjelenítve):
+```{r}
+str(lexdec, list.len = 10)
+head(lexdec[, 1:10])
+```
+
+A következőkben egy kegyes csalást követünk el. Annak érdekében, hogy a példaadatunk tartalmazzon beágyazott random hatásokat is, létrehozunk egy magasabb szintű 
+random hatást is, és bebiztosítjuk, hogy ez a hatás legyen jelentős.
+
+- a példa kedvéért hozzunk létre egy új változót (Page): tegyük fel, hogy a szavakat úgy kreáltuk, hogy kiválasztottunk 10 tetszőleges oldalt egy középfokú szótárból, és kigyűjtöttük az oldalon található szavakat
+```{r}
+num_cat <- 10L
+lexdec$Page <- cut(as.integer(lexdec$Word), 
+                   seq(0, 80, ceiling(80/num_cat)),
+                   paste0("page", 1:num_cat))
+
+# modositsuk az RT valtozot ugy, hogy legyen hatasa a Page-nek
+set.seed(1) # lasd ?set.seed
+page_mean <- rnorm(num_cat, 0, 0.1)
+names(page_mean) <- levels(lexdec$Page)
+lexdec$RT <- lexdec$RT + page_mean[lexdec$Page]
+```
+
+## Az elemzési feladat
+
+Tegyük fel, hogy a személy anyanyelvének (NativeLanguage [= English | Other]) és az inger szemantikai kategóriájának (Class [=animal | plant]) a válaszidőkre gyakorolt hatását szeretnénk vizsgálni. Csak a helyes válaszokat vesszük figyelembe, és a kísérlet előrehaladtával együttjáró fáradási/rátanulási hatást kontrolláljuk.
+
+```{r,echo=FALSE}
+saveRDS(lexdec, file = "__temp.rds")
+```

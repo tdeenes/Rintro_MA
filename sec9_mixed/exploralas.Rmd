@@ -1,0 +1,130 @@
+# Adatexploráció, ábrázolás 
+
+```{r,echo=FALSE}
+lexdec <- readRDS("__temp.rds")
+opts_chunk$set(fig.width=8)
+```
+
+
+## A kísérleti dizájn vizsgálata, leíró statisztikák
+- elvileg keresztezett random hatásaink vannak: minden személynek minden szót bemutattak, pontosan egyszer
+```{r}
+freq <- with(lexdec, table(Subject, Word))
+# a freq mátrix túl nagy, a példához elég egy kis részlete
+freq[1:5, 1:5]
+
+# tökéletesen keresztezett, ismétlés nélküli dizájn
+table(freq)
+```
+
+- létrehoztunk egy beágyazott hatást is: a szavak a szótár egy-egy oldaláról származnak
+```{r}
+with(lexdec, table(Word, Page))
+```
+
+Fontos, hogy sose kódoljunk úgy változókat, hogy ne legyen egyértelmű, hogy keresztezett vagy beágyazott hatásokról van-e szó. Magyarán ha hierarchikus változóink vannak (pl. személy << iskola, vagy jelen példában szó << szótári oldal),
+akkor az alsóbb szinten is alkalmazzunk egyedi azonosítókat. Jelen példánál maradva,
+ahol minden szótári oldalról 8-8 szó szerepel, hiba lenne a szavakat "word1",
+"word2", "word3", ..., "word8"-ként kódolni, hiszen az egyik oldal "word1" 
+szavának semmi köze nincsen a másik oldal "word1" szavához. 
+```{r}
+# tegyük fel, hogy a Word változót word1, word2, ... word8-ként kódoltuk
+# a Page minden szintjén
+lexdec$WordWrong <- paste0(
+    "word", 
+    as.integer(lexdec$Word) - 8*(as.integer(lexdec$Page)-1))
+
+# innentől a keresztgyakorisági tábla nem mutatja meg, hogy
+# a 'word' faktor a 'page' faktorunkba van ágyazva
+with(lexdec, table(WordWrong, Page))
+```
+
+- csak a helyes válaszokat akarjuk elemezni: szűrjük le az adatokat és
+válasszuk ki a releváns változókat
+```{r}
+lexdec_corr <- subset(lexdec, Correct == "correct",
+                      select = c(Subject, RT, Trial, NativeLanguage, 
+                                 Word, Class, Page))
+```
+
+- kérjünk leíró statisztikákat a kérdéses változókra (a _psych_ csomagot fogom használni, de egyebet is lehetne)
+```{r}
+# általános leíró statisztikák
+summary(lexdec_corr)
+
+# példa: válaszidők statisztikái szavanként, ferdeségi mutatóval
+with(lexdec_corr, psych::describeBy(RT, Subject, skew = TRUE))
+```
+
+## Ábrázolás
+
+A következőkben ggplot ábrákkal megvizsgáljuk, hogy milyen a hiányzó adatok
+mintázata, illetve hogyan alakul a válaszidők eloszlása különböző csoportosító
+szempontok alapján.
+
+- hiányzó adatok (amiatt, hogy csak a helyes válaszokat elemezzük):
+```{r}
+library(ggplot2)
+ggplot(lexdec_corr, aes(x = Subject, y = Word)) + 
+    geom_tile()
+```
+
+- válaszidők személyenként:
+```{r}
+# Subject
+ggplot(lexdec_corr, aes(x = Subject, y = RT, col = NativeLanguage)) + 
+    geom_boxplot() + 
+    theme_bw()
+```
+
+- válaszidők szavanként és oldalanként
+```{r}
+# Page & Word
+ggplot(lexdec_corr, aes(x = Word, y = RT, col = Page)) + 
+    geom_boxplot() + 
+    theme_bw() + 
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+- válaszidők eloszlása az anyanyelv és az ingerosztály (állat/növény) függvényében
+```{r}
+# Class & NativeLanguage (boxplot)
+ggplot(lexdec_corr, aes(x = NativeLanguage, y = RT, col = Class)) + 
+    geom_boxplot() + 
+    theme_bw()
+
+# Class & NativeLanguage (density)
+ggplot(lexdec_corr, aes(x = RT, col = NativeLanguage)) + 
+    geom_density() + 
+    facet_wrap(~ Class) + 
+    theme_bw()
+```
+
+- a Trial változó hatása
+```{r}
+# Trial
+ggplot(lexdec_corr, aes(x = Trial, y = RT)) + 
+    geom_point() + 
+    stat_smooth(method = "lm") + 
+    facet_wrap(~Subject) + 
+    theme_bw()
+```
+
+
+## Adatok előkészítése
+
+- ha lennének egyértelmű outlierek, azokat érdemes az elemzés előtt kiszűrni
+- standardizálhatjuk a folytonos változókat
+```{r}
+lexdec_corr[, c("scRT", "scTrial")] <- scale(lexdec_corr[, c("RT", "Trial")])
+```
+
+- az elemzési céljainktól függ, de érdemes lehet átállítani a kontrasztokat (az R alapból treatment-kontrasztot használ)
+```{r}
+op <- options(contrasts = c("contr.sum", "contr.poly"))
+```
+
+
+```{r,echo=FALSE}
+saveRDS(lexdec_corr, file = "__tempcorr.rds")
+```

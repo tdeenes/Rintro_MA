@@ -1,0 +1,52 @@
+# Operátorok
+
+Az R operátorainak döntő többsége vektorizált; ez azt jelenti, hogy amennyiben
+az operátor két oldalán többelemű vektorok vannak, az operátor által 
+meghatározott műveletet az R elemenként elvégzi.
+
+Példa: adjuk össze az 1:6 és 2:7 sorozatokat elemenként:
+```{r}
+x <- 1:6
+y <- 2:7
+x + y
+```
+
+## Általános operátorok
+- azonosan egyenlő (DE ld. `?all.equal`): `==`
+- nagyobb/kisebb: `>` `<`
+- nagyobb/kisebb vagy egyenlő: `>=` `<=`
+- negáció: `!` (pl. nem egyenlő: `!=`)
+- és: `&` (lásd még: `&&`)
+- vagy: `|` (ld még: `||`)
+- kizárólagos vagy: `xor(cond1, cond2)`
+- feltétel: `if (cond==TRUE) { do this } else { do that }`
+
+## Speciális operátorok
+- `%*%` = mátrix-szorzás
+- `%in%` = illeszkedő elemek (ld még: `?match`):
+```{r}
+# az `%in%` nem különbözteti meg a numeric és integer típust 
+( vec.target <- c(6, 2, 10) )
+( vec.reference <- 1:10 )
+vec.target %in% vec.reference
+```
+
+- `%o%` = outer product (see `?outer`)
+- `%%` = modulo, `%/%` = egészrész
+- `:` = sorozat létrehozása, lásd ?seq 
+- `::` = egy csomag fv-ének meghívása a csomag betöltése nélkül
+- `:::` = egy csomag nem exportált fv-ének elérése
+```{r, error=TRUE}
+print.anova  # ez hibát eredményez, mivel a függvény "rejtett" (nem exportált)
+
+#getAnywhere(print.anova) ## -> a print.anova fv-t a stats csomag tartalmazza
+stats:::print.anova # így már elérhetjük
+```
+
+## Matematikai operátorok
+- összeadás: `+`
+- kivonás: `-`
+- szorzás: `*`
+- osztás: `/`
+- hatvány: `^`
+

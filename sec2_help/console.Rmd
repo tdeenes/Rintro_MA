@@ -1,0 +1,63 @@
+
+```{r, include=FALSE}
+# ezen csomagokra szükségünk lesz
+packs <- c("ggplot2", "dplyr", "data.table", "psych", "corrplot", "MuMIn",
+           "lavaan", "lme4", "effects", "car", "tidyr", "afex", "ez", "sos")
+for (x in packs) { 
+    if (!require(x, character.only = TRUE)) install.packages(x)
+}
+```
+
+
+# Segítség a parancssorból (konzolból)
+
+- a CRAN repozitóriumba csak olyan csomag kerülhet be, amely megfelelően dokumentált
+
+```{r, include=FALSE}
+packs <- c("sos", "ggplot2", "data.table")
+for (x in packs) { 
+    if (!require(x, character.only = TRUE)) install.packages(x)
+}
+```
+
+### Releváns R-parancsok
+- `help.start()` -> elindítja a központi keresőfelületet 
+- ha bizonyos fv-ek dokumentációjára vagyunk kíváncsiak (csak a betöltött csomagokban keres):
+```{r, eval=FALSE}
+help("median") 
+# roviden:
+?median
+```
+- az összes telepített csomagban keres:
+```{r, eval=FALSE}
+help.search("harmonic mean")
+# roviden: 
+??"harmonic mean"
+```
+- egy csomag összes fv-ét megjeleníti:
+```{r, eval=FALSE}
+library(help = "lattice")
+help(package = "lattice")
+```
+- kulcsszavakra keresés:
+```{r, eval=FALSE}
+RSiteSearch("linear mixed models")
+```
+- ... uez felhasználóbarátabban:
+```{r, eval=FALSE}
+library(sos) # egy csomag "betoltese"
+findFn("additive mixed models")
+```
+- sok szerző ír vignette-t -> ezek nagyon hasznosak
+```{r, eval=FALSE}
+browseVignettes(package = "data.table")
+#vignette(package = "data.table")
+#vignette("datatable-faq", package = "data.table")
+```
+
+### Interaktív kurzus parancssorból
+
+A [swirl](http://swirlstats.com/) egy olyan R-csomag, amelynek segítségével 
+interaktív módon ismerkedhetsz az R-rel (kvázi egy robot-tanár). A linkelt
+honlapon minden infót megtalálsz a csomag használatáról.
+

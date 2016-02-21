@@ -1,0 +1,112 @@
+# Exploratív faktorelemzés
+
+A példában a *psych* csomag 'bfi' példaadatát fogjuk használni, amely
+egy személyiségkérdőív 25 itemére kapott válaszait (N=2800) tartalmazza, illetve
+néhány demográfiai változót. 
+A kapcsolódó 'bfi.dictionary' adatframe 'Keying' változója tartalmazza, hogy 
+a 25 item közül melyek voltak fordított itemek. A 25 item elvileg 5 faktort
+mér (A: Agreeableness, C: Conscientiousness, E: Extraversion, N: Neuroticism, 
+and O: Opennness). 
+
+- töltsük be a *psyh* csomagot, vizsgáljuk meg a 'bfi' és 'bfi.dictionary' 
+adatokat:
+```{r}
+# csomag betöltése
+library(psych)
+
+# a bfi és bfi.dictionary leírása
+?bfi
+
+# a bfi első néhány sora
+head(bfi)
+
+# a bfi.dictionary struktúrája
+str(bfi.dictionary)
+```
+
+- fordítsuk át a fordított itemeket:
+```{r}
+# készítsünk egy új adattáblát, hogy ne az eredetit írjuk majd 
+# felül a következő lépésekben (ez nem feltétlenül kötelező)
+items <- 1:25
+dat <- bfi[, items]
+
+# átfordítandó itemek 
+items_to_flip <- bfi.dictionary$Keying[items] < 0
+
+# a leírásból kiderült, hogy az itemeket 6 fokozatú skálán
+# mérték; ez alapján a fordítás menete:
+dat[, items_to_flip] <- 7 - dat[, items_to_flip]
+```
+
+- ellenőrizzük, hogy az egyes itemekre adott válaszok
+a vártnak megfelelően korrelálnak egymással; az itemek nagy száma miatt
+érdemes vizualizálni a korrelációs mátrixot (ehhez használjuk a *corrplot* 
+csomag `corrplot()` függvényét):
+```{r}
+# a korrelációs mátrix (a hiányzó értékek miatt megváltoztatjuk 
+# a 'use' argumentumot, lásd ?cor)
+corrs <- cor(dat, use = "pairwise")
+
+# a 'corrplot' csomag príma ilyen feladatra
+library(corrplot)
+
+# a corrplot() függvény rengeteg argumentummal rendelkezik,
+# érdemes elolvasni a függvény súgóját (?corrplot)
+corrplot(corrs, method = "shade", diag = FALSE)
+```
+
+A korrelációs ábrán jól látszik, hogy a A, C, E, N faktorok itemei viszonylag
+erősen korrelálnak egymással, az O faktor itemei viszont kevésbé meggyőzőek. 
+Továbbá az A és E itemek között számottevő együttjárás tapasztalható, azaz
+ezek a faktorok valószínűleg nem függetlenek egymástól. (Megjegyzés: olvasd
+el a `?polychoric` függvény súgóját, hogy a Pearson-korreláció helyett 
+milyen korrelációt érdemes számolni dichotóm vagy néhány válaszlehetőséget 
+tartalmazó itemek esetében. A példában vizsgált adatoknál a polychoric 
+korreláció szinte teljesen megegyezik a Pearson-korrelációval.)
+
+Az exploratív faktorelemzés egyik lényeges kérdése, hogy hány faktorra van
+szükség a változók közötti együttjárás mintázatának kellően pontos leírására. 
+
+- a faktorszám megállapításának egyik módszere a "scree plot" (az optimális 
+szám ott található, ahol a sajátértékeket ábrázoló görbe "megtörik"):
+```{r}
+scree(dat)
+```
+
+- egy modernebb módszer a párhuzamos elemzés (parallel analysis):
+```{r}
+fa.parallel(dat)
+```
+
+A fentebbi elemzések alapján kétséges, hogy valóban ötfaktoros szerkezetű-e a
+vizsgált kérdőív. Mivel az A és E faktorok a korrelációs vizsgálatunk alapján 
+korrelálnak egymással, a faktorelemzésnél érdemes ferde forgatást alkalmazni.
+A *psych* csomag `fa()` függvény alapbeállításként ilyen forgatást (egész 
+pontosan 'oblimin' forgatást) alkalmaz.
+
+- ötfaktoros megoldás:
+```{r}
+fa5 <- fa(dat, nfactors = 5)
+print(fa5)
+```
+
+- hatfaktoros megoldás:
+```{r}
+fa6 <- fa(dat, nfactors = 6)
+print(fa6)
+```
+
+- ábrázolás:
+```{r}
+fa.diagram(fa5, main = "5 faktor")
+fa.diagram(fa6, main = "6 faktor")
+```
+
+Látható, hogy a 6 faktoros megoldás jobb illeszkedést mutat az 5 faktorosnál,
+de a 6. faktor súlyai nagyon alacsonyak. Emellett az 5 faktoros megoldás jól
+értelmezhető, és teljesen összhangban van a kérdőív feltételezett faktorstruktúrájával.
+
+
+
+

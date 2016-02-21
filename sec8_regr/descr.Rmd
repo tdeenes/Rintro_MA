@@ -1,0 +1,47 @@
+# Leíró statisztikák
+
+- újfent a már jólismert olvasásvizsgálati adatokkal fogunk dolgozni
+```{r}
+# példaadat betöltése
+data(dyslex)
+```
+
+- szűrjük le a legfeljebb 4. osztályos tanulókra a mintát, és válasszuk ki
+a releváns változókat
+```{r}
+dat <- subset(dyslex, 
+              oszt <= 4, 
+              select = c(csoport, szokincs, olvasas)
+              )
+```
+
+
+- ha az adatstruktúra `data.frame`, a `summary()` függvény meghívásával
+számos alapvető leíró statisztikát kapunk vissza (melyek mindegyike a válasz
+osztályához igazodik, pl. gyakorisági tábla faktorok esetében, de 
+min/max/átlag/medián stb. numerikus változóknál)
+```{r}
+summary(dat)
+```
+
+- ha a változóink numerikusak, és/vagy a leíró statisztikákat csoportonkénti
+bontásban szeretnénk megkapni, hasznos lehet a *psych* csomag `describe()` és 
+`describeBy()` függvénye
+```{r}
+# psych betöltése
+library(psych)
+
+# numerikus változók
+numeric_vars <- c("szokincs", "olvasas")
+
+# leíró statisztikák a kontroll- és sni-csoportban
+describeBy(dat[, numeric_vars],
+           dat$csoport)
+```
+
+- készítsünk egy ábrát is exploratív céllal
+```{r psychplot_lm}
+# ábrázolás (színezzük is a csoportokat)
+pairs.panels(dat, bg = dat$csoport, pch = 21) 
+```
+

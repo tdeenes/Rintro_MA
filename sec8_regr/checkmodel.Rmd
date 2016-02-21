@@ -1,0 +1,25 @@
+# Ellenőrzés
+
+A modell futtatása után ildomos ellenőrizni, hogy a reziduálisok normál 
+eloszlásúak és homoszkedasztikusak-e, illetve hogy nincsenek-e túlzottan
+befolyásos megfigyelési egységek a mintában.
+
+```{r runlm_repeat, echo=FALSE}
+# az elemzes újbóli futtatása
+data(dyslex)
+dat <- subset(dyslex, 
+              oszt <= 4, 
+              select = c(csoport, szokincs, olvasas)
+              )
+model <- lm(formula = olvasas ~ csoport * szokincs, 
+            data = dat)
+```
+
+
+- egy egyszerű módszer:
+```{r checklm}
+plot(model)
+```
+
+_Tipp_: regressziós modellekhez és ANOVA-hoz erősen ajánlott telepíteni John Fox 
+[*car*](https://cran.r-project.org/web/packages/car/index.html) nevű csomagját. Rengeteg hasznos függvényt tartalmaz, többek között reziduálisok diagnosztikájához kapcsolódóakat is.

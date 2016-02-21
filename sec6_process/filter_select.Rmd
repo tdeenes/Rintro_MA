@@ -1,0 +1,65 @@
+```{r, echo = FALSE}
+rm(list = ls())
+```
+
+
+# Szűrés és összegzés
+
+- töltsük be a "beépített" adatot
+```{r}
+data(dyslex)
+```
+
+- válasszuk ki a 145 hónapnál fiatalabb, és legfeljebb 4. osztályos gyerekeket, 
+és a helyesírási adatokat válasszuk le egy külön adattáblába
+```{r}
+dyslex_read <- subset(dyslex, 
+                      kor < 145 & oszt <= 4, 
+                      select = -(sp_helyes1:sp_helyes5))
+dyslex_spell <- subset(dyslex, 
+                       kor < 145 & oszt <= 4, 
+                       select = c(id, sp_helyes1:sp_helyes5))
+```
+
+- számoljuk ki `dyslex_read` változóinak az évfolyamonkénti 
+átlagpontszámait:
+```{r}
+( dyslex_means <- aggregate(dyslex_read[, -1], 
+                            dyslex_read["oszt"], 
+                            FUN = "mean") )
+```
+
+- nagyméretű adattáblánál a fentebbi módszerek igen lassúak lehetnek; 
+a megoldás a *dplyr* vagy a *data.table* csomagok használata lehet
+
+### dplyr
+
+```{r}
+# könyvtár betöltése; az üzenetből látható, hogy
+# a dplyr számos olyan függvényt tartalmaz, amelynek
+# neve alapfüggvények neveivel egyezik meg 
+library(dplyr)
+
+# számítás
+result <- 
+    tbl_df(dyslex) %>%
+        filter(kor < 145 & oszt <= 4) %>%
+        select(-starts_with("sp_")) %>%
+        group_by(oszt) %>%
+        summarize(olv1 = mean(olv_helyes1), 
+                  olv2 = mean(olv_helyes2), 
+                  olv3 = mean(olv_helyes3))
+
+# a dplyr eltávolítása a keresési útról
+detach(package:dplyr)
+```
+
+### data.table
+
+```{r, eval=FALSE}
+library(data.table)
+ind <- grep("sp_", colnames(dyslex), invert = TRUE)
+dyslex_dt <- data.table(dyslex)[kor < 145 & oszt <= 4, ind, with = FALSE]
+dyslex_dt[, lapply(.SD, mean), .SDcols = -1, by = oszt]
+```
+

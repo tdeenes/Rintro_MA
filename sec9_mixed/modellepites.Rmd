@@ -1,0 +1,134 @@
+# Modellépítés / modellszelekció
+
+```{r, include=FALSE}
+lexdec_corr <- readRDS("__tempcorr.rds")
+opts_chunk$set(fig.width=8)
+library(lme4)
+```
+
+- optimális eset: elméletvezérelt modellépítés
+- gyakoribb eset: adatvezérelt modellépítés
+- döntési pontok: fix hatások és random hatások, random hatáson belül random konstans és random slope -> kevés változó esetén is nagyon komplex lehet!
+
+### Javaslatok
+- inkább haladjunk a bővebb modell felől
+- először random hatások, utána fix hatások tesztelése
+- a random hatásoknál érdemes a maximális struktúrát megtartani (feltéve, hogy konvergál) 
+- a random hatásokat REML, a fix hatásokat ML becsléssel teszteljük (a végső modell paramétereit REML becsléssel számoljuk)
+- a modellszelekció történhet likelihoodarány-teszttel vagy pl. AIC-értékek összevetésével
+- ha két fix hatás interakciója szerepel a modellben, akkor mindig vegyük be a főhatásokat is, illetve szerepeltessük az interakciót a random struktúrában is
+
+
+### Példa
+#### Egy lehetséges induló modell
+- modellezzük a válaszidőt (RT) a próba sorszáma (scTrial) és a személy anyanyelve, illetve a szó szemantikai kategóriája alapján 
+```{r}
+( model_full <- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                         (1 + scTrial | Subject) + 
+                         (1 | Page) + (1 | Word), 
+                     data = lexdec_corr) )
+```
+
+- örök FAQ: miért nem számol az lmer p-értékeket?: [ezért](https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html)
+
+- az lmer outputja a regressziós modellek outputjának formátumát követi; mit tegyünk, ha mi ANOVA-stílusú táblázatot szeretnénk?
+```{r}
+library(car)
+Anova(model_full)
+Anova(model_full, test.statistic = "F")
+
+# az SPSS és SAS a Type III felbontást részesítik előnyben
+Anova(model_full, type = 3)
+```
+
+- egyéb csomagok p-értékek korrekt kinyerésére: [afex](https://cran.r-project.org/web/packages/afex/index.html), [lmerTest](https://cran.r-project.org/web/packages/lmerTest/index.html)
+
+#### Random hatások tesztelése
+- elsősorban akkor szükséges, ha túl komplex az induló modell, és/vagy szélsőséges értékek szerepelnek a varianca-kovariancia mátrixban (pl. 1 vagy -1 közeli korreláció és/vagy 0 szórás)
+- az `anova.merMod` függvény használható, de valószínűleg túl konzervatív (szélsőséges esetben akár 2-szerese a p-érték a valósnak)
+- használhatjuk az AIC (vagy BIC) kritériumot is
+```{r}
+# modellek illesztése
+( model_r1 <- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (1 | Subject) + (0 + scTrial | Subject) + 
+                       (1 | Page ) + (1 | Word), 
+                   data = lexdec_corr) )
+( model_r2 <- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (1 | Subject) + (1 | Page ) + (1 | Word), 
+                   data = lexdec_corr) )
+( model_r3 <- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (1 | Subject) + (1 | Page ), 
+                   data = lexdec_corr) )
+# modellek összevetése
+anova(model_r3, model_r2, model_r1, model_full, refit = FALSE)
+
+# AIC
+AIC(model_r3, model_r2, model_r1, model_full)
+
+# BIC
+BIC(model_r3, model_r2, model_r1, model_full)
+```
+
+#### Random hatások ellenőrzése
+- BLUP (best linear unbiased predictor) -> Douglas Bates inkább a "conditional mode of random effects" megfogalmazást preferálja
+- a legjobb, ha a feltételes variancia-kovariancia mátrixot is kérjük, de ez többtagú random hatásoknál egyelőre nem működik
+```{r}
+ranefs <- ranef(model_r1, condVar = TRUE)
+library(lattice) # az ábrázoláshoz betöltjük a lattice csomagot
+dotplot(ranefs)
+
+# ennél a modellnél stimmel a dolog
+ranefs_vcov <- ranef(model_r2, condVar = TRUE)
+dotplot(ranefs_vcov)
+```
+- összességében azt látjuk, hogy a random hatások valóban számottevő mértékűek
+- ellenőrizzük a reziduálisokat (normál eloszlásúak-e, van-e szélsőséges érték):
+```{r}
+resids <- scale(residuals(model_r1))
+par(mfrow = c(1, 2))
+hist(resids)  # sima hisztogram
+qqnorm(resids)  # Q-Q ábra a normalitás ellenőrzésére
+qqline(resids)
+```
+- a reziduálisok alapján megfontolandó lenne, hogy a válaszidők logaritmusa helyett azok inverz transzformáltjával számoljunk, vagy esetleg zárjuk ki azokat az eseteket, amelyeknél a standardizált reziduális túllép egy bizonyos értéket (pl. 2,5-öt)
+- válasszuk ki a végső modellt
+```{r}
+model_ranef_final <- model_r1
+```
+
+
+#### Fix hatások tesztelése
+- a legkényelmesebb módszer: best subset; FIGYELEM, ésszel használjuk!!!
+- mivel most a fix hatásokat teszteljük, sima ML becslést (nem pedig REML-t) kell alkalmazni
+```{r}
+library(MuMIn)
+options(na.action = "na.fail") # ez kell, különben a dredge fv. panaszkodik
+
+# Alapesetben az ML megoldható az update() függvénnyel
+model_ranef_final_ml <- update(model_ranef_final, REML = FALSE)
+
+# Modellek illesztése
+( fixmodels <- dredge(model_ranef_final_ml) )
+```
+- az eredmények azt mutatják, hogy a Trial változónk hatása nem szignifikáns, és erősen határeset a Class főhatása és a NativaLanguage X Class interakció is
+- tegyuk fel, hogy az scTrial-t kontrollváltozóként mindenképpen szerepeltetni akarjuk, és kérjük a BIC kritériumot is
+```{r}
+( fixmodels2 <- dredge(model_ranef_final_ml, 
+                       rank = "AIC", extra = "BIC", fix = "scTrial") )
+```
+
+
+#### Fix hatások ábrázolása
+- az effects package mindenféle modellre (köztük a merMod modellekre is) tud ábrát készíteni
+```{r, eval=FALSE}
+library(effects)
+effs <- allEffects(model_ranef_final)
+plot(effs)
+```
+```{r,echo=FALSE}
+# workaround: az allEffects() nem talalja az adatot
+library(effects)
+effs <- readRDS("__tempeff.rds")
+plot(effs)
+```
+

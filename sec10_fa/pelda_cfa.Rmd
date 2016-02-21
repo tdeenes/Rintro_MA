@@ -1,0 +1,66 @@
+# Konfirmatív faktorelemzés 
+
+```{r, echo=FALSE}
+# pelda elokeszitese
+items <- 1:25
+data(bfi, bfi.dictionary, package = "psych")
+dat <- bfi[, items]
+items_to_flip <- bfi.dictionary$Keying[items] < 0
+dat[, items_to_flip] <- 7 - dat[, items_to_flip]
+```
+
+
+A pszichológiai tanulmányokban gyakorta előfordul, hogy a szerzők az exploratív 
+faktorelemzés eredményeit úgy értelmezik, mintha az konfirmatív faktorelemzésből
+származna. Az előző példában például csábító azt feltételezni, hogy az 
+ötfaktoros modellünk alátámasztja kérdőív vélt struktúráját: az itemekre kapott
+válaszok egy-egy látens faktor manifesztumai, amely látens faktorok alapvetően
+függetlenek egymástól, kivéve a csekély együttjárást mutató A és E faktorokat.
+
+Valóban ilyen tiszta és egyértelmű lenne a kérdőív struktúrája? Technikailag: a kereszttöltéseket (pl. egy A faktorhoz tartozó item kapcsolatát a többi faktorral) 0-nak vehetjük, csakúgy, mint a látens faktorok kovarianciáját (kivéve az A és E faktort)? Válaszoljuk meg ezt a kérdést egy konfirmatív faktormodell
+illesztésével. 
+
+- töltsük be a *lavaan* csomagot:
+    ```{r}
+library(lavaan)
+```
+
+- adjuk meg a feltételezett modell struktúráját:
+    ```{r}
+model_syntax <- "
+    Agreeableness =~ A1 + A2 + A3 + A4 + A5
+    Conscientiousness =~ C1 + C2 + C3 + C4 + C5
+    EmotionalStability =~ E1 + E2 + E3 + E4 + E5
+    Extraversion =~ N1 + N2 + N3 + N4 + N5
+    Openness =~ O1 + O2 + O3 + O4 + O5
+   
+    Agreeableness ~~ EmotionalStability
+"
+```
+
+- illesszük a modellt:
+    ```{r}
+cfa_res <- cfa(model_syntax, data = dat,
+               std.lv = TRUE, orthogonal = TRUE, missing = "fiml")
+```
+
+- vizsgáljuk meg az eredményeket:
+```{r}
+## ha csak kiprintelni szeretnénk az eredményeket:
+#summary(cfa_res, fit.measures = TRUE)
+
+# ha a becsült paramétereket akarjuk kinyerni
+# egy data.frame-be (csak az első 10 sort jelenítjük meg):
+cfa_std <- standardizedSolution(cfa_res)
+head(cfa_std, 10)
+
+# ha a modell illeszkedésére vagyunk kíváncsiak:
+fitMeasures(cfa_res)
+```
+
+A lavaan az általánosan használt illeszkedési mutatószámok mindegyikét 
+feltünteti. Ezek jelentését és elvárt értékét remekül összefoglalja [ez az oldal](http://davidakenny.net/cm/fit.htm). A modell illeszkedésének mutatószámai esetünkben egyöntetűen azt jelzik, hogy a modellünk nem írja le megfelelően a változók kapcsolati mintázatát. A tanulság tehát az, hogy az exploratív
+faktorelemzést tekintsük annak, ami: egy feltáró jellegű vizsgálatnak, amely
+nem alkalmas különböző elméleti modellek egzakt tesztelésére.
+
+

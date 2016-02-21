@@ -1,0 +1,92 @@
+# Objektumok elemeinek módosítása
+
+Egy objektum elemeinek módosítása tulajdonképpen nem más, mint az indexálás és a hozzárendelés kombinációja. 
+
+- példa egy mátrix oszlopának "felülírására"
+```{r}
+( mat <- matrix(1:4, 2, 2) )
+mat[, 2] <- c(9, 10)
+mat
+```
+
+- figyeljünk arra, hogy az R a módosításnál is reciklikál
+```{r}
+# készítsünk egy vektort, amelyik random sorrendben tartalmazza
+# az 1-10 számokat:
+( vec <- sample(10) )
+
+# cseréljük ki az első négy elemét a 100 és 200 számokra
+vec[1:4] <- c(100, 200)
+vec
+```
+
+- arra is figyeljünk, hogy az R-ben egy elemi vektor (ide sorolandó a mátrix és
+a tömb is) csak egyféle típusú (pl. csak integer vagy csak karakter) elemeket 
+tartalmazhat -> az R ezt "észrevétlenül" kikényszeríti!
+```{r}
+( vec <- 21:30 )
+typeof(vec) # lásd ?typeof
+vec[1:4] <- 1
+typeof(vec)
+vec[10] <- "30"
+typeof(vec)
+```
+
+- ha egy objektum tulajdonságait meg akarjuk tartani, viszont az összes elemét
+ki akarjuk cserélni, érdemes lehet a következő "fogást" alkalmazni:
+```{r}
+# hozzunk létre egy mátrixot, amelyik az 1-9
+# egész számokat tartalmazza, és dimenzió-nevei
+# is vannak
+x <- matrix(1:9, 3, 3, 
+            dimnames = list(dimA = letters[1:3], 
+                            dimB = LETTERS[1:3]))
+
+# íme:
+x
+
+# cseréljük ki a mátrix elemeit 9 véletlen (standard 
+# normál eloszlású) számmal
+x[] <- rnorm(9)
+
+# az eredmény:
+x
+
+# vesd össze ezzel a megoldással:
+( y <- rnorm(9) )
+dim(y) <- dim(x)
+dimnames(y) <- dimnames(x)
+y
+```
+
+- a listák elemeinek módosítása trükkösebb tud lenni:
+```{r}
+# hozzunk létre egy egyszerű listát:
+( lt <- list(a = 1:3, b = 1:2, c = 1) )
+
+# cseréljük ki az első listaelemet az ábécé első három betűjére
+# egyik megoldás:
+lt$a <- letters[1:3]
+
+# másik megoldás:
+lt[[1]] <- letters[1:3]
+
+# cseréljük ki a 'b' listaelemet egy logikai változóra, a 'c'
+# elemet pedig az ábécé első három betűjére, mindezt egyetlen
+# lépésben
+lt[c("b", "c")] <- list(FALSE, letters[1:3])
+```
+
+- a lista bármelyik elemét törölhetjük, ha a NULL objektumot rendeljük hozzá:
+```{r}
+# töröljük a 'c' elemet:
+lt$c <- NULL
+
+# íme az eredmény:
+lt
+```
+
+- a fentiek fényében találd ki, hogyan lehet módosítani egy `data.frame` 
+elemeit!
+
+

@@ -1,0 +1,44 @@
+# Az *lme4* csomag szintaxisa 
+
+```{r,echo=FALSE}
+lexdec_corr <- readRDS("__tempcorr.rds")
+```
+
+Az *lme4* csomag az R hagyományos `formula`-jat egészíti ki azzal, hogy a 
+random hatásokat `()`-ben kell megadnunk, `|` jellel elválasztva a random
+hatás struktúráját magától a random faktortól.
+
+
+- konstans + random konstans:
+```{r}
+library(lme4)
+mod0 <- lmer(scRT ~ 1 + (1 | Subject), data = lexdec_corr)
+summary(mod0)
+```
+
+- "valódi" fix hatás + random konstans + random slope:
+```{r}
+mod_trial <- lmer(scRT ~ scTrial + (1 + scTrial | Subject), 
+                  data = lexdec_corr)
+summary(mod_trial)
+```
+
+- keresztezett random hatások:
+```{r}
+mod_crossed <- lmer(scRT ~ scTrial + (1 + scTrial | Subject) + (1 | Word), 
+                    data = lexdec_corr)
+summary(mod_crossed)
+```
+
+- beágyazott random hatások (többféle megadási mód lehetséges):
+```{r}
+mod_nested1 <- lmer(scRT ~ scTrial + (1 | Page) + (1 | Word), 
+                    data = lexdec_corr)
+mod_nested2 <- lmer(scRT ~ scTrial + (1 | Page) + (1 | Word:Page), 
+                    data = lexdec_corr)
+mod_nested3 <- lmer(scRT ~ scTrial + (1 | Page/Word), 
+                    data = lexdec_corr)
+summary(mod_nested1)
+summary(mod_nested2)
+summary(mod_nested3)
+```

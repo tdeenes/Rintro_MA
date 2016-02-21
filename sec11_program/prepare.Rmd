@@ -1,0 +1,353 @@
+# Előkészítés 
+
+Mielőtt hozzákezdünk bármilyen elemzéshez, tegyük meg a következőket:
+1) Hozzunk létre egy külön könyvtárat, amelyben a feldolgozó/elemző R-szkripteket
+tárolni szeretnénk (pl. jelen esetben a könyvtár neve lehetne "gaming").
+2) Ha a feldolgozandó fájlok mérete nem túlzottan nagy, hozzunk létre egy 
+alkönyvtárat az adatoknak, és másoljuk oda a szükséges adatfájlokat (pl. jelen 
+esetben létrehozunk egy "data" könyvtárat, benne a "gaming_random.sav" és "gaming_valtozok.txt" fájlokkal).
+3) Hozzunk létre egy új projektet az RStudio-ban: File / New project, majd a 
+felnyíló ablakban válasszuk az Existing Directory opciót. A következő ablakban válasszuk ki az imént létrehozott projektkönyvtárat ("gaming"). Innentől a 'gaming'
+projektet könnyedén elérhetjük a jobb fölső sarokban lévő projektválasztó 
+legördülő menü segítségével. 
+
+## Adatok beolvasása
+
+SPSS-adatokat szeretnénk beolvasni: egy [korábbi fejezetpontban](../sec4_import/spss.md) már leírtuk, hogy ehhez használhatjuk a *foreign* csomag `read.spss()` parancsát.
+
+```{r}
+library(foreign)
+dat <- read.spss(file.path("data", "gaming_random.sav"),
+                 to.data.frame = TRUE)
+```
+
+Ha ezt a parancsot kiadjuk, az R beolvassa az adatfájlt, de közben figyelmeztetést is küld. Vajon aggódjunk-e a figyelmeztetés miatt? Vizsgáljuk meg a beolvasott adatainkat:
+```{r}
+str(dat)
+#head(dat)
+#tail(dat)
+```
+
+A beolvasott adattábla jónéhány hiányzó értéket tartalmaz, de egyébként rendben lévőnek tűnik. Következő lépésben bármilyen internetes keresővel érdemes ellenőrizni, hogy találunk-e releváns bejegyzést ugyanezzel az üzenettel (egyszerűen másoljuk be a figyelmeztető üzenetet a keresőmezőbe). A találatokat átböngészve kiderül, hogy az üzenet miatt nem kell aggódnunk, az adatok beolvasását az "unrecognized record type 7" nem befolyásolja.
+
+## Kérdőív-itemek mint faktorok vs egész számok
+
+Van azonban egy valódi probléma: a 'dat' adattáblában az összes kérdőív-item
+faktorként szerepel. Ez azért van így, mert a `read.spss()` függvény `use.value.labels` argumentuma alapesetben TRUE, azaz a függvény a beolvasás
+során faktorrá alakít minden olyan változót, amelynek szintjeihez az SPSS-ben szöveges címkék tartoztak. Ez azért is problémás lehet, mert így például a "0" = "never", "1" = "rarely", "2" = "often", "3" = "always" kódú változókat az R olyan faktorként kódolja, amelynek a szintjei megfelelnek az SPSS címkéknek, viszont a belső, integer reprezentációja 1-től 4-ig terjed. (Ez a probléma a jelen esetben 
+azért nem lényeges, mert a végén úgyis a standardizált skálapontszámokkal fogunk
+dolgozni).
+
+A továbbiakban tehát két lehetőségünk van: vagy eleve numerikus változóként olvassuk be a kérdőív-itemeket, vagy utólag konvertáljuk őket numerikussá. 
+
+1) Kérdőív-itemek beolvasása numerikusként:
+- itt kihasználjuk azt, hogy a számunkra fontos, valóban faktorként reprezentálandó változók (Heavy_use, Problematic) kétszintűek, és hogy a `read.spss()` függvénynek vagy egy `max.value.labels` argumentuma (lásd a függvény súgóját)
+```{r}
+dat_num <- read.spss(file.path("data", "gaming_random.sav"), 
+                     max.value.labels = 2)
+```
+
+
+2) Kérdőív-itemek átalakítása numerikussá:
+- Ahogy [egy korábbi fejezetben](../sec5_process/convert.Rmd) bemutattuk, egy változót integerré alakíthatunk az `as.integer`, vagy valós számmá az `as.double` vagy `as.numeric` paranccsal, például:
+```{r}
+dat$MOGQ1 <- as.integer(dat$MOGQ1)
+```
+
+- Kézzel átírni az előző sort az összes kérdőív-item nevére igen fáradságos feladat lenne. A megoldás kézenfekvő: készítsünk egy karakter vektort, amely tartalmazza
+az összes kérdéses változónevet, majd egy ciklussal menjünk végig az adattábla összes érintett oszlopán, és konvertáljuk az oszlopot a megfelelő típusra:
+```{r}
+# tudjuk, hogy a kérdőív itemek az 
+# MOGQ, POGQ vagy BSI karaktereket tartalmazzák;
+# akár le is ellenőrizheted: colnames(dat)
+likert_valtozok <- grep("MOGQ|POGQ|BSI", 
+                        colnames(dat), 
+                        value = TRUE)
+
+# meggyőződhetsz róla, hogy a likert_valtozok vektor 
+# valóban a kérdéses itemeket tartalmazza
+#print(likert_valtozok)
+
+# ciklus
+for (i in likert_valtozok) {
+    dat[, i] <- as.integer(dat[, i])
+}
+```
+
+A fentebbi sorok a következőt jelentik:
+```{r, eval=FALSE}
+for (i in likert_valtozok)
+```
+-> vedd a likert_valtozok vektort, és lépkedj végig az összes elemén; az aktuálisan
+kiválasztott elemet jelölje `i`
+
+```{r}
+dat[, i] <- as.integer(dat[, i])
+```
+-> az `i` ciklusváltozó tartalmának megfelelő változót válaszd ki a `dat` data.frame-ből, alakítsd át egész számmá, és írd felül az eredeti változót ezekkel az értékekkel
+
+## Skálapontszámok
+
+A leírás alapján a kérdőívek nem tartalmaznak fordított itemeket. Ennek ellenére nem árt ellenőrizni, hogy a kérdőívek tételei valóban egy irányba mutatnak-e. A kérdőív-itemek korrelációs mátrixa remekül vizualizálható a [már ismert](../sec9_fa/pelda_efa.md) *corrplot* csomag `corrplot()` függvényével. Ezúttal olyan megjelenítést választunk, hogy az itemek a McQuitty-féle hierarchikus klaszterelemzés eredményei szerint legyenek sorba rendezve. A változók nagy száma miatt az ábrát png fájlba mentjük utólagos megtekintésre.
+```{r}
+library(corrplot)
+png("corr_items.png", width = 1000, height = 1000)
+corrplot(cor(dat[, likert_valtozok], use = "p"), 
+         method = "square", diag = FALSE,
+         order = "hclust", hclust.method = "mcquitty", 
+         tl.cex = 0.7)
+dev.off()
+```
+
+```{r, echo=FALSE}
+unlink("corr_items.png")
+```
+
+Mivel randomizált adatokon dolgozunk, a korrelációs eredményeink természetesen nehezen lennének interpretálhatók. Az azonban így is látszik, hogy a kérdőívekben valóban nem szerepeltek fordított itemek. A következő lépés tehát a skálapontszámok számolása. 
+
+Ha a skálapontszámokat egyedileg szeretnénk kiszámolni, a következőt tehetnénk:
+1. Készítünk egy vektort, amely tartalmazza az adott skálához tartozó itemek
+nevét:
+```{r}
+MOGQ_social_itemek <- c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22")
+```
+
+2. Kiválasztjuk az adattáblánkból a megfelelő oszlopokat, és kiszámoljuk 
+ezen résztábla sorátlagait (a hiányzó értékek eltávolításával):
+```{r}
+MOGQ_social <- rowMeans(dat[, MOGQ_social_itemek],
+                        na.rm = TRUE)
+```
+
+Ez egyrészt fáradságos és lassú folyamat, másrészt az itemek nevének egyedi másolgatása és/vagy begépelése miatt a hibázás valószínűsége is magas. A folyamatot két ponton tehetnénk hatékonyabbá: egyrészt megfelelő formába kellene hozni a txt-ben kapott skáladefiníciókat, másrészt automatizálni kellene a skálaváltozók
+vektorának kinyerését és a pontszámok kiszámolását. 
+
+### A txt átalakítása
+
+A további műveletekhez az lenne az ideális, hogyha lenne egy listánk (`list`), amelynek elemei az egyes skálákhoz tartozó változók nevét tartalmazó vektorok lennének, a lista elemeinek neve pedig megegyezne a skálák neveivel. Vegyük észre, hogy a kapott txt fájl tartalma nem áll túlzottan távol egy ilyen lista megadásának módjától.
+```{r, eval=FALSE}
+# részlet
+MOGQ_Social=(MOGQ1+MOGQ8+MOGQ15+MOGQ22)/4.
+MOGQ_Escape=(MOGQ2+MOGQ9+MOGQ16+MOGQ23)/4.
+...
+```
+
+Az elvárt alak ez lenne:
+```{r, eval=FALSE}
+skala_definiciok <- list(
+    MOGQ_Social = c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22"),
+    MOGQ_Escape = c("MOGQ2", "MOGQ9", "MOGQ16", "MOGQ23"),
+    ... 
+)
+```
+
+Noha a kívánt átalakítást megfelelő R-parancsokkal is végrehajthatnánk, a következőkben egy pragmatikus megközelítést mutatunk be. Használjuk az RStudio-t arra, hogy kicseréljük a megfelelő karaktereket! Ehhez mindössze annyit kell tennünk, hogy megnyitjuk az RStudio-val az adott txt fájlt (`File > Open File...`), majd használjuk a CTRL+F billentyűkombinációt (vagy `Edit > Find...`). A keresési mezőbe írjuk be a cserélendő karaktert (pl. +), a Replace mezőbe pedig 
+a kívánt karaktert (pl. ", "). Ezután kattintsunk a Replace melletti 'All' gombra.
+A következő cseréket kell elvégeznünk:
+
+Find  | Replace | Regex
+------|---------|-------
++     | ", "    |  nem
+=     | = c("   |  nem
+)     | "),     |  nem
+/.*   |         |  igen
+
+Az utolsó cserénél reguláris kifejezést használunk (azaz be kell jelölni a Regex jelölőnégyzetet), amelyben a `/.*` azt jelzi, hogy `/` jel után bármilyen karakterek következhetnek. (Ezzel a lépéssel kitöröljük a sorok végéről a számokat és a pontot.)
+
+A kapott szöveget egyszerűen bemásolhatjuk a skáladefiníciós listánkba:
+```{r}
+skala_definiciok <- list(
+    MOGQ_Social = c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22"),
+    MOGQ_Escape = c("MOGQ2", "MOGQ9", "MOGQ16", "MOGQ23"),
+    MOGQ_Competition = c("MOGQ3", "MOGQ10", "MOGQ17", "MOGQ24"),
+    MOGQ_Coping = c("MOGQ4", "MOGQ11", "MOGQ18", "MOGQ25"),
+    MOGQ_SkillDev = c("MOGQ5", "MOGQ12", "MOGQ19", "MOGQ26"),
+    MOGQ_Fantasy = c("MOGQ6", "MOGQ13", "MOGQ20", "MOGQ27"),
+    MOGQ_Recreation = c("MOGQ7", "MOGQ14", "MOGQ21"),
+    POGQ_Preoccupation = c("POGQ1", "POGQ7"),
+    POGQ_Immersion = c("POGQ2", "POGQ8", "POGQ13", "POGQ17"),
+    POGQ_Withdrawal = c("POGQ3", "POGQ9", "POGQ14", "POGQ18"),
+    POGQ_Overuse = c("POGQ4", "POGQ10", "POGQ15"),
+    POGQ_IntConflicts = c("POGQ5", "POGQ11"),
+    POGQ_SocIsolation = c("POGQ6", "POGQ12", "POGQ16"),
+    BSI_Somatization = c("BSI2", "BSI7", "BSI23", "BSI29", "BSI30", "BSI33", "BSI37"),
+    BSI_ObsComp = c("BSI5", "BSI15", "BSI26", "BSI27", "BSI32", "BSI36"),
+    BSI_IntpersSens = c("BSI20", "BSI21", "BSI22", "BSI42"),
+    BSI_Depression = c("BSI9", "BSI16", "BSI17", "BSI18", "BSI35", "BSI50"),
+    BSI_Anxiety = c("BSI1", "BSI12", "BSI19", "BSI38", "BSI45", "BSI49"),
+    BSI_Hostility = c("BSI6", "BSI13", "BSI40", "BSI41", "BSI46"),
+    BSI_PhobicAnxiety = c("BSI8", "BSI28", "BSI31", "BSI43", "BSI47"),
+    BSI_ParanoidId = c("BSI4", "BSI10", "BSI24", "BSI48", "BSI51"),
+    BSI_Psychotiscism = c("BSI3", "BSI14", "BSI34", "BSI44", "BSI53"),
+    GSI = c("BSI1", "BSI2", "BSI3", "BSI4", "BSI5", "BSI6", "BSI7", "BSI8", "BSI9", "BSI10", "BSI11", "BSI12", "BSI13", "BSI14", "BSI15", "BSI16", "BSI17", "BSI18", "BSI19", "BSI20", "BSI21", "BSI22", "BSI23", "BSI24", "BSI25", "BSI26", "BSI27", "BSI28", "BSI29", "BSI30", "BSI31", "BSI32", "BSI33", "BSI34", "BSI35", "BSI36", "BSI37", "BSI38", "BSI39", "BSI40", "BSI41", "BSI42", "BSI43", "BSI44", "BSI45", "BSI46", "BSI47", "BSI48", "BSI49", "BSI50", "BSI51", "BSI52", "BSI53")
+)
+```
+
+### Skálapontok kiszámítása
+
+Térjünk vissza a korábbi, "kézi" példához:
+```{r}
+MOGQ_social_itemek <- c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22")
+MOGQ_social <- rowMeans(dat[, MOGQ_social_itemek])
+```
+
+Vegyük észre, hogy a fenti sorokat a skáladefiníciós listánk segítségével immáron így is írhatnánk:
+```{r}
+itemek <- skala_definiciok[["MOGQ_social"]]
+skala <- rowMeans(dat[, itemek], na.rm = TRUE)
+```
+
+Innentől akármelyik skálának a kiszámításához elég lenne az "MOGQ_social"-t átírni, amit akár megtehetnénk egy `for` ciklussal is:
+```{r}
+skala_nevek <- names(skala_definiciok)
+for (n in skala_nevek) {
+    itemek <- skala_definiciok[[n]]
+    skala <- rowMeans(dat[, itemek], 
+                      na.rm = TRUE)
+}
+```
+
+Igen ám, de a fentebbi ciklus végeredményét mindig a `skala` változóhoz rendeljük hozzá, azaz ciklusunk folyton felülírja az előzőleg kiszámolt skálapontszámot.
+Ezt kikerülhetnénk azzal, ha először létrehoznánk egy mátrixot (vagy data.frame-et), és a ciklusban csak a megfelelő oszlopot írnánk felül. Van azonban egy parancs (pontosabban parancsok egész családja, lásd `?lapply`), amely automatikusan összefűzi egy listába a ciklusban létrehozott változókat, azaz nem kell bajlódnunk az eredmény-változó előzetes megadásával. 
+
+```{r}
+skalapontok <- lapply(skala_nevek, 
+                      function(n) {
+                          itemek <- skala_definiciok[[n]]
+                          rowMeans(dat[, itemek],
+                                   na.rm = TRUE)
+                          }
+                      )
+```
+
+A `lapply` függvény első argumentuma egy vektor, második argumentuma pedig
+egy függvény vagy egy függvény neve. (A `lapply` esetleges további argumentumai
+az előzőleg megadott függvény egyéb lehetséges argumentumai.) A fentebbi sorokkal
+tehát a következőre utasítjuk az R-et: 1) vedd a skala_nevek vektort, majd 2) minden egyes elemét helyettesítsd be abba az általunk definiált függvénybe, amely kiszámolja a `dat` adattáblánk megfelelő változóinak sorátlagait, és végül 3) a függvény által kiszámolt pontszám-vektorokat fűzd össze egy listába. 
+
+A fentebbi sorok még mindig redundánsak kicsit; miért indexelünk a `skala_nevek` vektorral, azaz miért nem használjuk közvetlenül a `skala_definíciók` lista elemeit? Valóban, [emlékezzünk vissza](../sec3_basics/objects.md), hogy a lista valójában egy vektor. Azaz a fentebbi sorokat így is egyszerűsíthetnénk:
+```{r}
+skalapontok <- lapply(skala_definiciok, 
+                      function(itemek) {
+                          rowMeans(dat[, itemek],
+                                   na.rm = TRUE)
+                          }
+                      )
+```
+
+A skálapontszámok számításának ez utóbbi módja azért is előnyösebb, mert így a `skalapontok` egy nevekkel ellátott lista lesz, azaz nem kell a `lapply` parancs után ezt is lefuttatnunk: `names(skalapontok) <- skala_nevek`. (Ez annak köszönhető, hogy ha a `lapply` argumentumában megadott, tág értelemben vett vektornak vannak nevei, akkor azok megőrződnek az eredmény-listában is.)
+
+A skálapontszámokat kiszámoltuk, de van egy bökkenő: az elemzéseinkhez data.frame-re lenne szükség, azonban a `skalapontok` objektum egy lista. Semmi gond, alakítsuk át data.frame-mé:
+```{r}
+skalapontok <- as.data.frame(skalapontok)
+```
+
+### Leíró statiszikák, vizualizáció
+
+Legkésőbb ezen a ponton érdemes leíró statisztikákat is lekérni:
+```{r}
+# töltsük be a psych csomagot
+library(psych)
+
+# kérjünk leíró statisztikákat csoportonkénti bontásban
+describeBy(skalapontok, 
+           group = dat[, c("Heavy_use", "Problematic")])
+```
+
+A változóink eloszlását még könnyebben ellenőrizhetnénk ábrák készítésével. Ezt ezúttal - később kifejtett indok miatt - az elemzési részben tesszük meg.
+
+## Végső adattábla elkészítése
+
+Néhány lépés még mindig hiányzik. Az elemzéseinkhez szükség lesz a 'Heavy_use' és a 'Problematic' változókra is, illetve előnyös lehet megtartani a személyi azonosítókat is ('Sorszám' változó), ezeket viszont a `skalapontok` objektum nem tartalmazza. Nem kell kétségbe esni, a rendelkezésre álló adatstruktúrákból a végső adattábla a [tanult](../sec3_basics/combine_objects.md) művelettel létrehozható:
+```{r}
+final_dat <- data.frame(skalapontok, 
+                        dat[, c("Sorszam", "Heavy_use", "Problematic")])
+```
+
+Döntést kell hoznunk arról is, hogy mi legyen a hiányzó értékekkel rendelkező személyeinkkel. Az egyik megoldás az lenne, ha valamilyen módszerrel imputálnánk ("pótolnánk") a hiányzó adatokat. A másik megoldás az, hogy a hiányzó értékkel rendelkező sorokat egyszerűen kihagyjuk az elemzésből. Most az utóbbi megoldást választjuk:
+```{r}
+final_dat <- na.omit(final_dat)
+```
+
+(Az `na.omit()` függvény nemcsak kihagyja a hiányzó értékkel rendelkező sorokat, hanem egy külön attribútumban [lásd `attr(final_dat, "na.action")`] eltárolja a kihagyott sorok sorszámát is.)
+
+Ne feledjük, az elemzéseket a standardizált skálapontszámokon kell majd végeznünk. A standardizálás nagyon egyszerűen elvégezhető a `scale()` függvénnyel:
+```{r}
+# standardizálandó változók:
+skala_nevek <- colnames(skalapontok)
+final_dat[, skala_nevek] <- scale(final_dat[, skala_nevek])
+```
+
+Innentől tényleg nem marad más hátra, mint elmenteni a végső adattáblánkat, majd hozzákezdeni az adatok elemzéséhez. 
+```{r}
+# adattable mentese
+saveRDS(final_dat, 
+        file = file.path("data", "prepared_data.rds"))
+```
+
+## A teljes szkript
+
+A könnyebb futtathatóság végett közöljük a végleges előkészítő szkriptet (csak a tényleges átalakításokat végző lépésekkel):
+```{r, eval=FALSE}
+# beolvasás
+library(foreign)
+dat <- read.spss(file.path("data", "gaming_random.sav"),
+                 to.data.frame = TRUE)
+
+# integer-ré alakítás
+likert_valtozok <- grep("MOGQ|POGQ|BSI", 
+                        colnames(dat), 
+                        value = TRUE)
+for (i in likert_valtozok) {
+    dat[, i] <- as.integer(dat[, i])
+}
+
+# skáladefiníciók
+skala_definiciok <- list(
+    MOGQ_Social = c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22"),
+    MOGQ_Escape = c("MOGQ2", "MOGQ9", "MOGQ16", "MOGQ23"),
+    MOGQ_Competition = c("MOGQ3", "MOGQ10", "MOGQ17", "MOGQ24"),
+    MOGQ_Coping = c("MOGQ4", "MOGQ11", "MOGQ18", "MOGQ25"),
+    MOGQ_SkillDev = c("MOGQ5", "MOGQ12", "MOGQ19", "MOGQ26"),
+    MOGQ_Fantasy = c("MOGQ6", "MOGQ13", "MOGQ20", "MOGQ27"),
+    MOGQ_Recreation = c("MOGQ7", "MOGQ14", "MOGQ21"),
+    POGQ_Preoccupation = c("POGQ1", "POGQ7"),
+    POGQ_Immersion = c("POGQ2", "POGQ8", "POGQ13", "POGQ17"),
+    POGQ_Withdrawal = c("POGQ3", "POGQ9", "POGQ14", "POGQ18"),
+    POGQ_Overuse = c("POGQ4", "POGQ10", "POGQ15"),
+    POGQ_IntConflicts = c("POGQ5", "POGQ11"),
+    POGQ_SocIsolation = c("POGQ6", "POGQ12", "POGQ16"),
+    BSI_Somatization = c("BSI2", "BSI7", "BSI23", "BSI29", "BSI30", "BSI33", "BSI37"),
+    BSI_ObsComp = c("BSI5", "BSI15", "BSI26", "BSI27", "BSI32", "BSI36"),
+    BSI_IntpersSens = c("BSI20", "BSI21", "BSI22", "BSI42"),
+    BSI_Depression = c("BSI9", "BSI16", "BSI17", "BSI18", "BSI35", "BSI50"),
+    BSI_Anxiety = c("BSI1", "BSI12", "BSI19", "BSI38", "BSI45", "BSI49"),
+    BSI_Hostility = c("BSI6", "BSI13", "BSI40", "BSI41", "BSI46"),
+    BSI_PhobicAnxiety = c("BSI8", "BSI28", "BSI31", "BSI43", "BSI47"),
+    BSI_ParanoidId = c("BSI4", "BSI10", "BSI24", "BSI48", "BSI51"),
+    BSI_Psychotiscism = c("BSI3", "BSI14", "BSI34", "BSI44", "BSI53"),
+    GSI = c("BSI1", "BSI2", "BSI3", "BSI4", "BSI5", "BSI6", "BSI7", "BSI8", "BSI9", "BSI10", "BSI11", "BSI12", "BSI13", "BSI14", "BSI15", "BSI16", "BSI17", "BSI18", "BSI19", "BSI20", "BSI21", "BSI22", "BSI23", "BSI24", "BSI25", "BSI26", "BSI27", "BSI28", "BSI29", "BSI30", "BSI31", "BSI32", "BSI33", "BSI34", "BSI35", "BSI36", "BSI37", "BSI38", "BSI39", "BSI40", "BSI41", "BSI42", "BSI43", "BSI44", "BSI45", "BSI46", "BSI47", "BSI48", "BSI49", "BSI50", "BSI51", "BSI52", "BSI53")
+)
+
+# skálapontszámok számítása
+skalapontok <- lapply(skala_definiciok, 
+                      function(itemek) {
+                          rowMeans(dat[, itemek],
+                                   na.rm = TRUE)
+                          }
+                      )
+skalapontok <- as.data.frame(skalapontok)
+
+# végső adattábla
+final_dat <- data.frame(skalapontok, 
+                        dat[, c("Sorszam", "Heavy_use", "Problematic")])
+final_dat <- na.omit(final_dat)
+skala_nevek <- colnames(skalapontok)
+final_dat[, skala_nevek] <- scale(final_dat[, skala_nevek])
+
+# mentés
+saveRDS(final_dat, 
+        file = file.path("data", "prepared_data.rds"))
+```
+
+

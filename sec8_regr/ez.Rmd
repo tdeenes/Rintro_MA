@@ -1,0 +1,76 @@
+# ANOVA: Az *ez* csomag
+
+Tegyük fel, hogy az olvasásvizsgálati adatokat egy újabb szempont szeretnénk elemezni: arra vagyunk kíváncsiak, hogy az olvasási alteszt három blokkjában 
+(gyakori szavak, ritka szavak, értelmetlen szavak) mért teljesítmény szignifikánsan különbözik-e egymástól, és módosítja-e ezt a hatást a csoport (kontroll/sni) és a nem (fiú/lány). Ez a kérdés tehát egy klasszikus ismételt méréses varianciaanalízis futtatását igényli két between-subject (nem és csoport) és egy within subject (blokk) faktorral. (Alkalmazhatnánk kevert-hatás modellt is, erről lásd a következő fejezetet.)
+
+Faktoriális kísérletek elemzésére nagyon kényelmes az [ez](https://cran.r-project.org/web/packages/ez/index.html) csomag. A következőkben ezen csomag használatát mutatjuk be. (Szintén nagyon ajánlott az [afex](https://cran.r-project.org/web/packages/afex/index.html) csomag is, lásd az utolsó fejezet esettanulmányát.)
+
+- kezdeti lépések: csomag betöltése + adatok betöltése
+```{r}
+# csomag betöltése
+library(ez)
+
+# adatok betöltése
+data(dyslex)
+```
+
+- adatok szűrése és 'long' formátumúvá alakítása:
+```{r}
+# szűrés és releváns változók kiválasztása
+dat <- subset(dyslex, 
+              oszt <= 4, 
+              select = c(id, nem, csoport,
+                         olv_helyes1:olv_helyes3)
+              )
+
+# 'long' formátum
+dat <- reshape(dat, 
+               varying = c("olv_helyes1", "olv_helyes2", "olv_helyes3"),
+               v.names = "helyes_szavak",
+               timevar = "blokk", 
+               times = c("gyakori", "ritka", "alszo"),
+               direction = "long")
+dat$id <- factor(dat$id)
+dat$blokk <- factor(dat$blokk, levels = c("gyakori", "ritka", "alszo"))
+```
+
+- modell megadása (a változók neveit nem kötelező idézőjelbe tennünk, azaz megadhatjuk karakter vektorként és szimbólumként is): 
+```{r}
+model <- ezANOVA(dat, 
+                 dv = "helyes_szavak", # karakter vektorként
+                 wid = id,             # szimbólumként
+                 within = blokk,
+                 between = .(csoport, nem),
+                 observed = .(csoport, nem))
+```
+
+- eredmények:
+```{r}
+print(model)
+```
+
+- ábrázolás:
+```{r ezplot}
+model_plot <- ezPlot(dat, 
+                     dv = helyes_szavak, 
+                     wid = id, 
+                     within = blokk,
+                     between = .(csoport, nem), 
+                     x = blokk, 
+                     split = csoport, 
+                     row = nem)
+
+# táblázat a becsült átlagokról
+model_plot$data
+
+# ábra
+print(model_plot)
+
+# ggplot ábráról van szó, tehát tetszőlegesen módosíthatjuk
+library(ggplot2)
+model_plot + 
+    ylab("Helyesen elolvasott szavak száma") + 
+    ylim(0, 40) + 
+    theme_bw()
+```
+

@@ -1,0 +1,21 @@
+# Az R szintaxisának jellegzetességei
+
+- a komment jele: `#` (csak az adott sorra érvényes)
+- lehet törni sorokat, nem kell lezárni a sort `;`-vel
+- háromféle zárójel:
+- `()` fv meghívására, `[]` vektor elemeinek elérésére (spec. formája a `[[]]`),
+és `{}` parancsok csoportosítására
+- a zárójel-blokkok tetszőlegesen beágyazhatók
+```{r, eval = FALSE}
+# példa a zárójelek használatára
+system.time(   
+    {   # a sorok innentől...
+    x <- 3L
+    y <- 4L   
+    for (i in 1:100) {
+        # egymásba ágyazott zárójelek
+        mean(matrix(rnorm(100000, x, y), 1000, 100)[, i])  
+        }
+    }    # ... idáig egy blokkba tartoznak
+)
+```
