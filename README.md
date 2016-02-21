@@ -20,3 +20,6 @@ Alkalom       | Tervezett téma (fejezetszámokkal)
               | 10. Faktorelemzés (opcionális)
 5. (03.18)    | 11. Programozás R-ben
 6. (04.01)    |     Programozás R-ben
+
+------
+<small>A forráskód elérhető a [github](https://github.com/tdeenes/Rintro_MA/tree/master)-on.</small>

@@ -1,6 +1,7 @@
-# Összefoglalás
+# Áttekintő
 Bevezetés az R statisztikai programnyelv használatába.
 
+* [Áttekintő](README.md)
 * [Bevezető](sec1_intro/README.md)
     * [Az R története](sec1_intro/history.md)
     * [Az R főbb jellegzetességei](sec1_intro/features.md)
