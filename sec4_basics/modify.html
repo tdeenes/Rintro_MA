@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1070,12 +1070,12 @@ mat
 <span class="hljs-comment"># az 1-10 sz&#xE1;mokat:</span>
 ( vec &lt;- sample(<span class="hljs-number">10</span>) )
 </code></pre>
-<pre><code>##  [1]  8  6  7  1  5  9 10  2  3  4
+<pre><code>##  [1]  7  3  4  6  1  5  2  9 10  8
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># cser&#xE9;lj&#xFC;k ki az els&#x151; n&#xE9;gy elem&#xE9;t a 100 &#xE9;s 200 sz&#xE1;mokra</span>
 vec[<span class="hljs-number">1</span>:<span class="hljs-number">4</span>] &lt;- c(<span class="hljs-number">100</span>, <span class="hljs-number">200</span>)
 vec
 </code></pre>
-<pre><code>##  [1] 100 200 100 200   5   9  10   2   3   4
+<pre><code>##  [1] 100 200 100 200   1   5   2   9  10   8
 </code></pre><ul>
 <li>arra is figyelj&#xFC;nk, hogy az R-ben egy elemi vektor (ide soroland&#xF3; a m&#xE1;trix &#xE9;s
 a t&#xF6;mb is) csak egyf&#xE9;le t&#xED;pus&#xFA; (pl. csak integer vagy csak karakter) elemeket 
@@ -1122,24 +1122,24 @@ x[] &lt;- rnorm(<span class="hljs-number">9</span>)
 x
 </code></pre>
 <pre><code>##     dimB
-## dimA          A          B           C
-##    a  0.2485168 -0.4680693 -0.58942127
-##    b -0.4713586 -0.3746249  0.08547086
-##    c  0.5223155 -0.7728817 -0.74470173
+## dimA          A          B          C
+##    a -0.0593134 -0.1645236  0.5566632
+##    b  1.1000254 -0.2533617 -0.6887557
+##    c  0.7631757  0.6969634 -0.7074952
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># vesd &#xF6;ssze ezzel a megold&#xE1;ssal:</span>
 ( y &lt;- rnorm(<span class="hljs-number">9</span>) )
 </code></pre>
-<pre><code>## [1] -0.80743172 -0.40539830 -1.27498114  0.92210305  0.02032543  1.74862746
-## [7]  0.33034475 -0.94373785 -1.75325157
+<pre><code>## [1]  0.3645820  0.7685329 -0.1123462  0.8811077  0.3981059 -0.6120264
+## [7]  0.3411197 -1.1293631  1.4330237
 </code></pre><pre><code class="lang-r">dim(y) &lt;- dim(x)
 dimnames(y) &lt;- dimnames(x)
 y
 </code></pre>
 <pre><code>##     dimB
 ## dimA          A          B          C
-##    a -0.8074317 0.92210305  0.3303448
-##    b -0.4053983 0.02032543 -0.9437379
-##    c -1.2749811 1.74862746 -1.7532516
+##    a  0.3645820  0.8811077  0.3411197
+##    b  0.7685329  0.3981059 -1.1293631
+##    c -0.1123462 -0.6120264  1.4330237
 </code></pre><ul>
 <li>a list&#xE1;k elemeinek m&#xF3;dos&#xED;t&#xE1;sa tr&#xFC;kk&#xF6;sebb tud lenni:</li>
 </ul>

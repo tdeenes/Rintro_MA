@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="6.1" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="6.1" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1089,16 +1089,8 @@ a megold&#xE1;s a <em>dplyr</em> vagy a <em>data.table</em> csomagok haszn&#xE1;
 <span class="hljs-comment"># a dplyr sz&#xE1;mos olyan f&#xFC;ggv&#xE9;nyt tartalmaz, amelynek</span>
 <span class="hljs-comment"># neve alapf&#xFC;ggv&#xE9;nyek neveivel egyezik meg </span>
 <span class="hljs-keyword">library</span>(dplyr)
-</code></pre>
-<pre><code>## 
-## Attaching package: &apos;dplyr&apos;
-</code></pre><pre><code>## The following objects are masked from &apos;package:stats&apos;:
-## 
-##     filter, lag
-</code></pre><pre><code>## The following objects are masked from &apos;package:base&apos;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre><pre><code class="lang-r"><span class="hljs-comment"># sz&#xE1;m&#xED;t&#xE1;s</span>
+
+<span class="hljs-comment"># sz&#xE1;m&#xED;t&#xE1;s</span>
 result &lt;- 
     tbl_df(dyslex) %&gt;%
         filter(kor &lt; <span class="hljs-number">145</span> &amp; oszt &lt;= <span class="hljs-number">4</span>) %&gt;%

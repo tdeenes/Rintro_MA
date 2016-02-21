@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="9.4" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="9.4" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1195,12 +1195,12 @@ v&#xE1;lasszuk ki a relev&#xE1;ns v&#xE1;ltoz&#xF3;kat</li>
 summary(lexdec_corr)
 </code></pre>
 <pre><code>##     Subject           RT            Trial       NativeLanguage
-##  A3     :  79   Min.   :5.566   Min.   : 23.0   English:920   
-##  I      :  79   1st Qu.:6.148   1st Qu.: 64.0   Other  :674   
-##  R2     :  79   Median :6.429   Median :106.0                 
-##  W2     :  79   Mean   :6.438   Mean   :104.9                 
-##  A1     :  78   3rd Qu.:6.686   3rd Qu.:146.0                 
-##  C      :  78   Max.   :7.861   Max.   :185.0                 
+##  A3     :  79   Min.   :5.399   Min.   : 23.0   English:920   
+##  I      :  79   1st Qu.:6.043   1st Qu.: 64.0   Other  :674   
+##  R2     :  79   Median :6.482   Median :106.0                 
+##  W2     :  79   Mean   :6.465   Mean   :104.9                 
+##  A1     :  78   3rd Qu.:6.781   3rd Qu.:146.0                 
+##  C      :  78   Max.   :8.180   Max.   :185.0                 
 ##  (Other):1122                                                 
 ##       Word         Class          Page    
 ##  ant    :  21   animal:884   page2  :166  
@@ -1214,92 +1214,88 @@ summary(lexdec_corr)
 with(lexdec_corr, psych::describeBy(RT, Subject, skew = <span class="hljs-literal">TRUE</span>))
 </code></pre>
 <pre><code>## group: A1
-##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 78 6.34 0.36   6.34    6.33 0.35 5.57 7.15  1.59 0.18    -0.61 0.04
+##   vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+## 1    1 78 6.37 0.48    6.4    6.36 0.42 5.4 7.47  2.07 0.14    -0.67 0.05
 ## -------------------------------------------------------- 
 ## group: A2
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 76 6.28 0.33   6.28    6.26 0.31 5.61 7.09  1.48 0.42    -0.49 0.04
+## 1    1 76  6.3 0.47   6.34    6.27 0.49 5.44 7.41  1.97  0.4    -0.55 0.05
 ## -------------------------------------------------------- 
 ## group: A3
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 79 6.45 0.34   6.49    6.44 0.35 5.84 7.43  1.58 0.15     -0.5 0.04
+## 1    1 79 6.48 0.48   6.55    6.46 0.43 5.68 7.58   1.9 0.09    -0.83 0.05
 ## -------------------------------------------------------- 
 ## group: C
-##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 78 6.38 0.34   6.37    6.36 0.33 5.83 7.32  1.49  0.4     -0.3 0.04
+##   vars  n mean   sd median trimmed mad  min  max range skew kurtosis   se
+## 1    1 78 6.41 0.48   6.44    6.38 0.5 5.66 7.64  1.97 0.38    -0.47 0.05
 ## -------------------------------------------------------- 
 ## group: D
-##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 76 6.46 0.36   6.49    6.45 0.36 5.83 7.38  1.55  0.4    -0.28 0.04
+##   vars  n mean  sd median trimmed  mad  min max range skew kurtosis   se
+## 1    1 76 6.49 0.5    6.5    6.47 0.53 5.71 7.7  1.99 0.34     -0.5 0.06
 ## -------------------------------------------------------- 
 ## group: I
-##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 79 6.31 0.36   6.32     6.3 0.36 5.57 7.37  1.79 0.23    -0.18 0.04
+##   vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+## 1    1 79 6.34 0.49   6.39    6.32 0.43 5.4 7.48  2.08 0.16     -0.6 0.06
 ## -------------------------------------------------------- 
 ## group: J
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 67 6.33 0.33   6.34    6.32 0.35 5.71 6.96  1.25 0.07     -0.9 0.04
+## 1    1 67 6.35 0.46    6.4    6.34 0.49 5.55 7.28  1.73 0.08    -0.98 0.06
 ## -------------------------------------------------------- 
 ## group: K
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 73 6.25 0.33    6.3    6.25 0.39 5.63 7.12   1.5 0.16    -0.58 0.04
+## 1    1 73 6.28 0.46   6.39    6.26 0.45 5.46 7.44  1.98 0.17    -0.67 0.05
 ## -------------------------------------------------------- 
 ## group: M1
-##   vars  n mean  sd median trimmed mad  min  max range skew kurtosis   se
-## 1    1 76 6.23 0.3   6.27    6.22 0.3 5.71 6.93  1.22 0.05    -0.72 0.03
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 76 6.25 0.44   6.34    6.24 0.37 5.55 7.25   1.7 0.07    -0.77 0.05
 ## -------------------------------------------------------- 
 ## group: M2
-##   vars  n mean  sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 75 6.57 0.4   6.58    6.56 0.33 5.88 7.54  1.66 0.28    -0.27 0.05
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 75  6.6 0.52   6.62    6.58 0.41 5.72 7.73  2.01 0.16    -0.55 0.06
 ## -------------------------------------------------------- 
 ## group: P
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 78 6.48 0.35    6.5    6.47 0.37 5.87 7.17  1.29 0.02       -1 0.04
+## 1    1 78  6.5 0.49   6.57    6.49 0.52 5.71 7.42  1.72 0.04    -0.99 0.06
 ## -------------------------------------------------------- 
 ## group: R1
-##   vars  n mean   sd median trimmed  mad  min max range skew kurtosis   se
-## 1    1 74 6.36 0.36   6.37    6.34 0.37 5.73 7.5  1.77 0.58     0.24 0.04
+##   vars  n mean   sd median trimmed mad  min  max range skew kurtosis   se
+## 1    1 74 6.39 0.49   6.44    6.36 0.5 5.61 7.54  1.93 0.32    -0.74 0.06
 ## -------------------------------------------------------- 
 ## group: R2
-##   vars  n mean   sd median trimmed  mad  min  max range  skew kurtosis
-## 1    1 79 6.53 0.31   6.55    6.53 0.34 5.89 7.09  1.19 -0.18    -0.89
-##     se
-## 1 0.03
+##   vars  n mean   sd median trimmed  mad  min max range  skew kurtosis   se
+## 1    1 79 6.55 0.44    6.6    6.55 0.46 5.77 7.4  1.64 -0.03    -0.94 0.05
 ## -------------------------------------------------------- 
 ## group: R3
-##   vars  n mean   sd median trimmed  mad  min  max range  skew kurtosis
-## 1    1 77 6.44 0.32   6.46    6.44 0.36 5.82 7.13  1.31 -0.01    -0.83
-##     se
-## 1 0.04
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 77 6.46 0.44   6.49    6.45 0.48 5.66 7.45  1.79 0.08     -0.8 0.05
 ## -------------------------------------------------------- 
 ## group: S
-##   vars  n mean   sd median trimmed mad  min  max range skew kurtosis   se
-## 1    1 78 6.43 0.36   6.45    6.43 0.4 5.69 7.17  1.48    0    -0.81 0.04
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 78 6.45 0.49   6.52    6.44 0.51 5.52 7.49  1.97 0.03    -0.81 0.05
 ## -------------------------------------------------------- 
 ## group: T1
-##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 76 6.42 0.34   6.43    6.41 0.33 5.77 7.42  1.65 0.26    -0.27 0.04
+##   vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+## 1    1 76 6.45 0.48   6.48    6.43 0.47 5.6 7.57  1.97 0.21    -0.64 0.06
 ## -------------------------------------------------------- 
 ## group: T2
-##   vars  n mean  sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 72 6.85 0.4   6.92    6.85 0.33 6.04 7.86  1.82 0.02    -0.36 0.05
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 72 6.89 0.53   6.94    6.88 0.52 5.88 8.18   2.3 0.06    -0.54 0.06
 ## -------------------------------------------------------- 
 ## group: V
-##   vars  n mean   sd median trimmed  mad  min max range skew kurtosis   se
-## 1    1 76 6.62 0.34   6.61    6.61 0.37 6.08 7.6  1.51 0.25    -0.57 0.04
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 76 6.64 0.47   6.69    6.62 0.56 5.92 7.92     2 0.24    -0.69 0.05
 ## -------------------------------------------------------- 
 ## group: W1
-##   vars  n mean  sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 76 6.31 0.3   6.31     6.3 0.35 5.82 7.15  1.33  0.4    -0.61 0.03
+##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## 1    1 76 6.33 0.45   6.36    6.31 0.51 5.65 7.47  1.82 0.35    -0.74 0.05
 ## -------------------------------------------------------- 
 ## group: W2
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 79 6.52 0.35   6.52    6.51 0.37 5.85 7.29  1.44 0.08    -0.72 0.04
+## 1    1 79 6.54 0.48   6.61    6.53 0.51 5.68 7.49  1.81 0.09     -0.8 0.05
 ## -------------------------------------------------------- 
 ## group: Z
 ##   vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
-## 1    1 72 6.65 0.39   6.68    6.64 0.37 5.92 7.41  1.49    0    -0.83 0.05
+## 1    1 72 6.68 0.52   6.73    6.67 0.55 5.75 7.73  1.98 0.01    -0.87 0.06
 </code></pre><h2 id="%C3%A1br%C3%A1zol%C3%A1s">&#xC1;br&#xE1;zol&#xE1;s</h2>
 <p>A k&#xF6;vetkez&#x151;kben ggplot &#xE1;br&#xE1;kkal megvizsg&#xE1;ljuk, hogy milyen a hi&#xE1;nyz&#xF3; adatok
 mint&#xE1;zata, illetve hogyan alakul a v&#xE1;laszid&#x151;k eloszl&#xE1;sa k&#xFC;l&#xF6;nb&#xF6;z&#x151; csoportos&#xED;t&#xF3;

@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1131,11 +1131,9 @@ dyslex_read_long3 &lt;- gather(dyslex_read, mutato, ertek,
 <ul>
 <li>&#xE9;s szint&#xE9;n kellemes (es nagyon gyors) a <em>data.table</em> megold&#xE1;sa</li>
 </ul>
-<pre><code class="lang-r"><span class="hljs-keyword">library</span>(data.table)
-</code></pre>
-<pre><code>## data.table 1.9.6  For help type ?data.table or https://github.com/Rdatatable/data.table/wiki
-</code></pre><pre><code>## The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
-</code></pre><pre><code class="lang-r">dyslex_read_long4 &lt;- melt(data.table(dyslex_read), 
+<pre><code>## Error: package &apos;reshape2&apos; is required by &apos;afex&apos; so will not be detached
+</code></pre><pre><code class="lang-r"><span class="hljs-keyword">library</span>(data.table)
+dyslex_read_long4 &lt;- melt(data.table(dyslex_read), 
      measure.vars = c(<span class="hljs-string">&quot;olv_helyes1&quot;</span>, <span class="hljs-string">&quot;olv_helyes2&quot;</span>, <span class="hljs-string">&quot;olv_helyes3&quot;</span>),
      variable.name = <span class="hljs-string">&quot;mutato&quot;</span>,
      value.name = <span class="hljs-string">&quot;ertek&quot;</span>)

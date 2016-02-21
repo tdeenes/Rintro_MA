@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="3.4" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="3.4" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1054,12 +1054,12 @@ objektum pontos tartalm&#xE1;nak:</p>
 vec &lt;- rnorm(<span class="hljs-number">4</span>)
 print(vec)
 </code></pre>
-<pre><code>## [1] -0.11  1.49  0.87 -0.83
+<pre><code>## [1]  1.125 -0.045 -0.016  0.944
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># demonstr&#xE1;ci&#xF3; 1</span>
 options(digits = <span class="hljs-number">10</span>)
 vec
 </code></pre>
-<pre><code>## [1] -0.1107673705  1.4851734478  0.8653867342 -0.8281563436
+<pre><code>## [1]  1.12493091814 -0.04493360902 -0.01619026310  0.94383621069
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># demonstr&#xE1;ci&#xF3; 2</span>
 class(vec) &lt;- <span class="hljs-string">&quot;specialVector&quot;</span>
 print.specialVector &lt;- <span class="hljs-keyword">function</span>(x, <span class="hljs-keyword">...</span>) print.default(<span class="hljs-string">&quot;hello&quot;</span>)
@@ -1078,19 +1078,19 @@ jelen&#xED;ti meg.</p>
 <pre><code class="lang-r"><span class="hljs-comment"># az el&#x151;bbi p&#xE9;ld&#xE1;t folytatva:</span>
 str(vec)
 </code></pre>
-<pre><code>## Class &apos;specialVector&apos;  num [1:4] -0.111 1.485 0.865 -0.828
+<pre><code>## Class &apos;specialVector&apos;  num [1:4] 1.1249 -0.0449 -0.0162 0.9438
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xFA;j p&#xE9;lda:</span>
 mydat &lt;- matrix(rnorm(<span class="hljs-number">10</span>), <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
                 dimnames=list(c(<span class="hljs-string">&quot;lower&quot;</span>, <span class="hljs-string">&quot;upper&quot;</span>),
                               paste(<span class="hljs-string">&quot;col&quot;</span>, <span class="hljs-number">1</span>:<span class="hljs-number">5</span>, sep=<span class="hljs-string">&quot;.&quot;</span>)))
 mydat
 </code></pre>
-<pre><code>##            col.1      col.2      col.3      col.4      col.5
-## lower  0.1624165 -2.3423082  0.6445049 -0.8109978  0.1704695
-## upper -0.2152971  0.3158135 -1.0286362  0.3180235 -1.9729173
+<pre><code>##           col.1     col.2       col.3       col.4      col.5
+## lower 0.8212212 0.9189774  0.07456498  0.61982575 -0.1557955
+## upper 0.5939013 0.7821363 -1.98935170 -0.05612874 -1.4707524
 </code></pre><pre><code class="lang-r">str(mydat)
 </code></pre>
-<pre><code>##  num [1:2, 1:5] 0.162 -0.215 -2.342 0.316 0.645 ...
+<pre><code>##  num [1:2, 1:5] 0.8212 0.5939 0.919 0.7821 0.0746 ...
 ##  - attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..$ : chr [1:2] &quot;lower&quot; &quot;upper&quot;
 ##   ..$ : chr [1:5] &quot;col.1&quot; &quot;col.2&quot; &quot;col.3&quot; &quot;col.4&quot; ...

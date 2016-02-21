@@ -34,7 +34,7 @@
     <body>
         
         
-    <div class="book" data-level="11.2" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="11.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -57,7 +57,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1064,13 +1064,7 @@ model_dat_long &lt;- gather(model_dat, alskala, pontszam,
 <p>Az &#xE1;talak&#xED;t&#xE1;s ut&#xE1;n az &#xE1;br&#xE1;zol&#xE1;s m&#xE1;r nagyon egyszer&#x171;. Haszn&#xE1;ljuk a <em>ggplot2</em> csomagot, 
 &#xE9;s &#xE1;br&#xE1;zoljuk a sk&#xE1;lapontsz&#xE1;mok eloszl&#xE1;s&#xE1;t, k&#xFC;l&#xF6;n-k&#xFC;l&#xF6;n a n&#xE9;gy csoportban:</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(ggplot2)
-</code></pre>
-<pre><code>## 
-## Attaching package: &apos;ggplot2&apos;
-</code></pre><pre><code>## The following objects are masked from &apos;package:psych&apos;:
-## 
-##     %+%, alpha
-</code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xE1;br&#xE1;zol&#xE1;s (magyar&#xE1;zattal)</span>
+<span class="hljs-comment"># &#xE1;br&#xE1;zol&#xE1;s (magyar&#xE1;zattal)</span>
 ggplot(model_dat_long,        <span class="hljs-comment"># vedd a model_dat_long adatt&#xE1;bl&#xE1;t</span>
        aes(x = alskala, y = pontszam)) +  <span class="hljs-comment"># az &apos;alskala&apos; f&#xFC;ggv&#xE9;ny&#xE9;ben</span>
                                           <span class="hljs-comment"># &#xE1;br&#xE1;zold a mutat&#xF3; &#xE9;rt&#xE9;k&#xE9;t</span>
@@ -1092,25 +1086,7 @@ m&#xE9;gpedig magyar&#xE1;z&#xF3; v&#xE1;ltoz&#xF3;k&#xE9;nt a k&#xE9;t csoporto
 <p>El&#x151;sz&#xF6;r gondoljuk &#xE1;t, hogyan futtatn&#xE1;nk az elemz&#xE9;st akkor, ha csak egyetlen sk&#xE1;lapontsz&#xE1;mot modellezn&#xE9;nk. Haszn&#xE1;lhatn&#xE1;nk p&#xE9;ld&#xE1;ul a <a href="../sec8_regr/ez.html">kor&#xE1;bban ismertetett</a> <em>ez</em> csomagot. Az <em>ez</em> csomag <code>ezANOVA()</code> f&#xFC;ggv&#xE9;nye azonban sokkal ink&#xE1;bb alkalmas interakt&#xED;v adatelemz&#xE9;sre, mint programoz&#xE1;sra, mivel ebben a f&#xFC;ggv&#xE9;nyben a v&#xE1;ltoz&#xF3;kat n&#xE9;vvel, nem pedig karakteres form&#xE1;ban kell megadni. A probl&#xE9;ma ugyan halad&#xF3; R-programoz&#xF3;i szinten kiker&#xFC;lhet&#x151;, ez&#xFA;ttal k&#xE9;nyelmesebb a <a href="../sec8_regr/ez.html">kor&#xE1;bban m&#xE1;r rekl&#xE1;mozott</a> <em>afex</em> csomagot haszn&#xE1;lnunk.</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(afex)
 </code></pre>
-<pre><code>## Loading required package: lme4
-</code></pre><pre><code>## Loading required package: Matrix
-</code></pre><pre><code>## 
-## Attaching package: &apos;Matrix&apos;
-</code></pre><pre><code>## The following object is masked from &apos;package:tidyr&apos;:
-## 
-##     expand
-</code></pre><pre><code>## Loading required package: reshape2
-</code></pre><pre><code>## Loading required package: lsmeans
-</code></pre><pre><code>## Loading required package: estimability
-</code></pre><pre><code>## ************
-## Welcome to afex. Important changes in the current version:
-</code></pre><pre><code>## - Functions for ANOVAs have been renamed to: aov_car(), aov_ez(), and aov_4().
-## - ANOVA functions return an object of class &apos;afex_aov&apos; as default, see: ?aov_car
-## - &apos;afex_aov&apos; objects can be passed to lsmeans for contrasts and follow-up tests.
-## - Reset previous (faster) behavior via: afex_options(return_aov=&apos;nice&apos;)
-## - Many more arguments can now be set globally via options, see: afex_options()
-## ************
-</code></pre><p>Az <em>afex</em> csomag <code>aov_ez</code> f&#xFC;ggv&#xE9;nye gyakorlatilag megfeleltethet&#x151; az <em>ez</em> csomag <code>ezANOVA()</code> f&#xFC;ggv&#xE9;ny&#xE9;nek, de itt a v&#xE1;ltoz&#xF3;k neveit karaktervektork&#xE9;nt kell megadnunk. A f&#xFC;ggv&#xE9;ny elv&#xE1;r egy szem&#xE9;lyi azonos&#xED;t&#xF3;t is, ezt k&#xE9;sz&#xED;ts&#xFC;k el a &apos;Sorszam&apos; v&#xE1;ltoz&#xF3;b&#xF3;l:</p>
+<p>Az <em>afex</em> csomag <code>aov_ez</code> f&#xFC;ggv&#xE9;nye gyakorlatilag megfeleltethet&#x151; az <em>ez</em> csomag <code>ezANOVA()</code> f&#xFC;ggv&#xE9;ny&#xE9;nek, de itt a v&#xE1;ltoz&#xF3;k neveit karaktervektork&#xE9;nt kell megadnunk. A f&#xFC;ggv&#xE9;ny elv&#xE1;r egy szem&#xE9;lyi azonos&#xED;t&#xF3;t is, ezt k&#xE9;sz&#xED;ts&#xFC;k el a &apos;Sorszam&apos; v&#xE1;ltoz&#xF3;b&#xF3;l:</p>
 <pre><code class="lang-r">model_dat$subject_code &lt;- factor(model_dat$Sorszam)
 </code></pre>
 <p>Ezut&#xE1;n h&#xED;vjuk meg az <code>aov_ez</code> f&#xFC;ggv&#xE9;nyt, ez&#xFA;ttal csak az &apos;MOGQ_Social&apos; f&#xFC;gg&#x151; v&#xE1;ltoz&#xF3;ra.</p>
@@ -1119,8 +1095,7 @@ m&#xE9;gpedig magyar&#xE1;z&#xF3; v&#xE1;ltoz&#xF3;k&#xE9;nt a k&#xE9;t csoporto
                 between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
                 observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
 </code></pre>
-<pre><code>## Contrasts set to contr.sum for the following variables: Heavy_use, Problematic
-</code></pre><p>A f&#xFC;ggv&#xE9;ny figyelmeztet minket, hogy a futtat&#xE1;skor megv&#xE1;ltoztatta az alap&#xE9;rtelmezett kontrasztokat a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;k eset&#xE9;ben. Val&#xF3;ban, III-as t&#xED;pus&#xFA; n&#xE9;gyzet&#x151;sszeg felbont&#xE1;sn&#xE1;l (ami megfelel az SPSS &#xE1;ltal folytatott gyakorlatnak, egy&#xFA;ttal az <code>aov_ez</code> alap&#xE9;rtelmezett v&#xE1;laszt&#xE1;sa is) ez mindenk&#xE9;ppen sz&#xFC;ks&#xE9;ges. Noha szakmailag a II-es t&#xED;pus&#xFA; felbont&#xE1;s jobban indokolhat&#xF3;, amelyhez a kontrasztok &#xE1;t&#xE1;ll&#xED;t&#xE1;sa nem felt&#xE9;tlen&#xFC;l sz&#xFC;ks&#xE9;ges, semmik&#xE9;ppen nem &#xE1;rt &#xF6;sszeg-kontrasztokat haszn&#xE1;lni (l&#xE1;sd <a href="../sec8_regr/model.html">itt</a>):</p>
+<p>A f&#xFC;ggv&#xE9;ny figyelmeztet minket, hogy a futtat&#xE1;skor megv&#xE1;ltoztatta az alap&#xE9;rtelmezett kontrasztokat a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;k eset&#xE9;ben. Val&#xF3;ban, III-as t&#xED;pus&#xFA; n&#xE9;gyzet&#x151;sszeg felbont&#xE1;sn&#xE1;l (ami megfelel az SPSS &#xE1;ltal folytatott gyakorlatnak, egy&#xFA;ttal az <code>aov_ez</code> alap&#xE9;rtelmezett v&#xE1;laszt&#xE1;sa is) ez mindenk&#xE9;ppen sz&#xFC;ks&#xE9;ges. Noha szakmailag a II-es t&#xED;pus&#xFA; felbont&#xE1;s jobban indokolhat&#xF3;, amelyhez a kontrasztok &#xE1;t&#xE1;ll&#xED;t&#xE1;sa nem felt&#xE9;tlen&#xFC;l sz&#xFC;ks&#xE9;ges, semmik&#xE9;ppen nem &#xE1;rt &#xF6;sszeg-kontrasztokat haszn&#xE1;lni (l&#xE1;sd <a href="../sec8_regr/model.html">itt</a>):</p>
 <pre><code class="lang-r">options(contrasts = c(<span class="hljs-string">&quot;contr.sum&quot;</span>, <span class="hljs-string">&quot;contr.poly&quot;</span>))
 </code></pre>
 <p>Futtassuk &#xFA;jra a modellt:</p>
@@ -1253,36 +1228,37 @@ str(predict(model$lm))
 </code></pre>
 <pre><code>##  [1] predict,ANY-method         predict.ar*               
 ##  [3] predict.Arima*             predict.arima0*           
-##  [5] predict.bam*               predict.bs*               
-##  [7] predict.bSpline*           predict.coxph*            
-##  [9] predict.coxph.penal*       predict.crq*              
-## [11] predict.crqs*              predict.gam*              
-## [13] predict.glinearModel*      predict.glm               
-## [15] predict.glmmPQL*           predict.gls*              
-## [17] predict.gnls*              predict.HoltWinters*      
-## [19] predict.jam*               predict,lavaan-method     
-## [21] predict.lda*               predict.linearModel*      
-## [23] predict.lm                 predict.lme*              
-## [25] predict.lmList*            predict.lmList4*          
-## [27] predict.loess*             predict.lqs*              
-## [29] predict.mca*               predict.merMod*           
-## [31] predict.mlm*               predict.multinom*         
-## [33] predict.nbSpline*          predict.nlme*             
-## [35] predict.nlrq*              predict.nls*              
-## [37] predict.nnet*              predict.npolySpline*      
-## [39] predict.ns*                predict.pbSpline*         
-## [41] predict.polr*              predict.poly*             
-## [43] predict.polySpline*        predict.ppolySpline*      
-## [45] predict.ppr*               predict.prcomp*           
-## [47] predict.princomp*          predict.pspline*          
-## [49] predict.psych              predict.qda*              
-## [51] predict.qss1*              predict.qss2*             
-## [53] predict.ref.grid*          predict.rlm*              
-## [55] predict.rq*                predict.rq.process*       
-## [57] predict.rqs*               predict.rqss*             
-## [59] predict.smooth.spline*     predict.smooth.spline.fit*
-## [61] predict.StructTS*          predict.survreg*          
-## [63] predict.survreg.penal*    
+##  [5] predict.averaging*         predict.bam*              
+##  [7] predict.bs*                predict.bSpline*          
+##  [9] predict.coxph*             predict.coxph.penal*      
+## [11] predict.crq*               predict.crqs*             
+## [13] predict.gam*               predict.gamm*             
+## [15] predict.glinearModel*      predict.glm               
+## [17] predict.glmmPQL*           predict.gls*              
+## [19] predict.gnls*              predict.HoltWinters*      
+## [21] predict.jam*               predict,lavaan-method     
+## [23] predict.lda*               predict.linearModel*      
+## [25] predict.lm                 predict.lme*              
+## [27] predict.lmList*            predict.lmList4*          
+## [29] predict.loess*             predict.lqs*              
+## [31] predict.mca*               predict.merMod*           
+## [33] predict.mlm*               predict.multinom*         
+## [35] predict.nbSpline*          predict.nlme*             
+## [37] predict.nlrq*              predict.nls*              
+## [39] predict.nnet*              predict.npolySpline*      
+## [41] predict.ns*                predict.pbSpline*         
+## [43] predict.polr*              predict.poly*             
+## [45] predict.polySpline*        predict.ppolySpline*      
+## [47] predict.ppr*               predict.prcomp*           
+## [49] predict.princomp*          predict.pspline*          
+## [51] predict.psych              predict.qda*              
+## [53] predict.qss1*              predict.qss2*             
+## [55] predict.ref.grid*          predict.rlm*              
+## [57] predict.rq*                predict.rq.process*       
+## [59] predict.rqs*               predict.rqss*             
+## [61] predict.smooth.spline*     predict.smooth.spline.fit*
+## [63] predict.StructTS*          predict.survreg*          
+## [65] predict.survreg.penal*    
 ## see &apos;?methods&apos; for accessing help and source code
 </code></pre><p>(A specifikus f&#xFC;ggv&#xE9;nyek kilist&#xE1;z&#xE1;s&#xE1;hoz a <code>methods</code>, azaz &quot;met&#xF3;dusok&quot; (vagy m&#xE1;sk&#xE9;nt: m&#x171;veletek) parancsot haszn&#xE1;ltuk. Programoz&#xE1;si szaknyelven ugyanis az R S3 rendszere egy kezdetleges, de nagyon rugalmas &#xE9;s hasznos p&#xE9;ld&#xE1;ja az objektum-orient&#xE1;lt programoz&#xE1;snak. Az objektum-orient&#xE1;lt programnyelvek objektum-oszt&#xE1;lyai rendszerint az oszt&#xE1;lyra jellemz&#x151; adatok &#xE9;s az azokon &#xE9;rtelmezett m&#x171;veletek defin&#xED;ci&#xF3;it tartalmazz&#xE1;k.)</p>
 <p>L&#xE1;that&#xF3;, hogy val&#xF3;ban l&#xE9;tezik <code>predict.lm</code> f&#xFC;ggv&#xE9;ny. Azaz ha kiadjuk a <code>predict(model$lm)</code> parancsot, az a <code>predict.lm(model$lm)</code> f&#xFC;ggv&#xE9;nyt fogja megh&#xED;vni. &#xC9;s mit mond a <code>predict.lm</code> dokument&#xE1;ci&#xF3;ja?</p>
@@ -1473,15 +1449,8 @@ ilyen form&#xE1;ban. Ezt a k&#xF6;vetkez&#x151;k alapj&#xE1;n, gyakorl&#xE1;sk&#
 </ol>
 <pre><code class="lang-r"><span class="hljs-comment"># data.table bet&#xF6;lt&#xE9;se</span>
 <span class="hljs-keyword">library</span>(data.table)
-</code></pre>
-<pre><code>## data.table 1.9.6  For help type ?data.table or https://github.com/Rdatatable/data.table/wiki
-</code></pre><pre><code>## The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
-</code></pre><pre><code>## 
-## Attaching package: &apos;data.table&apos;
-</code></pre><pre><code>## The following objects are masked from &apos;package:reshape2&apos;:
-## 
-##     dcast, melt
-</code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xF6;sszef&#x171;z&#xE9;s</span>
+
+<span class="hljs-comment"># &#xF6;sszef&#x171;z&#xE9;s</span>
 estimated_means &lt;- rbindlist(pred_tables, idcol = <span class="hljs-string">&quot;skala&quot;</span>)
 
 <span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>

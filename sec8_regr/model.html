@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="8.2" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    <div class="book" data-level="8.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        Áttekintő
                     </a>
                 
             
@@ -1118,10 +1118,10 @@ with(dat, lm(olvasas ~ csoport * szokincs))
 ## lm(formula = olvasas ~ csoport * szokincs)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># ez pedig a legink&#xE1;bb &#xE1;ttekinthet&#x151; megad&#xE1;si m&#xF3;d</span>
 lm(olvasas ~ csoport * szokincs, data = dat)
 </code></pre>
@@ -1130,10 +1130,10 @@ lm(olvasas ~ csoport * szokincs, data = dat)
 ## lm(formula = olvasas ~ csoport * szokincs, data = dat)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 </code></pre><h3 id="a-becs%C3%BClt-param%C3%A9terek-%C3%A9s-egy%C3%A9b-eredm%C3%A9nyek-megtekint%C3%A9se">A becs&#xFC;lt param&#xE9;terek &#xE9;s egy&#xE9;b eredm&#xE9;nyek megtekint&#xE9;se</h3>
 <ul>
 <li>a sima <code>print()</code> parancs nem t&#xFA;l informat&#xED;v:</li>
@@ -1145,10 +1145,10 @@ lm(olvasas ~ csoport * szokincs, data = dat)
 ## lm(formula = olvasas ~ csoport * szokincs, data = dat)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 </code></pre><ul>
 <li>a <code>summary()</code> ann&#xE1;l ink&#xE1;bb:</li>
 </ul>
@@ -1163,11 +1163,11 @@ lm(olvasas ~ csoport * szokincs, data = dat)
 ## -43.650 -18.766  -0.269  14.687  59.056 
 ## 
 ## Coefficients:
-##                     Estimate Std. Error t value Pr(&gt;|t|)   
-## (Intercept)          46.8792    16.0050   2.929  0.00428 **
-## csoportsni           29.0598    18.9169   1.536  0.12789   
-## szokincs              0.9497     0.3663   2.593  0.01106 * 
-## csoportsni:szokincs  -0.9818     0.5121  -1.917  0.05828 . 
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        61.4091     9.4584   6.493 4.08e-09 ***
+## csoport1          -14.5299     9.4584  -1.536   0.1279    
+## szokincs            0.4588     0.2560   1.792   0.0764 .  
+## csoport1:szokincs   0.4909     0.2560   1.917   0.0583 .  
 ## ---
 ## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
 ## 
@@ -1185,11 +1185,11 @@ model_sum &lt;- summary(model)
 <span class="hljs-comment"># de ennek el&#xE9;r&#xE9;s&#xE9;re jobb a &apos;coef&apos; f&#xFC;ggv&#xE9;nyt haszn&#xE1;lni (l&#xE1;sd k&#xF6;v. pont)</span>
 model_sum$coefficients
 </code></pre>
-<pre><code>##                       Estimate Std. Error   t value    Pr(&gt;|t|)
-## (Intercept)         46.8792259 16.0049561  2.929044 0.004276137
-## csoportsni          29.0598082 18.9168865  1.536183 0.127888712
-## szokincs             0.9496837  0.3662897  2.592712 0.011059568
-## csoportsni:szokincs -0.9817849  0.5120846 -1.917232 0.058277874
+<pre><code>##                      Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)        61.4091300  9.4584432  6.492520 4.083679e-09
+## csoport1          -14.5299041  9.4584432 -1.536183 1.278887e-01
+## szokincs            0.4587912  0.2560423  1.791857 7.640814e-02
+## csoport1:szokincs   0.4908924  0.2560423  1.917232 5.827787e-02
 </code></pre><ul>
 <li>sz&#xE1;mos egy&#xE9;b olyan f&#xFC;ggv&#xE9;ny l&#xE9;tezik, amelyek bizonyos param&#xE9;terek kinyer&#xE9;s&#xE9;t
 k&#xF6;nny&#xED;tik meg vagy az illesztett modellb&#x151;l, vagy a model summary-b&#x151;l (l&#xE1;sd pl.
@@ -1198,19 +1198,17 @@ k&#xF6;nny&#xED;tik meg vagy az illesztett modellb&#x151;l, vagy a model summary
 <pre><code class="lang-r"><span class="hljs-comment"># koefficiensek</span>
 coef(model)
 </code></pre>
-<pre><code>##         (Intercept)          csoportsni            szokincs 
-##          46.8792259          29.0598082           0.9496837 
-## csoportsni:szokincs 
-##          -0.9817849
+<pre><code>##       (Intercept)          csoport1          szokincs csoport1:szokincs 
+##        61.4091300       -14.5299041         0.4587912         0.4908924
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># koefficiensek standard hib&#xE1;kkal &#xE9;s egyebekkel;</span>
 <span class="hljs-comment"># itt kihaszn&#xE1;ljuk, hogy az el&#x151;bb m&#xE1;r elt&#xE1;roltuk a &apos;summary()&apos; eredm&#xE9;ny&#xE9;t</span>
 coef(model_sum)
 </code></pre>
-<pre><code>##                       Estimate Std. Error   t value    Pr(&gt;|t|)
-## (Intercept)         46.8792259 16.0049561  2.929044 0.004276137
-## csoportsni          29.0598082 18.9168865  1.536183 0.127888712
-## szokincs             0.9496837  0.3662897  2.592712 0.011059568
-## csoportsni:szokincs -0.9817849  0.5120846 -1.917232 0.058277874
+<pre><code>##                      Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)        61.4091300  9.4584432  6.492520 4.083679e-09
+## csoport1          -14.5299041  9.4584432 -1.536183 1.278887e-01
+## szokincs            0.4587912  0.2560423  1.791857 7.640814e-02
+## csoport1:szokincs   0.4908924  0.2560423  1.917232 5.827787e-02
 </code></pre><h3 id="t%C3%B6bb-modell-%C3%B6sszehasonl%C3%ADt%C3%A1sa">T&#xF6;bb modell &#xF6;sszehasonl&#xED;t&#xE1;sa</h3>
 <p>Gyakori modellez&#xE9;si taktika, hogy be&#xE1;gyazott modelleket &#xE9;p&#xED;t&#xFC;nk, &#xE9;s (a 
 becs&#xFC;lt param&#xE9;terek sz&#xE1;m&#xE1;val korrig&#xE1;ltan) legjobban illeszked&#x151; modellt 
