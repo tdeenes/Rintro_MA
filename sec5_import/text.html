@@ -1,0 +1,1165 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Szövegfájlok beolvasása és kiírása | Bevezetés az R statisztikai programnyelv használatába</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../sec5_import/spss.html" />
+    
+    
+    <link rel="prev" href="../sec5_import/wd.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="sec1_intro/index.html">
+            
+                
+                    <a href="../sec1_intro/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bevezető
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="sec1_intro/history.html">
+            
+                
+                    <a href="../sec1_intro/history.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Az R története
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sec1_intro/features.html">
+            
+                
+                    <a href="../sec1_intro/features.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Az R főbb jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sec1_intro/install.html">
+            
+                
+                    <a href="../sec1_intro/install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Az R és az RStudio IDE telepítése
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sec2_help/index.html">
+            
+                
+                    <a href="../sec2_help/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Hogyan segítsünk magunkon?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="sec2_help/google.html">
+            
+                
+                    <a href="../sec2_help/google.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Hogyan keressünk?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="sec2_help/console.html">
+            
+                
+                    <a href="../sec2_help/console.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Segítség a konzolból
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="sec2_help/rhelp.html">
+            
+                
+                    <a href="../sec2_help/rhelp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Segítség másoktól
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="sec2_help/resources.html">
+            
+                
+                    <a href="../sec2_help/resources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Egyéb internetes források
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="sec3_basics/index.html">
+            
+                
+                    <a href="../sec3_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Alapok (objektumok létrehozása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="sec3_basics/assignment.html">
+            
+                
+                    <a href="../sec3_basics/assignment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        R objektumok létrehozása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sec3_basics/base_objects.html">
+            
+                
+                    <a href="../sec3_basics/base_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Az R alapobjektumai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="sec3_basics/objects.html">
+            
+                
+                    <a href="../sec3_basics/objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Az R objektum-osztályai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="sec3_basics/structure.html">
+            
+                
+                    <a href="../sec3_basics/structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Objektumok megtekintése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="sec3_basics/transform.html">
+            
+                
+                    <a href="../sec3_basics/transform.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Objektumosztályok közötti váltás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="sec3_basics/combine_objects.html">
+            
+                
+                    <a href="../sec3_basics/combine_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Objektumok kombinálása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sec4_basics/index.html">
+            
+                
+                    <a href="../sec4_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Alapok (objektumok indexálása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="sec4_basics/indexing.html">
+            
+                
+                    <a href="../sec4_basics/indexing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Objektumok elemeinek elérése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="sec4_basics/modify.html">
+            
+                
+                    <a href="../sec4_basics/modify.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Objektumok elemeinek módosítása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="sec4_basics/operators.html">
+            
+                
+                    <a href="../sec4_basics/operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Operátorok
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="sec4_basics/syntax.html">
+            
+                
+                    <a href="../sec4_basics/syntax.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Az R szintaxisának jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="sec5_import/index.html">
+            
+                
+                    <a href="../sec5_import/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Adatok beolvasása/kiírása
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="sec5_import/wd.html">
+            
+                
+                    <a href="../sec5_import/wd.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Munkakönyvtár, fájlműveletek
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="sec5_import/text.html">
+            
+                
+                    <a href="../sec5_import/text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Szövegfájlok beolvasása és kiírása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="sec5_import/spss.html">
+            
+                
+                    <a href="../sec5_import/spss.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        SPSS és Excel fájl beolvasása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="sec5_import/serialize.html">
+            
+                
+                    <a href="../sec5_import/serialize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        R objektumok (de)szerializációja
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="sec6_process/index.html">
+            
+                
+                    <a href="../sec6_process/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Adatfeldolgozás
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="sec6_process/filter_select.html">
+            
+                
+                    <a href="../sec6_process/filter_select.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Szűrés és összegzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="sec6_process/split_merge.html">
+            
+                
+                    <a href="../sec6_process/split_merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Darabolás és egyesítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="sec6_process/reshape.html">
+            
+                
+                    <a href="../sec6_process/reshape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Átstrukturálás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="sec6_process/convert.html">
+            
+                
+                    <a href="../sec6_process/convert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Változók átalakítása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="sec7_plotting/index.html">
+            
+                
+                    <a href="../sec7_plotting/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Vizualizáció
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="sec7_plotting/base.html">
+            
+                
+                    <a href="../sec7_plotting/base.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Base graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="sec7_plotting/lattice.html">
+            
+                
+                    <a href="../sec7_plotting/lattice.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        lattice
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="sec7_plotting/ggplot.html">
+            
+                
+                    <a href="../sec7_plotting/ggplot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        ggplot2
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="sec7_plotting/interactive.html">
+            
+                
+                    <a href="../sec7_plotting/interactive.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        Interaktív vizualizáció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="sec8_regr/index.html">
+            
+                
+                    <a href="../sec8_regr/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        ANOVA és regressziós modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="sec8_regr/descr.html">
+            
+                
+                    <a href="../sec8_regr/descr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Leíró statisztikák
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="sec8_regr/model.html">
+            
+                
+                    <a href="../sec8_regr/model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Modellépítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="sec8_regr/checkmodel.html">
+            
+                
+                    <a href="../sec8_regr/checkmodel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Ellenőrzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="sec8_regr/ez.html">
+            
+                
+                    <a href="../sec8_regr/ez.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        ANOVA: Az &#39;ez&#39; csomag
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="sec9_mixed/index.html">
+            
+                
+                    <a href="../sec9_mixed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Kevert-hatás modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="sec9_mixed/alapok.html">
+            
+                
+                    <a href="../sec9_mixed/alapok.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Elméleti bevezető
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="sec9_mixed/irodalom.html">
+            
+                
+                    <a href="../sec9_mixed/irodalom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Források
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="sec9_mixed/pelda.html">
+            
+                
+                    <a href="../sec9_mixed/pelda.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Példa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="sec9_mixed/exploralas.html">
+            
+                
+                    <a href="../sec9_mixed/exploralas.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Adatexploráció, ábrázolás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="sec9_mixed/szintaxis.html">
+            
+                
+                    <a href="../sec9_mixed/szintaxis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        Az lme4 csomag szintaxisa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.6" data-path="sec9_mixed/modellepites.html">
+            
+                
+                    <a href="../sec9_mixed/modellepites.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                        Modellépítés / modellszelekció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="sec10_fa/index.html">
+            
+                
+                    <a href="../sec10_fa/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Faktoranalízis
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="sec10_fa/pelda_efa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_efa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Exploratív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="sec10_fa/pelda_cfa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_cfa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Konfirmatív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="sec11_program/index.html">
+            
+                
+                    <a href="../sec11_program/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        R programozás - esettanulmány
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="sec11_program/prepare.html">
+            
+                
+                    <a href="../sec11_program/prepare.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Előkészítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="sec11_program/analyze.html">
+            
+                
+                    <a href="../sec11_program/analyze.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        Elemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Bevezetés az R statisztikai programnyelv használatába</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="sz%C3%B6vegf%C3%A1jlok-beolvas%C3%A1sa-%C3%A9s-ki%C3%ADr%C3%A1sa">Sz&#xF6;vegf&#xE1;jlok beolvas&#xE1;sa &#xE9;s ki&#xED;r&#xE1;sa</h1>
+<h3 id="beolvas%C3%A1s">Beolvas&#xE1;s</h3>
+<p>Sz&#xF6;vegf&#xE1;jlok (pl. .txt, .csv) import&#xE1;l&#xE1;s&#xE1;t lehet&#x151;leg kezdd azzal, hogy 
+egy szerkeszt&#x151;vel (ne Excel-lel!) megn&#xE9;zed a f&#xE1;jl tartalm&#xE1;t. Ebb&#x151;l megtudhatod,
+hogy milyen karakter v&#xE1;lasztja el az &#xE9;rt&#xE9;keket (pl. tab vagy pontosvessz&#x151;),
+milyen karakter jelzi a tizedesvessz&#x151;t (pont vagy vessz&#x151;) stb.</p>
+<p>Alapesetben a <code>read.table</code> f&#xFC;ggv&#xE9;nyt &#xE9;rdemes haszn&#xE1;lni.(Ha k&#xED;v&#xE1;ncsi vagy a 
+r&#xE9;szletekre &#xE9;s a m&#xE9;lyebb szint&#x171; f&#xFC;ggv&#xE9;nyekre, n&#xE9;zd meg a <a href="http://cran.rapporter.net/doc/manuals/r-release/R-data.html" target="_blank">hivatalos le&#xED;r&#xE1;st</a>).</p>
+<p>P&#xE9;lda:
+A k&#xF6;vetkez&#x151;kben egy alkalmass&#xE1;gvizsg&#xE1;lati eredm&#xE9;nyeket tartalmaz&#xF3; sz&#xF6;vegf&#xE1;jl 
+tartalm&#xE1;t fogjuk beolvasni. Mivel a f&#xE1;jl nem a munkak&#xF6;nyvt&#xE1;rban, hanem a &quot;data&quot; nev&#x171; alk&#xF6;nyvt&#xE1;rban tal&#xE1;lhat&#xF3;, a f&#xE1;jl nev&#xE9;t az el&#xE9;r&#xE9;si &#xFA;tj&#xE1;val egy&#xFC;tt kell megadnunk. </p>
+<pre><code class="lang-r"><span class="hljs-comment"># a file.path() (vagy a normalizePath() f&#xFC;ggv&#xE9;ny) &#xFC;gyel arra,</span>
+<span class="hljs-comment"># hogy a k&#xFC;l&#xF6;nb&#xF6;z&#x151; oper&#xE1;ci&#xF3;s rendszerekben elt&#xE9;r&#x151; karakter v&#xE1;lasztja el az </span>
+<span class="hljs-comment"># el&#xE9;r&#xE9;si &#xFA;tban a k&#xF6;nyvt&#xE1;rak nev&#xE9;t</span>
+dat_txt &lt;- read.table(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;AlkVizsg.txt&quot;</span>), 
+                      sep = <span class="hljs-string">&quot;\t&quot;</span>, dec = <span class="hljs-string">&quot;,&quot;</span>, header = <span class="hljs-literal">TRUE</span>)
+str(dat_txt)
+</code></pre>
+<pre><code>## &apos;data.frame&apos;:    623 obs. of  8 variables:
+##  $ uzem             : Factor w/ 4 levels &quot;EBM&quot;,&quot;Papst&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
+##  $ id               : Factor w/ 623 levels &quot;e1&quot;,&quot;e10&quot;,&quot;e100&quot;,..: 512 536 547 558 569 580 591 602 613 513 ...
+##  $ d_proba_N        : int  441 370 370 348 521 445 557 400 618 543 ...
+##  $ d_proba_hibaN    : int  77 174 69 34 53 29 88 50 114 121 ...
+##  $ abrasor          : int  5 5 5 8 7 7 10 9 5 6 ...
+##  $ abraanalogia     : int  7 4 5 6 10 9 7 8 9 8 ...
+##  $ kezugyesseg_vonal: num  0.92 0.855 0.714 0.967 1 0.972 0.949 0.947 0.952 0.929 ...
+##  $ kezugyesseg_pont : num  0.948 0.844 0.54 0.982 0.96 0.971 0.883 0.953 0.957 0.988 ...
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># egyszer&#x171;bben</span>
+dat_txt_short &lt;- read.delim2(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;AlkVizsg.txt&quot;</span>))
+
+<span class="hljs-comment"># a k&#xE9;t objektum megegyezik (nem csoda, l&#xE1;sd a read.delim2 forr&#xE1;sk&#xF3;dj&#xE1;t)</span>
+identical(dat_txt, dat_txt_short)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># ugyanez egy .csv form&#xE1;tum&#xFA; f&#xE1;jl eset&#xE9;ben</span>
+dat_csv &lt;- read.table(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;AlkVizsg.csv&quot;</span>), 
+                      sep = <span class="hljs-string">&quot;;&quot;</span>, dec = <span class="hljs-string">&quot;,&quot;</span>, header = <span class="hljs-literal">TRUE</span>)
+str(dat_csv)
+</code></pre>
+<pre><code>## &apos;data.frame&apos;:    623 obs. of  8 variables:
+##  $ uzem             : Factor w/ 4 levels &quot;EBM&quot;,&quot;Papst&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
+##  $ id               : Factor w/ 623 levels &quot;e1&quot;,&quot;e10&quot;,&quot;e100&quot;,..: 512 536 547 558 569 580 591 602 613 513 ...
+##  $ d_proba_N        : int  441 370 370 348 521 445 557 400 618 543 ...
+##  $ d_proba_hibaN    : int  77 174 69 34 53 29 88 50 114 121 ...
+##  $ abrasor          : int  5 5 5 8 7 7 10 9 5 6 ...
+##  $ abraanalogia     : int  7 4 5 6 10 9 7 8 9 8 ...
+##  $ kezugyesseg_vonal: num  0.92 0.855 0.714 0.967 1 0.972 0.949 0.947 0.952 0.929 ...
+##  $ kezugyesseg_pont : num  0.948 0.844 0.54 0.982 0.96 0.971 0.883 0.953 0.957 0.988 ...
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># a k&#xE9;t objektum megegyezik</span>
+identical(dat_txt, dat_csv)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># egy m&#xE9;g k&#xE9;nyelmesebb megold&#xE1;s</span>
+dat_csv_short &lt;- read.csv2(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;AlkVizsg.csv&quot;</span>))
+
+<span class="hljs-comment"># az eredm&#xE9;ny &#xFA;jra ugyanaz</span>
+identical(dat_csv, dat_csv_short)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre><p>Ha nagyobb f&#xE1;jlr&#xF3;l van sz&#xF3;, &#xE9;rdemes &#xE1;ttanulm&#xE1;nyozni a <code>read.table</code>
+dokument&#xE1;ci&#xF3;j&#xE1;t. Az argumentumok megfelel&#x151; megv&#xE1;laszt&#xE1;s&#xE1;val jelent&#x151;sen
+felgyors&#xED;thatjuk a beolvas&#xE1;si folyamatot.</p>
+<pre><code class="lang-r"><span class="hljs-comment"># enn&#xE9;l a m&#xE9;retn&#xE9;l mindegy, de az argumentumok illusztr&#xE1;ci&#xF3;j&#xE1;ra ok&#xE9;</span>
+temp &lt;- read.table(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;AlkVizsg.txt&quot;</span>),
+                   sep = <span class="hljs-string">&quot;\t&quot;</span>, dec = <span class="hljs-string">&quot;,&quot;</span>, header = <span class="hljs-literal">TRUE</span>,
+                   colClasses = c(<span class="hljs-string">&quot;character&quot;</span>, <span class="hljs-string">&quot;character&quot;</span>,
+                                  rep(<span class="hljs-string">&quot;integer&quot;</span>, <span class="hljs-number">4</span>),
+                                  rep(<span class="hljs-string">&quot;numeric&quot;</span>, <span class="hljs-number">2</span>)),
+                   comment.char = <span class="hljs-string">&quot;&quot;</span>,
+                   fileEncoding = <span class="hljs-string">&quot;UTF-8&quot;</span>,
+                   nrows = <span class="hljs-number">623</span>)
+</code></pre>
+<p>Ha igaz&#xE1;n nagy sz&#xF6;vegf&#xE1;jlt pr&#xF3;b&#xE1;lsz beolvasni, haszn&#xE1;ld az <code>fread</code> f&#xFC;ggv&#xE9;nyt
+a <em>data.table</em> csomagb&#xF3;l.</p>
+<h3 id="ki%C3%ADr%C3%A1s">Ki&#xED;r&#xE1;s</h3>
+<p>A sz&#xF6;vegf&#xE1;jlba t&#xF6;rt&#xE9;n&#x151; ki&#xED;r&#xE1;s jellemz&#x151;en a <code>write.table</code> f&#xFC;ggv&#xE9;nnyel t&#xF6;rt&#xE9;nik.</p>
+<pre><code class="lang-r"><span class="hljs-comment"># ki&#xED;r&#xE1;s</span>
+write.table(dat_csv, file = <span class="hljs-string">&quot;temp.csv&quot;</span>, 
+            sep = <span class="hljs-string">&quot;;&quot;</span>, quote = <span class="hljs-literal">FALSE</span>, 
+            row.names = <span class="hljs-literal">FALSE</span>)
+
+<span class="hljs-comment"># csak p&#xE9;lda volt, t&#xF6;r&#xF6;lj&#xFC;k is a f&#xE1;jlt</span>
+unlink(<span class="hljs-string">&quot;temp.csv&quot;</span>)
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../sec5_import/wd.html" class="navigation navigation-prev " aria-label="Previous page: Munkakönyvtár, fájlműveletek"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../sec5_import/spss.html" class="navigation navigation-next " aria-label="Next page: SPSS és Excel fájl beolvasása"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

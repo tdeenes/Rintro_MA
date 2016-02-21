@@ -1,0 +1,1705 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Előkészítés | Bevezetés az R statisztikai programnyelv használatába</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../sec11_program/analyze.html" />
+    
+    
+    <link rel="prev" href="../sec11_program/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="11.1" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="sec1_intro/index.html">
+            
+                
+                    <a href="../sec1_intro/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bevezető
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="sec1_intro/history.html">
+            
+                
+                    <a href="../sec1_intro/history.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Az R története
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sec1_intro/features.html">
+            
+                
+                    <a href="../sec1_intro/features.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Az R főbb jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sec1_intro/install.html">
+            
+                
+                    <a href="../sec1_intro/install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Az R és az RStudio IDE telepítése
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sec2_help/index.html">
+            
+                
+                    <a href="../sec2_help/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Hogyan segítsünk magunkon?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="sec2_help/google.html">
+            
+                
+                    <a href="../sec2_help/google.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Hogyan keressünk?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="sec2_help/console.html">
+            
+                
+                    <a href="../sec2_help/console.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Segítség a konzolból
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="sec2_help/rhelp.html">
+            
+                
+                    <a href="../sec2_help/rhelp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Segítség másoktól
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="sec2_help/resources.html">
+            
+                
+                    <a href="../sec2_help/resources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Egyéb internetes források
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="sec3_basics/index.html">
+            
+                
+                    <a href="../sec3_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Alapok (objektumok létrehozása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="sec3_basics/assignment.html">
+            
+                
+                    <a href="../sec3_basics/assignment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        R objektumok létrehozása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sec3_basics/base_objects.html">
+            
+                
+                    <a href="../sec3_basics/base_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Az R alapobjektumai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="sec3_basics/objects.html">
+            
+                
+                    <a href="../sec3_basics/objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Az R objektum-osztályai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="sec3_basics/structure.html">
+            
+                
+                    <a href="../sec3_basics/structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Objektumok megtekintése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="sec3_basics/transform.html">
+            
+                
+                    <a href="../sec3_basics/transform.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Objektumosztályok közötti váltás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="sec3_basics/combine_objects.html">
+            
+                
+                    <a href="../sec3_basics/combine_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Objektumok kombinálása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sec4_basics/index.html">
+            
+                
+                    <a href="../sec4_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Alapok (objektumok indexálása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="sec4_basics/indexing.html">
+            
+                
+                    <a href="../sec4_basics/indexing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Objektumok elemeinek elérése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="sec4_basics/modify.html">
+            
+                
+                    <a href="../sec4_basics/modify.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Objektumok elemeinek módosítása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="sec4_basics/operators.html">
+            
+                
+                    <a href="../sec4_basics/operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Operátorok
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="sec4_basics/syntax.html">
+            
+                
+                    <a href="../sec4_basics/syntax.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Az R szintaxisának jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="sec5_import/index.html">
+            
+                
+                    <a href="../sec5_import/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Adatok beolvasása/kiírása
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="sec5_import/wd.html">
+            
+                
+                    <a href="../sec5_import/wd.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Munkakönyvtár, fájlműveletek
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="sec5_import/text.html">
+            
+                
+                    <a href="../sec5_import/text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Szövegfájlok beolvasása és kiírása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="sec5_import/spss.html">
+            
+                
+                    <a href="../sec5_import/spss.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        SPSS és Excel fájl beolvasása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="sec5_import/serialize.html">
+            
+                
+                    <a href="../sec5_import/serialize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        R objektumok (de)szerializációja
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="sec6_process/index.html">
+            
+                
+                    <a href="../sec6_process/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Adatfeldolgozás
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="sec6_process/filter_select.html">
+            
+                
+                    <a href="../sec6_process/filter_select.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Szűrés és összegzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="sec6_process/split_merge.html">
+            
+                
+                    <a href="../sec6_process/split_merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Darabolás és egyesítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="sec6_process/reshape.html">
+            
+                
+                    <a href="../sec6_process/reshape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Átstrukturálás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="sec6_process/convert.html">
+            
+                
+                    <a href="../sec6_process/convert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Változók átalakítása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="sec7_plotting/index.html">
+            
+                
+                    <a href="../sec7_plotting/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Vizualizáció
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="sec7_plotting/base.html">
+            
+                
+                    <a href="../sec7_plotting/base.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Base graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="sec7_plotting/lattice.html">
+            
+                
+                    <a href="../sec7_plotting/lattice.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        lattice
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="sec7_plotting/ggplot.html">
+            
+                
+                    <a href="../sec7_plotting/ggplot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        ggplot2
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="sec7_plotting/interactive.html">
+            
+                
+                    <a href="../sec7_plotting/interactive.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        Interaktív vizualizáció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="sec8_regr/index.html">
+            
+                
+                    <a href="../sec8_regr/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        ANOVA és regressziós modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="sec8_regr/descr.html">
+            
+                
+                    <a href="../sec8_regr/descr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Leíró statisztikák
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="sec8_regr/model.html">
+            
+                
+                    <a href="../sec8_regr/model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Modellépítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="sec8_regr/checkmodel.html">
+            
+                
+                    <a href="../sec8_regr/checkmodel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Ellenőrzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="sec8_regr/ez.html">
+            
+                
+                    <a href="../sec8_regr/ez.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        ANOVA: Az &#39;ez&#39; csomag
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="sec9_mixed/index.html">
+            
+                
+                    <a href="../sec9_mixed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Kevert-hatás modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="sec9_mixed/alapok.html">
+            
+                
+                    <a href="../sec9_mixed/alapok.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Elméleti bevezető
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="sec9_mixed/irodalom.html">
+            
+                
+                    <a href="../sec9_mixed/irodalom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Források
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="sec9_mixed/pelda.html">
+            
+                
+                    <a href="../sec9_mixed/pelda.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Példa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="sec9_mixed/exploralas.html">
+            
+                
+                    <a href="../sec9_mixed/exploralas.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Adatexploráció, ábrázolás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="sec9_mixed/szintaxis.html">
+            
+                
+                    <a href="../sec9_mixed/szintaxis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        Az lme4 csomag szintaxisa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.6" data-path="sec9_mixed/modellepites.html">
+            
+                
+                    <a href="../sec9_mixed/modellepites.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                        Modellépítés / modellszelekció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="sec10_fa/index.html">
+            
+                
+                    <a href="../sec10_fa/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Faktoranalízis
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="sec10_fa/pelda_efa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_efa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Exploratív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="sec10_fa/pelda_cfa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_cfa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Konfirmatív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="sec11_program/index.html">
+            
+                
+                    <a href="../sec11_program/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        R programozás - esettanulmány
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="11.1" data-path="sec11_program/prepare.html">
+            
+                
+                    <a href="../sec11_program/prepare.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Előkészítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="sec11_program/analyze.html">
+            
+                
+                    <a href="../sec11_program/analyze.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        Elemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Bevezetés az R statisztikai programnyelv használatába</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="el%C5%91k%C3%A9sz%C3%ADt%C3%A9s">El&#x151;k&#xE9;sz&#xED;t&#xE9;s</h1>
+<p>Miel&#x151;tt hozz&#xE1;kezd&#xFC;nk b&#xE1;rmilyen elemz&#xE9;shez, tegy&#xFC;k meg a k&#xF6;vetkez&#x151;ket:
+1) Hozzunk l&#xE9;tre egy k&#xFC;l&#xF6;n k&#xF6;nyvt&#xE1;rat, amelyben a feldolgoz&#xF3;/elemz&#x151; R-szkripteket
+t&#xE1;rolni szeretn&#xE9;nk (pl. jelen esetben a k&#xF6;nyvt&#xE1;r neve lehetne &quot;gaming&quot;).
+2) Ha a feldolgozand&#xF3; f&#xE1;jlok m&#xE9;rete nem t&#xFA;lzottan nagy, hozzunk l&#xE9;tre egy 
+alk&#xF6;nyvt&#xE1;rat az adatoknak, &#xE9;s m&#xE1;soljuk oda a sz&#xFC;ks&#xE9;ges adatf&#xE1;jlokat (pl. jelen 
+esetben l&#xE9;trehozunk egy &quot;data&quot; k&#xF6;nyvt&#xE1;rat, benne a &quot;gaming_random.sav&quot; &#xE9;s &quot;gaming_valtozok.txt&quot; f&#xE1;jlokkal).
+3) Hozzunk l&#xE9;tre egy &#xFA;j projektet az RStudio-ban: File / New project, majd a 
+felny&#xED;l&#xF3; ablakban v&#xE1;lasszuk az Existing Directory opci&#xF3;t. A k&#xF6;vetkez&#x151; ablakban v&#xE1;lasszuk ki az im&#xE9;nt l&#xE9;trehozott projektk&#xF6;nyvt&#xE1;rat (&quot;gaming&quot;). Innent&#x151;l a &apos;gaming&apos;
+projektet k&#xF6;nnyed&#xE9;n el&#xE9;rhetj&#xFC;k a jobb f&#xF6;ls&#x151; sarokban l&#xE9;v&#x151; projektv&#xE1;laszt&#xF3; 
+leg&#xF6;rd&#xFC;l&#x151; men&#xFC; seg&#xED;ts&#xE9;g&#xE9;vel. </p>
+<h2 id="adatok-beolvas%C3%A1sa">Adatok beolvas&#xE1;sa</h2>
+<p>SPSS-adatokat szeretn&#xE9;nk beolvasni: egy <a href="../sec4_import/spss.md">kor&#xE1;bbi fejezetpontban</a> m&#xE1;r le&#xED;rtuk, hogy ehhez haszn&#xE1;lhatjuk a <em>foreign</em> csomag <code>read.spss()</code> parancs&#xE1;t.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(foreign)
+dat &lt;- read.spss(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;gaming_random.sav&quot;</span>),
+                 to.data.frame = <span class="hljs-literal">TRUE</span>)
+</code></pre>
+<pre><code>## Warning in read.spss(file.path(&quot;data&quot;, &quot;gaming_random.sav&quot;), to.data.frame
+## = TRUE): data/gaming_random.sav: Unrecognized record type 7, subtype 18
+## encountered in system file
+</code></pre><p>Ha ezt a parancsot kiadjuk, az R beolvassa az adatf&#xE1;jlt, de k&#xF6;zben figyelmeztet&#xE9;st is k&#xFC;ld. Vajon agg&#xF3;djunk-e a figyelmeztet&#xE9;s miatt? Vizsg&#xE1;ljuk meg a beolvasott adatainkat:</p>
+<pre><code class="lang-r">str(dat)
+</code></pre>
+<pre><code>## &apos;data.frame&apos;:    5289 obs. of  108 variables:
+##  $ Sorszam       : num  49 54 55 56 57 58 60 68 69 75 ...
+##  $ Problematic   : Factor w/ 2 levels &quot;non-disordered&quot;,..: 2 1 2 1 2 2 2 2 1 1 ...
+##  $ Heavy_use     : Factor w/ 2 levels &quot;less than or equal to 4 h/day&quot;,..: 2 2 2 2 1 1 1 1 1 2 ...
+##  $ Gender        : Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1 1 1 1 1 1 2 1 1 1 ...
+##  $ Age           : num  19 15 20 15 31 16 14 16 27 25 ...
+##  $ Relationship  : Factor w/ 6 levels &quot;single&quot;,&quot;in a relationship, but living separately&quot;,..: 1 1 1 1 3 1 NA 1 1 1 ...
+##  $ Education     : num  11 8 13 8 22 10 8 11 18 13 ...
+##  $ StudyCurrently: Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 2 2 1 2 2 2 2 1 1 ...
+##  $ WorkCurrently : Factor w/ 5 levels &quot;no&quot;,&quot;Yes, I have a full-time job&quot;,..: 1 1 5 NA 2 1 1 1 2 1 ...
+##  $ WeeklyGameTime: Factor w/ 6 levels &quot;none&quot;,&quot;less than 7 hours weekly (less than one hour a day)&quot;,..: 5 5 5 5 2 3 3 3 3 5 ...
+##  $ MOGQ1         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 2 4 1 5 1 5 1 2 3 ...
+##  $ MOGQ2         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 5 3 2 1 4 4 3 1 4 1 ...
+##  $ MOGQ3         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 3 1 3 4 3 2 1 2 4 ...
+##  $ MOGQ4         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 5 3 2 3 4 3 2 5 1 ...
+##  $ MOGQ5         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 1 5 3 1 4 4 1 1 2 4 ...
+##  $ MOGQ6         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 5 5 3 2 5 1 4 1 5 2 ...
+##  $ MOGQ7         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 1 1 2 4 4 3 5 1 4 ...
+##  $ MOGQ8         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 1 4 5 3 4 4 1 3 2 2 ...
+##  $ MOGQ9         : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 3 5 5 2 1 4 1 1 2 ...
+##  $ MOGQ10        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 5 3 3 1 4 2 2 2 4 2 ...
+##  $ MOGQ11        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 3 3 1 1 5 5 2 3 4 ...
+##  $ MOGQ12        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 1 2 4 4 1 3 2 1 4 2 ...
+##  $ MOGQ13        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 5 1 4 4 3 1 1 2 1 ...
+##  $ MOGQ14        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 2 2 5 2 3 2 1 2 4 ...
+##  $ MOGQ15        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 1 4 3 4 1 4 1 1 5 ...
+##  $ MOGQ16        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 1 4 4 1 2 1 1 1 5 2 ...
+##  $ MOGQ17        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 2 5 1 5 3 2 4 2 3 ...
+##  $ MOGQ18        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 3 5 3 4 1 4 3 3 3 ...
+##  $ MOGQ19        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 1 5 5 3 2 4 1 2 1 ...
+##  $ MOGQ20        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 3 1 1 3 5 5 5 4 1 3 ...
+##  $ MOGQ21        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 3 3 4 3 5 5 1 2 5 5 ...
+##  $ MOGQ22        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 5 4 1 4 3 1 4 4 3 3 ...
+##  $ MOGQ23        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 4 2 4 3 3 1 4 2 4 ...
+##  $ MOGQ24        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 3 5 4 1 5 2 2 1 2 2 ...
+##  $ MOGQ25        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 3 3 4 5 5 2 3 3 2 5 ...
+##  $ MOGQ26        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 4 4 1 1 2 3 4 4 4 4 ...
+##  $ MOGQ27        : Factor w/ 5 levels &quot;almost never/never&quot;,..: 2 3 5 3 1 3 3 1 4 3 ...
+##  $ POGQ1         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 5 3 1 2 5 3 5 5 1 3 ...
+##  $ POGQ2         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 4 5 4 4 1 5 5 3 4 1 ...
+##  $ POGQ3         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: NA 2 1 4 NA 1 NA 1 1 1 ...
+##  $ POGQ4         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 1 3 3 1 3 5 2 1 5 1 ...
+##  $ POGQ5         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 4 2 2 4 5 3 2 4 1 1 ...
+##  $ POGQ6         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 4 4 1 1 2 5 4 5 3 1 ...
+##  $ POGQ7         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: NA 2 1 5 NA 3 NA 2 2 1 ...
+##  $ POGQ8         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 2 5 1 4 2 1 3 2 3 1 ...
+##  $ POGQ9         : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 3 2 4 4 5 3 2 4 5 2 ...
+##  $ POGQ10        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 3 5 1 5 3 2 3 1 2 5 ...
+##  $ POGQ11        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 1 4 1 1 5 3 3 1 5 5 ...
+##  $ POGQ12        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 1 4 2 1 5 2 1 2 4 3 ...
+##  $ POGQ13        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 2 3 5 4 3 4 3 1 3 3 ...
+##  $ POGQ14        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: NA 3 1 4 NA 1 NA 1 1 1 ...
+##  $ POGQ15        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 3 2 1 3 2 3 4 2 2 1 ...
+##  $ POGQ16        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 1 4 1 4 4 1 1 2 5 1 ...
+##  $ POGQ17        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 2 1 4 2 1 5 5 2 5 4 ...
+##  $ POGQ18        : Factor w/ 5 levels &quot;never&quot;,&quot;seldom&quot;,..: 3 1 1 5 3 5 5 2 5 1 ...
+##  $ BSI1          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 1 5 2 2 1 2 1 1 4 ...
+##  $ BSI2          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 3 4 2 5 3 1 1 2 5 ...
+##  $ BSI3          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI4          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 1 1 3 5 2 2 2 2 2 ...
+##  $ BSI5          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 4 5 5 5 1 4 4 3 3 1 ...
+##  $ BSI6          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI7          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 4 2 4 2 2 4 1 5 2 4 ...
+##  $ BSI8          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 5 3 2 2 1 1 2 3 4 ...
+##  $ BSI9          : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI10         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI11         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 3 2 1 1 4 5 5 4 4 ...
+##  $ BSI12         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 2 5 5 5 4 5 3 4 2 ...
+##  $ BSI13         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 3 1 3 1 4 3 2 2 1 ...
+##  $ BSI14         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 3 2 4 2 5 5 2 2 1 ...
+##  $ BSI15         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI16         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI17         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 5 3 5 5 5 1 4 1 1 ...
+##  $ BSI18         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI19         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 4 2 4 1 2 5 4 1 1 5 ...
+##  $ BSI20         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI21         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 1 4 2 1 3 4 4 4 1 ...
+##  $ BSI22         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 5 4 4 5 5 2 3 5 1 4 ...
+##  $ BSI23         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 1 3 3 4 5 4 3 4 3 ...
+##  $ BSI24         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI25         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 5 1 1 5 2 3 3 3 4 ...
+##  $ BSI26         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 5 5 2 1 4 3 3 2 4 3 ...
+##  $ BSI27         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 5 3 5 3 3 1 3 5 1 ...
+##  $ BSI28         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI29         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 2 5 2 4 2 3 4 1 3 ...
+##  $ BSI30         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 3 5 5 1 1 5 3 3 2 ...
+##  $ BSI31         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 1 4 3 3 2 5 4 2 1 ...
+##  $ BSI32         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 5 2 3 3 3 4 5 4 4 ...
+##  $ BSI33         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 5 2 3 1 4 2 2 5 3 1 ...
+##  $ BSI34         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 1 2 3 1 5 5 5 2 5 ...
+##  $ BSI35         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 2 5 4 4 5 4 5 2 3 1 ...
+##  $ BSI36         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 5 4 3 5 3 4 5 4 3 4 ...
+##  $ BSI37         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 5 5 1 1 2 4 5 1 1 1 ...
+##  $ BSI38         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI39         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI40         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 1 2 5 3 3 4 3 1 2 ...
+##  $ BSI41         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ BSI42         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 3 1 3 2 1 1 5 4 3 5 ...
+##  $ BSI43         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 4 2 1 2 2 3 3 2 4 4 ...
+##  $ BSI44         : Factor w/ 5 levels &quot;not at all&quot;,&quot;a little bit&quot;,..: 1 4 5 3 5 5 1 3 3 5 ...
+##   [list output truncated]
+##  - attr(*, &quot;variable.labels&quot;)= Named chr  &quot;ID number of respondents&quot; &quot;IGD9 2 kat DSM alapj&#xE1;n (&gt;=5 disordered)&quot; &quot;Heavy use (gaming time)&quot; &quot;Gender&quot; ...
+##   ..- attr(*, &quot;names&quot;)= chr  &quot;Sorszam&quot; &quot;Problematic&quot; &quot;Heavy_use&quot; &quot;Gender&quot; ...
+##  - attr(*, &quot;codepage&quot;)= int 65001
+</code></pre><pre><code class="lang-r"><span class="hljs-comment">#head(dat)</span>
+<span class="hljs-comment">#tail(dat)</span>
+</code></pre>
+<p>A beolvasott adatt&#xE1;bla j&#xF3;n&#xE9;h&#xE1;ny hi&#xE1;nyz&#xF3; &#xE9;rt&#xE9;ket tartalmaz, de egy&#xE9;bk&#xE9;nt rendben l&#xE9;v&#x151;nek t&#x171;nik. K&#xF6;vetkez&#x151; l&#xE9;p&#xE9;sben b&#xE1;rmilyen internetes keres&#x151;vel &#xE9;rdemes ellen&#x151;rizni, hogy tal&#xE1;lunk-e relev&#xE1;ns bejegyz&#xE9;st ugyanezzel az &#xFC;zenettel (egyszer&#x171;en m&#xE1;soljuk be a figyelmeztet&#x151; &#xFC;zenetet a keres&#x151;mez&#x151;be). A tal&#xE1;latokat &#xE1;tb&#xF6;ng&#xE9;szve kider&#xFC;l, hogy az &#xFC;zenet miatt nem kell agg&#xF3;dnunk, az adatok beolvas&#xE1;s&#xE1;t az &quot;unrecognized record type 7&quot; nem befoly&#xE1;solja.</p>
+<h2 id="k%C3%A9rd%C5%91%C3%ADv-itemek-mint-faktorok-vs-eg%C3%A9sz-sz%C3%A1mok">K&#xE9;rd&#x151;&#xED;v-itemek mint faktorok vs eg&#xE9;sz sz&#xE1;mok</h2>
+<p>Van azonban egy val&#xF3;di probl&#xE9;ma: a &apos;dat&apos; adatt&#xE1;bl&#xE1;ban az &#xF6;sszes k&#xE9;rd&#x151;&#xED;v-item
+faktork&#xE9;nt szerepel. Ez az&#xE9;rt van &#xED;gy, mert a <code>read.spss()</code> f&#xFC;ggv&#xE9;ny <code>use.value.labels</code> argumentuma alapesetben TRUE, azaz a f&#xFC;ggv&#xE9;ny a beolvas&#xE1;s
+sor&#xE1;n faktorr&#xE1; alak&#xED;t minden olyan v&#xE1;ltoz&#xF3;t, amelynek szintjeihez az SPSS-ben sz&#xF6;veges c&#xED;mk&#xE9;k tartoztak. Ez az&#xE9;rt is probl&#xE9;m&#xE1;s lehet, mert &#xED;gy p&#xE9;ld&#xE1;ul a &quot;0&quot; = &quot;never&quot;, &quot;1&quot; = &quot;rarely&quot;, &quot;2&quot; = &quot;often&quot;, &quot;3&quot; = &quot;always&quot; k&#xF3;d&#xFA; v&#xE1;ltoz&#xF3;kat az R olyan faktork&#xE9;nt k&#xF3;dolja, amelynek a szintjei megfelelnek az SPSS c&#xED;mk&#xE9;knek, viszont a bels&#x151;, integer reprezent&#xE1;ci&#xF3;ja 1-t&#x151;l 4-ig terjed. (Ez a probl&#xE9;ma a jelen esetben 
+az&#xE9;rt nem l&#xE9;nyeges, mert a v&#xE9;g&#xE9;n &#xFA;gyis a standardiz&#xE1;lt sk&#xE1;lapontsz&#xE1;mokkal fogunk
+dolgozni).</p>
+<p>A tov&#xE1;bbiakban teh&#xE1;t k&#xE9;t lehet&#x151;s&#xE9;g&#xFC;nk van: vagy eleve numerikus v&#xE1;ltoz&#xF3;k&#xE9;nt olvassuk be a k&#xE9;rd&#x151;&#xED;v-itemeket, vagy ut&#xF3;lag konvert&#xE1;ljuk &#x151;ket numerikuss&#xE1;. </p>
+<p>1) K&#xE9;rd&#x151;&#xED;v-itemek beolvas&#xE1;sa numerikusk&#xE9;nt:</p>
+<ul>
+<li>itt kihaszn&#xE1;ljuk azt, hogy a sz&#xE1;munkra fontos, val&#xF3;ban faktork&#xE9;nt reprezent&#xE1;land&#xF3; v&#xE1;ltoz&#xF3;k (Heavy_use, Problematic) k&#xE9;tszint&#x171;ek, &#xE9;s hogy a <code>read.spss()</code> f&#xFC;ggv&#xE9;nynek vagy egy <code>max.value.labels</code> argumentuma (l&#xE1;sd a f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;t)</li>
+</ul>
+<pre><code class="lang-r">dat_num &lt;- read.spss(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;gaming_random.sav&quot;</span>), 
+                     max.value.labels = <span class="hljs-number">2</span>)
+</code></pre>
+<pre><code>## Warning in read.spss(file.path(&quot;data&quot;, &quot;gaming_random.sav&quot;),
+## max.value.labels = 2): data/gaming_random.sav: Unrecognized record type 7,
+## subtype 18 encountered in system file
+</code></pre><p>2) K&#xE9;rd&#x151;&#xED;v-itemek &#xE1;talak&#xED;t&#xE1;sa numerikuss&#xE1;:</p>
+<ul>
+<li>Ahogy <a href="../sec5_process/convert.Rmd">egy kor&#xE1;bbi fejezetben</a> bemutattuk, egy v&#xE1;ltoz&#xF3;t integerr&#xE9; alak&#xED;thatunk az <code>as.integer</code>, vagy val&#xF3;s sz&#xE1;mm&#xE1; az <code>as.double</code> vagy <code>as.numeric</code> paranccsal, p&#xE9;ld&#xE1;ul:</li>
+</ul>
+<pre><code class="lang-r">dat$MOGQ1 &lt;- as.integer(dat$MOGQ1)
+</code></pre>
+<ul>
+<li>K&#xE9;zzel &#xE1;t&#xED;rni az el&#x151;z&#x151; sort az &#xF6;sszes k&#xE9;rd&#x151;&#xED;v-item nev&#xE9;re igen f&#xE1;rads&#xE1;gos feladat lenne. A megold&#xE1;s k&#xE9;zenfekv&#x151;: k&#xE9;sz&#xED;ts&#xFC;nk egy karakter vektort, amely tartalmazza
+az &#xF6;sszes k&#xE9;rd&#xE9;ses v&#xE1;ltoz&#xF3;nevet, majd egy ciklussal menj&#xFC;nk v&#xE9;gig az adatt&#xE1;bla &#xF6;sszes &#xE9;rintett oszlop&#xE1;n, &#xE9;s konvert&#xE1;ljuk az oszlopot a megfelel&#x151; t&#xED;pusra:</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-comment"># tudjuk, hogy a k&#xE9;rd&#x151;&#xED;v itemek az </span>
+<span class="hljs-comment"># MOGQ, POGQ vagy BSI karaktereket tartalmazz&#xE1;k;</span>
+<span class="hljs-comment"># ak&#xE1;r le is ellen&#x151;rizheted: colnames(dat)</span>
+likert_valtozok &lt;- grep(<span class="hljs-string">&quot;MOGQ|POGQ|BSI&quot;</span>, 
+                        colnames(dat), 
+                        value = <span class="hljs-literal">TRUE</span>)
+
+<span class="hljs-comment"># meggy&#x151;z&#x151;dhetsz r&#xF3;la, hogy a likert_valtozok vektor </span>
+<span class="hljs-comment"># val&#xF3;ban a k&#xE9;rd&#xE9;ses itemeket tartalmazza</span>
+<span class="hljs-comment">#print(likert_valtozok)</span>
+
+<span class="hljs-comment"># ciklus</span>
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> likert_valtozok) {
+    dat[, i] &lt;- as.integer(dat[, i])
+}
+</code></pre>
+<p>A fentebbi sorok a k&#xF6;vetkez&#x151;t jelentik:</p>
+<pre><code class="lang-r"><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> likert_valtozok)
+</code></pre>
+<p>-&gt; vedd a likert_valtozok vektort, &#xE9;s l&#xE9;pkedj v&#xE9;gig az &#xF6;sszes elem&#xE9;n; az aktu&#xE1;lisan
+kiv&#xE1;lasztott elemet jel&#xF6;lje <code>i</code></p>
+<pre><code class="lang-r">dat[, i] &lt;- as.integer(dat[, i])
+</code></pre>
+<p>-&gt; az <code>i</code> ciklusv&#xE1;ltoz&#xF3; tartalm&#xE1;nak megfelel&#x151; v&#xE1;ltoz&#xF3;t v&#xE1;laszd ki a <code>dat</code> data.frame-b&#x151;l, alak&#xED;tsd &#xE1;t eg&#xE9;sz sz&#xE1;mm&#xE1;, &#xE9;s &#xED;rd fel&#xFC;l az eredeti v&#xE1;ltoz&#xF3;t ezekkel az &#xE9;rt&#xE9;kekkel</p>
+<h2 id="sk%C3%A1lapontsz%C3%A1mok">Sk&#xE1;lapontsz&#xE1;mok</h2>
+<p>A le&#xED;r&#xE1;s alapj&#xE1;n a k&#xE9;rd&#x151;&#xED;vek nem tartalmaznak ford&#xED;tott itemeket. Ennek ellen&#xE9;re nem &#xE1;rt ellen&#x151;rizni, hogy a k&#xE9;rd&#x151;&#xED;vek t&#xE9;telei val&#xF3;ban egy ir&#xE1;nyba mutatnak-e. A k&#xE9;rd&#x151;&#xED;v-itemek korrel&#xE1;ci&#xF3;s m&#xE1;trixa remek&#xFC;l vizualiz&#xE1;lhat&#xF3; a <a href="../sec9_fa/pelda_efa.md">m&#xE1;r ismert</a> <em>corrplot</em> csomag <code>corrplot()</code> f&#xFC;ggv&#xE9;ny&#xE9;vel. Ez&#xFA;ttal olyan megjelen&#xED;t&#xE9;st v&#xE1;lasztunk, hogy az itemek a McQuitty-f&#xE9;le hierarchikus klaszterelemz&#xE9;s eredm&#xE9;nyei szerint legyenek sorba rendezve. A v&#xE1;ltoz&#xF3;k nagy sz&#xE1;ma miatt az &#xE1;br&#xE1;t png f&#xE1;jlba mentj&#xFC;k ut&#xF3;lagos megtekint&#xE9;sre.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(corrplot)
+png(<span class="hljs-string">&quot;corr_items.png&quot;</span>, width = <span class="hljs-number">1000</span>, height = <span class="hljs-number">1000</span>)
+corrplot(cor(dat[, likert_valtozok], use = <span class="hljs-string">&quot;p&quot;</span>), 
+         method = <span class="hljs-string">&quot;square&quot;</span>, diag = <span class="hljs-literal">FALSE</span>,
+         order = <span class="hljs-string">&quot;hclust&quot;</span>, hclust.method = <span class="hljs-string">&quot;mcquitty&quot;</span>, 
+         tl.cex = <span class="hljs-number">0.7</span>)
+dev.off()
+</code></pre>
+<pre><code>## png 
+##   2
+</code></pre><p>Mivel randomiz&#xE1;lt adatokon dolgozunk, a korrel&#xE1;ci&#xF3;s eredm&#xE9;nyeink term&#xE9;szetesen nehezen lenn&#xE9;nek interpret&#xE1;lhat&#xF3;k. Az azonban &#xED;gy is l&#xE1;tszik, hogy a k&#xE9;rd&#x151;&#xED;vekben val&#xF3;ban nem szerepeltek ford&#xED;tott itemek. A k&#xF6;vetkez&#x151; l&#xE9;p&#xE9;s teh&#xE1;t a sk&#xE1;lapontsz&#xE1;mok sz&#xE1;mol&#xE1;sa. </p>
+<p>Ha a sk&#xE1;lapontsz&#xE1;mokat egyedileg szeretn&#xE9;nk kisz&#xE1;molni, a k&#xF6;vetkez&#x151;t tehetn&#xE9;nk:</p>
+<ol>
+<li>K&#xE9;sz&#xED;t&#xFC;nk egy vektort, amely tartalmazza az adott sk&#xE1;l&#xE1;hoz tartoz&#xF3; itemek
+nev&#xE9;t:</li>
+</ol>
+<pre><code class="lang-r">MOGQ_social_itemek &lt;- c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>)
+</code></pre>
+<ol>
+<li>Kiv&#xE1;lasztjuk az adatt&#xE1;bl&#xE1;nkb&#xF3;l a megfelel&#x151; oszlopokat, &#xE9;s kisz&#xE1;moljuk 
+ezen r&#xE9;szt&#xE1;bla sor&#xE1;tlagait (a hi&#xE1;nyz&#xF3; &#xE9;rt&#xE9;kek elt&#xE1;vol&#xED;t&#xE1;s&#xE1;val):</li>
+</ol>
+<pre><code class="lang-r">MOGQ_social &lt;- rowMeans(dat[, MOGQ_social_itemek],
+                        na.rm = <span class="hljs-literal">TRUE</span>)
+</code></pre>
+<p>Ez egyr&#xE9;szt f&#xE1;rads&#xE1;gos &#xE9;s lass&#xFA; folyamat, m&#xE1;sr&#xE9;szt az itemek nev&#xE9;nek egyedi m&#xE1;solgat&#xE1;sa &#xE9;s/vagy beg&#xE9;pel&#xE9;se miatt a hib&#xE1;z&#xE1;s val&#xF3;sz&#xED;n&#x171;s&#xE9;ge is magas. A folyamatot k&#xE9;t ponton tehetn&#xE9;nk hat&#xE9;konyabb&#xE1;: egyr&#xE9;szt megfelel&#x151; form&#xE1;ba kellene hozni a txt-ben kapott sk&#xE1;ladefin&#xED;ci&#xF3;kat, m&#xE1;sr&#xE9;szt automatiz&#xE1;lni kellene a sk&#xE1;lav&#xE1;ltoz&#xF3;k
+vektor&#xE1;nak kinyer&#xE9;s&#xE9;t &#xE9;s a pontsz&#xE1;mok kisz&#xE1;mol&#xE1;s&#xE1;t. </p>
+<h3 id="a-txt-%C3%A1talak%C3%ADt%C3%A1sa">A txt &#xE1;talak&#xED;t&#xE1;sa</h3>
+<p>A tov&#xE1;bbi m&#x171;veletekhez az lenne az ide&#xE1;lis, hogyha lenne egy list&#xE1;nk (<code>list</code>), amelynek elemei az egyes sk&#xE1;l&#xE1;khoz tartoz&#xF3; v&#xE1;ltoz&#xF3;k nev&#xE9;t tartalmaz&#xF3; vektorok lenn&#xE9;nek, a lista elemeinek neve pedig megegyezne a sk&#xE1;l&#xE1;k neveivel. Vegy&#xFC;k &#xE9;szre, hogy a kapott txt f&#xE1;jl tartalma nem &#xE1;ll t&#xFA;lzottan t&#xE1;vol egy ilyen lista megad&#xE1;s&#xE1;nak m&#xF3;dj&#xE1;t&#xF3;l.</p>
+<pre><code class="lang-r"><span class="hljs-comment"># r&#xE9;szlet</span>
+MOGQ_Social=(MOGQ1+MOGQ8+MOGQ15+MOGQ22)/<span class="hljs-number">4.</span>
+MOGQ_Escape=(MOGQ2+MOGQ9+MOGQ16+MOGQ23)/<span class="hljs-number">4.</span>
+<span class="hljs-keyword">...</span>
+</code></pre>
+<p>Az elv&#xE1;rt alak ez lenne:</p>
+<pre><code class="lang-r">skala_definiciok &lt;- list(
+    MOGQ_Social = c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>),
+    MOGQ_Escape = c(<span class="hljs-string">&quot;MOGQ2&quot;</span>, <span class="hljs-string">&quot;MOGQ9&quot;</span>, <span class="hljs-string">&quot;MOGQ16&quot;</span>, <span class="hljs-string">&quot;MOGQ23&quot;</span>),
+    <span class="hljs-keyword">...</span> 
+)
+</code></pre>
+<p>Noha a k&#xED;v&#xE1;nt &#xE1;talak&#xED;t&#xE1;st megfelel&#x151; R-parancsokkal is v&#xE9;grehajthatn&#xE1;nk, a k&#xF6;vetkez&#x151;kben egy pragmatikus megk&#xF6;zel&#xED;t&#xE9;st mutatunk be. Haszn&#xE1;ljuk az RStudio-t arra, hogy kicser&#xE9;lj&#xFC;k a megfelel&#x151; karaktereket! Ehhez mind&#xF6;ssze annyit kell tenn&#xFC;nk, hogy megnyitjuk az RStudio-val az adott txt f&#xE1;jlt (<code>File &gt; Open File...</code>), majd haszn&#xE1;ljuk a CTRL+F billenty&#x171;kombin&#xE1;ci&#xF3;t (vagy <code>Edit &gt; Find...</code>). A keres&#xE9;si mez&#x151;be &#xED;rjuk be a cser&#xE9;lend&#x151; karaktert (pl. +), a Replace mez&#x151;be pedig 
+a k&#xED;v&#xE1;nt karaktert (pl. &quot;, &quot;). Ezut&#xE1;n kattintsunk a Replace melletti &apos;All&apos; gombra.
+A k&#xF6;vetkez&#x151; cser&#xE9;ket kell elv&#xE9;gezn&#xFC;nk:</p>
+<table>
+<thead>
+<tr>
+<th>Find</th>
+<th>Replace</th>
+<th>Regex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>&quot;, &quot;</td>
+<td>nem</td>
+</tr>
+<tr>
+<td>=</td>
+<td>= c(&quot;</td>
+<td>nem</td>
+</tr>
+<tr>
+<td>)</td>
+<td>&quot;),</td>
+<td>nem</td>
+</tr>
+<tr>
+<td>/.*</td>
+<td></td>
+<td>igen</td>
+</tr>
+</tbody>
+</table>
+<p>Az utols&#xF3; cser&#xE9;n&#xE9;l regul&#xE1;ris kifejez&#xE9;st haszn&#xE1;lunk (azaz be kell jel&#xF6;lni a Regex jel&#xF6;l&#x151;n&#xE9;gyzetet), amelyben a <code>/.*</code> azt jelzi, hogy <code>/</code> jel ut&#xE1;n b&#xE1;rmilyen karakterek k&#xF6;vetkezhetnek. (Ezzel a l&#xE9;p&#xE9;ssel kit&#xF6;r&#xF6;lj&#xFC;k a sorok v&#xE9;g&#xE9;r&#x151;l a sz&#xE1;mokat &#xE9;s a pontot.)</p>
+<p>A kapott sz&#xF6;veget egyszer&#x171;en bem&#xE1;solhatjuk a sk&#xE1;ladefin&#xED;ci&#xF3;s list&#xE1;nkba:</p>
+<pre><code class="lang-r">skala_definiciok &lt;- list(
+    MOGQ_Social = c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>),
+    MOGQ_Escape = c(<span class="hljs-string">&quot;MOGQ2&quot;</span>, <span class="hljs-string">&quot;MOGQ9&quot;</span>, <span class="hljs-string">&quot;MOGQ16&quot;</span>, <span class="hljs-string">&quot;MOGQ23&quot;</span>),
+    MOGQ_Competition = c(<span class="hljs-string">&quot;MOGQ3&quot;</span>, <span class="hljs-string">&quot;MOGQ10&quot;</span>, <span class="hljs-string">&quot;MOGQ17&quot;</span>, <span class="hljs-string">&quot;MOGQ24&quot;</span>),
+    MOGQ_Coping = c(<span class="hljs-string">&quot;MOGQ4&quot;</span>, <span class="hljs-string">&quot;MOGQ11&quot;</span>, <span class="hljs-string">&quot;MOGQ18&quot;</span>, <span class="hljs-string">&quot;MOGQ25&quot;</span>),
+    MOGQ_SkillDev = c(<span class="hljs-string">&quot;MOGQ5&quot;</span>, <span class="hljs-string">&quot;MOGQ12&quot;</span>, <span class="hljs-string">&quot;MOGQ19&quot;</span>, <span class="hljs-string">&quot;MOGQ26&quot;</span>),
+    MOGQ_Fantasy = c(<span class="hljs-string">&quot;MOGQ6&quot;</span>, <span class="hljs-string">&quot;MOGQ13&quot;</span>, <span class="hljs-string">&quot;MOGQ20&quot;</span>, <span class="hljs-string">&quot;MOGQ27&quot;</span>),
+    MOGQ_Recreation = c(<span class="hljs-string">&quot;MOGQ7&quot;</span>, <span class="hljs-string">&quot;MOGQ14&quot;</span>, <span class="hljs-string">&quot;MOGQ21&quot;</span>),
+    POGQ_Preoccupation = c(<span class="hljs-string">&quot;POGQ1&quot;</span>, <span class="hljs-string">&quot;POGQ7&quot;</span>),
+    POGQ_Immersion = c(<span class="hljs-string">&quot;POGQ2&quot;</span>, <span class="hljs-string">&quot;POGQ8&quot;</span>, <span class="hljs-string">&quot;POGQ13&quot;</span>, <span class="hljs-string">&quot;POGQ17&quot;</span>),
+    POGQ_Withdrawal = c(<span class="hljs-string">&quot;POGQ3&quot;</span>, <span class="hljs-string">&quot;POGQ9&quot;</span>, <span class="hljs-string">&quot;POGQ14&quot;</span>, <span class="hljs-string">&quot;POGQ18&quot;</span>),
+    POGQ_Overuse = c(<span class="hljs-string">&quot;POGQ4&quot;</span>, <span class="hljs-string">&quot;POGQ10&quot;</span>, <span class="hljs-string">&quot;POGQ15&quot;</span>),
+    POGQ_IntConflicts = c(<span class="hljs-string">&quot;POGQ5&quot;</span>, <span class="hljs-string">&quot;POGQ11&quot;</span>),
+    POGQ_SocIsolation = c(<span class="hljs-string">&quot;POGQ6&quot;</span>, <span class="hljs-string">&quot;POGQ12&quot;</span>, <span class="hljs-string">&quot;POGQ16&quot;</span>),
+    BSI_Somatization = c(<span class="hljs-string">&quot;BSI2&quot;</span>, <span class="hljs-string">&quot;BSI7&quot;</span>, <span class="hljs-string">&quot;BSI23&quot;</span>, <span class="hljs-string">&quot;BSI29&quot;</span>, <span class="hljs-string">&quot;BSI30&quot;</span>, <span class="hljs-string">&quot;BSI33&quot;</span>, <span class="hljs-string">&quot;BSI37&quot;</span>),
+    BSI_ObsComp = c(<span class="hljs-string">&quot;BSI5&quot;</span>, <span class="hljs-string">&quot;BSI15&quot;</span>, <span class="hljs-string">&quot;BSI26&quot;</span>, <span class="hljs-string">&quot;BSI27&quot;</span>, <span class="hljs-string">&quot;BSI32&quot;</span>, <span class="hljs-string">&quot;BSI36&quot;</span>),
+    BSI_IntpersSens = c(<span class="hljs-string">&quot;BSI20&quot;</span>, <span class="hljs-string">&quot;BSI21&quot;</span>, <span class="hljs-string">&quot;BSI22&quot;</span>, <span class="hljs-string">&quot;BSI42&quot;</span>),
+    BSI_Depression = c(<span class="hljs-string">&quot;BSI9&quot;</span>, <span class="hljs-string">&quot;BSI16&quot;</span>, <span class="hljs-string">&quot;BSI17&quot;</span>, <span class="hljs-string">&quot;BSI18&quot;</span>, <span class="hljs-string">&quot;BSI35&quot;</span>, <span class="hljs-string">&quot;BSI50&quot;</span>),
+    BSI_Anxiety = c(<span class="hljs-string">&quot;BSI1&quot;</span>, <span class="hljs-string">&quot;BSI12&quot;</span>, <span class="hljs-string">&quot;BSI19&quot;</span>, <span class="hljs-string">&quot;BSI38&quot;</span>, <span class="hljs-string">&quot;BSI45&quot;</span>, <span class="hljs-string">&quot;BSI49&quot;</span>),
+    BSI_Hostility = c(<span class="hljs-string">&quot;BSI6&quot;</span>, <span class="hljs-string">&quot;BSI13&quot;</span>, <span class="hljs-string">&quot;BSI40&quot;</span>, <span class="hljs-string">&quot;BSI41&quot;</span>, <span class="hljs-string">&quot;BSI46&quot;</span>),
+    BSI_PhobicAnxiety = c(<span class="hljs-string">&quot;BSI8&quot;</span>, <span class="hljs-string">&quot;BSI28&quot;</span>, <span class="hljs-string">&quot;BSI31&quot;</span>, <span class="hljs-string">&quot;BSI43&quot;</span>, <span class="hljs-string">&quot;BSI47&quot;</span>),
+    BSI_ParanoidId = c(<span class="hljs-string">&quot;BSI4&quot;</span>, <span class="hljs-string">&quot;BSI10&quot;</span>, <span class="hljs-string">&quot;BSI24&quot;</span>, <span class="hljs-string">&quot;BSI48&quot;</span>, <span class="hljs-string">&quot;BSI51&quot;</span>),
+    BSI_Psychotiscism = c(<span class="hljs-string">&quot;BSI3&quot;</span>, <span class="hljs-string">&quot;BSI14&quot;</span>, <span class="hljs-string">&quot;BSI34&quot;</span>, <span class="hljs-string">&quot;BSI44&quot;</span>, <span class="hljs-string">&quot;BSI53&quot;</span>),
+    GSI = c(<span class="hljs-string">&quot;BSI1&quot;</span>, <span class="hljs-string">&quot;BSI2&quot;</span>, <span class="hljs-string">&quot;BSI3&quot;</span>, <span class="hljs-string">&quot;BSI4&quot;</span>, <span class="hljs-string">&quot;BSI5&quot;</span>, <span class="hljs-string">&quot;BSI6&quot;</span>, <span class="hljs-string">&quot;BSI7&quot;</span>, <span class="hljs-string">&quot;BSI8&quot;</span>, <span class="hljs-string">&quot;BSI9&quot;</span>, <span class="hljs-string">&quot;BSI10&quot;</span>, <span class="hljs-string">&quot;BSI11&quot;</span>, <span class="hljs-string">&quot;BSI12&quot;</span>, <span class="hljs-string">&quot;BSI13&quot;</span>, <span class="hljs-string">&quot;BSI14&quot;</span>, <span class="hljs-string">&quot;BSI15&quot;</span>, <span class="hljs-string">&quot;BSI16&quot;</span>, <span class="hljs-string">&quot;BSI17&quot;</span>, <span class="hljs-string">&quot;BSI18&quot;</span>, <span class="hljs-string">&quot;BSI19&quot;</span>, <span class="hljs-string">&quot;BSI20&quot;</span>, <span class="hljs-string">&quot;BSI21&quot;</span>, <span class="hljs-string">&quot;BSI22&quot;</span>, <span class="hljs-string">&quot;BSI23&quot;</span>, <span class="hljs-string">&quot;BSI24&quot;</span>, <span class="hljs-string">&quot;BSI25&quot;</span>, <span class="hljs-string">&quot;BSI26&quot;</span>, <span class="hljs-string">&quot;BSI27&quot;</span>, <span class="hljs-string">&quot;BSI28&quot;</span>, <span class="hljs-string">&quot;BSI29&quot;</span>, <span class="hljs-string">&quot;BSI30&quot;</span>, <span class="hljs-string">&quot;BSI31&quot;</span>, <span class="hljs-string">&quot;BSI32&quot;</span>, <span class="hljs-string">&quot;BSI33&quot;</span>, <span class="hljs-string">&quot;BSI34&quot;</span>, <span class="hljs-string">&quot;BSI35&quot;</span>, <span class="hljs-string">&quot;BSI36&quot;</span>, <span class="hljs-string">&quot;BSI37&quot;</span>, <span class="hljs-string">&quot;BSI38&quot;</span>, <span class="hljs-string">&quot;BSI39&quot;</span>, <span class="hljs-string">&quot;BSI40&quot;</span>, <span class="hljs-string">&quot;BSI41&quot;</span>, <span class="hljs-string">&quot;BSI42&quot;</span>, <span class="hljs-string">&quot;BSI43&quot;</span>, <span class="hljs-string">&quot;BSI44&quot;</span>, <span class="hljs-string">&quot;BSI45&quot;</span>, <span class="hljs-string">&quot;BSI46&quot;</span>, <span class="hljs-string">&quot;BSI47&quot;</span>, <span class="hljs-string">&quot;BSI48&quot;</span>, <span class="hljs-string">&quot;BSI49&quot;</span>, <span class="hljs-string">&quot;BSI50&quot;</span>, <span class="hljs-string">&quot;BSI51&quot;</span>, <span class="hljs-string">&quot;BSI52&quot;</span>, <span class="hljs-string">&quot;BSI53&quot;</span>)
+)
+</code></pre>
+<h3 id="sk%C3%A1lapontok-kisz%C3%A1m%C3%ADt%C3%A1sa">Sk&#xE1;lapontok kisz&#xE1;m&#xED;t&#xE1;sa</h3>
+<p>T&#xE9;rj&#xFC;nk vissza a kor&#xE1;bbi, &quot;k&#xE9;zi&quot; p&#xE9;ld&#xE1;hoz:</p>
+<pre><code class="lang-r">MOGQ_social_itemek &lt;- c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>)
+MOGQ_social &lt;- rowMeans(dat[, MOGQ_social_itemek])
+</code></pre>
+<p>Vegy&#xFC;k &#xE9;szre, hogy a fenti sorokat a sk&#xE1;ladefin&#xED;ci&#xF3;s list&#xE1;nk seg&#xED;ts&#xE9;g&#xE9;vel imm&#xE1;ron &#xED;gy is &#xED;rhatn&#xE1;nk:</p>
+<pre><code class="lang-r">itemek &lt;- skala_definiciok[[<span class="hljs-string">&quot;MOGQ_social&quot;</span>]]
+skala &lt;- rowMeans(dat[, itemek], na.rm = <span class="hljs-literal">TRUE</span>)
+</code></pre>
+<p>Innent&#x151;l ak&#xE1;rmelyik sk&#xE1;l&#xE1;nak a kisz&#xE1;m&#xED;t&#xE1;s&#xE1;hoz el&#xE9;g lenne az &quot;MOGQ_social&quot;-t &#xE1;t&#xED;rni, amit ak&#xE1;r megtehetn&#xE9;nk egy <code>for</code> ciklussal is:</p>
+<pre><code class="lang-r">skala_nevek &lt;- names(skala_definiciok)
+<span class="hljs-keyword">for</span> (n <span class="hljs-keyword">in</span> skala_nevek) {
+    itemek &lt;- skala_definiciok[[n]]
+    skala &lt;- rowMeans(dat[, itemek], 
+                      na.rm = <span class="hljs-literal">TRUE</span>)
+}
+</code></pre>
+<p>Igen &#xE1;m, de a fentebbi ciklus v&#xE9;geredm&#xE9;ny&#xE9;t mindig a <code>skala</code> v&#xE1;ltoz&#xF3;hoz rendelj&#xFC;k hozz&#xE1;, azaz ciklusunk folyton fel&#xFC;l&#xED;rja az el&#x151;z&#x151;leg kisz&#xE1;molt sk&#xE1;lapontsz&#xE1;mot.
+Ezt kiker&#xFC;lhetn&#xE9;nk azzal, ha el&#x151;sz&#xF6;r l&#xE9;trehozn&#xE1;nk egy m&#xE1;trixot (vagy data.frame-et), &#xE9;s a ciklusban csak a megfelel&#x151; oszlopot &#xED;rn&#xE1;nk fel&#xFC;l. Van azonban egy parancs (pontosabban parancsok eg&#xE9;sz csal&#xE1;dja, l&#xE1;sd <code>?lapply</code>), amely automatikusan &#xF6;sszef&#x171;zi egy list&#xE1;ba a ciklusban l&#xE9;trehozott v&#xE1;ltoz&#xF3;kat, azaz nem kell bajl&#xF3;dnunk az eredm&#xE9;ny-v&#xE1;ltoz&#xF3; el&#x151;zetes megad&#xE1;s&#xE1;val. </p>
+<pre><code class="lang-r">skalapontok &lt;- lapply(skala_nevek, 
+                      <span class="hljs-keyword">function</span>(n) {
+                          itemek &lt;- skala_definiciok[[n]]
+                          rowMeans(dat[, itemek],
+                                   na.rm = <span class="hljs-literal">TRUE</span>)
+                          }
+                      )
+</code></pre>
+<p>A <code>lapply</code> f&#xFC;ggv&#xE9;ny els&#x151; argumentuma egy vektor, m&#xE1;sodik argumentuma pedig
+egy f&#xFC;ggv&#xE9;ny vagy egy f&#xFC;ggv&#xE9;ny neve. (A <code>lapply</code> esetleges tov&#xE1;bbi argumentumai
+az el&#x151;z&#x151;leg megadott f&#xFC;ggv&#xE9;ny egy&#xE9;b lehets&#xE9;ges argumentumai.) A fentebbi sorokkal
+teh&#xE1;t a k&#xF6;vetkez&#x151;re utas&#xED;tjuk az R-et: 1) vedd a skala_nevek vektort, majd 2) minden egyes elem&#xE9;t helyettes&#xED;tsd be abba az &#xE1;ltalunk defini&#xE1;lt f&#xFC;ggv&#xE9;nybe, amely kisz&#xE1;molja a <code>dat</code> adatt&#xE1;bl&#xE1;nk megfelel&#x151; v&#xE1;ltoz&#xF3;inak sor&#xE1;tlagait, &#xE9;s v&#xE9;g&#xFC;l 3) a f&#xFC;ggv&#xE9;ny &#xE1;ltal kisz&#xE1;molt pontsz&#xE1;m-vektorokat f&#x171;zd &#xF6;ssze egy list&#xE1;ba. </p>
+<p>A fentebbi sorok m&#xE9;g mindig redund&#xE1;nsak kicsit; mi&#xE9;rt indexel&#xFC;nk a <code>skala_nevek</code> vektorral, azaz mi&#xE9;rt nem haszn&#xE1;ljuk k&#xF6;zvetlen&#xFC;l a <code>skala_defin&#xED;ci&#xF3;k</code> lista elemeit? Val&#xF3;ban, <a href="../sec3_basics/objects.html">eml&#xE9;kezz&#xFC;nk vissza</a>, hogy a lista val&#xF3;j&#xE1;ban egy vektor. Azaz a fentebbi sorokat &#xED;gy is egyszer&#x171;s&#xED;thetn&#xE9;nk:</p>
+<pre><code class="lang-r">skalapontok &lt;- lapply(skala_definiciok, 
+                      <span class="hljs-keyword">function</span>(itemek) {
+                          rowMeans(dat[, itemek],
+                                   na.rm = <span class="hljs-literal">TRUE</span>)
+                          }
+                      )
+</code></pre>
+<p>A sk&#xE1;lapontsz&#xE1;mok sz&#xE1;m&#xED;t&#xE1;s&#xE1;nak ez ut&#xF3;bbi m&#xF3;dja az&#xE9;rt is el&#x151;ny&#xF6;sebb, mert &#xED;gy a <code>skalapontok</code> egy nevekkel ell&#xE1;tott lista lesz, azaz nem kell a <code>lapply</code> parancs ut&#xE1;n ezt is lefuttatnunk: <code>names(skalapontok) &lt;- skala_nevek</code>. (Ez annak k&#xF6;sz&#xF6;nhet&#x151;, hogy ha a <code>lapply</code> argumentum&#xE1;ban megadott, t&#xE1;g &#xE9;rtelemben vett vektornak vannak nevei, akkor azok meg&#x151;rz&#x151;dnek az eredm&#xE9;ny-list&#xE1;ban is.)</p>
+<p>A sk&#xE1;lapontsz&#xE1;mokat kisz&#xE1;moltuk, de van egy b&#xF6;kken&#x151;: az elemz&#xE9;seinkhez data.frame-re lenne sz&#xFC;ks&#xE9;g, azonban a <code>skalapontok</code> objektum egy lista. Semmi gond, alak&#xED;tsuk &#xE1;t data.frame-m&#xE9;:</p>
+<pre><code class="lang-r">skalapontok &lt;- as.data.frame(skalapontok)
+</code></pre>
+<h3 id="le%C3%ADr%C3%B3-statiszik%C3%A1k-vizualiz%C3%A1ci%C3%B3">Le&#xED;r&#xF3; statiszik&#xE1;k, vizualiz&#xE1;ci&#xF3;</h3>
+<p>Legk&#xE9;s&#x151;bb ezen a ponton &#xE9;rdemes le&#xED;r&#xF3; statisztik&#xE1;kat is lek&#xE9;rni:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># t&#xF6;lts&#xFC;k be a psych csomagot</span>
+<span class="hljs-keyword">library</span>(psych)
+
+<span class="hljs-comment"># k&#xE9;rj&#xFC;nk le&#xED;r&#xF3; statisztik&#xE1;kat csoportonk&#xE9;nti bont&#xE1;sban</span>
+describeBy(skalapontok, 
+           group = dat[, c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>)])
+</code></pre>
+<pre><code>## Heavy_use: less than or equal to 4 h/day
+## Problematic: non-disordered
+##                    vars    n mean   sd median trimmed  mad  min  max range
+## MOGQ_Social           1 1966 3.01 0.72   3.00    3.01 0.74 1.00 5.00  4.00
+## MOGQ_Escape           2 1966 3.02 0.70   3.00    3.03 0.74 1.00 5.00  4.00
+## MOGQ_Competition      3 1966 2.98 0.71   3.00    2.98 0.74 1.00 5.00  4.00
+## MOGQ_Coping           4 1966 2.99 0.69   3.00    2.98 0.74 1.00 5.00  4.00
+## MOGQ_SkillDev         5 1966 2.99 0.69   3.00    2.99 0.74 1.00 5.00  4.00
+## MOGQ_Fantasy          6 1966 3.00 0.70   3.00    3.00 0.74 1.25 5.00  3.75
+## MOGQ_Recreation       7 1966 3.00 0.81   3.00    3.01 0.99 1.00 5.00  4.00
+## POGQ_Preoccupation    8 1966 2.70 0.90   2.50    2.68 0.74 1.00 5.00  4.00
+## POGQ_Immersion        9 1966 3.02 0.71   3.00    3.02 0.74 1.25 5.00  3.75
+## POGQ_Withdrawal      10 1966 2.36 0.68   2.25    2.33 0.74 1.00 5.00  4.00
+## POGQ_Overuse         11 1966 3.03 0.82   3.00    3.03 0.99 1.00 5.00  4.00
+## POGQ_IntConflicts    12 1966 2.97 1.01   3.00    2.96 0.74 1.00 5.00  4.00
+## POGQ_SocIsolation    13 1966 3.02 0.82   3.00    3.03 0.99 1.00 5.00  4.00
+## BSI_Somatization     14 1966 3.00 0.53   3.00    3.01 0.64 1.14 4.71  3.57
+## BSI_ObsComp          15 1966 2.80 0.56   2.83    2.80 0.49 1.17 4.67  3.50
+## BSI_IntpersSens      16 1966 2.70 0.68   2.75    2.70 0.74 1.00 5.00  4.00
+## BSI_Depression       17 1966 2.28 0.74   2.17    2.21 0.74 1.00 5.00  4.00
+## BSI_Anxiety          18 1966 2.78 0.54   2.83    2.78 0.49 1.33 4.83  3.50
+## BSI_Hostility        19 1966 2.26 0.65   2.20    2.21 0.59 1.00 5.00  4.00
+## BSI_PhobicAnxiety    20 1966 2.33 0.59   2.20    2.30 0.59 1.00 5.00  4.00
+## BSI_ParanoidId       21 1966 2.53 0.66   2.40    2.51 0.59 1.00 5.00  4.00
+## BSI_Psychotiscism    22 1966 2.69 0.59   2.60    2.68 0.59 1.00 4.60  3.60
+## GSI                  23 1966 2.61 0.27   2.58    2.60 0.25 1.91 3.98  2.08
+##                     skew kurtosis   se
+## MOGQ_Social         0.03    -0.41 0.02
+## MOGQ_Escape        -0.02    -0.43 0.02
+## MOGQ_Competition    0.02    -0.38 0.02
+## MOGQ_Coping         0.02    -0.31 0.02
+## MOGQ_SkillDev       0.02    -0.27 0.02
+## MOGQ_Fantasy       -0.04    -0.37 0.02
+## MOGQ_Recreation    -0.03    -0.48 0.02
+## POGQ_Preoccupation  0.14    -0.52 0.02
+## POGQ_Immersion      0.04    -0.37 0.02
+## POGQ_Withdrawal     0.47     0.35 0.02
+## POGQ_Overuse        0.03    -0.53 0.02
+## POGQ_IntConflicts   0.02    -0.66 0.02
+## POGQ_SocIsolation  -0.08    -0.46 0.02
+## BSI_Somatization   -0.05    -0.14 0.01
+## BSI_ObsComp         0.06    -0.16 0.01
+## BSI_IntpersSens     0.12    -0.21 0.02
+## BSI_Depression      0.81     0.36 0.02
+## BSI_Anxiety         0.04    -0.19 0.01
+## BSI_Hostility       0.82     1.06 0.01
+## BSI_PhobicAnxiety   0.58     0.61 0.01
+## BSI_ParanoidId      0.38     0.04 0.01
+## BSI_Psychotiscism   0.06    -0.20 0.01
+## GSI                 0.68     0.64 0.01
+## -------------------------------------------------------- 
+## Heavy_use: more than 4 h/day
+## Problematic: non-disordered
+##                    vars   n mean   sd median trimmed  mad  min  max range
+## MOGQ_Social           1 667 3.01 0.71   3.00    3.01 0.74 1.25 4.75  3.50
+## MOGQ_Escape           2 667 3.02 0.68   3.00    3.04 0.74 1.00 4.75  3.75
+## MOGQ_Competition      3 667 3.01 0.69   3.00    3.00 0.74 1.25 5.00  3.75
+## MOGQ_Coping           4 667 3.00 0.68   3.00    3.00 0.74 1.00 4.75  3.75
+## MOGQ_SkillDev         5 667 3.04 0.70   3.00    3.05 0.74 1.00 4.75  3.75
+## MOGQ_Fantasy          6 667 2.99 0.69   3.00    2.99 0.74 1.00 5.00  4.00
+## MOGQ_Recreation       7 667 2.97 0.82   3.00    2.96 0.99 1.00 5.00  4.00
+## POGQ_Preoccupation    8 667 2.96 0.91   3.00    2.98 0.74 1.00 5.00  4.00
+## POGQ_Immersion        9 667 2.99 0.70   3.00    2.97 0.74 1.25 5.00  3.75
+## POGQ_Withdrawal      10 667 2.58 0.72   2.50    2.55 0.74 1.00 4.75  3.75
+## POGQ_Overuse         11 667 3.09 0.82   3.00    3.08 0.99 1.00 5.00  4.00
+## POGQ_IntConflicts    12 667 2.96 0.93   3.00    2.97 0.74 1.00 5.00  4.00
+## POGQ_SocIsolation    13 667 3.04 0.82   3.00    3.04 0.99 1.00 5.00  4.00
+## BSI_Somatization     14 667 3.00 0.54   3.00    3.00 0.64 1.43 4.57  3.14
+## BSI_ObsComp          15 667 2.82 0.55   2.83    2.82 0.49 1.33 4.80  3.47
+## BSI_IntpersSens      16 667 2.73 0.68   2.75    2.73 0.74 1.00 5.00  4.00
+## BSI_Depression       17 667 2.36 0.78   2.17    2.30 0.74 1.00 5.00  4.00
+## BSI_Anxiety          18 667 2.77 0.57   2.83    2.77 0.49 1.17 4.40  3.23
+## BSI_Hostility        19 667 2.33 0.70   2.20    2.28 0.59 1.00 5.00  4.00
+## BSI_PhobicAnxiety    20 667 2.34 0.60   2.20    2.31 0.59 1.00 5.00  4.00
+## BSI_ParanoidId       21 667 2.60 0.64   2.60    2.58 0.59 1.00 4.60  3.60
+## BSI_Psychotiscism    22 667 2.71 0.62   2.60    2.71 0.59 1.20 4.50  3.30
+## GSI                  23 667 2.65 0.29   2.62    2.63 0.28 1.94 3.75  1.81
+##                     skew kurtosis   se
+## MOGQ_Social         0.05    -0.46 0.03
+## MOGQ_Escape        -0.23    -0.31 0.03
+## MOGQ_Competition    0.05    -0.28 0.03
+## MOGQ_Coping        -0.04    -0.16 0.03
+## MOGQ_SkillDev      -0.09    -0.33 0.03
+## MOGQ_Fantasy        0.06    -0.20 0.03
+## MOGQ_Recreation     0.07    -0.34 0.03
+## POGQ_Preoccupation -0.16    -0.67 0.04
+## POGQ_Immersion      0.14    -0.39 0.03
+## POGQ_Withdrawal     0.41    -0.06 0.03
+## POGQ_Overuse        0.07    -0.37 0.03
+## POGQ_IntConflicts  -0.04    -0.43 0.04
+## POGQ_SocIsolation  -0.01    -0.54 0.03
+## BSI_Somatization   -0.08    -0.13 0.02
+## BSI_ObsComp        -0.01    -0.18 0.02
+## BSI_IntpersSens     0.03    -0.12 0.03
+## BSI_Depression      0.69     0.14 0.03
+## BSI_Anxiety         0.04    -0.40 0.02
+## BSI_Hostility       0.75     0.82 0.03
+## BSI_PhobicAnxiety   0.59     0.79 0.02
+## BSI_ParanoidId      0.30    -0.12 0.02
+## BSI_Psychotiscism   0.07    -0.45 0.02
+## GSI                 0.61     0.44 0.01
+## -------------------------------------------------------- 
+## Heavy_use: less than or equal to 4 h/day
+## Problematic: disordered
+##                    vars    n mean   sd median trimmed  mad  min  max range
+## MOGQ_Social           1 1936 3.02 0.70   3.00    3.02 0.74 1.00 5.00  4.00
+## MOGQ_Escape           2 1936 3.00 0.70   3.00    3.00 0.74 1.00 5.00  4.00
+## MOGQ_Competition      3 1936 2.99 0.70   3.00    2.99 0.74 1.00 5.00  4.00
+## MOGQ_Coping           4 1936 3.01 0.69   3.00    3.01 0.74 1.00 5.00  4.00
+## MOGQ_SkillDev         5 1936 2.99 0.70   3.00    2.99 0.74 1.00 5.00  4.00
+## MOGQ_Fantasy          6 1936 3.01 0.69   3.00    3.01 0.74 1.00 5.00  4.00
+## MOGQ_Recreation       7 1936 2.99 0.84   3.00    2.99 0.99 1.00 5.00  4.00
+## POGQ_Preoccupation    8 1936 2.71 0.88   2.50    2.69 0.74 1.00 5.00  4.00
+## POGQ_Immersion        9 1936 3.02 0.71   3.00    3.02 0.74 1.00 5.00  4.00
+## POGQ_Withdrawal      10 1936 2.38 0.67   2.25    2.36 0.74 1.00 5.00  4.00
+## POGQ_Overuse         11 1936 3.01 0.85   3.00    3.02 0.99 1.00 5.00  4.00
+## POGQ_IntConflicts    12 1936 3.01 1.00   3.00    3.01 0.74 1.00 5.00  4.00
+## POGQ_SocIsolation    13 1936 3.00 0.80   3.00    3.01 0.99 1.00 5.00  4.00
+## BSI_Somatization     14 1936 3.01 0.54   3.00    3.01 0.64 1.29 4.86  3.57
+## BSI_ObsComp          15 1936 2.79 0.56   2.83    2.79 0.49 1.00 4.80  3.80
+## BSI_IntpersSens      16 1936 2.68 0.68   2.75    2.67 0.74 1.00 5.00  4.00
+## BSI_Depression       17 1936 2.30 0.73   2.17    2.23 0.74 1.00 5.00  4.00
+## BSI_Anxiety          18 1936 2.80 0.57   2.83    2.80 0.49 1.17 4.83  3.67
+## BSI_Hostility        19 1936 2.24 0.62   2.20    2.20 0.59 1.00 4.60  3.60
+## BSI_PhobicAnxiety    20 1936 2.33 0.58   2.40    2.31 0.59 1.00 5.00  4.00
+## BSI_ParanoidId       21 1936 2.55 0.62   2.60    2.53 0.59 1.00 5.00  4.00
+## BSI_Psychotiscism    22 1936 2.66 0.60   2.60    2.65 0.59 1.00 4.75  3.75
+## GSI                  23 1936 2.62 0.26   2.58    2.60 0.25 1.98 3.62  1.64
+##                     skew kurtosis   se
+## MOGQ_Social         0.05    -0.36 0.02
+## MOGQ_Escape         0.00    -0.36 0.02
+## MOGQ_Competition    0.01    -0.30 0.02
+## MOGQ_Coping         0.01    -0.31 0.02
+## MOGQ_SkillDev       0.00    -0.42 0.02
+## MOGQ_Fantasy       -0.06    -0.28 0.02
+## MOGQ_Recreation     0.02    -0.47 0.02
+## POGQ_Preoccupation  0.16    -0.49 0.02
+## POGQ_Immersion     -0.02    -0.40 0.02
+## POGQ_Withdrawal     0.44     0.24 0.02
+## POGQ_Overuse       -0.04    -0.56 0.02
+## POGQ_IntConflicts  -0.06    -0.65 0.02
+## POGQ_SocIsolation  -0.02    -0.32 0.02
+## BSI_Somatization    0.01     0.02 0.01
+## BSI_ObsComp         0.08    -0.11 0.01
+## BSI_IntpersSens     0.12    -0.23 0.02
+## BSI_Depression      0.85     0.66 0.02
+## BSI_Anxiety         0.15    -0.07 0.01
+## BSI_Hostility       0.67     0.60 0.01
+## BSI_PhobicAnxiety   0.43     0.50 0.01
+## BSI_ParanoidId      0.37     0.40 0.01
+## BSI_Psychotiscism   0.10    -0.18 0.01
+## GSI                 0.66     0.58 0.01
+## -------------------------------------------------------- 
+## Heavy_use: more than 4 h/day
+## Problematic: disordered
+##                    vars   n mean   sd median trimmed  mad  min  max range
+## MOGQ_Social           1 707 3.03 0.71   3.00    3.03 0.74 1.25 5.00  3.75
+## MOGQ_Escape           2 707 3.00 0.71   3.00    3.01 0.74 1.00 5.00  4.00
+## MOGQ_Competition      3 707 2.99 0.69   3.00    2.99 0.74 1.25 4.75  3.50
+## MOGQ_Coping           4 707 3.02 0.70   3.00    3.03 0.74 1.00 4.75  3.75
+## MOGQ_SkillDev         5 707 3.01 0.70   3.00    3.01 0.74 1.00 5.00  4.00
+## MOGQ_Fantasy          6 707 2.94 0.69   3.00    2.93 0.74 1.00 4.75  3.75
+## MOGQ_Recreation       7 707 2.97 0.86   3.00    2.97 0.99 1.00 5.00  4.00
+## POGQ_Preoccupation    8 707 2.92 0.92   3.00    2.92 0.74 1.00 5.00  4.00
+## POGQ_Immersion        9 707 3.03 0.70   3.00    3.04 0.74 1.00 5.00  4.00
+## POGQ_Withdrawal      10 707 2.49 0.72   2.50    2.47 0.74 1.00 4.75  3.75
+## POGQ_Overuse         11 707 3.03 0.81   3.00    3.03 0.99 1.00 5.00  4.00
+## POGQ_IntConflicts    12 707 3.01 0.99   3.00    3.01 0.74 1.00 5.00  4.00
+## POGQ_SocIsolation    13 707 3.02 0.81   3.00    3.01 0.99 1.00 5.00  4.00
+## BSI_Somatization     14 707 3.01 0.54   3.00    3.01 0.64 1.29 4.57  3.29
+## BSI_ObsComp          15 707 2.86 0.58   2.83    2.86 0.49 1.33 5.00  3.67
+## BSI_IntpersSens      16 707 2.73 0.66   2.75    2.72 0.74 1.00 4.75  3.75
+## BSI_Depression       17 707 2.43 0.82   2.33    2.36 0.74 1.00 5.00  4.00
+## BSI_Anxiety          18 707 2.79 0.55   2.83    2.78 0.49 1.33 4.67  3.33
+## BSI_Hostility        19 707 2.33 0.70   2.20    2.28 0.59 1.00 4.50  3.50
+## BSI_PhobicAnxiety    20 707 2.38 0.60   2.40    2.35 0.59 1.00 5.00  4.00
+## BSI_ParanoidId       21 707 2.64 0.68   2.60    2.62 0.59 1.00 4.67  3.67
+## BSI_Psychotiscism    22 707 2.70 0.59   2.60    2.69 0.59 1.00 4.75  3.75
+## GSI                  23 707 2.67 0.29   2.64    2.65 0.28 1.98 3.59  1.61
+##                     skew kurtosis   se
+## MOGQ_Social        -0.07    -0.38 0.03
+## MOGQ_Escape        -0.05    -0.24 0.03
+## MOGQ_Competition    0.12    -0.27 0.03
+## MOGQ_Coping        -0.09    -0.45 0.03
+## MOGQ_SkillDev       0.01     0.01 0.03
+## MOGQ_Fantasy        0.04    -0.35 0.03
+## MOGQ_Recreation     0.02    -0.48 0.03
+## POGQ_Preoccupation  0.03    -0.67 0.03
+## POGQ_Immersion     -0.01    -0.39 0.03
+## POGQ_Withdrawal     0.33    -0.18 0.03
+## POGQ_Overuse        0.07    -0.43 0.03
+## POGQ_IntConflicts   0.02    -0.68 0.04
+## POGQ_SocIsolation   0.08    -0.46 0.03
+## BSI_Somatization   -0.08    -0.28 0.02
+## BSI_ObsComp         0.07     0.04 0.02
+## BSI_IntpersSens     0.18    -0.27 0.02
+## BSI_Depression      0.66    -0.09 0.03
+## BSI_Anxiety         0.09    -0.25 0.02
+## BSI_Hostility       0.66     0.33 0.03
+## BSI_PhobicAnxiety   0.51     0.51 0.02
+## BSI_ParanoidId      0.18    -0.18 0.03
+## BSI_Psychotiscism   0.10     0.06 0.02
+## GSI                 0.51     0.03 0.01
+</code></pre><p>A v&#xE1;ltoz&#xF3;ink eloszl&#xE1;s&#xE1;t m&#xE9;g k&#xF6;nnyebben ellen&#x151;rizhetn&#xE9;nk &#xE1;br&#xE1;k k&#xE9;sz&#xED;t&#xE9;s&#xE9;vel. Ezt ez&#xFA;ttal - k&#xE9;s&#x151;bb kifejtett indok miatt - az elemz&#xE9;si r&#xE9;szben tessz&#xFC;k meg.</p>
+<h2 id="v%C3%A9gs%C5%91-adatt%C3%A1bla-elk%C3%A9sz%C3%ADt%C3%A9se">V&#xE9;gs&#x151; adatt&#xE1;bla elk&#xE9;sz&#xED;t&#xE9;se</h2>
+<p>N&#xE9;h&#xE1;ny l&#xE9;p&#xE9;s m&#xE9;g mindig hi&#xE1;nyzik. Az elemz&#xE9;seinkhez sz&#xFC;ks&#xE9;g lesz a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;kra is, illetve el&#x151;ny&#xF6;s lehet megtartani a szem&#xE9;lyi azonos&#xED;t&#xF3;kat is (&apos;Sorsz&#xE1;m&apos; v&#xE1;ltoz&#xF3;), ezeket viszont a <code>skalapontok</code> objektum nem tartalmazza. Nem kell k&#xE9;ts&#xE9;gbe esni, a rendelkez&#xE9;sre &#xE1;ll&#xF3; adatstrukt&#xFA;r&#xE1;kb&#xF3;l a v&#xE9;gs&#x151; adatt&#xE1;bla a <a href="../sec3_basics/combine_objects.html">tanult</a> m&#x171;velettel l&#xE9;trehozhat&#xF3;:</p>
+<pre><code class="lang-r">final_dat &lt;- data.frame(skalapontok, 
+                        dat[, c(<span class="hljs-string">&quot;Sorszam&quot;</span>, <span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>)])
+</code></pre>
+<p>D&#xF6;nt&#xE9;st kell hoznunk arr&#xF3;l is, hogy mi legyen a hi&#xE1;nyz&#xF3; &#xE9;rt&#xE9;kekkel rendelkez&#x151; szem&#xE9;lyeinkkel. Az egyik megold&#xE1;s az lenne, ha valamilyen m&#xF3;dszerrel imput&#xE1;ln&#xE1;nk (&quot;p&#xF3;toln&#xE1;nk&quot;) a hi&#xE1;nyz&#xF3; adatokat. A m&#xE1;sik megold&#xE1;s az, hogy a hi&#xE1;nyz&#xF3; &#xE9;rt&#xE9;kkel rendelkez&#x151; sorokat egyszer&#x171;en kihagyjuk az elemz&#xE9;sb&#x151;l. Most az ut&#xF3;bbi megold&#xE1;st v&#xE1;lasztjuk:</p>
+<pre><code class="lang-r">final_dat &lt;- na.omit(final_dat)
+</code></pre>
+<p>(Az <code>na.omit()</code> f&#xFC;ggv&#xE9;ny nemcsak kihagyja a hi&#xE1;nyz&#xF3; &#xE9;rt&#xE9;kkel rendelkez&#x151; sorokat, hanem egy k&#xFC;l&#xF6;n attrib&#xFA;tumban [l&#xE1;sd <code>attr(final_dat, &quot;na.action&quot;)</code>] elt&#xE1;rolja a kihagyott sorok sorsz&#xE1;m&#xE1;t is.)</p>
+<p>Ne feledj&#xFC;k, az elemz&#xE9;seket a standardiz&#xE1;lt sk&#xE1;lapontsz&#xE1;mokon kell majd v&#xE9;gezn&#xFC;nk. A standardiz&#xE1;l&#xE1;s nagyon egyszer&#x171;en elv&#xE9;gezhet&#x151; a <code>scale()</code> f&#xFC;ggv&#xE9;nnyel:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># standardiz&#xE1;land&#xF3; v&#xE1;ltoz&#xF3;k:</span>
+skala_nevek &lt;- colnames(skalapontok)
+final_dat[, skala_nevek] &lt;- scale(final_dat[, skala_nevek])
+</code></pre>
+<p>Innent&#x151;l t&#xE9;nyleg nem marad m&#xE1;s h&#xE1;tra, mint elmenteni a v&#xE9;gs&#x151; adatt&#xE1;bl&#xE1;nkat, majd hozz&#xE1;kezdeni az adatok elemz&#xE9;s&#xE9;hez. </p>
+<pre><code class="lang-r"><span class="hljs-comment"># adattable mentese</span>
+saveRDS(final_dat, 
+        file = file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;prepared_data.rds&quot;</span>))
+</code></pre>
+<h2 id="a-teljes-szkript">A teljes szkript</h2>
+<p>A k&#xF6;nnyebb futtathat&#xF3;s&#xE1;g v&#xE9;gett k&#xF6;z&#xF6;lj&#xFC;k a v&#xE9;gleges el&#x151;k&#xE9;sz&#xED;t&#x151; szkriptet (csak a t&#xE9;nyleges &#xE1;talak&#xED;t&#xE1;sokat v&#xE9;gz&#x151; l&#xE9;p&#xE9;sekkel):</p>
+<pre><code class="lang-r"><span class="hljs-comment"># beolvas&#xE1;s</span>
+<span class="hljs-keyword">library</span>(foreign)
+dat &lt;- read.spss(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;gaming_random.sav&quot;</span>),
+                 to.data.frame = <span class="hljs-literal">TRUE</span>)
+
+<span class="hljs-comment"># integer-r&#xE9; alak&#xED;t&#xE1;s</span>
+likert_valtozok &lt;- grep(<span class="hljs-string">&quot;MOGQ|POGQ|BSI&quot;</span>, 
+                        colnames(dat), 
+                        value = <span class="hljs-literal">TRUE</span>)
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> likert_valtozok) {
+    dat[, i] &lt;- as.integer(dat[, i])
+}
+
+<span class="hljs-comment"># sk&#xE1;ladefin&#xED;ci&#xF3;k</span>
+skala_definiciok &lt;- list(
+    MOGQ_Social = c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>),
+    MOGQ_Escape = c(<span class="hljs-string">&quot;MOGQ2&quot;</span>, <span class="hljs-string">&quot;MOGQ9&quot;</span>, <span class="hljs-string">&quot;MOGQ16&quot;</span>, <span class="hljs-string">&quot;MOGQ23&quot;</span>),
+    MOGQ_Competition = c(<span class="hljs-string">&quot;MOGQ3&quot;</span>, <span class="hljs-string">&quot;MOGQ10&quot;</span>, <span class="hljs-string">&quot;MOGQ17&quot;</span>, <span class="hljs-string">&quot;MOGQ24&quot;</span>),
+    MOGQ_Coping = c(<span class="hljs-string">&quot;MOGQ4&quot;</span>, <span class="hljs-string">&quot;MOGQ11&quot;</span>, <span class="hljs-string">&quot;MOGQ18&quot;</span>, <span class="hljs-string">&quot;MOGQ25&quot;</span>),
+    MOGQ_SkillDev = c(<span class="hljs-string">&quot;MOGQ5&quot;</span>, <span class="hljs-string">&quot;MOGQ12&quot;</span>, <span class="hljs-string">&quot;MOGQ19&quot;</span>, <span class="hljs-string">&quot;MOGQ26&quot;</span>),
+    MOGQ_Fantasy = c(<span class="hljs-string">&quot;MOGQ6&quot;</span>, <span class="hljs-string">&quot;MOGQ13&quot;</span>, <span class="hljs-string">&quot;MOGQ20&quot;</span>, <span class="hljs-string">&quot;MOGQ27&quot;</span>),
+    MOGQ_Recreation = c(<span class="hljs-string">&quot;MOGQ7&quot;</span>, <span class="hljs-string">&quot;MOGQ14&quot;</span>, <span class="hljs-string">&quot;MOGQ21&quot;</span>),
+    POGQ_Preoccupation = c(<span class="hljs-string">&quot;POGQ1&quot;</span>, <span class="hljs-string">&quot;POGQ7&quot;</span>),
+    POGQ_Immersion = c(<span class="hljs-string">&quot;POGQ2&quot;</span>, <span class="hljs-string">&quot;POGQ8&quot;</span>, <span class="hljs-string">&quot;POGQ13&quot;</span>, <span class="hljs-string">&quot;POGQ17&quot;</span>),
+    POGQ_Withdrawal = c(<span class="hljs-string">&quot;POGQ3&quot;</span>, <span class="hljs-string">&quot;POGQ9&quot;</span>, <span class="hljs-string">&quot;POGQ14&quot;</span>, <span class="hljs-string">&quot;POGQ18&quot;</span>),
+    POGQ_Overuse = c(<span class="hljs-string">&quot;POGQ4&quot;</span>, <span class="hljs-string">&quot;POGQ10&quot;</span>, <span class="hljs-string">&quot;POGQ15&quot;</span>),
+    POGQ_IntConflicts = c(<span class="hljs-string">&quot;POGQ5&quot;</span>, <span class="hljs-string">&quot;POGQ11&quot;</span>),
+    POGQ_SocIsolation = c(<span class="hljs-string">&quot;POGQ6&quot;</span>, <span class="hljs-string">&quot;POGQ12&quot;</span>, <span class="hljs-string">&quot;POGQ16&quot;</span>),
+    BSI_Somatization = c(<span class="hljs-string">&quot;BSI2&quot;</span>, <span class="hljs-string">&quot;BSI7&quot;</span>, <span class="hljs-string">&quot;BSI23&quot;</span>, <span class="hljs-string">&quot;BSI29&quot;</span>, <span class="hljs-string">&quot;BSI30&quot;</span>, <span class="hljs-string">&quot;BSI33&quot;</span>, <span class="hljs-string">&quot;BSI37&quot;</span>),
+    BSI_ObsComp = c(<span class="hljs-string">&quot;BSI5&quot;</span>, <span class="hljs-string">&quot;BSI15&quot;</span>, <span class="hljs-string">&quot;BSI26&quot;</span>, <span class="hljs-string">&quot;BSI27&quot;</span>, <span class="hljs-string">&quot;BSI32&quot;</span>, <span class="hljs-string">&quot;BSI36&quot;</span>),
+    BSI_IntpersSens = c(<span class="hljs-string">&quot;BSI20&quot;</span>, <span class="hljs-string">&quot;BSI21&quot;</span>, <span class="hljs-string">&quot;BSI22&quot;</span>, <span class="hljs-string">&quot;BSI42&quot;</span>),
+    BSI_Depression = c(<span class="hljs-string">&quot;BSI9&quot;</span>, <span class="hljs-string">&quot;BSI16&quot;</span>, <span class="hljs-string">&quot;BSI17&quot;</span>, <span class="hljs-string">&quot;BSI18&quot;</span>, <span class="hljs-string">&quot;BSI35&quot;</span>, <span class="hljs-string">&quot;BSI50&quot;</span>),
+    BSI_Anxiety = c(<span class="hljs-string">&quot;BSI1&quot;</span>, <span class="hljs-string">&quot;BSI12&quot;</span>, <span class="hljs-string">&quot;BSI19&quot;</span>, <span class="hljs-string">&quot;BSI38&quot;</span>, <span class="hljs-string">&quot;BSI45&quot;</span>, <span class="hljs-string">&quot;BSI49&quot;</span>),
+    BSI_Hostility = c(<span class="hljs-string">&quot;BSI6&quot;</span>, <span class="hljs-string">&quot;BSI13&quot;</span>, <span class="hljs-string">&quot;BSI40&quot;</span>, <span class="hljs-string">&quot;BSI41&quot;</span>, <span class="hljs-string">&quot;BSI46&quot;</span>),
+    BSI_PhobicAnxiety = c(<span class="hljs-string">&quot;BSI8&quot;</span>, <span class="hljs-string">&quot;BSI28&quot;</span>, <span class="hljs-string">&quot;BSI31&quot;</span>, <span class="hljs-string">&quot;BSI43&quot;</span>, <span class="hljs-string">&quot;BSI47&quot;</span>),
+    BSI_ParanoidId = c(<span class="hljs-string">&quot;BSI4&quot;</span>, <span class="hljs-string">&quot;BSI10&quot;</span>, <span class="hljs-string">&quot;BSI24&quot;</span>, <span class="hljs-string">&quot;BSI48&quot;</span>, <span class="hljs-string">&quot;BSI51&quot;</span>),
+    BSI_Psychotiscism = c(<span class="hljs-string">&quot;BSI3&quot;</span>, <span class="hljs-string">&quot;BSI14&quot;</span>, <span class="hljs-string">&quot;BSI34&quot;</span>, <span class="hljs-string">&quot;BSI44&quot;</span>, <span class="hljs-string">&quot;BSI53&quot;</span>),
+    GSI = c(<span class="hljs-string">&quot;BSI1&quot;</span>, <span class="hljs-string">&quot;BSI2&quot;</span>, <span class="hljs-string">&quot;BSI3&quot;</span>, <span class="hljs-string">&quot;BSI4&quot;</span>, <span class="hljs-string">&quot;BSI5&quot;</span>, <span class="hljs-string">&quot;BSI6&quot;</span>, <span class="hljs-string">&quot;BSI7&quot;</span>, <span class="hljs-string">&quot;BSI8&quot;</span>, <span class="hljs-string">&quot;BSI9&quot;</span>, <span class="hljs-string">&quot;BSI10&quot;</span>, <span class="hljs-string">&quot;BSI11&quot;</span>, <span class="hljs-string">&quot;BSI12&quot;</span>, <span class="hljs-string">&quot;BSI13&quot;</span>, <span class="hljs-string">&quot;BSI14&quot;</span>, <span class="hljs-string">&quot;BSI15&quot;</span>, <span class="hljs-string">&quot;BSI16&quot;</span>, <span class="hljs-string">&quot;BSI17&quot;</span>, <span class="hljs-string">&quot;BSI18&quot;</span>, <span class="hljs-string">&quot;BSI19&quot;</span>, <span class="hljs-string">&quot;BSI20&quot;</span>, <span class="hljs-string">&quot;BSI21&quot;</span>, <span class="hljs-string">&quot;BSI22&quot;</span>, <span class="hljs-string">&quot;BSI23&quot;</span>, <span class="hljs-string">&quot;BSI24&quot;</span>, <span class="hljs-string">&quot;BSI25&quot;</span>, <span class="hljs-string">&quot;BSI26&quot;</span>, <span class="hljs-string">&quot;BSI27&quot;</span>, <span class="hljs-string">&quot;BSI28&quot;</span>, <span class="hljs-string">&quot;BSI29&quot;</span>, <span class="hljs-string">&quot;BSI30&quot;</span>, <span class="hljs-string">&quot;BSI31&quot;</span>, <span class="hljs-string">&quot;BSI32&quot;</span>, <span class="hljs-string">&quot;BSI33&quot;</span>, <span class="hljs-string">&quot;BSI34&quot;</span>, <span class="hljs-string">&quot;BSI35&quot;</span>, <span class="hljs-string">&quot;BSI36&quot;</span>, <span class="hljs-string">&quot;BSI37&quot;</span>, <span class="hljs-string">&quot;BSI38&quot;</span>, <span class="hljs-string">&quot;BSI39&quot;</span>, <span class="hljs-string">&quot;BSI40&quot;</span>, <span class="hljs-string">&quot;BSI41&quot;</span>, <span class="hljs-string">&quot;BSI42&quot;</span>, <span class="hljs-string">&quot;BSI43&quot;</span>, <span class="hljs-string">&quot;BSI44&quot;</span>, <span class="hljs-string">&quot;BSI45&quot;</span>, <span class="hljs-string">&quot;BSI46&quot;</span>, <span class="hljs-string">&quot;BSI47&quot;</span>, <span class="hljs-string">&quot;BSI48&quot;</span>, <span class="hljs-string">&quot;BSI49&quot;</span>, <span class="hljs-string">&quot;BSI50&quot;</span>, <span class="hljs-string">&quot;BSI51&quot;</span>, <span class="hljs-string">&quot;BSI52&quot;</span>, <span class="hljs-string">&quot;BSI53&quot;</span>)
+)
+
+<span class="hljs-comment"># sk&#xE1;lapontsz&#xE1;mok sz&#xE1;m&#xED;t&#xE1;sa</span>
+skalapontok &lt;- lapply(skala_definiciok, 
+                      <span class="hljs-keyword">function</span>(itemek) {
+                          rowMeans(dat[, itemek],
+                                   na.rm = <span class="hljs-literal">TRUE</span>)
+                          }
+                      )
+skalapontok &lt;- as.data.frame(skalapontok)
+
+<span class="hljs-comment"># v&#xE9;gs&#x151; adatt&#xE1;bla</span>
+final_dat &lt;- data.frame(skalapontok, 
+                        dat[, c(<span class="hljs-string">&quot;Sorszam&quot;</span>, <span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>)])
+final_dat &lt;- na.omit(final_dat)
+skala_nevek &lt;- colnames(skalapontok)
+final_dat[, skala_nevek] &lt;- scale(final_dat[, skala_nevek])
+
+<span class="hljs-comment"># ment&#xE9;s</span>
+saveRDS(final_dat, 
+        file = file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;prepared_data.rds&quot;</span>))
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../sec11_program/index.html" class="navigation navigation-prev " aria-label="Previous page: R programozás - esettanulmány"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../sec11_program/analyze.html" class="navigation navigation-next " aria-label="Next page: Elemzés"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

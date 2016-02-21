@@ -1,0 +1,1413 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Modellépítés / modellszelekció | Bevezetés az R statisztikai programnyelv használatába</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../sec10_fa/index.html" />
+    
+    
+    <link rel="prev" href="../sec9_mixed/szintaxis.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="9.6" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="sec1_intro/index.html">
+            
+                
+                    <a href="../sec1_intro/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bevezető
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="sec1_intro/history.html">
+            
+                
+                    <a href="../sec1_intro/history.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Az R története
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sec1_intro/features.html">
+            
+                
+                    <a href="../sec1_intro/features.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Az R főbb jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sec1_intro/install.html">
+            
+                
+                    <a href="../sec1_intro/install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Az R és az RStudio IDE telepítése
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sec2_help/index.html">
+            
+                
+                    <a href="../sec2_help/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Hogyan segítsünk magunkon?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="sec2_help/google.html">
+            
+                
+                    <a href="../sec2_help/google.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Hogyan keressünk?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="sec2_help/console.html">
+            
+                
+                    <a href="../sec2_help/console.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Segítség a konzolból
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="sec2_help/rhelp.html">
+            
+                
+                    <a href="../sec2_help/rhelp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Segítség másoktól
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="sec2_help/resources.html">
+            
+                
+                    <a href="../sec2_help/resources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Egyéb internetes források
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="sec3_basics/index.html">
+            
+                
+                    <a href="../sec3_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Alapok (objektumok létrehozása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="sec3_basics/assignment.html">
+            
+                
+                    <a href="../sec3_basics/assignment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        R objektumok létrehozása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sec3_basics/base_objects.html">
+            
+                
+                    <a href="../sec3_basics/base_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Az R alapobjektumai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="sec3_basics/objects.html">
+            
+                
+                    <a href="../sec3_basics/objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Az R objektum-osztályai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="sec3_basics/structure.html">
+            
+                
+                    <a href="../sec3_basics/structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Objektumok megtekintése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="sec3_basics/transform.html">
+            
+                
+                    <a href="../sec3_basics/transform.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Objektumosztályok közötti váltás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="sec3_basics/combine_objects.html">
+            
+                
+                    <a href="../sec3_basics/combine_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Objektumok kombinálása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sec4_basics/index.html">
+            
+                
+                    <a href="../sec4_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Alapok (objektumok indexálása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="sec4_basics/indexing.html">
+            
+                
+                    <a href="../sec4_basics/indexing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Objektumok elemeinek elérése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="sec4_basics/modify.html">
+            
+                
+                    <a href="../sec4_basics/modify.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Objektumok elemeinek módosítása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="sec4_basics/operators.html">
+            
+                
+                    <a href="../sec4_basics/operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Operátorok
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="sec4_basics/syntax.html">
+            
+                
+                    <a href="../sec4_basics/syntax.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Az R szintaxisának jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="sec5_import/index.html">
+            
+                
+                    <a href="../sec5_import/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Adatok beolvasása/kiírása
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="sec5_import/wd.html">
+            
+                
+                    <a href="../sec5_import/wd.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Munkakönyvtár, fájlműveletek
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="sec5_import/text.html">
+            
+                
+                    <a href="../sec5_import/text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Szövegfájlok beolvasása és kiírása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="sec5_import/spss.html">
+            
+                
+                    <a href="../sec5_import/spss.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        SPSS és Excel fájl beolvasása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="sec5_import/serialize.html">
+            
+                
+                    <a href="../sec5_import/serialize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        R objektumok (de)szerializációja
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="sec6_process/index.html">
+            
+                
+                    <a href="../sec6_process/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Adatfeldolgozás
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="sec6_process/filter_select.html">
+            
+                
+                    <a href="../sec6_process/filter_select.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Szűrés és összegzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="sec6_process/split_merge.html">
+            
+                
+                    <a href="../sec6_process/split_merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Darabolás és egyesítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="sec6_process/reshape.html">
+            
+                
+                    <a href="../sec6_process/reshape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Átstrukturálás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="sec6_process/convert.html">
+            
+                
+                    <a href="../sec6_process/convert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Változók átalakítása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="sec7_plotting/index.html">
+            
+                
+                    <a href="../sec7_plotting/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Vizualizáció
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="sec7_plotting/base.html">
+            
+                
+                    <a href="../sec7_plotting/base.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Base graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="sec7_plotting/lattice.html">
+            
+                
+                    <a href="../sec7_plotting/lattice.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        lattice
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="sec7_plotting/ggplot.html">
+            
+                
+                    <a href="../sec7_plotting/ggplot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        ggplot2
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="sec7_plotting/interactive.html">
+            
+                
+                    <a href="../sec7_plotting/interactive.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        Interaktív vizualizáció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="sec8_regr/index.html">
+            
+                
+                    <a href="../sec8_regr/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        ANOVA és regressziós modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="sec8_regr/descr.html">
+            
+                
+                    <a href="../sec8_regr/descr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Leíró statisztikák
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="sec8_regr/model.html">
+            
+                
+                    <a href="../sec8_regr/model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Modellépítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="sec8_regr/checkmodel.html">
+            
+                
+                    <a href="../sec8_regr/checkmodel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Ellenőrzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="sec8_regr/ez.html">
+            
+                
+                    <a href="../sec8_regr/ez.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        ANOVA: Az &#39;ez&#39; csomag
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="sec9_mixed/index.html">
+            
+                
+                    <a href="../sec9_mixed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Kevert-hatás modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="sec9_mixed/alapok.html">
+            
+                
+                    <a href="../sec9_mixed/alapok.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Elméleti bevezető
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="sec9_mixed/irodalom.html">
+            
+                
+                    <a href="../sec9_mixed/irodalom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Források
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="sec9_mixed/pelda.html">
+            
+                
+                    <a href="../sec9_mixed/pelda.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Példa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="sec9_mixed/exploralas.html">
+            
+                
+                    <a href="../sec9_mixed/exploralas.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Adatexploráció, ábrázolás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="sec9_mixed/szintaxis.html">
+            
+                
+                    <a href="../sec9_mixed/szintaxis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        Az lme4 csomag szintaxisa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="9.6" data-path="sec9_mixed/modellepites.html">
+            
+                
+                    <a href="../sec9_mixed/modellepites.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                        Modellépítés / modellszelekció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="sec10_fa/index.html">
+            
+                
+                    <a href="../sec10_fa/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Faktoranalízis
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="sec10_fa/pelda_efa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_efa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Exploratív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="sec10_fa/pelda_cfa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_cfa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Konfirmatív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="sec11_program/index.html">
+            
+                
+                    <a href="../sec11_program/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        R programozás - esettanulmány
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="sec11_program/prepare.html">
+            
+                
+                    <a href="../sec11_program/prepare.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Előkészítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="sec11_program/analyze.html">
+            
+                
+                    <a href="../sec11_program/analyze.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        Elemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Bevezetés az R statisztikai programnyelv használatába</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="modell%C3%A9p%C3%ADt%C3%A9s-modellszelekci%C3%B3">Modell&#xE9;p&#xED;t&#xE9;s / modellszelekci&#xF3;</h1>
+<ul>
+<li>optim&#xE1;lis eset: elm&#xE9;letvez&#xE9;relt modell&#xE9;p&#xED;t&#xE9;s</li>
+<li>gyakoribb eset: adatvez&#xE9;relt modell&#xE9;p&#xED;t&#xE9;s</li>
+<li>d&#xF6;nt&#xE9;si pontok: fix hat&#xE1;sok &#xE9;s random hat&#xE1;sok, random hat&#xE1;son bel&#xFC;l random konstans &#xE9;s random slope -&gt; kev&#xE9;s v&#xE1;ltoz&#xF3; eset&#xE9;n is nagyon komplex lehet!</li>
+</ul>
+<h3 id="javaslatok">Javaslatok</h3>
+<ul>
+<li>ink&#xE1;bb haladjunk a b&#x151;vebb modell fel&#x151;l</li>
+<li>el&#x151;sz&#xF6;r random hat&#xE1;sok, ut&#xE1;na fix hat&#xE1;sok tesztel&#xE9;se</li>
+<li>a random hat&#xE1;sokn&#xE1;l &#xE9;rdemes a maxim&#xE1;lis strukt&#xFA;r&#xE1;t megtartani (felt&#xE9;ve, hogy konverg&#xE1;l) </li>
+<li>a random hat&#xE1;sokat REML, a fix hat&#xE1;sokat ML becsl&#xE9;ssel tesztelj&#xFC;k (a v&#xE9;gs&#x151; modell param&#xE9;tereit REML becsl&#xE9;ssel sz&#xE1;moljuk)</li>
+<li>a modellszelekci&#xF3; t&#xF6;rt&#xE9;nhet likelihoodar&#xE1;ny-teszttel vagy pl. AIC-&#xE9;rt&#xE9;kek &#xF6;sszevet&#xE9;s&#xE9;vel</li>
+<li>ha k&#xE9;t fix hat&#xE1;s interakci&#xF3;ja szerepel a modellben, akkor mindig vegy&#xFC;k be a f&#x151;hat&#xE1;sokat is, illetve szerepeltess&#xFC;k az interakci&#xF3;t a random strukt&#xFA;r&#xE1;ban is</li>
+</ul>
+<h3 id="p%C3%A9lda">P&#xE9;lda</h3>
+<h4 id="egy-lehets%C3%A9ges-indul%C3%B3-modell">Egy lehets&#xE9;ges indul&#xF3; modell</h4>
+<ul>
+<li>modellezz&#xFC;k a v&#xE1;laszid&#x151;t (RT) a pr&#xF3;ba sorsz&#xE1;ma (scTrial) &#xE9;s a szem&#xE9;ly anyanyelve, illetve a sz&#xF3; szemantikai kateg&#xF3;ri&#xE1;ja alapj&#xE1;n </li>
+</ul>
+<pre><code class="lang-r">( model_full &lt;- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                         (<span class="hljs-number">1</span> + scTrial | Subject) + 
+                         (<span class="hljs-number">1</span> | Page) + (<span class="hljs-number">1</span> | Word), 
+                     data = lexdec_corr) )
+</code></pre>
+<pre><code>## Linear mixed model fit by REML [&apos;lmerMod&apos;]
+## Formula: 
+## scRT ~ scTrial + NativeLanguage * Class + (1 + scTrial | Subject) +  
+##     (1 | Page) + (1 | Word)
+##    Data: lexdec_corr
+## REML criterion at convergence: 2241.777
+## Random effects:
+##  Groups   Name        Std.Dev. Corr 
+##  Word     (Intercept) 0.21336       
+##  Subject  (Intercept) 0.34583       
+##           scTrial     0.08236  -0.40
+##  Page     (Intercept) 0.81001       
+##  Residual             0.44491       
+## Number of obs: 1594, groups:  Word, 79; Subject, 21; Page, 10
+## Fixed Effects:
+##            (Intercept)                 scTrial         NativeLanguage1  
+##               0.040898               -0.025103               -0.216326  
+##                 Class1  NativeLanguage1:Class1  
+##               0.006458               -0.027721
+</code></pre><ul>
+<li><p>&#xF6;r&#xF6;k FAQ: mi&#xE9;rt nem sz&#xE1;mol az lmer p-&#xE9;rt&#xE9;keket?: <a href="https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html" target="_blank">ez&#xE9;rt</a></p>
+</li>
+<li><p>az lmer outputja a regresszi&#xF3;s modellek outputj&#xE1;nak form&#xE1;tum&#xE1;t k&#xF6;veti; mit tegy&#xFC;nk, ha mi ANOVA-st&#xED;lus&#xFA; t&#xE1;bl&#xE1;zatot szeretn&#xE9;nk?</p>
+</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(car)
+</code></pre>
+<pre><code>## 
+## Attaching package: &apos;car&apos;
+</code></pre><pre><code>## The following object is masked from &apos;package:psych&apos;:
+## 
+##     logit
+</code></pre><pre><code class="lang-r">Anova(model_full)
+</code></pre>
+<pre><code>## Analysis of Deviance Table (Type II Wald chisquare tests)
+## 
+## Response: scRT
+##                       Chisq Df Pr(&gt;Chisq)   
+## scTrial              1.3918  1    0.23811   
+## NativeLanguage       9.0338  1    0.00265 **
+## Class                0.0056  1    0.94042   
+## NativeLanguage:Class 5.9135  1    0.01503 * 
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><pre><code class="lang-r">Anova(model_full, test.statistic = <span class="hljs-string">&quot;F&quot;</span>)
+</code></pre>
+<pre><code>## Note: method with signature &apos;sparseMatrix#ANY&apos; chosen for function &apos;kronecker&apos;,
+##  target signature &apos;dgCMatrix#ngCMatrix&apos;.
+##  &quot;ANY#sparseMatrix&quot; would also be valid
+</code></pre><pre><code>## Analysis of Deviance Table (Type II Wald F tests with Kenward-Roger df)
+## 
+## Response: scRT
+##                           F Df  Df.res   Pr(&gt;F)   
+## scTrial              1.3914  1   25.61 0.249014   
+## NativeLanguage       8.6147  1   24.93 0.007066 **
+## Class                0.0056  1   68.74 0.940687   
+## NativeLanguage:Class 5.9097  1 1482.68 0.015176 * 
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># az SPSS &#xE9;s SAS a Type III felbont&#xE1;st r&#xE9;szes&#xED;tik el&#x151;nyben</span>
+Anova(model_full, type = <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code>## Analysis of Deviance Table (Type III Wald chisquare tests)
+## 
+## Response: scRT
+##                       Chisq Df Pr(&gt;Chisq)   
+## (Intercept)          0.0232  1   0.878967   
+## scTrial              1.3918  1   0.238109   
+## NativeLanguage       8.8816  1   0.002881 **
+## Class                0.0490  1   0.824884   
+## NativeLanguage:Class 5.9135  1   0.015025 * 
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><ul>
+<li>egy&#xE9;b csomagok p-&#xE9;rt&#xE9;kek korrekt kinyer&#xE9;s&#xE9;re: <a href="https://cran.r-project.org/web/packages/afex/index.html" target="_blank">afex</a>, <a href="https://cran.r-project.org/web/packages/lmerTest/index.html" target="_blank">lmerTest</a></li>
+</ul>
+<h4 id="random-hat%C3%A1sok-tesztel%C3%A9se">Random hat&#xE1;sok tesztel&#xE9;se</h4>
+<ul>
+<li>els&#x151;sorban akkor sz&#xFC;ks&#xE9;ges, ha t&#xFA;l komplex az indul&#xF3; modell, &#xE9;s/vagy sz&#xE9;ls&#x151;s&#xE9;ges &#xE9;rt&#xE9;kek szerepelnek a varianca-kovariancia m&#xE1;trixban (pl. 1 vagy -1 k&#xF6;zeli korrel&#xE1;ci&#xF3; &#xE9;s/vagy 0 sz&#xF3;r&#xE1;s)</li>
+<li>az <code>anova.merMod</code> f&#xFC;ggv&#xE9;ny haszn&#xE1;lhat&#xF3;, de val&#xF3;sz&#xED;n&#x171;leg t&#xFA;l konzervat&#xED;v (sz&#xE9;ls&#x151;s&#xE9;ges esetben ak&#xE1;r 2-szerese a p-&#xE9;rt&#xE9;k a val&#xF3;snak)</li>
+<li>haszn&#xE1;lhatjuk az AIC (vagy BIC) krit&#xE9;riumot is</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-comment"># modellek illeszt&#xE9;se</span>
+( model_r1 &lt;- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (<span class="hljs-number">1</span> | Subject) + (<span class="hljs-number">0</span> + scTrial | Subject) + 
+                       (<span class="hljs-number">1</span> | Page ) + (<span class="hljs-number">1</span> | Word), 
+                   data = lexdec_corr) )
+</code></pre>
+<pre><code>## Linear mixed model fit by REML [&apos;lmerMod&apos;]
+## Formula: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (0 +  
+##     scTrial | Subject) + (1 | Page) + (1 | Word)
+##    Data: lexdec_corr
+## REML criterion at convergence: 2244.127
+## Random effects:
+##  Groups    Name        Std.Dev.
+##  Word      (Intercept) 0.2131  
+##  Subject   scTrial     0.0822  
+##  Subject.1 (Intercept) 0.3466  
+##  Page      (Intercept) 0.8099  
+##  Residual              0.4449  
+## Number of obs: 1594, groups:  Word, 79; Subject, 21; Page, 10
+## Fixed Effects:
+##            (Intercept)                 scTrial         NativeLanguage1  
+##               0.039000               -0.025158               -0.202039  
+##                 Class1  NativeLanguage1:Class1  
+##               0.006174               -0.027649
+</code></pre><pre><code class="lang-r">( model_r2 &lt;- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (<span class="hljs-number">1</span> | Subject) + (<span class="hljs-number">1</span> | Page ) + (<span class="hljs-number">1</span> | Word), 
+                   data = lexdec_corr) )
+</code></pre>
+<pre><code>## Linear mixed model fit by REML [&apos;lmerMod&apos;]
+## Formula: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (1 |  
+##     Page) + (1 | Word)
+##    Data: lexdec_corr
+## REML criterion at convergence: 2267.476
+## Random effects:
+##  Groups   Name        Std.Dev.
+##  Word     (Intercept) 0.2126  
+##  Subject  (Intercept) 0.3464  
+##  Page     (Intercept) 0.8112  
+##  Residual             0.4521  
+## Number of obs: 1594, groups:  Word, 79; Subject, 21; Page, 10
+## Fixed Effects:
+##            (Intercept)                 scTrial         NativeLanguage1  
+##               0.038255               -0.024362               -0.200384  
+##                 Class1  NativeLanguage1:Class1  
+##               0.006651               -0.029426
+</code></pre><pre><code class="lang-r">( model_r3 &lt;- lmer(scRT ~ scTrial + NativeLanguage*Class + 
+                       (<span class="hljs-number">1</span> | Subject) + (<span class="hljs-number">1</span> | Page ), 
+                   data = lexdec_corr) )
+</code></pre>
+<pre><code>## Linear mixed model fit by REML [&apos;lmerMod&apos;]
+## Formula: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (1 |  
+##     Page)
+##    Data: lexdec_corr
+## REML criterion at convergence: 2417.197
+## Random effects:
+##  Groups   Name        Std.Dev.
+##  Subject  (Intercept) 0.3442  
+##  Page     (Intercept) 0.8144  
+##  Residual             0.4922  
+## Number of obs: 1594, groups:  Subject, 21; Page, 10
+## Fixed Effects:
+##            (Intercept)                 scTrial         NativeLanguage1  
+##               0.030674               -0.022950               -0.196803  
+##                 Class1  NativeLanguage1:Class1  
+##               0.005177               -0.030565
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># modellek &#xF6;sszevet&#xE9;se</span>
+anova(model_r3, model_r2, model_r1, model_full, refit = <span class="hljs-literal">FALSE</span>)
+</code></pre>
+<pre><code>## Data: lexdec_corr
+## Models:
+## model_r3: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (1 | 
+## model_r3:     Page)
+## model_r2: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (1 | 
+## model_r2:     Page) + (1 | Word)
+## model_r1: scRT ~ scTrial + NativeLanguage * Class + (1 | Subject) + (0 + 
+## model_r1:     scTrial | Subject) + (1 | Page) + (1 | Word)
+## model_full: scRT ~ scTrial + NativeLanguage * Class + (1 + scTrial | Subject) + 
+## model_full:     (1 | Page) + (1 | Word)
+##            Df    AIC    BIC  logLik deviance    Chisq Chi Df Pr(&gt;Chisq)
+## model_r3    8 2433.2 2476.2 -1208.6   2417.2                           
+## model_r2    9 2285.5 2333.8 -1133.7   2267.5 149.7210      1  &lt; 2.2e-16
+## model_r1   10 2264.1 2317.9 -1122.1   2244.1  23.3489      1  1.351e-06
+## model_full 11 2263.8 2322.9 -1120.9   2241.8   2.3499      1     0.1253
+##               
+## model_r3      
+## model_r2   ***
+## model_r1   ***
+## model_full    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># AIC</span>
+AIC(model_r3, model_r2, model_r1, model_full)
+</code></pre>
+<pre><code>##            df      AIC
+## model_r3    8 2433.197
+## model_r2    9 2285.476
+## model_r1   10 2264.127
+## model_full 11 2263.777
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># BIC</span>
+BIC(model_r3, model_r2, model_r1, model_full)
+</code></pre>
+<pre><code>##            df      BIC
+## model_r3    8 2476.189
+## model_r2    9 2333.842
+## model_r1   10 2317.867
+## model_full 11 2322.891
+</code></pre><h4 id="random-hat%C3%A1sok-ellen%C5%91rz%C3%A9se">Random hat&#xE1;sok ellen&#x151;rz&#xE9;se</h4>
+<ul>
+<li>BLUP (best linear unbiased predictor) -&gt; Douglas Bates ink&#xE1;bb a &quot;conditional mode of random effects&quot; megfogalmaz&#xE1;st prefer&#xE1;lja</li>
+<li>a legjobb, ha a felt&#xE9;teles variancia-kovariancia m&#xE1;trixot is k&#xE9;rj&#xFC;k, de ez t&#xF6;bbtag&#xFA; random hat&#xE1;sokn&#xE1;l egyel&#x151;re nem m&#x171;k&#xF6;dik</li>
+</ul>
+<pre><code class="lang-r">ranefs &lt;- ranef(model_r1, condVar = <span class="hljs-literal">TRUE</span>)
+</code></pre>
+<pre><code>## Warning in ranef.merMod(model_r1, condVar = TRUE): conditional variances
+## not currently available via ranef when there are multiple terms per factor
+</code></pre><pre><code class="lang-r"><span class="hljs-keyword">library</span>(lattice) <span class="hljs-comment"># az &#xE1;br&#xE1;zol&#xE1;shoz bet&#xF6;ltj&#xFC;k a lattice csomagot</span>
+dotplot(ranefs)
+</code></pre>
+<pre><code>## $Word
+</code></pre><p><img src="figure/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5"></p>
+<pre><code>## 
+## $Subject
+</code></pre><p><img src="figure/unnamed-chunk-5-2.png" alt="plot of chunk unnamed-chunk-5"></p>
+<pre><code>## 
+## $Page
+</code></pre><p><img src="figure/unnamed-chunk-5-3.png" alt="plot of chunk unnamed-chunk-5"></p>
+<pre><code class="lang-r"><span class="hljs-comment"># enn&#xE9;l a modelln&#xE9;l stimmel a dolog</span>
+ranefs_vcov &lt;- ranef(model_r2, condVar = <span class="hljs-literal">TRUE</span>)
+dotplot(ranefs_vcov)
+</code></pre>
+<pre><code>## $Word
+</code></pre><p><img src="figure/unnamed-chunk-5-4.png" alt="plot of chunk unnamed-chunk-5"></p>
+<pre><code>## 
+## $Subject
+</code></pre><p><img src="figure/unnamed-chunk-5-5.png" alt="plot of chunk unnamed-chunk-5"></p>
+<pre><code>## 
+## $Page
+</code></pre><p><img src="figure/unnamed-chunk-5-6.png" alt="plot of chunk unnamed-chunk-5"></p>
+<ul>
+<li>&#xF6;sszess&#xE9;g&#xE9;ben azt l&#xE1;tjuk, hogy a random hat&#xE1;sok val&#xF3;ban sz&#xE1;mottev&#x151; m&#xE9;rt&#xE9;k&#x171;ek</li>
+<li>ellen&#x151;rizz&#xFC;k a rezidu&#xE1;lisokat (norm&#xE1;l eloszl&#xE1;s&#xFA;ak-e, van-e sz&#xE9;ls&#x151;s&#xE9;ges &#xE9;rt&#xE9;k):</li>
+</ul>
+<pre><code class="lang-r">resids &lt;- scale(residuals(model_r1))
+par(mfrow = c(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))
+hist(resids)  <span class="hljs-comment"># sima hisztogram</span>
+qqnorm(resids)  <span class="hljs-comment"># Q-Q &#xE1;bra a normalit&#xE1;s ellen&#x151;rz&#xE9;s&#xE9;re</span>
+qqline(resids)
+</code></pre>
+<p><img src="figure/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"></p>
+<ul>
+<li>a rezidu&#xE1;lisok alapj&#xE1;n megfontoland&#xF3; lenne, hogy a v&#xE1;laszid&#x151;k logaritmusa helyett azok inverz transzform&#xE1;ltj&#xE1;val sz&#xE1;moljunk, vagy esetleg z&#xE1;rjuk ki azokat az eseteket, amelyekn&#xE9;l a standardiz&#xE1;lt rezidu&#xE1;lis t&#xFA;ll&#xE9;p egy bizonyos &#xE9;rt&#xE9;ket (pl. 2,5-&#xF6;t)</li>
+<li>v&#xE1;lasszuk ki a v&#xE9;gs&#x151; modellt</li>
+</ul>
+<pre><code class="lang-r">model_ranef_final &lt;- model_r1
+</code></pre>
+<h4 id="fix-hat%C3%A1sok-tesztel%C3%A9se">Fix hat&#xE1;sok tesztel&#xE9;se</h4>
+<ul>
+<li>a legk&#xE9;nyelmesebb m&#xF3;dszer: best subset; FIGYELEM, &#xE9;sszel haszn&#xE1;ljuk!!!</li>
+<li>mivel most a fix hat&#xE1;sokat tesztelj&#xFC;k, sima ML becsl&#xE9;st (nem pedig REML-t) kell alkalmazni</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(MuMIn)
+options(na.action = <span class="hljs-string">&quot;na.fail&quot;</span>) <span class="hljs-comment"># ez kell, k&#xFC;l&#xF6;nben a dredge fv. panaszkodik</span>
+
+<span class="hljs-comment"># Alapesetben az ML megoldhat&#xF3; az update() f&#xFC;ggv&#xE9;nnyel</span>
+model_ranef_final_ml &lt;- update(model_ranef_final, REML = <span class="hljs-literal">FALSE</span>)
+
+<span class="hljs-comment"># Modellek illeszt&#xE9;se</span>
+( fixmodels &lt;- dredge(model_ranef_final_ml) )
+</code></pre>
+<pre><code>## Fixed term is &quot;(Intercept)&quot;
+</code></pre><pre><code>## Global model call: lmer(formula = scRT ~ scTrial + NativeLanguage * Class + (1 | 
+##     Subject) + (0 + scTrial | Subject) + (1 | Page) + (1 | Word), 
+##     data = lexdec_corr, REML = FALSE)
+## ---
+## Model selection table 
+##      (Int) Cls NtL      scT Cls:NtL df    logLik   AICc delta weight
+## 12 0.03892   +   +                +  9 -1111.577 2241.3  0.00  0.357
+## 16 0.03894   +   + -0.02514       + 10 -1110.866 2241.9  0.60  0.264
+## 3  0.03982       +                   7 -1114.508 2243.1  1.82  0.144
+## 7  0.03980       + -0.02502          8 -1113.814 2243.7  2.45  0.105
+## 4  0.03954   +   +                   8 -1114.504 2245.1  3.83  0.053
+## 8  0.03956   +   + -0.02500          9 -1113.811 2245.7  4.47  0.038
+## 1  0.01047                           6 -1117.676 2247.4  6.14  0.017
+## 5  0.01047         -0.02503          7 -1116.980 2248.0  6.76  0.012
+## 2  0.01018   +                       7 -1117.673 2249.4  8.15  0.006
+## 6  0.01022   +     -0.02502          8 -1116.978 2250.0  8.78  0.004
+## Models ranked by AICc(x) 
+## Random terms (all models): 
+## &apos;1 | Subject&apos;, &apos;0 + scTrial | Subject&apos;, &apos;1 | Page&apos;, &apos;1 | Word&apos;
+</code></pre><ul>
+<li>az eredm&#xE9;nyek azt mutatj&#xE1;k, hogy a Trial v&#xE1;ltoz&#xF3;nk hat&#xE1;sa nem szignifik&#xE1;ns, &#xE9;s er&#x151;sen hat&#xE1;reset a Class f&#x151;hat&#xE1;sa &#xE9;s a NativaLanguage X Class interakci&#xF3; is</li>
+<li>tegyuk fel, hogy az scTrial-t kontrollv&#xE1;ltoz&#xF3;k&#xE9;nt mindenk&#xE9;ppen szerepeltetni akarjuk, &#xE9;s k&#xE9;rj&#xFC;k a BIC krit&#xE9;riumot is</li>
+</ul>
+<pre><code class="lang-r">( fixmodels2 &lt;- dredge(model_ranef_final_ml, 
+                       rank = <span class="hljs-string">&quot;AIC&quot;</span>, extra = <span class="hljs-string">&quot;BIC&quot;</span>, fix = <span class="hljs-string">&quot;scTrial&quot;</span>) )
+</code></pre>
+<pre><code>## Fixed terms are &quot;scTrial&quot; and &quot;(Intercept)&quot;
+</code></pre><pre><code>## Global model call: lmer(formula = scRT ~ scTrial + NativeLanguage * Class + (1 | 
+##     Subject) + (0 + scTrial | Subject) + (1 | Page) + (1 | Word), 
+##     data = lexdec_corr, REML = FALSE)
+## ---
+## Model selection table 
+##     (Int) Cls NtL      scT Cls:NtL  BIC df    logLik    AIC delta weight
+## 8 0.03894   +   + -0.02514       + 2295 10 -1110.866 2241.7  0.00  0.628
+## 3 0.03980       + -0.02502         2287  8 -1113.814 2243.6  1.90  0.244
+## 4 0.03956   +   + -0.02500         2294  9 -1113.811 2245.6  3.89  0.090
+## 1 0.01047         -0.02503         2286  7 -1116.980 2248.0  6.23  0.028
+## 2 0.01022   +     -0.02502         2293  8 -1116.978 2250.0  8.22  0.010
+## Models ranked by AIC(x) 
+## Random terms (all models): 
+## &apos;1 | Subject&apos;, &apos;0 + scTrial | Subject&apos;, &apos;1 | Page&apos;, &apos;1 | Word&apos;
+</code></pre><h4 id="fix-hat%C3%A1sok-%C3%A1br%C3%A1zol%C3%A1sa">Fix hat&#xE1;sok &#xE1;br&#xE1;zol&#xE1;sa</h4>
+<ul>
+<li>az effects package mindenf&#xE9;le modellre (k&#xF6;zt&#xFC;k a merMod modellekre is) tud &#xE1;br&#xE1;t k&#xE9;sz&#xED;teni</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(effects)
+effs &lt;- allEffects(model_ranef_final)
+plot(effs)
+</code></pre>
+<pre><code>## 
+## Attaching package: &apos;effects&apos;
+</code></pre><pre><code>## The following object is masked from &apos;package:car&apos;:
+## 
+##     Prestige
+</code></pre><p><img src="figure/unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11"></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../sec9_mixed/szintaxis.html" class="navigation navigation-prev " aria-label="Previous page: Az lme4 csomag szintaxisa"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../sec10_fa/index.html" class="navigation navigation-next " aria-label="Next page: Faktoranalízis"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

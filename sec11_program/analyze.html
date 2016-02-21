@@ -1,0 +1,1791 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Elemzés | Bevezetés az R statisztikai programnyelv használatába</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../sec11_program/prepare.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="11.2" data-basepath=".." data-revision="Sun Feb 21 2016 01:18:27 GMT+0100 (CET)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="sec1_intro/index.html">
+            
+                
+                    <a href="../sec1_intro/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Bevezető
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="sec1_intro/history.html">
+            
+                
+                    <a href="../sec1_intro/history.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Az R története
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sec1_intro/features.html">
+            
+                
+                    <a href="../sec1_intro/features.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Az R főbb jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sec1_intro/install.html">
+            
+                
+                    <a href="../sec1_intro/install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Az R és az RStudio IDE telepítése
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sec2_help/index.html">
+            
+                
+                    <a href="../sec2_help/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Hogyan segítsünk magunkon?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="sec2_help/google.html">
+            
+                
+                    <a href="../sec2_help/google.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Hogyan keressünk?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="sec2_help/console.html">
+            
+                
+                    <a href="../sec2_help/console.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Segítség a konzolból
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="sec2_help/rhelp.html">
+            
+                
+                    <a href="../sec2_help/rhelp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Segítség másoktól
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="sec2_help/resources.html">
+            
+                
+                    <a href="../sec2_help/resources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Egyéb internetes források
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="sec3_basics/index.html">
+            
+                
+                    <a href="../sec3_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Alapok (objektumok létrehozása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="sec3_basics/assignment.html">
+            
+                
+                    <a href="../sec3_basics/assignment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        R objektumok létrehozása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sec3_basics/base_objects.html">
+            
+                
+                    <a href="../sec3_basics/base_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Az R alapobjektumai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="sec3_basics/objects.html">
+            
+                
+                    <a href="../sec3_basics/objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Az R objektum-osztályai
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="sec3_basics/structure.html">
+            
+                
+                    <a href="../sec3_basics/structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Objektumok megtekintése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="sec3_basics/transform.html">
+            
+                
+                    <a href="../sec3_basics/transform.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Objektumosztályok közötti váltás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="sec3_basics/combine_objects.html">
+            
+                
+                    <a href="../sec3_basics/combine_objects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Objektumok kombinálása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sec4_basics/index.html">
+            
+                
+                    <a href="../sec4_basics/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Alapok (objektumok indexálása)
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="sec4_basics/indexing.html">
+            
+                
+                    <a href="../sec4_basics/indexing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Objektumok elemeinek elérése
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="sec4_basics/modify.html">
+            
+                
+                    <a href="../sec4_basics/modify.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Objektumok elemeinek módosítása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="sec4_basics/operators.html">
+            
+                
+                    <a href="../sec4_basics/operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Operátorok
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="sec4_basics/syntax.html">
+            
+                
+                    <a href="../sec4_basics/syntax.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Az R szintaxisának jellegzetességei
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="sec5_import/index.html">
+            
+                
+                    <a href="../sec5_import/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Adatok beolvasása/kiírása
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="sec5_import/wd.html">
+            
+                
+                    <a href="../sec5_import/wd.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Munkakönyvtár, fájlműveletek
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="sec5_import/text.html">
+            
+                
+                    <a href="../sec5_import/text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Szövegfájlok beolvasása és kiírása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="sec5_import/spss.html">
+            
+                
+                    <a href="../sec5_import/spss.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        SPSS és Excel fájl beolvasása
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="sec5_import/serialize.html">
+            
+                
+                    <a href="../sec5_import/serialize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        R objektumok (de)szerializációja
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="sec6_process/index.html">
+            
+                
+                    <a href="../sec6_process/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Adatfeldolgozás
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="sec6_process/filter_select.html">
+            
+                
+                    <a href="../sec6_process/filter_select.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Szűrés és összegzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="sec6_process/split_merge.html">
+            
+                
+                    <a href="../sec6_process/split_merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Darabolás és egyesítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="sec6_process/reshape.html">
+            
+                
+                    <a href="../sec6_process/reshape.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Átstrukturálás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="sec6_process/convert.html">
+            
+                
+                    <a href="../sec6_process/convert.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Változók átalakítása
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="sec7_plotting/index.html">
+            
+                
+                    <a href="../sec7_plotting/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Vizualizáció
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="sec7_plotting/base.html">
+            
+                
+                    <a href="../sec7_plotting/base.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Base graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="sec7_plotting/lattice.html">
+            
+                
+                    <a href="../sec7_plotting/lattice.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        lattice
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="sec7_plotting/ggplot.html">
+            
+                
+                    <a href="../sec7_plotting/ggplot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        ggplot2
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="sec7_plotting/interactive.html">
+            
+                
+                    <a href="../sec7_plotting/interactive.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        Interaktív vizualizáció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="sec8_regr/index.html">
+            
+                
+                    <a href="../sec8_regr/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        ANOVA és regressziós modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="sec8_regr/descr.html">
+            
+                
+                    <a href="../sec8_regr/descr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Leíró statisztikák
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="sec8_regr/model.html">
+            
+                
+                    <a href="../sec8_regr/model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Modellépítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="sec8_regr/checkmodel.html">
+            
+                
+                    <a href="../sec8_regr/checkmodel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Ellenőrzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="sec8_regr/ez.html">
+            
+                
+                    <a href="../sec8_regr/ez.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        ANOVA: Az &#39;ez&#39; csomag
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="sec9_mixed/index.html">
+            
+                
+                    <a href="../sec9_mixed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Kevert-hatás modellek
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="sec9_mixed/alapok.html">
+            
+                
+                    <a href="../sec9_mixed/alapok.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        Elméleti bevezető
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="sec9_mixed/irodalom.html">
+            
+                
+                    <a href="../sec9_mixed/irodalom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Források
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="sec9_mixed/pelda.html">
+            
+                
+                    <a href="../sec9_mixed/pelda.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Példa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="sec9_mixed/exploralas.html">
+            
+                
+                    <a href="../sec9_mixed/exploralas.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        Adatexploráció, ábrázolás
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="sec9_mixed/szintaxis.html">
+            
+                
+                    <a href="../sec9_mixed/szintaxis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        Az lme4 csomag szintaxisa
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.6" data-path="sec9_mixed/modellepites.html">
+            
+                
+                    <a href="../sec9_mixed/modellepites.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                        Modellépítés / modellszelekció
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="sec10_fa/index.html">
+            
+                
+                    <a href="../sec10_fa/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Faktoranalízis
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="sec10_fa/pelda_efa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_efa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Exploratív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="sec10_fa/pelda_cfa.html">
+            
+                
+                    <a href="../sec10_fa/pelda_cfa.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Konfirmatív faktorelemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="sec11_program/index.html">
+            
+                
+                    <a href="../sec11_program/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        R programozás - esettanulmány
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="sec11_program/prepare.html">
+            
+                
+                    <a href="../sec11_program/prepare.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Előkészítés
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="11.2" data-path="sec11_program/analyze.html">
+            
+                
+                    <a href="../sec11_program/analyze.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        Elemzés
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Bevezetés az R statisztikai programnyelv használatába</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="elemz%C3%A9s">Elemz&#xE9;s</h1>
+<p>Miut&#xE1;n az adatok el&#x151;k&#xE9;sz&#xED;t&#xE9;s&#xE9;t befejezt&#xFC;k, &#xE9;rdemes &quot;tiszta lappal&quot; ind&#xED;tani az elemz&#xE9;seket. Ezt RStudio-ban egyszer&#x171;en megtehetj&#xFC;k &#xFA;gy, hogy &#xFA;jra megnyitjuk a &quot;gaming&quot; nev&#x171; projekt&#xFC;nket. Ekkor egy &#xFA;j R-session-t ind&#xED;tunk, ez&#xE1;ltal nem fordulhat el&#x151;, hogy az adatel&#x151;k&#xE9;sz&#xED;t&#xE9;s sor&#xE1;n l&#xE9;trehozott v&#xE1;ltoz&#xF3;k, vagy az akkor bet&#xF6;lt&#xF6;tt csomagok &quot;&#xF6;sszeakadnak&quot; az adatelemz&#xE9;s sor&#xE1;n l&#xE9;trehozott v&#xE1;ltoz&#xF3;kkal vagy bet&#xF6;lt&#xF6;tt csomagokkal.</p>
+<p>Az els&#x151; l&#xE9;p&#xE9;s&#xFC;nk egy&#xE9;rtelm&#x171;; t&#xF6;lts&#xFC;k be az el&#x151;k&#xE9;sz&#xED;tett adatt&#xE1;bl&#xE1;t:</p>
+<pre><code class="lang-r">model_dat &lt;- readRDS(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;prepared_data.rds&quot;</span>))
+</code></pre>
+<h2 id="ellen%C5%91rz%C5%91-%C3%A1bra">Ellen&#x151;rz&#x151; &#xE1;bra</h2>
+<p>Miel&#x151;tt hozz&#xE1;kezden&#xE9;nk az elemz&#xE9;shez, k&#xE9;pet kellene kapnunk arr&#xF3;l, hogy az adatainkban nincsenek-e t&#xFA;lzottan kil&#xF3;g&#xF3; &#xE9;rt&#xE9;kek, nagyj&#xE1;b&#xF3;l norm&#xE1;lis eloszl&#xE1;s&#xFA;ak-e a sk&#xE1;lapontsz&#xE1;mok az egyes alcsoportokban, illetve v&#xE1;rhat&#xF3;-e egy&#xE1;ltal&#xE1;n k&#xFC;l&#xF6;nbs&#xE9;g a csoport&#xE1;tlagok k&#xF6;z&#xF6;tt. Ezen c&#xE9;lnak megfelel&#x151; vizualiz&#xE1;ci&#xF3;s forma p&#xE9;ld&#xE1;ul a boxplot (&quot;doboz&quot;-&#xE1;bra).</p>
+<p><a href="../sec7_plotting/base.html">Kor&#xE1;bban</a> m&#xE1;r l&#xE1;ttuk, hogyan lehet egyszer&#x171;en boxplot-ot k&#xE9;sz&#xED;teni. P&#xE9;ld&#xE1;ul az &apos;MOGQ_Social&apos; v&#xE1;ltoz&#xF3;ra:</p>
+<pre><code class="lang-r">boxplot(MOGQ_Social ~ Heavy_use * Problematic, data = model_dat)
+</code></pre>
+<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+<p>Ugyanezt megism&#xE9;telhetn&#xE9;nk az &#xF6;sszes t&#xF6;bbi sk&#xE1;lapontsz&#xE1;mra, de eleg&#xE1;nsabb lenne az &#xF6;sszes v&#xE1;ltoz&#xF3;t egyetlen &#xE1;br&#xE1;n megjelen&#xED;teni. Eml&#xE9;kezz&#xFC;nk r&#xE1;, hogy a <a href="../sec7_plotting/lattice.html">lattice</a> &#xE9;s <a href="../sec7_plotting/ggplot.html">ggplot</a> csomagokkal k&#xF6;nnyed&#xE9;n k&#xE9;sz&#xED;thet&#xFC;nk panelekre bontott &#xE1;br&#xE1;kat, r&#xE1;ad&#xE1;sul ezen csomagokkal (k&#xFC;l&#xF6;n&#xF6;sen a ggplot2-vel) egyszer&#x171; v&#xE1;ltani az &#xE1;br&#xE1;zol&#xE1;si form&#xE1;k (pl. hisztogram, boxplot, scatterplot stb.) k&#xF6;z&#xF6;tt. Ehhez azonban &#xE1;t kell alak&#xED;tanunk a jelenlegi, &quot;wide&quot; form&#xE1;tum&#xFA; adatt&#xE1;bl&#xE1;nkat &quot;long&quot; form&#xE1;j&#xFA;ra:</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(tidyr)
+model_dat_long &lt;- gather(model_dat, alskala, pontszam, 
+                         -Sorszam, -Heavy_use, -Problematic)
+</code></pre>
+<p>Az &#xE1;talak&#xED;t&#xE1;s ut&#xE1;n az &#xE1;br&#xE1;zol&#xE1;s m&#xE1;r nagyon egyszer&#x171;. Haszn&#xE1;ljuk a <em>ggplot2</em> csomagot, 
+&#xE9;s &#xE1;br&#xE1;zoljuk a sk&#xE1;lapontsz&#xE1;mok eloszl&#xE1;s&#xE1;t, k&#xFC;l&#xF6;n-k&#xFC;l&#xF6;n a n&#xE9;gy csoportban:</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(ggplot2)
+</code></pre>
+<pre><code>## 
+## Attaching package: &apos;ggplot2&apos;
+</code></pre><pre><code>## The following objects are masked from &apos;package:psych&apos;:
+## 
+##     %+%, alpha
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xE1;br&#xE1;zol&#xE1;s (magyar&#xE1;zattal)</span>
+ggplot(model_dat_long,        <span class="hljs-comment"># vedd a model_dat_long adatt&#xE1;bl&#xE1;t</span>
+       aes(x = alskala, y = pontszam)) +  <span class="hljs-comment"># az &apos;alskala&apos; f&#xFC;ggv&#xE9;ny&#xE9;ben</span>
+                                          <span class="hljs-comment"># &#xE1;br&#xE1;zold a mutat&#xF3; &#xE9;rt&#xE9;k&#xE9;t</span>
+    geom_boxplot() +   <span class="hljs-comment"># boxplot &#xE1;br&#xE1;zol&#xE1;st k&#xE9;r&#xFC;nk</span>
+    facet_grid(Heavy_use ~ Problematic) +  <span class="hljs-comment"># tedd k&#xFC;l&#xF6;n panelekbe</span>
+                             <span class="hljs-comment"># a &apos;Heavy_use&apos; &#xE9;s &apos;Problematic&apos; szerint</span>
+                             <span class="hljs-comment"># k&#xE9;pzett csoportokat</span>
+    xlab(<span class="hljs-string">&quot;Scale&quot;</span>) +    <span class="hljs-comment"># x tengely felirata</span>
+    ylab(<span class="hljs-string">&quot;Standardized scale score&quot;</span>) + <span class="hljs-comment"># y tengely felirata </span>
+                       <span class="hljs-comment"># az &#xE1;ttekinthet&#x151;s&#xE9;g miatt horizont&#xE1;lis</span>
+                       <span class="hljs-comment"># boxplot-ot k&#xE9;r&#xFC;nk, azaz cser&#xE9;ld fel az</span>
+    coord_flip()       <span class="hljs-comment"># x &#xE9;s y tengelyeket</span>
+</code></pre>
+<p><img src="figure/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5"></p>
+<p>Az &#xE1;br&#xE1;k alapj&#xE1;n j&#xF3;n&#xE9;h&#xE1;ny outlier szem&#xE9;ly&#xFC;nk van a mint&#xE1;ban. A k&#xF6;vetkez&#x151;kben tekints&#xFC;nk el ett&#x151;l, &#xE9;s illessz&#xFC;nk ANOVA-modelleket az egyes sk&#xE1;lapontsz&#xE1;mokra.</p>
+<h2 id="anova-k-futtat%C3%A1sa">ANOVA-k futtat&#xE1;sa</h2>
+<p>Eml&#xE9;keztet&#x151;&#xFC;l: k&#xFC;l&#xF6;n-k&#xFC;l&#xF6;n ANOVA-t kell futtatnunk minden egyes sk&#xE1;lapontsz&#xE1;mra,
+m&#xE9;gpedig magyar&#xE1;z&#xF3; v&#xE1;ltoz&#xF3;k&#xE9;nt a k&#xE9;t csoportos&#xED;t&#xF3; v&#xE1;ltoz&#xF3;nkat szerepeltetve. </p>
+<p>El&#x151;sz&#xF6;r gondoljuk &#xE1;t, hogyan futtatn&#xE1;nk az elemz&#xE9;st akkor, ha csak egyetlen sk&#xE1;lapontsz&#xE1;mot modellezn&#xE9;nk. Haszn&#xE1;lhatn&#xE1;nk p&#xE9;ld&#xE1;ul a <a href="../sec8_regr/ez.html">kor&#xE1;bban ismertetett</a> <em>ez</em> csomagot. Az <em>ez</em> csomag <code>ezANOVA()</code> f&#xFC;ggv&#xE9;nye azonban sokkal ink&#xE1;bb alkalmas interakt&#xED;v adatelemz&#xE9;sre, mint programoz&#xE1;sra, mivel ebben a f&#xFC;ggv&#xE9;nyben a v&#xE1;ltoz&#xF3;kat n&#xE9;vvel, nem pedig karakteres form&#xE1;ban kell megadni. A probl&#xE9;ma ugyan halad&#xF3; R-programoz&#xF3;i szinten kiker&#xFC;lhet&#x151;, ez&#xFA;ttal k&#xE9;nyelmesebb a <a href="../sec8_regr/ez.html">kor&#xE1;bban m&#xE1;r rekl&#xE1;mozott</a> <em>afex</em> csomagot haszn&#xE1;lnunk.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(afex)
+</code></pre>
+<pre><code>## Loading required package: lme4
+</code></pre><pre><code>## Loading required package: Matrix
+</code></pre><pre><code>## 
+## Attaching package: &apos;Matrix&apos;
+</code></pre><pre><code>## The following object is masked from &apos;package:tidyr&apos;:
+## 
+##     expand
+</code></pre><pre><code>## Loading required package: reshape2
+</code></pre><pre><code>## Loading required package: lsmeans
+</code></pre><pre><code>## Loading required package: estimability
+</code></pre><pre><code>## ************
+## Welcome to afex. Important changes in the current version:
+</code></pre><pre><code>## - Functions for ANOVAs have been renamed to: aov_car(), aov_ez(), and aov_4().
+## - ANOVA functions return an object of class &apos;afex_aov&apos; as default, see: ?aov_car
+## - &apos;afex_aov&apos; objects can be passed to lsmeans for contrasts and follow-up tests.
+## - Reset previous (faster) behavior via: afex_options(return_aov=&apos;nice&apos;)
+## - Many more arguments can now be set globally via options, see: afex_options()
+## ************
+</code></pre><p>Az <em>afex</em> csomag <code>aov_ez</code> f&#xFC;ggv&#xE9;nye gyakorlatilag megfeleltethet&#x151; az <em>ez</em> csomag <code>ezANOVA()</code> f&#xFC;ggv&#xE9;ny&#xE9;nek, de itt a v&#xE1;ltoz&#xF3;k neveit karaktervektork&#xE9;nt kell megadnunk. A f&#xFC;ggv&#xE9;ny elv&#xE1;r egy szem&#xE9;lyi azonos&#xED;t&#xF3;t is, ezt k&#xE9;sz&#xED;ts&#xFC;k el a &apos;Sorszam&apos; v&#xE1;ltoz&#xF3;b&#xF3;l:</p>
+<pre><code class="lang-r">model_dat$subject_code &lt;- factor(model_dat$Sorszam)
+</code></pre>
+<p>Ezut&#xE1;n h&#xED;vjuk meg az <code>aov_ez</code> f&#xFC;ggv&#xE9;nyt, ez&#xFA;ttal csak az &apos;MOGQ_Social&apos; f&#xFC;gg&#x151; v&#xE1;ltoz&#xF3;ra.</p>
+<pre><code class="lang-r">model &lt;- aov_ez(id = <span class="hljs-string">&quot;subject_code&quot;</span>, dv = <span class="hljs-string">&quot;MOGQ_Social&quot;</span>, 
+                data = model_dat, 
+                between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
+                observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
+</code></pre>
+<pre><code>## Contrasts set to contr.sum for the following variables: Heavy_use, Problematic
+</code></pre><p>A f&#xFC;ggv&#xE9;ny figyelmeztet minket, hogy a futtat&#xE1;skor megv&#xE1;ltoztatta az alap&#xE9;rtelmezett kontrasztokat a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;k eset&#xE9;ben. Val&#xF3;ban, III-as t&#xED;pus&#xFA; n&#xE9;gyzet&#x151;sszeg felbont&#xE1;sn&#xE1;l (ami megfelel az SPSS &#xE1;ltal folytatott gyakorlatnak, egy&#xFA;ttal az <code>aov_ez</code> alap&#xE9;rtelmezett v&#xE1;laszt&#xE1;sa is) ez mindenk&#xE9;ppen sz&#xFC;ks&#xE9;ges. Noha szakmailag a II-es t&#xED;pus&#xFA; felbont&#xE1;s jobban indokolhat&#xF3;, amelyhez a kontrasztok &#xE1;t&#xE1;ll&#xED;t&#xE1;sa nem felt&#xE9;tlen&#xFC;l sz&#xFC;ks&#xE9;ges, semmik&#xE9;ppen nem &#xE1;rt &#xF6;sszeg-kontrasztokat haszn&#xE1;lni (l&#xE1;sd <a href="../sec8_regr/model.html">itt</a>):</p>
+<pre><code class="lang-r">options(contrasts = c(<span class="hljs-string">&quot;contr.sum&quot;</span>, <span class="hljs-string">&quot;contr.poly&quot;</span>))
+</code></pre>
+<p>Futtassuk &#xFA;jra a modellt:</p>
+<pre><code class="lang-r">model &lt;- aov_ez(id = <span class="hljs-string">&quot;subject_code&quot;</span>, dv = <span class="hljs-string">&quot;MOGQ_Social&quot;</span>, 
+                data = model_dat, 
+                between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
+                observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
+</code></pre>
+<p>L&#xE1;ssuk az eredm&#xE9;nyeket:</p>
+<pre><code class="lang-r">print(model)
+</code></pre>
+<pre><code>##                  Effect      df  MSE    F    ges p.value
+## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
+## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
+## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
+</code></pre><p>...&#xE9;s az eredm&#xE9;ny-objektum strukt&#xFA;r&#xE1;j&#xE1;t:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># egyszer&#x171;s&#xED;ts&#xFC;k az outputot:</span>
+str(model, max.level = <span class="hljs-number">1</span>)
+</code></pre>
+<pre><code>## List of 5
+##  $ anova_table:Classes &apos;anova&apos; and &apos;data.frame&apos;:    3 obs. of  6 variables:
+##   ..- attr(*, &quot;heading&quot;)= chr [1:2] &quot;Anova Table (Type  tests)\n&quot; &quot;Response: &quot;
+##   ..- attr(*, &quot;p.adjust.method&quot;)= chr &quot;none&quot;
+##  $ aov        :List of 13
+##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;aov&quot; &quot;lm&quot;
+##  $ Anova      :Classes &apos;anova&apos; and &apos;data.frame&apos;:    5 obs. of  4 variables:
+##   ..- attr(*, &quot;heading&quot;)= chr [1:2] &quot;Anova Table (Type III tests)\n&quot; &quot;Response: dv&quot;
+##  $ lm         :List of 13
+##   ..- attr(*, &quot;class&quot;)= chr &quot;lm&quot;
+##  $ data       :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;afex_aov&quot;
+##  - attr(*, &quot;dv&quot;)= chr &quot;MOGQ_Social&quot;
+##  - attr(*, &quot;id&quot;)= chr &quot;subject_code&quot;
+##  - attr(*, &quot;within&quot;)= chr(0) 
+##  - attr(*, &quot;between&quot;)= chr [1:2] &quot;Heavy_use&quot; &quot;Problematic&quot;
+##  - attr(*, &quot;type&quot;)= num 3
+</code></pre><p>Val&#xF3;j&#xE1;ban teh&#xE1;t az ANOVA-t&#xE1;bl&#xE1;zatot a <code>model</code> lista-objektum <code>anova_table</code>
+eleme tartalmazza:</p>
+<pre><code class="lang-r">print(model$anova_table)
+</code></pre>
+<pre><code>## Anova Table (Type  tests)
+## 
+## Response: 
+##                       num Df den Df    MSE      F        ges Pr(&gt;F)
+## Heavy_use                  1   5272 1.0005 0.0053 1.0140e-06 0.9417
+## Problematic                1   5272 1.0005 0.4229 8.0207e-05 0.5155
+## Heavy_use:Problematic      1   5272 1.0005 0.0277 5.2610e-06 0.8677
+</code></pre><p>Ennek a strukt&#xFA;r&#xE1;ja azonban nem az igazi, de figyelmesen elolvasod az <code>aov_ez</code>
+s&#xFA;g&#xF3;j&#xE1;t, a <code>nice</code> f&#xFC;ggv&#xE9;ny lesz a bar&#xE1;tunk:</p>
+<pre><code class="lang-r">( nice_table &lt;- nice(model) )
+</code></pre>
+<pre><code>##                  Effect      df  MSE    F    ges p.value
+## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
+## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
+## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># strukt&#xFA;ra:</span>
+str(nice_table)
+</code></pre>
+<pre><code>## &apos;data.frame&apos;:    3 obs. of  6 variables:
+##  $ Effect : chr  &quot;Heavy_use&quot; &quot;Problematic&quot; &quot;Heavy_use:Problematic&quot;
+##  $ df     : chr  &quot;1, 5272&quot; &quot;1, 5272&quot; &quot;1, 5272&quot;
+##  $ MSE    : chr  &quot;1.00&quot; &quot;1.00&quot; &quot;1.00&quot;
+##  $ F      : chr  &quot;0.01&quot; &quot;0.42&quot; &quot;0.03&quot;
+##  $ ges    : chr  &quot;&lt;.0001&quot; &quot;&lt;.0001&quot; &quot;&lt;.0001&quot;
+##  $ p.value: chr  &quot;.94&quot; &quot;.52&quot; &quot;.87&quot;
+</code></pre><h2 id="csoport%C3%A1tlagok">Csoport&#xE1;tlagok</h2>
+<p>Az &#xE1;br&#xE1;zol&#xE1;shoz sz&#xFC;ks&#xE9;g&#xFC;nk lenne a becs&#xFC;lt sk&#xE1;lapontsz&#xE1;mokra &#xE9;s a becsl&#xE9;s konfidencia-intervallum&#xE1;ra. Olvassuk el figyelmesen az im&#xE9;nt megismert <code>aov_ez()</code> f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;t:</p>
+<pre><code class="lang-r">?aov_ez
+</code></pre>
+<p>A le&#xED;r&#xE1;s alapj&#xE1;n megkaphatjuk az &#xE1;tlagokat, ha seg&#xED;ts&#xE9;g&#xFC;l h&#xED;vjuk az <em>lsmeans</em>
+csomag <code>lsmeans()</code> f&#xFC;ggv&#xE9;ny&#xE9;t:</p>
+<pre><code class="lang-r">( marginal_means &lt;- lsmeans(model, ~Heavy_use:Problematic) )
+</code></pre>
+<pre><code>##  Heavy_use                     Problematic          lsmean         SE   df
+##  less than or equal to 4 h/day non-disordered -0.008243426 0.02255864 5272
+##  more than 4 h/day             non-disordered -0.011176548 0.03872949 5272
+##  less than or equal to 4 h/day disordered      0.006940219 0.02273275 5272
+##  more than 4 h/day             disordered      0.014462617 0.03761794 5272
+##     lower.CL   upper.CL
+##  -0.05246770 0.03598085
+##  -0.08710238 0.06474928
+##  -0.03762539 0.05150582
+##  -0.05928411 0.08820935
+## 
+## Confidence level used: 0.95
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># vagy m&#xE1;sk&#xE9;nt, l&#xE1;sd ?lsmeans, specs argumentum</span>
+<span class="hljs-comment"># marginal_means &lt;- lsmeans(model, c(&quot;Heavy_use&quot;, &quot;Problematic&quot;))</span>
+</code></pre>
+<p>N&#xE9;zz&#xFC;k meg, hogy mi a <code>marginal_means</code> objektum strukt&#xFA;r&#xE1;ja:</p>
+<pre><code class="lang-r">str(marginal_means)
+</code></pre>
+<pre><code>## &apos;lsmobj&apos; object with variables:
+##     Heavy_use = less than or equal to 4 h/day, more than 4 h/day
+##     Problematic = non-disordered, disordered
+</code></pre><p>Hm, ilyennel m&#xE9;g nem tal&#xE1;lkoztunk. Hi&#xE1;ba t&#x171;nik annak, a <code>marginal_means</code> nem 
+egy sima <code>data.frame</code>. Ha azonban elolvastuk az <code>lsmeans()</code> f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;t,
+kider&#xFC;l, hogy az <code>lsmeans()</code> outputj&#xE1;ra megh&#xED;vhatjuk a <code>summary()</code>, <code>plot()</code> stb.
+f&#xFC;ggv&#xE9;nyeket.  Ezekkel &#xE9;rhet&#xFC;nk ak&#xE1;r korrekci&#xF3;t is a konfidencia-intervallumok
+sz&#xE1;m&#xED;t&#xE1;s&#xE1;ra, stb. L&#xE1;ssunk most egy sima &#xE1;br&#xE1;t:</p>
+<pre><code class="lang-r">plot(marginal_means)
+</code></pre>
+<p><img src="figure/unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18"></p>
+<pre><code class="lang-r"><span class="hljs-comment"># ellen&#x151;rizd ezt is:</span>
+<span class="hljs-comment"># str(summary(marginal_means))</span>
+</code></pre>
+<p>Ez kicsit m&#xE1;gikus h&#xF3;kuszp&#xF3;kusznak t&#x171;nhet (honnan tudja p&#xE9;ld&#xE1;ul a <code>plot</code> 
+f&#xFC;ggv&#xE9;ny, hogy egy ilyen furcsa objektumot &#xE9;ppen &#xED;gy kell megjelen&#xED;teni?).
+A meg&#xE9;rt&#xE9;shez v&#xE1;lasszunk egy &#xE1;ltal&#xE1;nosabb m&#xF3;dszert a becs&#xFC;lt csoport&#xE1;tlagok 
+kisz&#xE1;m&#xED;t&#xE1;s&#xE1;ra: alkalmazzuk a <code>predict()</code> f&#xFC;ggv&#xE9;nyt.</p>
+<p>A <code>predict()</code> az R &#xE1;ltal&#xE1;nos f&#xFC;ggv&#xE9;nye modell-alap&#xFA; predikci&#xF3;k sz&#xE1;m&#xED;t&#xE1;s&#xE1;ra. Igen &#xE1;m, de amikor lek&#xE9;rj&#xFC;k a <code>predict</code> f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;t, nem lesz&#xFC;nk sokkal okosabbak, &#xE9;s egy <code>predict(model$lm)</code> f&#xFC;ggv&#xE9;nyh&#xED;v&#xE1;s sem azt adja, amit szeretn&#xE9;nk:</p>
+<pre><code class="lang-r">?predict
+str(predict(model$lm))
+</code></pre>
+<pre><code>##  Named num [1:5276] 0.01446 0.01446 -0.01118 -0.00824 -0.01118 ...
+##  - attr(*, &quot;names&quot;)= chr [1:5276] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+</code></pre><p>A le&#xED;r&#xE1;sb&#xF3;l kider&#xFC;l, hogy a <code>predict</code> f&#xFC;ggv&#xE9;ny els&#x151; argumentuma egy illesztett modell, de az nem der&#xFC;l ki bel&#x151;le, hogy a <code>...</code> hely&#xE9;re milyen argumentumok ker&#xFC;lhetnek. Ha viszont elolvassuk a s&#xFA;g&#xF3; &quot;See Also&quot; r&#xE9;sz&#xE9;t, tal&#xE1;lunk egy hivatkoz&#xE1;st a <code>predict.lm</code> f&#xFC;ggv&#xE9;nyre, amely &#xE9;ppen az, amit kerest&#xFC;nk. Mit tehett&#xFC;nk volna, ha a <code>predict.lm</code> f&#xFC;ggv&#xE9;ny linkje nem szerepel a <code>predict</code> f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;ban? A megold&#xE1;shoz musz&#xE1;j megismerkedn&#xFC;nk a generikus f&#xFC;ggv&#xE9;nyek m&#x171;k&#xF6;d&#xE9;s&#xE9;nek alapelv&#xE9;vel.</p>
+<p>A <code>predict</code> f&#xFC;ggv&#xE9;ny val&#xF3;j&#xE1;ban egy generikus f&#xFC;ggv&#xE9;ny. Az R generikus f&#xFC;ggv&#xE9;nyeinek t&#xF6;bbs&#xE9;ge (pontosabban az &#xFA;n. S3 f&#xFC;ggv&#xE9;nyek, l&#xE1;sd <code>?S3Methods</code>) val&#xF3;j&#xE1;ban nem m&#xE1;s, mint egy olyan &#xE1;ltal&#xE1;nos f&#xFC;ggv&#xE9;ny, amely egys&#xE9;ges keretet biztos&#xED;t egy adott m&#x171;velet elv&#xE9;gz&#xE9;s&#xE9;hez, az argumentum jelleg&#xE9;t&#x151;l f&#xFC;ggetlen&#xFC;l. A generikus f&#xFC;ggv&#xE9;ny (pl. <code>predict</code>) nem tesz m&#xE1;st, mint ellen&#x151;rzi az els&#x151; argumentum oszt&#xE1;ly&#xE1;t, majd annak megfelel&#x151;en megh&#xED;v egy specifikus f&#xFC;ggv&#xE9;nyt, a k&#xF6;vetkez&#x151; szab&#xE1;ly alapj&#xE1;n:       </p>
+<ul>
+<li>ha tal&#xE1;l a bet&#xF6;lt&#xF6;tt csomagok &#xE1;ltal el&#xE9;rhet&#x151;v&#xE9; tett f&#xFC;ggv&#xE9;nyek k&#xF6;z&#xF6;tt olyat, amelyiknek a neve tartalmazza a generikus f&#xFC;ggv&#xE9;ny nev&#xE9;t, valamint att&#xF3;l egy ponttal elv&#xE1;lasztva az argumentum oszt&#xE1;ly&#xE1;t (pl. <code>predict.mymodel</code>), akkor megh&#xED;vja az adott speci&#xE1;lis f&#xFC;ggv&#xE9;nyt;</li>
+<li>ha nem tal&#xE1;l ilyen f&#xFC;ggv&#xE9;nyt, de az argumentum t&#xF6;bb oszt&#xE1;lyba is tartozik, akkor a keres&#xE9;st elv&#xE9;gzi a t&#xF6;bbi oszt&#xE1;lyra is (pl. <code>predict.lm</code>);     </li>
+<li>ha ez az ellen&#x151;rz&#xE9;s is sikertelen, de l&#xE9;tezik egy &quot;default&quot; f&#xFC;ggv&#xE9;ny az adott generikus f&#xFC;ggv&#xE9;nyhez (pl. <code>predict.default</code>), akkor a generikus f&#xFC;ggv&#xE9;ny ezt az &quot;alap&#xE9;rtelmezett&quot; f&#xFC;ggv&#xE9;nyt h&#xED;vja meg;      </li>
+<li>ha ilyen f&#xFC;ggv&#xE9;nyt sem tal&#xE1;l, akkor informat&#xED;v hiba&#xFC;zenetet k&#xFC;ld. </li>
+</ul>
+<p>Jelen esetben a <code>model</code> adatstrukt&#xFA;r&#xE1;nk <code>lm</code> eleme az, amelyiket felhaszn&#xE1;lhatn&#xE1;nk arra, hogy becs&#xFC;lj&#xFC;k az egyes csoportok sk&#xE1;lapontsz&#xE1;mainak &#xE1;tlagait, konfidencia-intervallumokkal egy&#xFC;tt. Vajon melyik specifikus f&#xFC;ggv&#xE9;nyt h&#xED;vn&#xE1; meg a <code>predict</code> parancs? Ellen&#x151;rizz&#xFC;k a <code>model$lm</code> oszt&#xE1;ly&#xE1;t:</p>
+<pre><code class="lang-r">class(model$lm)
+</code></pre>
+<pre><code>## [1] &quot;lm&quot;
+</code></pre><p>Az objektumnak egy oszt&#xE1;lya van: &quot;lm&quot;. Vajon l&#xE9;tezik <code>predict.lm</code> specifikus f&#xFC;ggv&#xE9;ny? List&#xE1;zzuk ki az &#xF6;sszes specifikus f&#xFC;ggv&#xE9;nyt, amelyiket a <code>predict</code> megh&#xED;vhat:</p>
+<pre><code class="lang-r">methods(<span class="hljs-string">&quot;predict&quot;</span>)
+</code></pre>
+<pre><code>##  [1] predict,ANY-method         predict.ar*               
+##  [3] predict.Arima*             predict.arima0*           
+##  [5] predict.bam*               predict.bs*               
+##  [7] predict.bSpline*           predict.coxph*            
+##  [9] predict.coxph.penal*       predict.crq*              
+## [11] predict.crqs*              predict.gam*              
+## [13] predict.glinearModel*      predict.glm               
+## [15] predict.glmmPQL*           predict.gls*              
+## [17] predict.gnls*              predict.HoltWinters*      
+## [19] predict.jam*               predict,lavaan-method     
+## [21] predict.lda*               predict.linearModel*      
+## [23] predict.lm                 predict.lme*              
+## [25] predict.lmList*            predict.lmList4*          
+## [27] predict.loess*             predict.lqs*              
+## [29] predict.mca*               predict.merMod*           
+## [31] predict.mlm*               predict.multinom*         
+## [33] predict.nbSpline*          predict.nlme*             
+## [35] predict.nlrq*              predict.nls*              
+## [37] predict.nnet*              predict.npolySpline*      
+## [39] predict.ns*                predict.pbSpline*         
+## [41] predict.polr*              predict.poly*             
+## [43] predict.polySpline*        predict.ppolySpline*      
+## [45] predict.ppr*               predict.prcomp*           
+## [47] predict.princomp*          predict.pspline*          
+## [49] predict.psych              predict.qda*              
+## [51] predict.qss1*              predict.qss2*             
+## [53] predict.ref.grid*          predict.rlm*              
+## [55] predict.rq*                predict.rq.process*       
+## [57] predict.rqs*               predict.rqss*             
+## [59] predict.smooth.spline*     predict.smooth.spline.fit*
+## [61] predict.StructTS*          predict.survreg*          
+## [63] predict.survreg.penal*    
+## see &apos;?methods&apos; for accessing help and source code
+</code></pre><p>(A specifikus f&#xFC;ggv&#xE9;nyek kilist&#xE1;z&#xE1;s&#xE1;hoz a <code>methods</code>, azaz &quot;met&#xF3;dusok&quot; (vagy m&#xE1;sk&#xE9;nt: m&#x171;veletek) parancsot haszn&#xE1;ltuk. Programoz&#xE1;si szaknyelven ugyanis az R S3 rendszere egy kezdetleges, de nagyon rugalmas &#xE9;s hasznos p&#xE9;ld&#xE1;ja az objektum-orient&#xE1;lt programoz&#xE1;snak. Az objektum-orient&#xE1;lt programnyelvek objektum-oszt&#xE1;lyai rendszerint az oszt&#xE1;lyra jellemz&#x151; adatok &#xE9;s az azokon &#xE9;rtelmezett m&#x171;veletek defin&#xED;ci&#xF3;it tartalmazz&#xE1;k.)</p>
+<p>L&#xE1;that&#xF3;, hogy val&#xF3;ban l&#xE9;tezik <code>predict.lm</code> f&#xFC;ggv&#xE9;ny. Azaz ha kiadjuk a <code>predict(model$lm)</code> parancsot, az a <code>predict.lm(model$lm)</code> f&#xFC;ggv&#xE9;nyt fogja megh&#xED;vni. &#xC9;s mit mond a <code>predict.lm</code> dokument&#xE1;ci&#xF3;ja?</p>
+<pre><code class="lang-r">?predict.lm
+</code></pre>
+<p>Bing&#xF3;, innent&#x151;l a dolgunk egyszer&#x171;: </p>
+<ol>
+<li>Sz&#xFC;ks&#xE9;g&#xFC;nk van egy data.frame-re, amely a csoportok kombin&#xE1;ci&#xF3;it tartalmazza: ezt fogjuk megadni <code>newdata</code> argumentumk&#xE9;nt.</li>
+<li>Meg kell adunk a f&#xFC;ggv&#xE9;nyh&#xED;v&#xE1;sban az <code>interval = &quot;confidence&quot;</code> argumentumot.</li>
+</ol>
+<p>Vegy&#xFC;k &#xE9;szre, hogy a <code>newdata</code> data.frame nem m&#xE1;s, mint a <code>Heavy_use</code> &#xE9;s <code>Problematic</code> v&#xE1;ltoz&#xF3;k &#xF6;sszes lehets&#xE9;ges szintj&#xE9;nek kombin&#xE1;ci&#xF3;ja. Azaz:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># l&#xE1;sd ?expand.grid</span>
+groups &lt;- expand.grid(
+    Heavy_use = levels(model_dat$Heavy_use),
+    Problematic = levels(model_dat$Problematic)
+)
+
+<span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>
+print(groups)
+</code></pre>
+<pre><code>##                       Heavy_use    Problematic
+## 1 less than or equal to 4 h/day non-disordered
+## 2             more than 4 h/day non-disordered
+## 3 less than or equal to 4 h/day     disordered
+## 4             more than 4 h/day     disordered
+</code></pre><p>H&#xED;vjuk meg a <code>predict</code> f&#xFC;ggv&#xE9;nyt a megfelel&#x151; argumentumokkal:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># becs&#xFC;lt &#xE1;tlagok</span>
+pred_means &lt;- predict(model$lm, 
+                      newdata = groups,
+                      interval = <span class="hljs-string">&quot;confidence&quot;</span>)
+
+<span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>
+print(pred_means)
+</code></pre>
+<pre><code>##            fit         lwr        upr
+## 1 -0.008243426 -0.05246770 0.03598085
+## 2 -0.011176548 -0.08710238 0.06474928
+## 3  0.006940219 -0.03762539 0.05150582
+## 4  0.014462617 -0.05928411 0.08820935
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># illessz&#xFC;k mell&#xE9; a &apos;groups&apos; adatt&#xE1;bl&#xE1;nkat is</span>
+( pred_table &lt;- data.frame(groups, pred_means) )
+</code></pre>
+<pre><code>##                       Heavy_use    Problematic          fit         lwr
+## 1 less than or equal to 4 h/day non-disordered -0.008243426 -0.05246770
+## 2             more than 4 h/day non-disordered -0.011176548 -0.08710238
+## 3 less than or equal to 4 h/day     disordered  0.006940219 -0.03762539
+## 4             more than 4 h/day     disordered  0.014462617 -0.05928411
+##          upr
+## 1 0.03598085
+## 2 0.06474928
+## 3 0.05150582
+## 4 0.08820935
+</code></pre><p>&#xC9;s ellen&#x151;rz&#xE9;sk&#xE9;ppen vess&#xFC;k &#xF6;ssze a <code>marginal_means</code> adataival:</p>
+<pre><code class="lang-r">print(marginal_means)
+</code></pre>
+<pre><code>##  Heavy_use                     Problematic          lsmean         SE   df
+##  less than or equal to 4 h/day non-disordered -0.008243426 0.02255864 5272
+##  more than 4 h/day             non-disordered -0.011176548 0.03872949 5272
+##  less than or equal to 4 h/day disordered      0.006940219 0.02273275 5272
+##  more than 4 h/day             disordered      0.014462617 0.03761794 5272
+##     lower.CL   upper.CL
+##  -0.05246770 0.03598085
+##  -0.08710238 0.06474928
+##  -0.03762539 0.05150582
+##  -0.05928411 0.08820935
+## 
+## Confidence level used: 0.95
+</code></pre><p>(Z&#xE1;r&#xF3;jelben: az <code>lsmeans</code> package az S3 rendszern&#xE9;l bonyolultabb, S4 
+objektumokkal oper&#xE1;l. Ennek t&#xE1;rgyal&#xE1;sa meghaladn&#xE1; a kurzus szintj&#xE9;t, &#xED;gy
+most ett&#x151;l eltekint&#xFC;nk.)</p>
+<h2 id="az-%C3%B6sszes-anova-futtat%C3%A1sa">Az &#xF6;sszes ANOVA futtat&#xE1;sa</h2>
+<p>Az el&#x151;z&#x151; pontban levezett&#xFC;k, hogyan tudn&#xE1;nk kisz&#xE1;molni a f&#xFC;gg&#x151; v&#xE1;ltoz&#xF3; nev&#xE9;nek
+ismeret&#xE9;ben a modell ANOVA-t&#xE1;bl&#xE1;zat&#xE1;t &#xE9;s a becs&#xFC;lt &#xE1;tlagokat. &#xD6;sszefoglalva:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># modell futtat&#xE1;sa</span>
+model &lt;- aov_ez(id = <span class="hljs-string">&quot;subject_code&quot;</span>, dv = <span class="hljs-string">&quot;MOGQ_Social&quot;</span>, 
+                data = model_dat, 
+                between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
+                observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
+
+<span class="hljs-comment"># sz&#xE9;p ANOVA-t&#xE1;bla:</span>
+nice_table &lt;- nice(model)
+
+<span class="hljs-comment"># csoportok kombin&#xE1;ci&#xF3;ja</span>
+groups &lt;- expand.grid(
+    Heavy_use = levels(model_dat$Heavy_use),
+    Problematic = levels(model_dat$Problematic)
+)
+
+<span class="hljs-comment"># predikci&#xF3;k</span>
+pred_means &lt;- predict(model$lm, 
+                      newdata = groups,
+                      interval = <span class="hljs-string">&quot;confidence&quot;</span>)
+pred_table &lt;- data.frame(groups, pred_means)
+
+<span class="hljs-comment"># a v&#xE9;gs&#x151; eredm&#xE9;nyek &#xF6;sszef&#x171;z&#xE9;se egy list&#xE1;ba</span>
+list(anova_table = nice_table,
+     prediction_table = pred_table)
+</code></pre>
+<pre><code>## $anova_table
+##                  Effect      df  MSE    F    ges p.value
+## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
+## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
+## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
+## 
+## $prediction_table
+##                       Heavy_use    Problematic          fit         lwr
+## 1 less than or equal to 4 h/day non-disordered -0.008243426 -0.05246770
+## 2             more than 4 h/day non-disordered -0.011176548 -0.08710238
+## 3 less than or equal to 4 h/day     disordered  0.006940219 -0.03762539
+## 4             more than 4 h/day     disordered  0.014462617 -0.05928411
+##          upr
+## 1 0.03598085
+## 2 0.06474928
+## 3 0.05150582
+## 4 0.08820935
+</code></pre><p>Ezek ismeret&#xE9;ben egyszer&#x171;en k&#xE9;sz&#xED;thet&#xFC;nk egy f&#xFC;ggv&#xE9;nyt, amely argumentumk&#xE9;nt a f&#xFC;gg&#x151; v&#xE1;ltoz&#xF3; nev&#xE9;t (jel&#xF6;lje <code>y</code>) &#xE9;s a modell alapj&#xE1;t szolg&#xE1;l&#xF3; adatt&#xE1;bl&#xE1;t (jel&#xF6;lje <code>datfr</code>) v&#xE1;rja, &#xE9;s ezek ismeret&#xE9;ben az &#xF6;sszes sz&#xE1;m&#xED;t&#xE1;st elv&#xE9;gzi. Adjunk a f&#xFC;ggv&#xE9;nynek a <code>runAnova</code> nevet, &#xE9;s cser&#xE9;lj&#xFC;k ki a &apos;model_dat&apos; el&#x151;fordul&#xE1;sokat &apos;datfr&apos;-re, illetve a 
+<code>dv = &quot;MOGQ&quot;</code> argumentumot <code>dv = y</code>-ra (haszn&#xE1;ljuk a CTRL+F billenty&#x171;kombin&#xE1;ci&#xF3;t vagy az Edit &gt; Find... opci&#xF3;t a men&#xFC;b&#x151;l):</p>
+<pre><code class="lang-r">runAnova &lt;- <span class="hljs-keyword">function</span>(y, datfr) {
+    <span class="hljs-comment"># modell futtat&#xE1;sa</span>
+    model &lt;- aov_ez(id = <span class="hljs-string">&quot;subject_code&quot;</span>, dv = y, 
+                    data = datfr, 
+                    between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
+                    observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
+
+    <span class="hljs-comment"># sz&#xE9;p ANOVA-t&#xE1;bla:</span>
+    nice_table &lt;- nice(model)
+
+    <span class="hljs-comment"># csoportok kombin&#xE1;ci&#xF3;ja</span>
+    groups &lt;- expand.grid(
+        Heavy_use = levels(datfr$Heavy_use),
+        Problematic = levels(datfr$Problematic)
+    )
+
+    <span class="hljs-comment"># predikci&#xF3;k</span>
+    pred_means &lt;- predict(model$lm, 
+                          newdata = groups,
+                          interval = <span class="hljs-string">&quot;confidence&quot;</span>)
+    pred_table &lt;- data.frame(groups, pred_means)
+
+    <span class="hljs-comment"># a v&#xE9;gs&#x151; eredm&#xE9;nyek &#xF6;sszef&#x171;z&#xE9;se egy list&#xE1;ba</span>
+    list(anova_table = nice_table,
+         prediction_table = pred_table)
+}
+</code></pre>
+<p>Ellen&#x151;rizz&#xFC;k, hogy a f&#xFC;ggv&#xE9;ny&#xFC;nk t&#xE9;nyleg m&#x171;k&#xF6;dik:</p>
+<pre><code class="lang-r">runAnova(<span class="hljs-string">&quot;MOGQ_Social&quot;</span>, model_dat)
+</code></pre>
+<pre><code>## $anova_table
+##                  Effect      df  MSE    F    ges p.value
+## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
+## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
+## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
+## 
+## $prediction_table
+##                       Heavy_use    Problematic          fit         lwr
+## 1 less than or equal to 4 h/day non-disordered -0.008243426 -0.05246770
+## 2             more than 4 h/day non-disordered -0.011176548 -0.08710238
+## 3 less than or equal to 4 h/day     disordered  0.006940219 -0.03762539
+## 4             more than 4 h/day     disordered  0.014462617 -0.05928411
+##          upr
+## 1 0.03598085
+## 2 0.06474928
+## 3 0.05150582
+## 4 0.08820935
+</code></pre><p>Eml&#xE9;kezhet&#xFC;nk az <a href="prepare.html">el&#x151;z&#x151; fejezetpontban</a> megismert <code>lapply</code> parancsra, amellyel egyszer&#x171;en lefuttathatjuk az &#xFA;j <code>runAnova</code> f&#xFC;ggv&#xE9;ny&#xFC;nket az &#xF6;sszes sk&#xE1;lapontsz&#xE1;mra:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># a sk&#xE1;l&#xE1;k neveinek lek&#xE9;r&#xE9;se a m&#xE1;r megszokott m&#xF3;don</span>
+skala_nevek &lt;- grep(<span class="hljs-string">&quot;MOGQ|POGQ|BSI|GSI&quot;</span>,
+                    colnames(model_dat),
+                    value = <span class="hljs-literal">TRUE</span>) 
+
+<span class="hljs-comment"># az ANOVA-k futtat&#xE1;sa</span>
+results &lt;- lapply(skala_nevek, runAnova, datfr = model_dat)
+
+<span class="hljs-comment"># az eredm&#xE9;nylista elemeinek elnevez&#xE9;se</span>
+names(results) &lt;- skala_nevek
+</code></pre>
+<h2 id="az-eredm%C3%A9nyek-%C3%A1br%C3%A1zol%C3%A1sa">Az eredm&#xE9;nyek &#xE1;br&#xE1;zol&#xE1;sa</h2>
+<p>Az ellen&#x151;rz&#x151; &#xE1;br&#xE1;kn&#xE1;l m&#xE1;r l&#xE1;thattuk, hogy a ggplot2 seg&#xED;ts&#xE9;g&#xE9;vel egyszer&#x171;en elk&#xE9;sz&#xED;thet&#x151;k a k&#xED;v&#xE1;nt &#xE1;br&#xE1;k. El&#x151;tte azonban t&#xE1;bl&#xE1;zatos form&#xE1;ba kell rendezni az adatainkat. Hogyan k&#xE9;sz&#xED;thetn&#xE9;nk egy olyan adatt&#xE1;bl&#xE1;t, amely az &#xF6;sszes, egyel&#x151;re egy-egy listaelemk&#xE9;nt (&apos;prediction_table&apos; n&#xE9;vvel) t&#xE1;rolt adatt&#xE1;bl&#xE1;t egy&#xFC;ttesen tartalmazza? (Vegy&#xFC;k &#xE9;szre, hogy az ANOVA-t&#xE1;bl&#xE1;zatokat szint&#xE9;n &#xE1;talak&#xED;thatn&#xE1;nk 
+ilyen form&#xE1;ban. Ezt a k&#xF6;vetkez&#x151;k alapj&#xE1;n, gyakorl&#xE1;sk&#xE9;nt &#xE9;rdemes kipr&#xF3;b&#xE1;lni.) Az al&#xE1;bbiakban megadunk egy lehets&#xE9;ges elj&#xE1;r&#xE1;st:</p>
+<ol>
+<li>K&#xE9;sz&#xED;ts&#xFC;nk egy list&#xE1;t, amelyik a <code>results</code> list&#xE1;b&#xF3;l kigy&#x171;jti a <code>prediction_table</code> t&#xE1;bl&#xE1;zatokat:</li>
+</ol>
+<pre><code class="lang-r">pred_tables &lt;- lapply(results, <span class="hljs-keyword">function</span>(x) x$prediction_table)
+</code></pre>
+<p>(Vagy m&#xE9;g t&#xF6;m&#xF6;rebben: <code>lapply(results, &quot;[[&quot;, &quot;prediction_table&quot;</code>.)</p>
+<ol>
+<li>H&#xED;vjuk meg a <em>data.table</em> csomag <code>rbindlist()</code> parancs&#xE1;t, &#xE9;s haszn&#xE1;ljuk az <code>idcol</code> argumentumot:</li>
+</ol>
+<pre><code class="lang-r"><span class="hljs-comment"># data.table bet&#xF6;lt&#xE9;se</span>
+<span class="hljs-keyword">library</span>(data.table)
+</code></pre>
+<pre><code>## data.table 1.9.6  For help type ?data.table or https://github.com/Rdatatable/data.table/wiki
+</code></pre><pre><code>## The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
+</code></pre><pre><code>## 
+## Attaching package: &apos;data.table&apos;
+</code></pre><pre><code>## The following objects are masked from &apos;package:reshape2&apos;:
+## 
+##     dcast, melt
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xF6;sszef&#x171;z&#xE9;s</span>
+estimated_means &lt;- rbindlist(pred_tables, idcol = <span class="hljs-string">&quot;skala&quot;</span>)
+
+<span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>
+str(estimated_means)
+</code></pre>
+<pre><code>## Classes &apos;data.table&apos; and &apos;data.frame&apos;:    92 obs. of  6 variables:
+##  $ skala      : chr  &quot;MOGQ_Social&quot; &quot;MOGQ_Social&quot; &quot;MOGQ_Social&quot; &quot;MOGQ_Social&quot; ...
+##  $ Heavy_use  : Factor w/ 2 levels &quot;less than or equal to 4 h/day&quot;,..: 1 2 1 2 1 2 1 2 1 2 ...
+##  $ Problematic: Factor w/ 2 levels &quot;non-disordered&quot;,..: 1 1 2 2 1 1 2 2 1 1 ...
+##  $ fit        : num  -0.00824 -0.01118 0.00694 0.01446 0.01694 ...
+##  $ lwr        : num  -0.0525 -0.0871 -0.0376 -0.0593 -0.0273 ...
+##  $ upr        : num  0.036 0.0647 0.0515 0.0882 0.0612 ...
+##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;
+</code></pre><p>Az <code>rbindlist</code> f&#xFC;ggv&#xE9;ny data.table-t ad eredm&#xE9;ny&#xFC;l, illetve a &apos;skala&apos; v&#xE1;ltoz&#xF3;t megtartja karakter v&#xE1;ltoz&#xF3;k&#xE9;nt. A <em>data.table</em> csomagot m&#xE1;r bemutattuk egy kor&#xE1;bbi <a href="../sec6_process/filter_select.html">fejezetben</a> mint egy rendk&#xED;v&#xFC;l hat&#xE9;kony adatfeldolgoz&#xF3; csomagot. A tov&#xE1;bbiakban kihaszn&#xE1;lhatn&#xE1;nk a <em>data.table</em> szintaxis&#xE1;nak azt a nagyon kellemes jellegzetess&#xE9;g&#xE9;t, hogy egy adott adatt&#xE1;bl&#xE1;n bel&#xFC;li v&#xE1;ltoz&#xF3;k k&#xF6;zvetlen&#xFC;l el&#xE9;rhet&#x151;k, p&#xE9;ld&#xE1;ul:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># ehelyett:</span>
+estimated_means$skala &lt;- factor(estimated_means$skala)
+</code></pre>
+<pre><code class="lang-r"><span class="hljs-comment"># &#xED;rhatjuk ezt:</span>
+estimated_means[, skala := factor(skala)]
+</code></pre>
+<p>A tov&#xE1;bbiakban m&#xE9;gis maradunk a hagyom&#xE1;nyos data.frame adatstrukt&#xFA;ra mellett. Azonban halad&#xF3;bb felhaszn&#xE1;l&#xF3;k b&#xE1;tran pr&#xF3;b&#xE1;lkozhatnak azzal, hogy a k&#xF6;vetkez&#x151; &#xE1;talak&#xED;t&#xE1;sokat az eredeti data.table adatstrukt&#xF3;r&#xE1;ban, a <em>data.table</em> csomag szintaxis&#xE1;val (l&#xE1;sd <code>?data.table</code>) oldj&#xE1;k meg.</p>
+<pre><code class="lang-r"><span class="hljs-comment"># &#xE1;talak&#xED;t&#xE1;s data.frame-m&#xE9;</span>
+estimated_means &lt;- as.data.frame(estimated_means)
+</code></pre>
+<p>A feladat le&#xED;r&#xE1;s&#xE1;ban az szerepelt, hogy k&#xFC;l&#xF6;n &#xE1;br&#xE1;kat k&#xE9;sz&#xED;ts&#xFC;nk az MOGQ, POGQ &#xE9;s BSI k&#xE9;rd&#x151;&#xED;vek sk&#xE1;l&#xE1;ira. K&#xE9;sz&#xED;ts&#xFC;nk teh&#xE1;t egy v&#xE1;ltoz&#xF3;t, amely jelzi, hogy az adott sk&#xE1;lapontsz&#xE1;m melyik k&#xE9;rd&#x151;&#xED;vhez tartozik. Vegy&#xFC;k &#xE9;szre, hogy a sk&#xE1;lav&#xE1;ltoz&#xF3;k neve tartalmazza a k&#xE9;rd&#x151;&#xED;vek nev&#xE9;t, kiv&#xE9;ve a &apos;GSI&apos; v&#xE1;ltoz&#xF3;t. El&#xE9;g teh&#xE1;t t&#xF6;r&#xF6;ln&#xFC;nk a sk&#xE1;l&#xE1;k nev&#xE9;b&#x151;l az alulvon&#xE1;s (_) ut&#xE1;ni karaktereket: </p>
+<pre><code class="lang-r"><span class="hljs-comment"># regul&#xE1;ris kifejez&#xE9;st haszn&#xE1;lunk: alulvon&#xE1;s (_) ut&#xE1;n ak&#xE1;rmilyen</span>
+<span class="hljs-comment"># karakter k&#xF6;vetkezhet ak&#xE1;rmilyen sz&#xE1;mban (ez ut&#xF3;bbi jele: .*)</span>
+estimated_means$kerdoiv &lt;- factor(sub(<span class="hljs-string">&quot;_.*&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, estimated_means$skala),
+                                  levels = c(<span class="hljs-string">&quot;MOGQ&quot;</span>, <span class="hljs-string">&quot;POGQ&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>, <span class="hljs-string">&quot;GSI&quot;</span>))
+<span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>
+str(estimated_means$kerdoiv)
+</code></pre>
+<pre><code>##  Factor w/ 4 levels &quot;MOGQ&quot;,&quot;POGQ&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+</code></pre><p>Ha a &apos;GSI&apos; sk&#xE1;l&#xE1;t hozz&#xE1; akarjuk rendelni a &apos;BSI&apos; k&#xE9;rd&#x151;&#xED;vhez (l&#xE1;sd <a href="../sec6_process/convert.html">itt</a>):</p>
+<pre><code class="lang-r">levels(estimated_means$kerdoiv) &lt;- c(<span class="hljs-string">&quot;MOGQ&quot;</span>, <span class="hljs-string">&quot;POGQ&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>)
+</code></pre>
+<p>Mivel innent&#x151;l mindegyik sk&#xE1;l&#xE1;r&#xF3;l tudjuk, hogy melyik k&#xE9;rd&#x151;&#xED;vhez tartozik, nyugodtan kit&#xF6;r&#xF6;lhetj&#xFC;k a sk&#xE1;l&#xE1;k nev&#xE9;b&#x151;l a k&#xE9;rd&#x151;&#xED;vre utal&#xF3; r&#xE9;szletet. Ez&#xE1;ltak a sk&#xE1;lanevek r&#xF6;videbbek lesznek, ami az &#xE1;br&#xE1;n val&#xF3; olvashat&#xF3;s&#xE1;got is jav&#xED;tja:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># regul&#xE1;ris kifejez&#xE9;st haszn&#xE1;lunk: t&#xF6;r&#xF6;lj minden olyan szakaszt</span>
+<span class="hljs-comment"># a sk&#xE1;lanevek elej&#xE9;r&#x151;l (`^`), amely 3-4 ak&#xE1;rmilyen karakter (`.{3,4}`)</span>
+<span class="hljs-comment"># ut&#xE1;n egy alulvon&#xE1;st (`_`) tartalmaz</span>
+estimated_means$skala &lt;- sub(<span class="hljs-string">&quot;^.{3,4}_&quot;</span>, <span class="hljs-string">&quot;&quot;</span>,
+                             estimated_means$skala)
+</code></pre>
+<p>&#xCD;gy m&#xE1;r elk&#xE9;sz&#xED;thetj&#xFC;k az &#xE1;br&#xE1;kat; p&#xE9;ld&#xE1;ul az MOGQ k&#xE9;rd&#x151;&#xED;vre:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># adatok sz&#x171;r&#xE9;se</span>
+plot_dat &lt;- subset(estimated_means, kerdoiv == <span class="hljs-string">&quot;MOGQ&quot;</span>)
+
+<span class="hljs-comment"># nem haszn&#xE1;lt faktorszintek t&#xF6;rl&#xE9;se, l&#xE1;sd ?droplevels</span>
+plot_dat &lt;- droplevels(plot_dat)
+
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># &#xE1;bra elk&#xE9;sz&#xED;t&#xE9;se - l&#xE9;p&#xE9;senk&#xE9;nt, magyar&#xE1;zatokkal</span>
+<span class="hljs-comment">#</span>
+
+<span class="hljs-comment"># 1) h&#xED;vjuk meg a ggplot parancsot az adatt&#xE1;bl&#xE1;nkra;</span>
+<span class="hljs-comment"># 2) adjuk meg azon param&#xE9;tereket (aes), amelyek</span>
+<span class="hljs-comment"># valamely v&#xE1;ltoz&#xF3;nk &#xE9;rt&#xE9;k&#xE9;t&#x151;l f&#xFC;ggenek</span>
+gg &lt;- ggplot(plot_dat,
+             aes(x = skala, y = fit))
+
+<span class="hljs-comment"># 1) adjunk az &#xE1;br&#xE1;hoz oszlopdiagramot (?geom__bar); 2) a kit&#xF6;lt&#xE9;s</span>
+<span class="hljs-comment"># sz&#xED;ne &#xE9;s az &#xE1;ttetsz&#x151;s&#xE9;ge a csoportos&#xED;t&#xF3; v&#xE1;ltoz&#xF3;inkt&#xF3;l f&#xFC;ggj&#xF6;n;</span>
+<span class="hljs-comment"># 3) az oszlopok legyenek egym&#xE1;s mellett, kicsit elcs&#xFA;sztatva </span>
+<span class="hljs-comment"># (position_dodge), a k&#xF6;rvonaluk legyen s&#xF6;t&#xE9;tsz&#xFC;rke </span>
+<span class="hljs-comment"># (colour = grey20), &#xE9;s az oszlopok legyenek keskenyebbek az </span>
+<span class="hljs-comment"># alap&#xE9;rtelmezettn&#xE9;l (width = 0.3)</span>
+gg &lt;- gg + 
+    geom_bar(aes(fill = Problematic, alpha = Heavy_use),
+             width = <span class="hljs-number">0.3</span>,
+             stat = <span class="hljs-string">&quot;identity&quot;</span>, 
+             position = position_dodge(width = <span class="hljs-number">0.5</span>), 
+             colour = <span class="hljs-string">&quot;grey20&quot;</span>)
+
+<span class="hljs-comment"># az &#xE1;ttetsz&#x151;s&#xE9;g m&#xE9;rt&#xE9;k&#xE9;t &#xE1;ll&#xED;tsuk be &quot;k&#xE9;zzel&quot;</span>
+gg &lt;- gg + scale_alpha_manual(values = c(<span class="hljs-number">0.3</span>, <span class="hljs-number">0.9</span>))
+
+<span class="hljs-comment"># 1) adjunk az &#xE1;br&#xE1;hoz konfidencia-intervallumokat jelz&#x151; vonalakat,</span>
+<span class="hljs-comment"># l&#xE1;sd: ?geom_errorbar; 2) az&#xE9;rt, hogy ezek igazodjanak az</span>
+<span class="hljs-comment"># oszlopokhoz, haszn&#xE1;ljuk ugyanazt a position_dodge() igaz&#xED;t&#xE1;st;</span>
+<span class="hljs-comment"># 3) haszn&#xE1;ljuk az &apos;interaction()&apos; f&#xFC;ggv&#xE9;nyt (l&#xE1;sd ?interaction) a</span>
+<span class="hljs-comment"># csoportos&#xED;t&#xE1;shoz (erre a position_dodge haszn&#xE1;lata miatt van</span>
+<span class="hljs-comment"># sz&#xFC;ks&#xE9;g); 4) a konf.int. hat&#xE1;rol&#xF3;i legyenek keskenyebbek az</span>
+<span class="hljs-comment"># alap&#xE9;rtelmezettn&#xE9;l (width = 0.15), &#xE9;s a sz&#xED;n&#xFC;k legyen </span>
+<span class="hljs-comment"># s&#xF6;t&#xE9;tsz&#xFC;rke (colour = &quot;grey20&quot;)</span>
+gg &lt;- gg + 
+    geom_errorbar(aes(ymin = lwr, ymax = upr, 
+                      group = interaction(Heavy_use, Problematic)),
+                  position = position_dodge(width = <span class="hljs-number">0.5</span>),
+                  width = <span class="hljs-number">0.15</span>,
+                  colour = <span class="hljs-string">&quot;grey20&quot;</span>)
+
+<span class="hljs-comment"># adjunk kifejez&#x151;bb tengelyfeliratokat az &#xE1;br&#xE1;hoz</span>
+gg &lt;- gg + 
+    xlab(<span class="hljs-string">&quot;Scale&quot;</span>) + 
+    ylab(<span class="hljs-string">&quot;Standardized scale score&quot;</span>)
+
+<span class="hljs-comment"># adjuk meg az &#xE1;bra c&#xED;m&#xE9;nek a k&#xE9;rd&#x151;&#xED;v nev&#xE9;t</span>
+gg &lt;- gg + ggtitle(<span class="hljs-string">&quot;MOGQ&quot;</span>)
+
+<span class="hljs-comment"># v&#xE1;ltoztassuk meg a st&#xED;lust az alap&#xE9;rtelmezett</span>
+<span class="hljs-comment"># t&#xE9;m&#xE1;r&#xF3;l a fekete-feh&#xE9;r t&#xE9;m&#xE1;ra</span>
+gg &lt;- gg + theme_bw()
+
+<span class="hljs-comment"># forgassuk el 45 fokkal a sk&#xE1;laneveket, hogy jobban olvashat&#xF3;ak</span>
+<span class="hljs-comment"># legyenek, l&#xE1;sd: ?theme</span>
+gg &lt;- gg + 
+    theme(axis.text.x = element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>))
+
+<span class="hljs-comment"># l&#xE1;ssuk, hogyan fest az &#xE1;bra</span>
+print(gg)
+</code></pre>
+<p><img src="figure/unnamed-chunk-38-1.png" alt="plot of chunk unnamed-chunk-38"></p>
+<p>Ha m&#xE1;r ilyen sz&#xE9;p &#xE1;br&#xE1;t siker&#xFC;lt k&#xE9;sz&#xED;ten&#xFC;nk, t&#xE1;roljuk el egy f&#xFC;ggv&#xE9;nyben;
+a f&#xFC;ggv&#xE9;ny neve legyen <code>plotAnova</code>, az argumentumai pedig legyenek a k&#xE9;rd&#x151;&#xED;v
+nev&#xE9;t jelz&#x151; <code>questionnaire</code> &#xE9;s az input adatokat jelz&#x151; <code>datfr</code>:</p>
+<pre><code class="lang-r">plotAnova &lt;- <span class="hljs-keyword">function</span>(questionnaire, datfr) {
+    <span class="hljs-comment"># adatok sz&#x171;r&#xE9;se</span>
+    plot_dat &lt;- subset(datfr, kerdoiv == questionnaire)
+
+    <span class="hljs-comment"># nem haszn&#xE1;lt faktorszintek t&#xF6;rl&#xE9;se</span>
+    plot_dat &lt;- droplevels(plot_dat)
+
+    <span class="hljs-comment"># &#xE1;bra elk&#xE9;sz&#xED;t&#xE9;se</span>
+    gg &lt;- ggplot(plot_dat,
+                 aes(x = skala, y = fit)) + 
+        geom_bar(aes(fill = Problematic, alpha = Heavy_use),
+                 width = <span class="hljs-number">0.3</span>,
+                 stat = <span class="hljs-string">&quot;identity&quot;</span>, 
+                 position = position_dodge(width = <span class="hljs-number">0.5</span>), 
+                 colour = <span class="hljs-string">&quot;grey20&quot;</span>) + 
+        scale_alpha_manual(values = c(<span class="hljs-number">0.3</span>, <span class="hljs-number">0.9</span>)) + 
+        geom_errorbar(aes(ymin = lwr, ymax = upr, 
+                          group = interaction(Heavy_use, Problematic)),
+                      position = position_dodge(width = <span class="hljs-number">0.5</span>),
+                      width = <span class="hljs-number">0.15</span>,
+                      colour = <span class="hljs-string">&quot;grey20&quot;</span>) + 
+        xlab(<span class="hljs-string">&quot;Scale&quot;</span>) + 
+        ylab(<span class="hljs-string">&quot;Standardized scale score&quot;</span>) + 
+        ggtitle(questionnaire) + 
+        theme_bw() + 
+        theme(axis.text.x = element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>))
+
+    <span class="hljs-comment"># &#xE1;bra-strukt&#xFA;ra visszaad&#xE1;sa</span>
+    gg
+}
+</code></pre>
+<p>&#xC1;br&#xE1;zoljuk a POGQ &#xE9;s BSI k&#xE9;rd&#x151;&#xED;vek eredm&#xE9;ny&#xE9;t is:</p>
+<pre><code class="lang-r"><span class="hljs-comment"># POGQ</span>
+plotAnova(<span class="hljs-string">&quot;POGQ&quot;</span>, estimated_means)
+</code></pre>
+<p><img src="figure/unnamed-chunk-40-1.png" alt="plot of chunk unnamed-chunk-40"></p>
+<pre><code class="lang-r"><span class="hljs-comment"># BSI</span>
+plotAnova(<span class="hljs-string">&quot;BSI&quot;</span>, estimated_means)
+</code></pre>
+<p><img src="figure/unnamed-chunk-40-2.png" alt="plot of chunk unnamed-chunk-40"></p>
+<h2 id="az-elemz%C3%A9s-teljes-k%C3%B3dja">Az elemz&#xE9;s teljes k&#xF3;dja</h2>
+<p>Az al&#xE1;bbiakban megadjuk az elemz&#xE9;s teljes k&#xF3;dj&#xE1;t, kiz&#xE1;r&#xF3;lag a relev&#xE1;ns 
+sorokat megtartva:</p>
+<pre><code class="lang-r"><span class="hljs-comment">##### F&#xDC;GGV&#xC9;NYEK #####</span>
+
+<span class="hljs-comment"># ANOVA futtat&#xE1;sa</span>
+runAnova &lt;- <span class="hljs-keyword">function</span>(y, datfr) {
+    <span class="hljs-comment"># modell futtat&#xE1;sa</span>
+    model &lt;- aov_ez(id = <span class="hljs-string">&quot;subject_code&quot;</span>, dv = y, 
+                    data = datfr, 
+                    between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
+                    observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
+
+    <span class="hljs-comment"># sz&#xE9;p ANOVA-t&#xE1;bla:</span>
+    nice_table &lt;- nice(model)
+
+    <span class="hljs-comment"># csoportok kombin&#xE1;ci&#xF3;ja</span>
+    groups &lt;- expand.grid(
+        Heavy_use = levels(datfr$Heavy_use),
+        Problematic = levels(datfr$Problematic)
+    )
+
+    <span class="hljs-comment"># predikci&#xF3;k</span>
+    pred_means &lt;- predict(model$lm, 
+                          newdata = groups,
+                          interval = <span class="hljs-string">&quot;confidence&quot;</span>)
+    pred_table &lt;- data.frame(groups, pred_means)
+
+    <span class="hljs-comment"># a v&#xE9;gs&#x151; eredm&#xE9;nyek &#xF6;sszef&#x171;z&#xE9;se egy list&#xE1;ba</span>
+    list(anova_table = nice_table,
+         prediction_table = pred_table)
+}
+
+<span class="hljs-comment"># ANOVA plottol&#xE1;sa (pontosabban a ggplot-objektum elk&#xE9;sz&#xED;t&#xE9;se)</span>
+plotAnova &lt;- <span class="hljs-keyword">function</span>(questionnaire, datfr) {
+    <span class="hljs-comment"># adatok sz&#x171;r&#xE9;se</span>
+    plot_dat &lt;- subset(datfr, kerdoiv == questionnaire)
+
+    <span class="hljs-comment"># nem haszn&#xE1;lt faktorszintek t&#xF6;rl&#xE9;se</span>
+    plot_dat &lt;- droplevels(plot_dat)
+
+    <span class="hljs-comment"># &#xE1;bra elk&#xE9;sz&#xED;t&#xE9;se</span>
+    gg &lt;- ggplot(plot_dat,
+                 aes(x = skala, y = fit)) + 
+        geom_bar(aes(fill = Problematic, alpha = Heavy_use),
+                 width = <span class="hljs-number">0.3</span>,
+                 stat = <span class="hljs-string">&quot;identity&quot;</span>, 
+                 position = position_dodge(width = <span class="hljs-number">0.5</span>), 
+                 colour = <span class="hljs-string">&quot;grey20&quot;</span>) + 
+        scale_alpha_manual(values = c(<span class="hljs-number">0.3</span>, <span class="hljs-number">0.9</span>)) + 
+        geom_errorbar(aes(ymin = lwr, ymax = upr, 
+                          group = interaction(Heavy_use, Problematic)),
+                      position = position_dodge(width = <span class="hljs-number">0.5</span>),
+                      width = <span class="hljs-number">0.15</span>,
+                      colour = <span class="hljs-string">&quot;grey20&quot;</span>) + 
+        xlab(<span class="hljs-string">&quot;Scale&quot;</span>) + 
+        ylab(<span class="hljs-string">&quot;Standardized scale score&quot;</span>) + 
+        ggtitle(questionnaire) + 
+        theme_bw() + 
+        theme(axis.text.x = element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>))
+
+    <span class="hljs-comment"># &#xE1;bra-strukt&#xFA;ra visszaad&#xE1;sa</span>
+    gg
+}
+
+
+<span class="hljs-comment">#### EL&#x150;K&#xC9;SZ&#xCD;T&#xC9;S #####</span>
+
+<span class="hljs-comment"># csomagok bet&#xF6;lt&#xE9;se</span>
+<span class="hljs-keyword">library</span>(afex)
+<span class="hljs-keyword">library</span>(data.table)
+<span class="hljs-keyword">library</span>(ggplot2)
+
+<span class="hljs-comment"># alapadatok</span>
+model_dat &lt;- readRDS(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;prepared_data.rds&quot;</span>))
+
+<span class="hljs-comment"># szem&#xE9;lyi azonos&#xED;t&#xF3; </span>
+model_dat$subject_code &lt;- factor(model_dat$Sorszam)
+
+<span class="hljs-comment"># alap&#xE9;rtelmezett kontrasztok m&#xF3;dos&#xED;t&#xE1;sa</span>
+options(contrasts = c(<span class="hljs-string">&quot;contr.sum&quot;</span>, <span class="hljs-string">&quot;contr.poly&quot;</span>))
+
+<span class="hljs-comment">#### ELEMZ&#xC9;S #####</span>
+
+<span class="hljs-comment"># a sk&#xE1;l&#xE1;k neveinek lek&#xE9;r&#xE9;se</span>
+skala_nevek &lt;- grep(<span class="hljs-string">&quot;MOGQ|POGQ|BSI|GSI&quot;</span>,
+                    colnames(model_dat),
+                    value = <span class="hljs-literal">TRUE</span>) 
+
+<span class="hljs-comment"># az ANOVA-k futtat&#xE1;sa</span>
+results &lt;- lapply(skala_nevek, runAnova, datfr = model_dat)
+
+<span class="hljs-comment"># az eredm&#xE9;nylista elemeinek elnevez&#xE9;se</span>
+names(results) &lt;- skala_nevek
+
+<span class="hljs-comment"># tetsz&#x151;leges ANOVA-t&#xE1;bl&#xE1;zat &#xE9;s becs&#xFC;lt pontsz&#xE1;m </span>
+<span class="hljs-comment"># megtekint&#xE9;se (pl. MOGQ_Escape sk&#xE1;la):</span>
+results$MOGQ_Escape
+
+
+<span class="hljs-comment">#### &#xC1;BR&#xC1;ZOL&#xC1;S ####</span>
+
+<span class="hljs-comment"># becs&#xFC;lt &#xE1;tlagok adatt&#xE1;bl&#xE1;inak kinyer&#xE9;se...</span>
+pred_tables &lt;- lapply(results, <span class="hljs-keyword">function</span>(x) x$prediction_table)
+
+<span class="hljs-comment"># ... &#xE9;s &#xF6;sszerendez&#xE9;se</span>
+estimated_means &lt;- rbindlist(pred_tables, idcol = <span class="hljs-string">&quot;skala&quot;</span>)
+
+<span class="hljs-comment"># kisebb m&#xF3;dos&#xED;t&#xE1;sok az adatt&#xE1;bl&#xE1;n</span>
+estimated_means$skala &lt;- factor(estimated_means$skala)
+estimated_means &lt;- as.data.frame(estimated_means)
+estimated_means$kerdoiv &lt;- factor(sub(<span class="hljs-string">&quot;_.*&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, estimated_means$skala),
+                                  levels = c(<span class="hljs-string">&quot;MOGQ&quot;</span>, <span class="hljs-string">&quot;POGQ&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>, <span class="hljs-string">&quot;GSI&quot;</span>))
+levels(estimated_means$kerdoiv) &lt;- c(<span class="hljs-string">&quot;MOGQ&quot;</span>, <span class="hljs-string">&quot;POGQ&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>, <span class="hljs-string">&quot;BSI&quot;</span>)
+estimated_means$skala &lt;- sub(<span class="hljs-string">&quot;^.{3,4}_&quot;</span>, <span class="hljs-string">&quot;&quot;</span>,
+                             estimated_means$skala)
+
+<span class="hljs-comment"># &#xE1;br&#xE1;k</span>
+plotAnova(<span class="hljs-string">&quot;MOGQ&quot;</span>, estimated_means)
+plotAnova(<span class="hljs-string">&quot;POGQ&quot;</span>, estimated_means)
+plotAnova(<span class="hljs-string">&quot;BSI&quot;</span>, estimated_means)
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../sec11_program/prepare.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Előkészítés"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
