@@ -167,11 +167,6 @@ Sajnos egy ideje nem frissül, de
 Explorációs ábrázolásokra (különösen regressziós elemzések előtt) kiválóan 
 alkalmas például a *psych* csomag `pairs.panels` függvénye:
 
-```
-## Error in detach(package:ggplot2): invalid 'name' argument
-```
-
-
 ```r
 library(psych)
 pairs.panels(
