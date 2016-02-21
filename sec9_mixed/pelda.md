@@ -23,7 +23,7 @@ str(lexdec, list.len = 10)
 ```
 ## 'data.frame':	1659 obs. of  30 variables:
 ##  $ Subject       : Factor w/ 21 levels "A1","A2","A3",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ RT            : num  6.54 5.98 6.01 6.48 6.66 ...
+##  $ RT            : num  6.63 5.82 5.85 6.63 6.98 ...
 ##  $ Trial         : int  23 27 29 30 32 33 34 38 41 42 ...
 ##  $ Sex           : Factor w/ 2 levels "F","M": 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ NativeLanguage: Factor w/ 2 levels "English","Other": 1 1 1 1 1 1 1 1 1 1 ...
@@ -41,12 +41,12 @@ head(lexdec[, 1:10])
 
 ```
 ##   Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect
-## 1      A1 6.535331    23   F        English correct     word     correct
-## 2      A1 5.979911    27   F        English correct  nonword     correct
-## 3      A1 6.014888    29   F        English correct  nonword     correct
-## 4      A1 6.481539    30   F        English correct     word     correct
-## 5      A1 6.663978    32   F        English correct  nonword     correct
-## 6      A1 6.253474    33   F        English correct     word     correct
+## 1      A1 6.632816    23   F        English correct     word     correct
+## 2      A1 5.815817    27   F        English correct  nonword     correct
+## 3      A1 5.847762    29   F        English correct  nonword     correct
+## 4      A1 6.629204    30   F        English correct     word     correct
+## 5      A1 6.983034    32   F        English correct  nonword     correct
+## 6      A1 6.290203    33   F        English correct     word     correct
 ##         Word Frequency
 ## 1        owl  4.859812
 ## 2       mole  4.605170

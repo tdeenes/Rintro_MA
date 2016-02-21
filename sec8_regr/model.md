@@ -97,10 +97,10 @@ with(dat, lm(olvasas ~ csoport * szokincs))
 ## lm(formula = olvasas ~ csoport * szokincs)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 ```
 
 
@@ -115,10 +115,10 @@ lm(olvasas ~ csoport * szokincs, data = dat)
 ## lm(formula = olvasas ~ csoport * szokincs, data = dat)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 ```
 
 ### A becsült paraméterek és egyéb eredmények megtekintése
@@ -135,10 +135,10 @@ print(model)
 ## lm(formula = olvasas ~ csoport * szokincs, data = dat)
 ## 
 ## Coefficients:
-##         (Intercept)           csoportsni             szokincs  
-##             46.8792              29.0598               0.9497  
-## csoportsni:szokincs  
-##             -0.9818
+##       (Intercept)           csoport1           szokincs  
+##           61.4091           -14.5299             0.4588  
+## csoport1:szokincs  
+##            0.4909
 ```
 
 - a `summary()` annál inkább:
@@ -157,11 +157,11 @@ summary(model)
 ## -43.650 -18.766  -0.269  14.687  59.056 
 ## 
 ## Coefficients:
-##                     Estimate Std. Error t value Pr(>|t|)   
-## (Intercept)          46.8792    16.0050   2.929  0.00428 **
-## csoportsni           29.0598    18.9169   1.536  0.12789   
-## szokincs              0.9497     0.3663   2.593  0.01106 * 
-## csoportsni:szokincs  -0.9818     0.5121  -1.917  0.05828 . 
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)        61.4091     9.4584   6.493 4.08e-09 ***
+## csoport1          -14.5299     9.4584  -1.536   0.1279    
+## szokincs            0.4588     0.2560   1.792   0.0764 .  
+## csoport1:szokincs   0.4909     0.2560   1.917   0.0583 .  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -183,11 +183,11 @@ model_sum$coefficients
 ```
 
 ```
-##                       Estimate Std. Error   t value    Pr(>|t|)
-## (Intercept)         46.8792259 16.0049561  2.929044 0.004276137
-## csoportsni          29.0598082 18.9168865  1.536183 0.127888712
-## szokincs             0.9496837  0.3662897  2.592712 0.011059568
-## csoportsni:szokincs -0.9817849  0.5120846 -1.917232 0.058277874
+##                      Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept)        61.4091300  9.4584432  6.492520 4.083679e-09
+## csoport1          -14.5299041  9.4584432 -1.536183 1.278887e-01
+## szokincs            0.4587912  0.2560423  1.791857 7.640814e-02
+## csoport1:szokincs   0.4908924  0.2560423  1.917232 5.827787e-02
 ```
 
 - számos egyéb olyan függvény létezik, amelyek bizonyos paraméterek kinyerését
@@ -200,10 +200,8 @@ coef(model)
 ```
 
 ```
-##         (Intercept)          csoportsni            szokincs 
-##          46.8792259          29.0598082           0.9496837 
-## csoportsni:szokincs 
-##          -0.9817849
+##       (Intercept)          csoport1          szokincs csoport1:szokincs 
+##        61.4091300       -14.5299041         0.4587912         0.4908924
 ```
 
 ```r
@@ -213,11 +211,11 @@ coef(model_sum)
 ```
 
 ```
-##                       Estimate Std. Error   t value    Pr(>|t|)
-## (Intercept)         46.8792259 16.0049561  2.929044 0.004276137
-## csoportsni          29.0598082 18.9168865  1.536183 0.127888712
-## szokincs             0.9496837  0.3662897  2.592712 0.011059568
-## csoportsni:szokincs -0.9817849  0.5120846 -1.917232 0.058277874
+##                      Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept)        61.4091300  9.4584432  6.492520 4.083679e-09
+## csoport1          -14.5299041  9.4584432 -1.536183 1.278887e-01
+## szokincs            0.4587912  0.2560423  1.791857 7.640814e-02
+## csoport1:szokincs   0.4908924  0.2560423  1.917232 5.827787e-02
 ```
 
 ### Több modell összehasonlítása

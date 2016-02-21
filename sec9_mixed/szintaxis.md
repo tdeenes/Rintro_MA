@@ -20,21 +20,21 @@ summary(mod0)
 ## Formula: scRT ~ 1 + (1 | Subject)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 4341.3
+## REML criterion at convergence: 4445.4
 ## 
 ## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.2510 -0.7751  0.0437  0.6348  3.2703 
+##      Min       1Q   Median       3Q      Max 
+## -2.04651 -0.87606  0.09449  0.62459  2.81604 
 ## 
 ## Random effects:
 ##  Groups   Name        Variance Std.Dev.
-##  Subject  (Intercept) 0.1506   0.3881  
-##  Residual             0.8601   0.9274  
+##  Subject  (Intercept) 0.08002  0.2829  
+##  Residual             0.92559  0.9621  
 ## Number of obs: 1594, groups:  Subject, 21
 ## 
 ## Fixed effects:
 ##             Estimate Std. Error t value
-## (Intercept) 0.001656   0.087818   0.019
+## (Intercept) 0.001177   0.066272   0.018
 ```
 
 - "valódi" fix hatás + random konstans + random slope:
@@ -50,27 +50,27 @@ summary(mod_trial)
 ## Formula: scRT ~ scTrial + (1 + scTrial | Subject)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 4339.8
+## REML criterion at convergence: 4446.9
 ## 
 ## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.3311 -0.7852  0.0355  0.6339  3.2934 
+##      Min       1Q   Median       3Q      Max 
+## -2.03659 -0.88192  0.09215  0.62026  2.99275 
 ## 
 ## Random effects:
 ##  Groups   Name        Variance Std.Dev. Corr 
-##  Subject  (Intercept) 0.15117  0.3888        
-##           scTrial     0.01051  0.1025   -0.42
-##  Residual             0.85046  0.9222        
+##  Subject  (Intercept) 0.080383 0.28352       
+##           scTrial     0.007607 0.08722  -0.46
+##  Residual             0.918889 0.95859       
 ## Number of obs: 1594, groups:  Subject, 21
 ## 
 ## Fixed effects:
-##              Estimate Std. Error t value
-## (Intercept)  0.000863   0.087945   0.010
-## scTrial     -0.016743   0.032237  -0.519
+##               Estimate Std. Error t value
+## (Intercept)  0.0003167  0.0663791   0.005
+## scTrial     -0.0098790  0.0307164  -0.322
 ## 
 ## Correlation of Fixed Effects:
 ##         (Intr)
-## scTrial -0.278
+## scTrial -0.265
 ```
 
 - keresztezett random hatások:
@@ -86,28 +86,28 @@ summary(mod_crossed)
 ## Formula: scRT ~ scTrial + (1 + scTrial | Subject) + (1 | Word)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 2392.1
+## REML criterion at convergence: 1532
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -2.5557 -0.6257 -0.1178  0.4576  5.9873 
+## -2.5732 -0.6247 -0.1150  0.4565  5.9812 
 ## 
 ## Random effects:
 ##  Groups   Name        Variance Std.Dev. Corr 
-##  Word     (Intercept) 0.651037 0.80687       
-##  Subject  (Intercept) 0.158035 0.39754       
-##           scTrial     0.007012 0.08373  -0.28
-##  Residual             0.198417 0.44544       
+##  Word     (Intercept) 0.804171 0.89676       
+##  Subject  (Intercept) 0.088618 0.29769       
+##           scTrial     0.003924 0.06264  -0.28
+##  Residual             0.111259 0.33356       
 ## Number of obs: 1594, groups:  Word, 79; Subject, 21
 ## 
 ## Fixed effects:
 ##             Estimate Std. Error t value
-## (Intercept)  0.01479    0.12606   0.117
-## scTrial     -0.02541    0.02156  -1.179
+## (Intercept)  0.01238    0.12029   0.103
+## scTrial     -0.01907    0.01613  -1.182
 ## 
 ## Correlation of Fixed Effects:
 ##         (Intr)
-## scTrial -0.166
+## scTrial -0.130
 ```
 
 - beágyazott random hatások (többféle megadási mód lehetséges):
@@ -127,23 +127,23 @@ summary(mod_nested1)
 ## Formula: scRT ~ scTrial + (1 | Page) + (1 | Word)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 3023.3
+## REML criterion at convergence: 2109.7
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -2.2345 -0.6706 -0.1461  0.4792  4.4816 
+## -2.2322 -0.6717 -0.1452  0.4796  4.4835 
 ## 
 ## Random effects:
 ##  Groups   Name        Variance Std.Dev.
-##  Word     (Intercept) 0.03282  0.1812  
-##  Page     (Intercept) 0.66400  0.8149  
-##  Residual             0.35859  0.5988  
+##  Word     (Intercept) 0.0184   0.1357  
+##  Page     (Intercept) 0.8515   0.9228  
+##  Residual             0.2011   0.4484  
 ## Number of obs: 1594, groups:  Word, 79; Page, 10
 ## 
 ## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  0.00584    0.25893   0.023
-## scTrial     -0.02902    0.01520  -1.910
+##              Estimate Std. Error t value
+## (Intercept)  0.003373   0.292426   0.012
+## scTrial     -0.021736   0.011379  -1.910
 ## 
 ## Correlation of Fixed Effects:
 ##         (Intr)
@@ -159,23 +159,23 @@ summary(mod_nested2)
 ## Formula: scRT ~ scTrial + (1 | Page) + (1 | Word:Page)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 3023.3
+## REML criterion at convergence: 2109.7
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -2.2345 -0.6706 -0.1461  0.4792  4.4816 
+## -2.2322 -0.6717 -0.1452  0.4796  4.4835 
 ## 
 ## Random effects:
 ##  Groups    Name        Variance Std.Dev.
-##  Word:Page (Intercept) 0.03282  0.1812  
-##  Page      (Intercept) 0.66400  0.8149  
-##  Residual              0.35859  0.5988  
+##  Word:Page (Intercept) 0.0184   0.1357  
+##  Page      (Intercept) 0.8515   0.9228  
+##  Residual              0.2011   0.4484  
 ## Number of obs: 1594, groups:  Word:Page, 79; Page, 10
 ## 
 ## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  0.00584    0.25893   0.023
-## scTrial     -0.02902    0.01520  -1.910
+##              Estimate Std. Error t value
+## (Intercept)  0.003373   0.292426   0.012
+## scTrial     -0.021736   0.011379  -1.910
 ## 
 ## Correlation of Fixed Effects:
 ##         (Intr)
@@ -191,23 +191,23 @@ summary(mod_nested3)
 ## Formula: scRT ~ scTrial + (1 | Page/Word)
 ##    Data: lexdec_corr
 ## 
-## REML criterion at convergence: 3023.3
+## REML criterion at convergence: 2109.7
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -2.2345 -0.6706 -0.1461  0.4792  4.4816 
+## -2.2322 -0.6717 -0.1452  0.4796  4.4835 
 ## 
 ## Random effects:
 ##  Groups    Name        Variance Std.Dev.
-##  Word:Page (Intercept) 0.03282  0.1812  
-##  Page      (Intercept) 0.66400  0.8149  
-##  Residual              0.35859  0.5988  
+##  Word:Page (Intercept) 0.0184   0.1357  
+##  Page      (Intercept) 0.8515   0.9228  
+##  Residual              0.2011   0.4484  
 ## Number of obs: 1594, groups:  Word:Page, 79; Page, 10
 ## 
 ## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  0.00584    0.25893   0.023
-## scTrial     -0.02902    0.01520  -1.910
+##              Estimate Std. Error t value
+## (Intercept)  0.003373   0.292426   0.012
+## scTrial     -0.021736   0.011379  -1.910
 ## 
 ## Correlation of Fixed Effects:
 ##         (Intr)

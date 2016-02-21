@@ -11,7 +11,7 @@ akkor, ha az RStudio-ban Project-et használsz):
 ```
 
 ```
-## [1] "/home/tdenes/Documents/Eloadasok/2016/ELTE_RkurzusMA/Rintro_MA/sec5_import"
+## [1] "/home/tdenes/Documents/Eloadasok/2016/ELTE_RkurzusMA/Rintro_MA/master/sec5_import"
 ```
 
 ```r

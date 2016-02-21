@@ -98,21 +98,13 @@ dyslex_read_long3 <- gather(dyslex_read, mutato, ertek,
 
 - és szintén kellemes (es nagyon gyors) a *data.table* megoldása
 
+```
+## Error: package 'reshape2' is required by 'afex' so will not be detached
+```
 
 
 ```r
 library(data.table)
-```
-
-```
-## data.table 1.9.6  For help type ?data.table or https://github.com/Rdatatable/data.table/wiki
-```
-
-```
-## The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
-```
-
-```r
 dyslex_read_long4 <- melt(data.table(dyslex_read), 
      measure.vars = c("olv_helyes1", "olv_helyes2", "olv_helyes3"),
      variable.name = "mutato",

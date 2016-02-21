@@ -99,7 +99,7 @@ stats:::print.anova # így már elérhetjük
 ##         zap.ind = zap.i, tst.ind = tst.i, na.print = "", ...)
 ##     invisible(x)
 ## }
-## <bytecode: 0xcce83d8>
+## <bytecode: 0xc007b88>
 ## <environment: namespace:stats>
 ```
 

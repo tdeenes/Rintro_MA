@@ -35,20 +35,6 @@ Az átalakítás után az ábrázolás már nagyon egyszerű. Használjuk a *ggp
 
 ```r
 library(ggplot2)
-```
-
-```
-## 
-## Attaching package: 'ggplot2'
-```
-
-```
-## The following objects are masked from 'package:psych':
-## 
-##     %+%, alpha
-```
-
-```r
 # ábrázolás (magyarázattal)
 ggplot(model_dat_long,        # vedd a model_dat_long adattáblát
        aes(x = alskala, y = pontszam)) +  # az 'alskala' függvényében
@@ -79,51 +65,6 @@ Először gondoljuk át, hogyan futtatnánk az elemzést akkor, ha csak egyetlen
 library(afex)
 ```
 
-```
-## Loading required package: lme4
-```
-
-```
-## Loading required package: Matrix
-```
-
-```
-## 
-## Attaching package: 'Matrix'
-```
-
-```
-## The following object is masked from 'package:tidyr':
-## 
-##     expand
-```
-
-```
-## Loading required package: reshape2
-```
-
-```
-## Loading required package: lsmeans
-```
-
-```
-## Loading required package: estimability
-```
-
-```
-## ************
-## Welcome to afex. Important changes in the current version:
-```
-
-```
-## - Functions for ANOVAs have been renamed to: aov_car(), aov_ez(), and aov_4().
-## - ANOVA functions return an object of class 'afex_aov' as default, see: ?aov_car
-## - 'afex_aov' objects can be passed to lsmeans for contrasts and follow-up tests.
-## - Reset previous (faster) behavior via: afex_options(return_aov='nice')
-## - Many more arguments can now be set globally via options, see: afex_options()
-## ************
-```
-
 Az *afex* csomag `aov_ez` függvénye gyakorlatilag megfeleltethető az *ez* csomag `ezANOVA()` függvényének, de itt a változók neveit karaktervektorként kell megadnunk. A függvény elvár egy személyi azonosítót is, ezt készítsük el a 'Sorszam' változóból:
 
 ```r
@@ -137,10 +78,6 @@ model <- aov_ez(id = "subject_code", dv = "MOGQ_Social",
                 data = model_dat, 
                 between = c("Heavy_use", "Problematic"),
                 observed = c("Heavy_use", "Problematic"))
-```
-
-```
-## Contrasts set to contr.sum for the following variables: Heavy_use, Problematic
 ```
 
 A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.md)):
@@ -353,36 +290,37 @@ methods("predict")
 ```
 ##  [1] predict,ANY-method         predict.ar*               
 ##  [3] predict.Arima*             predict.arima0*           
-##  [5] predict.bam*               predict.bs*               
-##  [7] predict.bSpline*           predict.coxph*            
-##  [9] predict.coxph.penal*       predict.crq*              
-## [11] predict.crqs*              predict.gam*              
-## [13] predict.glinearModel*      predict.glm               
-## [15] predict.glmmPQL*           predict.gls*              
-## [17] predict.gnls*              predict.HoltWinters*      
-## [19] predict.jam*               predict,lavaan-method     
-## [21] predict.lda*               predict.linearModel*      
-## [23] predict.lm                 predict.lme*              
-## [25] predict.lmList*            predict.lmList4*          
-## [27] predict.loess*             predict.lqs*              
-## [29] predict.mca*               predict.merMod*           
-## [31] predict.mlm*               predict.multinom*         
-## [33] predict.nbSpline*          predict.nlme*             
-## [35] predict.nlrq*              predict.nls*              
-## [37] predict.nnet*              predict.npolySpline*      
-## [39] predict.ns*                predict.pbSpline*         
-## [41] predict.polr*              predict.poly*             
-## [43] predict.polySpline*        predict.ppolySpline*      
-## [45] predict.ppr*               predict.prcomp*           
-## [47] predict.princomp*          predict.pspline*          
-## [49] predict.psych              predict.qda*              
-## [51] predict.qss1*              predict.qss2*             
-## [53] predict.ref.grid*          predict.rlm*              
-## [55] predict.rq*                predict.rq.process*       
-## [57] predict.rqs*               predict.rqss*             
-## [59] predict.smooth.spline*     predict.smooth.spline.fit*
-## [61] predict.StructTS*          predict.survreg*          
-## [63] predict.survreg.penal*    
+##  [5] predict.averaging*         predict.bam*              
+##  [7] predict.bs*                predict.bSpline*          
+##  [9] predict.coxph*             predict.coxph.penal*      
+## [11] predict.crq*               predict.crqs*             
+## [13] predict.gam*               predict.gamm*             
+## [15] predict.glinearModel*      predict.glm               
+## [17] predict.glmmPQL*           predict.gls*              
+## [19] predict.gnls*              predict.HoltWinters*      
+## [21] predict.jam*               predict,lavaan-method     
+## [23] predict.lda*               predict.linearModel*      
+## [25] predict.lm                 predict.lme*              
+## [27] predict.lmList*            predict.lmList4*          
+## [29] predict.loess*             predict.lqs*              
+## [31] predict.mca*               predict.merMod*           
+## [33] predict.mlm*               predict.multinom*         
+## [35] predict.nbSpline*          predict.nlme*             
+## [37] predict.nlrq*              predict.nls*              
+## [39] predict.nnet*              predict.npolySpline*      
+## [41] predict.ns*                predict.pbSpline*         
+## [43] predict.polr*              predict.poly*             
+## [45] predict.polySpline*        predict.ppolySpline*      
+## [47] predict.ppr*               predict.prcomp*           
+## [49] predict.princomp*          predict.pspline*          
+## [51] predict.psych              predict.qda*              
+## [53] predict.qss1*              predict.qss2*             
+## [55] predict.ref.grid*          predict.rlm*              
+## [57] predict.rq*                predict.rq.process*       
+## [59] predict.rqs*               predict.rqss*             
+## [61] predict.smooth.spline*     predict.smooth.spline.fit*
+## [63] predict.StructTS*          predict.survreg*          
+## [65] predict.survreg.penal*    
 ## see '?methods' for accessing help and source code
 ```
 (A specifikus függvények kilistázásához a `methods`, azaz "metódusok" (vagy másként: műveletek) parancsot használtuk. Programozási szaknyelven ugyanis az R S3 rendszere egy kezdetleges, de nagyon rugalmas és hasznos példája az objektum-orientált programozásnak. Az objektum-orientált programnyelvek objektum-osztályai rendszerint az osztályra jellemző adatok és az azokon értelmezett műveletek definícióit tartalmazzák.)
@@ -623,28 +561,7 @@ pred_tables <- lapply(results, function(x) x$prediction_table)
 ```r
 # data.table betöltése
 library(data.table)
-```
 
-```
-## data.table 1.9.6  For help type ?data.table or https://github.com/Rdatatable/data.table/wiki
-```
-
-```
-## The fastest way to learn (by data.table authors): https://www.datacamp.com/courses/data-analysis-the-data-table-way
-```
-
-```
-## 
-## Attaching package: 'data.table'
-```
-
-```
-## The following objects are masked from 'package:reshape2':
-## 
-##     dcast, melt
-```
-
-```r
 # összefűzés
 estimated_means <- rbindlist(pred_tables, idcol = "skala")
 

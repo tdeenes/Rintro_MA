@@ -149,20 +149,6 @@ print(model_plot)
 ```r
 # ggplot ábráról van szó, tehát tetszőlegesen módosíthatjuk
 library(ggplot2)
-```
-
-```
-## 
-## Attaching package: 'ggplot2'
-```
-
-```
-## The following objects are masked from 'package:psych':
-## 
-##     %+%, alpha
-```
-
-```r
 model_plot + 
     ylab("Helyesen elolvasott szavak száma") + 
     ylim(0, 40) + 

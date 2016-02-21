@@ -167,6 +167,8 @@ Sajnos egy ideje nem frissül, de
 Explorációs ábrázolásokra (különösen regressziós elemzések előtt) kiválóan 
 alkalmas például a *psych* csomag `pairs.panels` függvénye:
 
+
+
 ```r
 library(psych)
 pairs.panels(
