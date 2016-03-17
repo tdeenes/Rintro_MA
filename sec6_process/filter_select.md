@@ -44,6 +44,8 @@ dyslex_spell <- subset(dyslex,
 - nagyméretű adattáblánál a fentebbi módszerek igen lassúak lehetnek; 
 a megoldás a *dplyr* vagy a *data.table* csomagok használata lehet
 
+- *psych* csomag `describeBy` függvénye igen hasznos lehet
+
 ### dplyr
 
 

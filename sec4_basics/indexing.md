@@ -136,6 +136,8 @@ vec[]
 
 ### Elemek elérése többdimenziós vektorból
 
+TODO! Mátrixos indexálás, több sor és oszlop elérése.
+
 - hozzunk létre egy mátrixot:
 
 ```r
@@ -340,7 +342,7 @@ datfr[2, ]
 ## 2 2 b
 ```
 
-- érjük el azt a sort, amelynél a 'z' változó értéke nagyobb 2-nél:
+- érjük el azt a sort, amelynél az 'x' változó értéke nagyobb 2-nél:
 
 ```r
 # hozzunk létre egy vektort, amelyiknek az elemei TRUE vagy FALSE
@@ -393,7 +395,7 @@ with(datfr, mean(x) * z^q)
 ```
 
 ```
-## [1]  -1.195375   1.044854   1.840022 -24.321970
+## [1]  -4.177713   2.378771 106.582710   6.624711
 ```
 
 ```r
