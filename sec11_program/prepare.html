@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="11.1" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="11.1" data-basepath=".." data-revision="Thu Mar 17 2016 23:06:21 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -1059,7 +1061,7 @@ felny&#xED;l&#xF3; ablakban v&#xE1;lasszuk az Existing Directory opci&#xF3;t. A 
 projektet k&#xF6;nnyed&#xE9;n el&#xE9;rhetj&#xFC;k a jobb f&#xF6;ls&#x151; sarokban l&#xE9;v&#x151; projektv&#xE1;laszt&#xF3; 
 leg&#xF6;rd&#xFC;l&#x151; men&#xFC; seg&#xED;ts&#xE9;g&#xE9;vel. </p>
 <h2 id="adatok-beolvas%C3%A1sa">Adatok beolvas&#xE1;sa</h2>
-<p>SPSS-adatokat szeretn&#xE9;nk beolvasni: egy <a href="../sec4_import/spss.md">kor&#xE1;bbi fejezetpontban</a> m&#xE1;r le&#xED;rtuk, hogy ehhez haszn&#xE1;lhatjuk a <em>foreign</em> csomag <code>read.spss()</code> parancs&#xE1;t.</p>
+<p>SPSS-adatokat szeretn&#xE9;nk beolvasni: egy <a href="../sec5_import/spss.html">kor&#xE1;bbi fejezetpontban</a> m&#xE1;r le&#xED;rtuk, hogy ehhez haszn&#xE1;lhatjuk a <em>foreign</em> csomag <code>read.spss()</code> parancs&#xE1;t.</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(foreign)
 dat &lt;- read.spss(file.path(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;gaming_random.sav&quot;</span>),
                  to.data.frame = <span class="hljs-literal">TRUE</span>)
@@ -1197,7 +1199,7 @@ dolgozni).</p>
 ## subtype 18 encountered in system file
 </code></pre><p>2) K&#xE9;rd&#x151;&#xED;v-itemek &#xE1;talak&#xED;t&#xE1;sa numerikuss&#xE1;:</p>
 <ul>
-<li>Ahogy <a href="../sec5_process/convert.Rmd">egy kor&#xE1;bbi fejezetben</a> bemutattuk, egy v&#xE1;ltoz&#xF3;t integerr&#xE9; alak&#xED;thatunk az <code>as.integer</code>, vagy val&#xF3;s sz&#xE1;mm&#xE1; az <code>as.double</code> vagy <code>as.numeric</code> paranccsal, p&#xE9;ld&#xE1;ul:</li>
+<li>Ahogy <a href="../sec6_process/convert.html">egy kor&#xE1;bbi fejezetben</a> bemutattuk, egy v&#xE1;ltoz&#xF3;t integerr&#xE9; alak&#xED;thatunk az <code>as.integer</code>, vagy val&#xF3;s sz&#xE1;mm&#xE1; az <code>as.double</code> vagy <code>as.numeric</code> paranccsal, p&#xE9;ld&#xE1;ul:</li>
 </ul>
 <pre><code class="lang-r">dat$MOGQ1 &lt;- as.integer(dat$MOGQ1)
 </code></pre>
@@ -1230,7 +1232,7 @@ kiv&#xE1;lasztott elemet jel&#xF6;lje <code>i</code></p>
 </code></pre>
 <p>-&gt; az <code>i</code> ciklusv&#xE1;ltoz&#xF3; tartalm&#xE1;nak megfelel&#x151; v&#xE1;ltoz&#xF3;t v&#xE1;laszd ki a <code>dat</code> data.frame-b&#x151;l, alak&#xED;tsd &#xE1;t eg&#xE9;sz sz&#xE1;mm&#xE1;, &#xE9;s &#xED;rd fel&#xFC;l az eredeti v&#xE1;ltoz&#xF3;t ezekkel az &#xE9;rt&#xE9;kekkel</p>
 <h2 id="sk%C3%A1lapontsz%C3%A1mok">Sk&#xE1;lapontsz&#xE1;mok</h2>
-<p>A le&#xED;r&#xE1;s alapj&#xE1;n a k&#xE9;rd&#x151;&#xED;vek nem tartalmaznak ford&#xED;tott itemeket. Ennek ellen&#xE9;re nem &#xE1;rt ellen&#x151;rizni, hogy a k&#xE9;rd&#x151;&#xED;vek t&#xE9;telei val&#xF3;ban egy ir&#xE1;nyba mutatnak-e. A k&#xE9;rd&#x151;&#xED;v-itemek korrel&#xE1;ci&#xF3;s m&#xE1;trixa remek&#xFC;l vizualiz&#xE1;lhat&#xF3; a <a href="../sec9_fa/pelda_efa.md">m&#xE1;r ismert</a> <em>corrplot</em> csomag <code>corrplot()</code> f&#xFC;ggv&#xE9;ny&#xE9;vel. Ez&#xFA;ttal olyan megjelen&#xED;t&#xE9;st v&#xE1;lasztunk, hogy az itemek a McQuitty-f&#xE9;le hierarchikus klaszterelemz&#xE9;s eredm&#xE9;nyei szerint legyenek sorba rendezve. A v&#xE1;ltoz&#xF3;k nagy sz&#xE1;ma miatt az &#xE1;br&#xE1;t png f&#xE1;jlba mentj&#xFC;k ut&#xF3;lagos megtekint&#xE9;sre.</p>
+<p>A le&#xED;r&#xE1;s alapj&#xE1;n a k&#xE9;rd&#x151;&#xED;vek nem tartalmaznak ford&#xED;tott itemeket. Ennek ellen&#xE9;re nem &#xE1;rt ellen&#x151;rizni, hogy a k&#xE9;rd&#x151;&#xED;vek t&#xE9;telei val&#xF3;ban egy ir&#xE1;nyba mutatnak-e. A k&#xE9;rd&#x151;&#xED;v-itemek korrel&#xE1;ci&#xF3;s m&#xE1;trixa remek&#xFC;l vizualiz&#xE1;lhat&#xF3; a <a href="../sec10_fa/pelda_efa.html">m&#xE1;r ismert</a> <em>corrplot</em> csomag <code>corrplot()</code> f&#xFC;ggv&#xE9;ny&#xE9;vel. Ez&#xFA;ttal olyan megjelen&#xED;t&#xE9;st v&#xE1;lasztunk, hogy az itemek a McQuitty-f&#xE9;le hierarchikus klaszterelemz&#xE9;s eredm&#xE9;nyei szerint legyenek sorba rendezve. A v&#xE1;ltoz&#xF3;k nagy sz&#xE1;ma miatt az &#xE1;br&#xE1;t png f&#xE1;jlba mentj&#xFC;k ut&#xF3;lagos megtekint&#xE9;sre.</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(corrplot)
 png(<span class="hljs-string">&quot;corr_items.png&quot;</span>, width = <span class="hljs-number">1000</span>, height = <span class="hljs-number">1000</span>)
 corrplot(cor(dat[, likert_valtozok], use = <span class="hljs-string">&quot;p&quot;</span>), 

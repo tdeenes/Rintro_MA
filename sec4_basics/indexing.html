@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="4.1" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="4.1" data-basepath=".." data-revision="Thu Mar 17 2016 23:31:09 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -1162,6 +1164,13 @@ mat[, <span class="hljs-number">2</span>]
 mat[c(<span class="hljs-literal">TRUE</span>, <span class="hljs-literal">FALSE</span>), -<span class="hljs-number">3</span>]
 </code></pre>
 <pre><code>## [1]  1  9 49
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># t&#xF6;bb sor vagy oszlop el&#xE9;r&#xE9;se:</span>
+<span class="hljs-comment"># v&#xE1;lasszuk ki mindk&#xE9;t sor 2. &#xE9;s 4. oszlop&#xE1;t:</span>
+mat[, c(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)]
+</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    9   49
+## [2,]   16   64
 </code></pre><ul>
 <li>ha meg akarod &#x151;rizni a dimenzi&#xF3;kat (programoz&#xE1;skor nagyon hasznos):</li>
 </ul>
@@ -1177,6 +1186,34 @@ indexelheted vektork&#xE9;nt; pl. az els&#x151; 5 elem el&#xE9;r&#xE9;se (&#xFC;
 <pre><code class="lang-r">mat[<span class="hljs-number">1</span>:<span class="hljs-number">5</span>]
 </code></pre>
 <pre><code>## [1]  1  4  9 16 25
+</code></pre><ul>
+<li>v&#xE9;g&#xFC;l az el&#xE9;rend&#x151; elemeket m&#xE1;trix-k&#xE9;nt is megadhatod, p&#xE9;ld&#xE1;ul
+&#xE9;rj&#xFC;k el az els&#x151; sor m&#xE1;sodik &#xE9;s a m&#xE1;sodik sor harmadik elem&#xE9;t:</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-comment"># k&#xE9;sz&#xED;ts&#xFC;nk egy m&#xE1;trixot, amelynek els&#x151; oszlopa fogja jelenteni</span>
+<span class="hljs-comment"># a sorban, m&#xE1;sodik oszlopa pedig az oszlopban elfoglalt poz&#xED;ci&#xF3;t</span>
+index_mat &lt;- matrix(
+    c(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>,
+      <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),
+    nrow = <span class="hljs-number">2</span>, ncol = <span class="hljs-number">2</span>, byrow = <span class="hljs-literal">TRUE</span>)
+
+<span class="hljs-comment"># az index_mat</span>
+index_mat
+</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    2    3
+</code></pre><pre><code class="lang-r"><span class="hljs-comment"># &#xE9;rj&#xFC;k el a &apos;mat&apos; m&#xE1;trix &apos;index_mat&apos; poz&#xED;ci&#xF3;ban l&#xE9;v&#x151; elemeit</span>
+mat[index_mat]
+</code></pre>
+<pre><code>## [1]  9 36
+</code></pre><ul>
+<li>ha az indexel&#x151; objektum logikai &#xE9;rt&#xE9;keket tartalmaz, &#xE9;s ugyanolyan m&#xE9;ret&#x171;, mint az indexelend&#x151; objektum, akkor a TRUE-nak megfelel&#x151; elemeket kapjuk vissza; ez olyankor j&#xF6;n nagyon j&#xF3;l, ha valamilyen felt&#xE9;telnek megfelel&#x151; elemeket akarunk kinyerni, pl.:</li>
+</ul>
+<pre><code class="lang-r"><span class="hljs-comment"># a &apos;mat&apos; m&#xE1;trix-nak 1-n&#xE9;l nagyobb elemei:</span>
+mat[mat &gt; <span class="hljs-number">1</span>]
+</code></pre>
+<pre><code>## [1]  4  9 16 25 36 49 64
 </code></pre><h3 id="lista-%C3%A9s-data-frame-elemeinek-el%C3%A9r%C3%A9se">Lista &#xE9;s data.frame elemeinek el&#xE9;r&#xE9;se</h3>
 <ul>
 <li>hozzunk l&#xE9;tre egy nevekkel ell&#xE1;tott list&#xE1;t:</li>
@@ -1265,7 +1302,7 @@ indexelheted vektork&#xE9;nt; pl. az els&#x151; 5 elem el&#xE9;r&#xE9;se (&#xFC;
 <pre><code>##   x y
 ## 2 2 b
 </code></pre><ul>
-<li>&#xE9;rj&#xFC;k el azt a sort, amelyn&#xE9;l a &apos;z&apos; v&#xE1;ltoz&#xF3; &#xE9;rt&#xE9;ke nagyobb 2-n&#xE9;l:</li>
+<li>&#xE9;rj&#xFC;k el azt a sort, amelyn&#xE9;l az &apos;x&apos; v&#xE1;ltoz&#xF3; &#xE9;rt&#xE9;ke nagyobb 2-n&#xE9;l:</li>
 </ul>
 <pre><code class="lang-r"><span class="hljs-comment"># hozzunk l&#xE9;tre egy vektort, amelyiknek az elemei TRUE vagy FALSE</span>
 <span class="hljs-comment"># att&#xF3;l f&#xFC;gg&#x151;en, hogy a &apos;datfr&apos; objektum &apos;x&apos; v&#xE1;ltoz&#xF3;ja nagyobb-e 2-n&#xE9;l</span>
@@ -1302,7 +1339,7 @@ datfr$q &lt;- c(<span class="hljs-number">1</span>, <span class="hljs-number">1<
 <span class="hljs-comment"># mennyi az x v&#xE1;ltoz&#xF3; &#xE1;tlag&#xE1;nak &#xE9;s z v&#xE1;ltoz&#xF3; q hatv&#xE1;ny&#xE1;nak a szorzata?</span>
 with(datfr, mean(x) * z^q)
 </code></pre>
-<pre><code>## [1]  -1.195375   1.044854   1.840022 -24.321970
+<pre><code>## [1]  3.7794529  0.9746081 -4.0242059 -1.1288211
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># with() n&#xE9;lk&#xFC;l: mean(datfr$x) * datfr$z^datfr$q</span>
 </code></pre>
 

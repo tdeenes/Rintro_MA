@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -34,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="11.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="11.2" data-basepath=".." data-revision="Thu Mar 17 2016 23:06:21 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -1228,37 +1230,36 @@ str(predict(model$lm))
 </code></pre>
 <pre><code>##  [1] predict,ANY-method         predict.ar*               
 ##  [3] predict.Arima*             predict.arima0*           
-##  [5] predict.averaging*         predict.bam*              
-##  [7] predict.bs*                predict.bSpline*          
-##  [9] predict.coxph*             predict.coxph.penal*      
-## [11] predict.crq*               predict.crqs*             
-## [13] predict.gam*               predict.gamm*             
-## [15] predict.glinearModel*      predict.glm               
-## [17] predict.glmmPQL*           predict.gls*              
-## [19] predict.gnls*              predict.HoltWinters*      
-## [21] predict.jam*               predict,lavaan-method     
-## [23] predict.lda*               predict.linearModel*      
-## [25] predict.lm                 predict.lme*              
-## [27] predict.lmList*            predict.lmList4*          
-## [29] predict.loess*             predict.lqs*              
-## [31] predict.mca*               predict.merMod*           
-## [33] predict.mlm*               predict.multinom*         
-## [35] predict.nbSpline*          predict.nlme*             
-## [37] predict.nlrq*              predict.nls*              
-## [39] predict.nnet*              predict.npolySpline*      
-## [41] predict.ns*                predict.pbSpline*         
-## [43] predict.polr*              predict.poly*             
-## [45] predict.polySpline*        predict.ppolySpline*      
-## [47] predict.ppr*               predict.prcomp*           
-## [49] predict.princomp*          predict.pspline*          
-## [51] predict.psych              predict.qda*              
-## [53] predict.qss1*              predict.qss2*             
-## [55] predict.ref.grid*          predict.rlm*              
-## [57] predict.rq*                predict.rq.process*       
-## [59] predict.rqs*               predict.rqss*             
-## [61] predict.smooth.spline*     predict.smooth.spline.fit*
-## [63] predict.StructTS*          predict.survreg*          
-## [65] predict.survreg.penal*    
+##  [5] predict.bam*               predict.bs*               
+##  [7] predict.bSpline*           predict.coxph*            
+##  [9] predict.coxph.penal*       predict.crq*              
+## [11] predict.crqs*              predict.gam*              
+## [13] predict.glinearModel*      predict.glm               
+## [15] predict.glmmPQL*           predict.gls*              
+## [17] predict.gnls*              predict.HoltWinters*      
+## [19] predict.jam*               predict,lavaan-method     
+## [21] predict.lda*               predict.linearModel*      
+## [23] predict.lm                 predict.lme*              
+## [25] predict.lmList*            predict.lmList4*          
+## [27] predict.loess*             predict.lqs*              
+## [29] predict.mca*               predict.merMod*           
+## [31] predict.mlm*               predict.multinom*         
+## [33] predict.nbSpline*          predict.nlme*             
+## [35] predict.nlrq*              predict.nls*              
+## [37] predict.nnet*              predict.npolySpline*      
+## [39] predict.ns*                predict.pbSpline*         
+## [41] predict.polr*              predict.poly*             
+## [43] predict.polySpline*        predict.ppolySpline*      
+## [45] predict.ppr*               predict.prcomp*           
+## [47] predict.princomp*          predict.pspline*          
+## [49] predict.psych              predict.qda*              
+## [51] predict.qss1*              predict.qss2*             
+## [53] predict.ref.grid*          predict.rlm*              
+## [55] predict.rq*                predict.rq.process*       
+## [57] predict.rqs*               predict.rqss*             
+## [59] predict.smooth.spline*     predict.smooth.spline.fit*
+## [61] predict.StructTS*          predict.survreg*          
+## [63] predict.survreg.penal*    
 ## see &apos;?methods&apos; for accessing help and source code
 </code></pre><p>(A specifikus f&#xFC;ggv&#xE9;nyek kilist&#xE1;z&#xE1;s&#xE1;hoz a <code>methods</code>, azaz &quot;met&#xF3;dusok&quot; (vagy m&#xE1;sk&#xE9;nt: m&#x171;veletek) parancsot haszn&#xE1;ltuk. Programoz&#xE1;si szaknyelven ugyanis az R S3 rendszere egy kezdetleges, de nagyon rugalmas &#xE9;s hasznos p&#xE9;ld&#xE1;ja az objektum-orient&#xE1;lt programoz&#xE1;snak. Az objektum-orient&#xE1;lt programnyelvek objektum-oszt&#xE1;lyai rendszerint az oszt&#xE1;lyra jellemz&#x151; adatok &#xE9;s az azokon &#xE9;rtelmezett m&#x171;veletek defin&#xED;ci&#xF3;it tartalmazz&#xE1;k.)</p>
 <p>L&#xE1;that&#xF3;, hogy val&#xF3;ban l&#xE9;tezik <code>predict.lm</code> f&#xFC;ggv&#xE9;ny. Azaz ha kiadjuk a <code>predict(model$lm)</code> parancsot, az a <code>predict.lm(model$lm)</code> f&#xFC;ggv&#xE9;nyt fogja megh&#xED;vni. &#xC9;s mit mond a <code>predict.lm</code> dokument&#xE1;ci&#xF3;ja?</p>
