@@ -70,8 +70,6 @@ vec[]
 
 ### Elemek elérése többdimenziós vektorból
 
-TODO! Mátrixos indexálás, több sor és oszlop elérése.
-
 - hozzunk létre egy mátrixot:
 ```{r}
 ( mat <- matrix((1:8)^2, 2, 4) )
@@ -91,6 +89,10 @@ mat[, 2]
 # pl. első sor igen, második sor nem, illetve 
 # minden oszlop a 3. kivételével:
 mat[c(TRUE, FALSE), -3]
+
+# több sor vagy oszlop elérése:
+# válasszuk ki mindkét sor 2. és 4. oszlopát:
+mat[, c(2, 4)]
 ```
 
 - ha meg akarod őrizni a dimenziókat (programozáskor nagyon hasznos):
@@ -102,6 +104,29 @@ mat[, 2, drop = FALSE]
 indexelheted vektorként; pl. az első 5 elem elérése (ügyelj arra, hogy az R oszlop-orientált):
 ```{r}
 mat[1:5]
+```
+
+- végül az elérendő elemeket mátrix-ként is megadhatod, például
+érjük el az első sor második és a második sor harmadik elemét:
+```{r}
+# készítsünk egy mátrixot, amelynek első oszlopa fogja jelenteni
+# a sorban, második oszlopa pedig az oszlopban elfoglalt pozíciót
+index_mat <- matrix(
+    c(1, 2,
+      2, 3),
+    nrow = 2, ncol = 2, byrow = TRUE)
+
+# az index_mat
+index_mat
+
+# érjük el a 'mat' mátrix 'index_mat' pozícióban lévő elemeit
+mat[index_mat]
+```
+
+- ha az indexelő objektum logikai értékeket tartalmaz, és ugyanolyan méretű, mint az indexelendő objektum, akkor a TRUE-nak megfelelő elemeket kapjuk vissza; ez olyankor jön nagyon jól, ha valamilyen feltételnek megfelelő elemeket akarunk kinyerni, pl.:
+```{r}
+# a 'mat' mátrix-nak 1-nél nagyobb elemei:
+mat[mat > 1]
 ```
 
 ### Lista és data.frame elemeinek elérése
