@@ -13,7 +13,7 @@ legördülő menü segítségével.
 
 ## Adatok beolvasása
 
-SPSS-adatokat szeretnénk beolvasni: egy [korábbi fejezetpontban](../sec4_import/spss.md) már leírtuk, hogy ehhez használhatjuk a *foreign* csomag `read.spss()` parancsát.
+SPSS-adatokat szeretnénk beolvasni: egy [korábbi fejezetpontban](../sec4_import/spss.html) már leírtuk, hogy ehhez használhatjuk a *foreign* csomag `read.spss()` parancsát.
 
 ```{r}
 library(foreign)
@@ -49,7 +49,7 @@ dat_num <- read.spss(file.path("data", "gaming_random.sav"),
 
 
 2) Kérdőív-itemek átalakítása numerikussá:
-- Ahogy [egy korábbi fejezetben](../sec5_process/convert.Rmd) bemutattuk, egy változót integerré alakíthatunk az `as.integer`, vagy valós számmá az `as.double` vagy `as.numeric` paranccsal, például:
+- Ahogy [egy korábbi fejezetben](../sec5_process/convert.html) bemutattuk, egy változót integerré alakíthatunk az `as.integer`, vagy valós számmá az `as.double` vagy `as.numeric` paranccsal, például:
 ```{r}
 dat$MOGQ1 <- as.integer(dat$MOGQ1)
 ```
@@ -88,7 +88,7 @@ dat[, i] <- as.integer(dat[, i])
 
 ## Skálapontszámok
 
-A leírás alapján a kérdőívek nem tartalmaznak fordított itemeket. Ennek ellenére nem árt ellenőrizni, hogy a kérdőívek tételei valóban egy irányba mutatnak-e. A kérdőív-itemek korrelációs mátrixa remekül vizualizálható a [már ismert](../sec9_fa/pelda_efa.md) *corrplot* csomag `corrplot()` függvényével. Ezúttal olyan megjelenítést választunk, hogy az itemek a McQuitty-féle hierarchikus klaszterelemzés eredményei szerint legyenek sorba rendezve. A változók nagy száma miatt az ábrát png fájlba mentjük utólagos megtekintésre.
+A leírás alapján a kérdőívek nem tartalmaznak fordított itemeket. Ennek ellenére nem árt ellenőrizni, hogy a kérdőívek tételei valóban egy irányba mutatnak-e. A kérdőív-itemek korrelációs mátrixa remekül vizualizálható a [már ismert](../sec9_fa/pelda_efa.html) *corrplot* csomag `corrplot()` függvényével. Ezúttal olyan megjelenítést választunk, hogy az itemek a McQuitty-féle hierarchikus klaszterelemzés eredményei szerint legyenek sorba rendezve. A változók nagy száma miatt az ábrát png fájlba mentjük utólagos megtekintésre.
 ```{r}
 library(corrplot)
 png("corr_items.png", width = 1000, height = 1000)
@@ -225,7 +225,7 @@ egy függvény vagy egy függvény neve. (A `lapply` esetleges további argument
 az előzőleg megadott függvény egyéb lehetséges argumentumai.) A fentebbi sorokkal
 tehát a következőre utasítjuk az R-et: 1) vedd a skala_nevek vektort, majd 2) minden egyes elemét helyettesítsd be abba az általunk definiált függvénybe, amely kiszámolja a `dat` adattáblánk megfelelő változóinak sorátlagait, és végül 3) a függvény által kiszámolt pontszám-vektorokat fűzd össze egy listába. 
 
-A fentebbi sorok még mindig redundánsak kicsit; miért indexelünk a `skala_nevek` vektorral, azaz miért nem használjuk közvetlenül a `skala_definíciók` lista elemeit? Valóban, [emlékezzünk vissza](../sec3_basics/objects.md), hogy a lista valójában egy vektor. Azaz a fentebbi sorokat így is egyszerűsíthetnénk:
+A fentebbi sorok még mindig redundánsak kicsit; miért indexelünk a `skala_nevek` vektorral, azaz miért nem használjuk közvetlenül a `skala_definíciók` lista elemeit? Valóban, [emlékezzünk vissza](../sec3_basics/objects.html), hogy a lista valójában egy vektor. Azaz a fentebbi sorokat így is egyszerűsíthetnénk:
 ```{r}
 skalapontok <- lapply(skala_definiciok, 
                       function(itemek) {

@@ -27,7 +27,7 @@ is az [NppToR](http://sourceforge.net/projects/npptor/) pluginnal
 rendszerednek megfelelően telepítsd a "precompiled binary" disztribúciót
     - ha Windows-t használsz, az [alapváltozaton](http://cran.rapporter.net/bin/windows/base/) felül érdemes 
 telepítened az [Rtools](http://cran.rapporter.net/bin/windows/Rtools/) legújabb
-változatát is     
+változatát is
 
 ### Az RStudio telepítése és használata
 

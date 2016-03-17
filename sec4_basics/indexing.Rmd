@@ -70,6 +70,8 @@ vec[]
 
 ### Elemek elérése többdimenziós vektorból
 
+TODO! Mátrixos indexálás, több sor és oszlop elérése.
+
 - hozzunk létre egy mátrixot:
 ```{r}
 ( mat <- matrix((1:8)^2, 2, 4) )
@@ -150,7 +152,7 @@ datfr
 datfr[2, ]
 ```
 
-- érjük el azt a sort, amelynél a 'z' változó értéke nagyobb 2-nél:
+- érjük el azt a sort, amelynél az 'x' változó értéke nagyobb 2-nél:
 ```{r}
 # hozzunk létre egy vektort, amelyiknek az elemei TRUE vagy FALSE
 # attól függően, hogy a 'datfr' objektum 'x' változója nagyobb-e 2-nél

@@ -16,12 +16,12 @@ model_dat <- readRDS(file.path("data", "prepared_data.rds"))
 
 Mielőtt hozzákezdenénk az elemzéshez, képet kellene kapnunk arról, hogy az adatainkban nincsenek-e túlzottan kilógó értékek, nagyjából normális eloszlásúak-e a skálapontszámok az egyes alcsoportokban, illetve várható-e egyáltalán különbség a csoportátlagok között. Ezen célnak megfelelő vizualizációs forma például a boxplot ("doboz"-ábra).
 
-[Korábban](../sec7_plotting/base.md) már láttuk, hogyan lehet egyszerűen boxplot-ot készíteni. Például az 'MOGQ_Social' változóra:
+[Korábban](../sec7_plotting/base.html) már láttuk, hogyan lehet egyszerűen boxplot-ot készíteni. Például az 'MOGQ_Social' változóra:
 ```{r}
 boxplot(MOGQ_Social ~ Heavy_use * Problematic, data = model_dat)
 ```
 
-Ugyanezt megismételhetnénk az összes többi skálapontszámra, de elegánsabb lenne az összes változót egyetlen ábrán megjeleníteni. Emlékezzünk rá, hogy a [lattice](../sec7_plotting/lattice.md) és [ggplot](../sec7_plotting/ggplot.md) csomagokkal könnyedén készíthetünk panelekre bontott ábrákat, ráadásul ezen csomagokkal (különösen a ggplot2-vel) egyszerű váltani az ábrázolási formák (pl. hisztogram, boxplot, scatterplot stb.) között. Ehhez azonban át kell alakítanunk a jelenlegi, "wide" formátumú adattáblánkat "long" formájúra:
+Ugyanezt megismételhetnénk az összes többi skálapontszámra, de elegánsabb lenne az összes változót egyetlen ábrán megjeleníteni. Emlékezzünk rá, hogy a [lattice](../sec7_plotting/lattice.html) és [ggplot](../sec7_plotting/ggplot.html) csomagokkal könnyedén készíthetünk panelekre bontott ábrákat, ráadásul ezen csomagokkal (különösen a ggplot2-vel) egyszerű váltani az ábrázolási formák (pl. hisztogram, boxplot, scatterplot stb.) között. Ehhez azonban át kell alakítanunk a jelenlegi, "wide" formátumú adattáblánkat "long" formájúra:
 ```{r}
 library(tidyr)
 model_dat_long <- gather(model_dat, alskala, pontszam, 
@@ -54,7 +54,7 @@ Az ábrák alapján jónéhány outlier személyünk van a mintában. A követke
 Emlékeztetőül: külön-külön ANOVA-t kell futtatnunk minden egyes skálapontszámra,
 mégpedig magyarázó változóként a két csoportosító változónkat szerepeltetve. 
 
-Először gondoljuk át, hogyan futtatnánk az elemzést akkor, ha csak egyetlen skálapontszámot modelleznénk. Használhatnánk például a [korábban ismertetett](../sec8_regr/ez.md) *ez* csomagot. Az *ez* csomag `ezANOVA()` függvénye azonban sokkal inkább alkalmas interaktív adatelemzésre, mint programozásra, mivel ebben a függvényben a változókat névvel, nem pedig karakteres formában kell megadni. A probléma ugyan haladó R-programozói szinten kikerülhető, ezúttal kényelmesebb a [korábban már reklámozott](../sec8_regr/ez.md) *afex* csomagot használnunk.
+Először gondoljuk át, hogyan futtatnánk az elemzést akkor, ha csak egyetlen skálapontszámot modelleznénk. Használhatnánk például a [korábban ismertetett](../sec8_regr/ez.html) *ez* csomagot. Az *ez* csomag `ezANOVA()` függvénye azonban sokkal inkább alkalmas interaktív adatelemzésre, mint programozásra, mivel ebben a függvényben a változókat névvel, nem pedig karakteres formában kell megadni. A probléma ugyan haladó R-programozói szinten kikerülhető, ezúttal kényelmesebb a [korábban már reklámozott](../sec8_regr/ez.html) *afex* csomagot használnunk.
 ```{r}
 library(afex)
 ```
@@ -72,7 +72,7 @@ model <- aov_ez(id = "subject_code", dv = "MOGQ_Social",
                 observed = c("Heavy_use", "Problematic"))
 ```
 
-A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.md)):
+A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.html)):
 ```{r}
 options(contrasts = c("contr.sum", "contr.poly"))
 ```
@@ -285,7 +285,7 @@ Ellenőrizzük, hogy a függvényünk tényleg működik:
 runAnova("MOGQ_Social", model_dat)
 ```
 
-Emlékezhetünk az [előző fejezetpontban](prepare.md) megismert `lapply` parancsra, amellyel egyszerűen lefuttathatjuk az új `runAnova` függvényünket az összes skálapontszámra:
+Emlékezhetünk az [előző fejezetpontban](prepare.html) megismert `lapply` parancsra, amellyel egyszerűen lefuttathatjuk az új `runAnova` függvényünket az összes skálapontszámra:
 ```{r}
 # a skálák neveinek lekérése a már megszokott módon
 skala_nevek <- grep("MOGQ|POGQ|BSI|GSI",
@@ -322,7 +322,7 @@ estimated_means <- rbindlist(pred_tables, idcol = "skala")
 str(estimated_means)
 ```
 
-Az `rbindlist` függvény data.table-t ad eredményül, illetve a 'skala' változót megtartja karakter változóként. A *data.table* csomagot már bemutattuk egy korábbi [fejezetben](../sec6_process/filter_select.md) mint egy rendkívül hatékony adatfeldolgozó csomagot. A továbbiakban kihasználhatnánk a *data.table* szintaxisának azt a nagyon kellemes jellegzetességét, hogy egy adott adattáblán belüli változók közvetlenül elérhetők, például:
+Az `rbindlist` függvény data.table-t ad eredményül, illetve a 'skala' változót megtartja karakter változóként. A *data.table* csomagot már bemutattuk egy korábbi [fejezetben](../sec6_process/filter_select.html) mint egy rendkívül hatékony adatfeldolgozó csomagot. A továbbiakban kihasználhatnánk a *data.table* szintaxisának azt a nagyon kellemes jellegzetességét, hogy egy adott adattáblán belüli változók közvetlenül elérhetők, például:
 ```{r}
 # ehelyett:
 estimated_means$skala <- factor(estimated_means$skala)
@@ -349,7 +349,7 @@ estimated_means$kerdoiv <- factor(sub("_.*", "", estimated_means$skala),
 str(estimated_means$kerdoiv)
 ```
 
-Ha a 'GSI' skálát hozzá akarjuk rendelni a 'BSI' kérdőívhez (lásd [itt](../sec6_process/convert.md)):
+Ha a 'GSI' skálát hozzá akarjuk rendelni a 'BSI' kérdőívhez (lásd [itt](../sec6_process/convert.html)):
 ```{r}
 levels(estimated_means$kerdoiv) <- c("MOGQ", "POGQ", "BSI", "BSI")
 ```
