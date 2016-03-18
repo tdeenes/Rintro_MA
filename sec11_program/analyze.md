@@ -14,7 +14,7 @@ model_dat <- readRDS(file.path("data", "prepared_data.rds"))
 
 Mielőtt hozzákezdenénk az elemzéshez, képet kellene kapnunk arról, hogy az adatainkban nincsenek-e túlzottan kilógó értékek, nagyjából normális eloszlásúak-e a skálapontszámok az egyes alcsoportokban, illetve várható-e egyáltalán különbség a csoportátlagok között. Ezen célnak megfelelő vizualizációs forma például a boxplot ("doboz"-ábra).
 
-[Korábban](../sec7_plotting/base.md) már láttuk, hogyan lehet egyszerűen boxplot-ot készíteni. Például az 'MOGQ_Social' változóra:
+[Korábban](../sec7_plotting/base.html) már láttuk, hogyan lehet egyszerűen boxplot-ot készíteni. Például az 'MOGQ_Social' változóra:
 
 ```r
 boxplot(MOGQ_Social ~ Heavy_use * Problematic, data = model_dat)
@@ -22,7 +22,7 @@ boxplot(MOGQ_Social ~ Heavy_use * Problematic, data = model_dat)
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
-Ugyanezt megismételhetnénk az összes többi skálapontszámra, de elegánsabb lenne az összes változót egyetlen ábrán megjeleníteni. Emlékezzünk rá, hogy a [lattice](../sec7_plotting/lattice.md) és [ggplot](../sec7_plotting/ggplot.md) csomagokkal könnyedén készíthetünk panelekre bontott ábrákat, ráadásul ezen csomagokkal (különösen a ggplot2-vel) egyszerű váltani az ábrázolási formák (pl. hisztogram, boxplot, scatterplot stb.) között. Ehhez azonban át kell alakítanunk a jelenlegi, "wide" formátumú adattáblánkat "long" formájúra:
+Ugyanezt megismételhetnénk az összes többi skálapontszámra, de elegánsabb lenne az összes változót egyetlen ábrán megjeleníteni. Emlékezzünk rá, hogy a [lattice](../sec7_plotting/lattice.html) és [ggplot](../sec7_plotting/ggplot.html) csomagokkal könnyedén készíthetünk panelekre bontott ábrákat, ráadásul ezen csomagokkal (különösen a ggplot2-vel) egyszerű váltani az ábrázolási formák (pl. hisztogram, boxplot, scatterplot stb.) között. Ehhez azonban át kell alakítanunk a jelenlegi, "wide" formátumú adattáblánkat "long" formájúra:
 
 ```r
 library(tidyr)
@@ -59,7 +59,7 @@ Az ábrák alapján jónéhány outlier személyünk van a mintában. A követke
 Emlékeztetőül: külön-külön ANOVA-t kell futtatnunk minden egyes skálapontszámra,
 mégpedig magyarázó változóként a két csoportosító változónkat szerepeltetve. 
 
-Először gondoljuk át, hogyan futtatnánk az elemzést akkor, ha csak egyetlen skálapontszámot modelleznénk. Használhatnánk például a [korábban ismertetett](../sec8_regr/ez.md) *ez* csomagot. Az *ez* csomag `ezANOVA()` függvénye azonban sokkal inkább alkalmas interaktív adatelemzésre, mint programozásra, mivel ebben a függvényben a változókat névvel, nem pedig karakteres formában kell megadni. A probléma ugyan haladó R-programozói szinten kikerülhető, ezúttal kényelmesebb a [korábban már reklámozott](../sec8_regr/ez.md) *afex* csomagot használnunk.
+Először gondoljuk át, hogyan futtatnánk az elemzést akkor, ha csak egyetlen skálapontszámot modelleznénk. Használhatnánk például a [korábban ismertetett](../sec8_regr/ez.html) *ez* csomagot. Az *ez* csomag `ezANOVA()` függvénye azonban sokkal inkább alkalmas interaktív adatelemzésre, mint programozásra, mivel ebben a függvényben a változókat névvel, nem pedig karakteres formában kell megadni. A probléma ugyan haladó R-programozói szinten kikerülhető, ezúttal kényelmesebb a [korábban már reklámozott](../sec8_regr/ez.html) *afex* csomagot használnunk.
 
 ```r
 library(afex)
@@ -80,7 +80,7 @@ model <- aov_ez(id = "subject_code", dv = "MOGQ_Social",
                 observed = c("Heavy_use", "Problematic"))
 ```
 
-A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.md)):
+A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.html)):
 
 ```r
 options(contrasts = c("contr.sum", "contr.poly"))
@@ -290,37 +290,36 @@ methods("predict")
 ```
 ##  [1] predict,ANY-method         predict.ar*               
 ##  [3] predict.Arima*             predict.arima0*           
-##  [5] predict.averaging*         predict.bam*              
-##  [7] predict.bs*                predict.bSpline*          
-##  [9] predict.coxph*             predict.coxph.penal*      
-## [11] predict.crq*               predict.crqs*             
-## [13] predict.gam*               predict.gamm*             
-## [15] predict.glinearModel*      predict.glm               
-## [17] predict.glmmPQL*           predict.gls*              
-## [19] predict.gnls*              predict.HoltWinters*      
-## [21] predict.jam*               predict,lavaan-method     
-## [23] predict.lda*               predict.linearModel*      
-## [25] predict.lm                 predict.lme*              
-## [27] predict.lmList*            predict.lmList4*          
-## [29] predict.loess*             predict.lqs*              
-## [31] predict.mca*               predict.merMod*           
-## [33] predict.mlm*               predict.multinom*         
-## [35] predict.nbSpline*          predict.nlme*             
-## [37] predict.nlrq*              predict.nls*              
-## [39] predict.nnet*              predict.npolySpline*      
-## [41] predict.ns*                predict.pbSpline*         
-## [43] predict.polr*              predict.poly*             
-## [45] predict.polySpline*        predict.ppolySpline*      
-## [47] predict.ppr*               predict.prcomp*           
-## [49] predict.princomp*          predict.pspline*          
-## [51] predict.psych              predict.qda*              
-## [53] predict.qss1*              predict.qss2*             
-## [55] predict.ref.grid*          predict.rlm*              
-## [57] predict.rq*                predict.rq.process*       
-## [59] predict.rqs*               predict.rqss*             
-## [61] predict.smooth.spline*     predict.smooth.spline.fit*
-## [63] predict.StructTS*          predict.survreg*          
-## [65] predict.survreg.penal*    
+##  [5] predict.bam*               predict.bs*               
+##  [7] predict.bSpline*           predict.coxph*            
+##  [9] predict.coxph.penal*       predict.crq*              
+## [11] predict.crqs*              predict.gam*              
+## [13] predict.glinearModel*      predict.glm               
+## [15] predict.glmmPQL*           predict.gls*              
+## [17] predict.gnls*              predict.HoltWinters*      
+## [19] predict.jam*               predict,lavaan-method     
+## [21] predict.lda*               predict.linearModel*      
+## [23] predict.lm                 predict.lme*              
+## [25] predict.lmList*            predict.lmList4*          
+## [27] predict.loess*             predict.lqs*              
+## [29] predict.mca*               predict.merMod*           
+## [31] predict.mlm*               predict.multinom*         
+## [33] predict.nbSpline*          predict.nlme*             
+## [35] predict.nlrq*              predict.nls*              
+## [37] predict.nnet*              predict.npolySpline*      
+## [39] predict.ns*                predict.pbSpline*         
+## [41] predict.polr*              predict.poly*             
+## [43] predict.polySpline*        predict.ppolySpline*      
+## [45] predict.ppr*               predict.prcomp*           
+## [47] predict.princomp*          predict.pspline*          
+## [49] predict.psych              predict.qda*              
+## [51] predict.qss1*              predict.qss2*             
+## [53] predict.ref.grid*          predict.rlm*              
+## [55] predict.rq*                predict.rq.process*       
+## [57] predict.rqs*               predict.rqss*             
+## [59] predict.smooth.spline*     predict.smooth.spline.fit*
+## [61] predict.StructTS*          predict.survreg*          
+## [63] predict.survreg.penal*    
 ## see '?methods' for accessing help and source code
 ```
 (A specifikus függvények kilistázásához a `methods`, azaz "metódusok" (vagy másként: műveletek) parancsot használtuk. Programozási szaknyelven ugyanis az R S3 rendszere egy kezdetleges, de nagyon rugalmas és hasznos példája az objektum-orientált programozásnak. Az objektum-orientált programnyelvek objektum-osztályai rendszerint az osztályra jellemző adatok és az azokon értelmezett műveletek definícióit tartalmazzák.)
@@ -529,7 +528,7 @@ runAnova("MOGQ_Social", model_dat)
 ## 4 0.08820935
 ```
 
-Emlékezhetünk az [előző fejezetpontban](prepare.md) megismert `lapply` parancsra, amellyel egyszerűen lefuttathatjuk az új `runAnova` függvényünket az összes skálapontszámra:
+Emlékezhetünk az [előző fejezetpontban](prepare.html) megismert `lapply` parancsra, amellyel egyszerűen lefuttathatjuk az új `runAnova` függvényünket az összes skálapontszámra:
 
 ```r
 # a skálák neveinek lekérése a már megszokott módon
@@ -580,7 +579,7 @@ str(estimated_means)
 ##  - attr(*, ".internal.selfref")=<externalptr>
 ```
 
-Az `rbindlist` függvény data.table-t ad eredményül, illetve a 'skala' változót megtartja karakter változóként. A *data.table* csomagot már bemutattuk egy korábbi [fejezetben](../sec6_process/filter_select.md) mint egy rendkívül hatékony adatfeldolgozó csomagot. A továbbiakban kihasználhatnánk a *data.table* szintaxisának azt a nagyon kellemes jellegzetességét, hogy egy adott adattáblán belüli változók közvetlenül elérhetők, például:
+Az `rbindlist` függvény data.table-t ad eredményül, illetve a 'skala' változót megtartja karakter változóként. A *data.table* csomagot már bemutattuk egy korábbi [fejezetben](../sec6_process/filter_select.html) mint egy rendkívül hatékony adatfeldolgozó csomagot. A továbbiakban kihasználhatnánk a *data.table* szintaxisának azt a nagyon kellemes jellegzetességét, hogy egy adott adattáblán belüli változók közvetlenül elérhetők, például:
 
 ```r
 # ehelyett:
@@ -615,7 +614,7 @@ str(estimated_means$kerdoiv)
 ##  Factor w/ 4 levels "MOGQ","POGQ",..: 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-Ha a 'GSI' skálát hozzá akarjuk rendelni a 'BSI' kérdőívhez (lásd [itt](../sec6_process/convert.md)):
+Ha a 'GSI' skálát hozzá akarjuk rendelni a 'BSI' kérdőívhez (lásd [itt](../sec6_process/convert.html)):
 
 ```r
 levels(estimated_means$kerdoiv) <- c("MOGQ", "POGQ", "BSI", "BSI")
