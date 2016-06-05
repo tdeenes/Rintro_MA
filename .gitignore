@@ -3,4 +3,5 @@
 .RData
 .rmdbuild
 .bookignore
+*.html
 _book
