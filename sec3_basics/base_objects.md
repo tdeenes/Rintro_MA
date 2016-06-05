@@ -222,7 +222,7 @@ str(fit_summary)
 ##   .. ..- attr(*, "order")= int 1
 ##   .. ..- attr(*, "intercept")= int 1
 ##   .. ..- attr(*, "response")= int 1
-##   .. ..- attr(*, ".Environment")=<environment: 0xdd3f0e0> 
+##   .. ..- attr(*, ".Environment")=<environment: 0x4a674c8> 
 ##   .. ..- attr(*, "predvars")= language list(mpg, wt)
 ##   .. ..- attr(*, "dataClasses")= Named chr [1:2] "numeric" "numeric"
 ##   .. .. ..- attr(*, "names")= chr [1:2] "mpg" "wt"
@@ -274,7 +274,7 @@ var
 ##     else stopifnot(is.atomic(y))
 ##     .Call(C_cov, x, y, na.method, FALSE)
 ## }
-## <bytecode: 0x53bba90>
+## <bytecode: 0x520bc58>
 ## <environment: namespace:stats>
 ```
 

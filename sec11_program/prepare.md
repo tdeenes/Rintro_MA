@@ -327,7 +327,7 @@ Térjünk vissza a korábbi, "kézi" példához:
 
 ```r
 MOGQ_social_itemek <- c("MOGQ1", "MOGQ8", "MOGQ15", "MOGQ22")
-MOGQ_social <- rowMeans(dat[, MOGQ_social_itemek])
+MOGQ_social <- rowMeans(dat[, MOGQ_social_itemek], na.rm = TRUE)
 ```
 
 Vegyük észre, hogy a fenti sorokat a skáladefiníciós listánk segítségével immáron így is írhatnánk:

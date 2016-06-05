@@ -35,6 +35,9 @@ Az átalakítás után az ábrázolás már nagyon egyszerű. Használjuk a *ggp
 
 ```r
 library(ggplot2)
+```
+
+```r
 # ábrázolás (magyarázattal)
 ggplot(model_dat_long,        # vedd a model_dat_long adattáblát
        aes(x = alskala, y = pontszam)) +  # az 'alskala' függvényében
@@ -80,6 +83,10 @@ model <- aov_ez(id = "subject_code", dv = "MOGQ_Social",
                 observed = c("Heavy_use", "Problematic"))
 ```
 
+```
+## Contrasts set to contr.sum for the following variables: Heavy_use, Problematic
+```
+
 A függvény figyelmeztet minket, hogy a futtatáskor megváltoztatta az alapértelmezett kontrasztokat a 'Heavy_use' és a 'Problematic' változók esetében. Valóban, III-as típusú négyzetősszeg felbontásnál (ami megfelel az SPSS által folytatott gyakorlatnak, egyúttal az `aov_ez` alapértelmezett választása is) ez mindenképpen szükséges. Noha szakmailag a II-es típusú felbontás jobban indokolható, amelyhez a kontrasztok átállítása nem feltétlenül szükséges, semmiképpen nem árt összeg-kontrasztokat használni (lásd [itt](../sec8_regr/model.html)):
 
 ```r
@@ -102,6 +109,9 @@ print(model)
 ```
 
 ```
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 <.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 <.0001     .52
@@ -118,8 +128,10 @@ str(model, max.level = 1)
 ```
 ## List of 5
 ##  $ anova_table:Classes 'anova' and 'data.frame':	3 obs. of  6 variables:
-##   ..- attr(*, "heading")= chr [1:2] "Anova Table (Type  tests)\n" "Response: "
+##   ..- attr(*, "heading")= chr [1:2] "Anova Table (Type 3 tests)\n" "Response: MOGQ_Social"
 ##   ..- attr(*, "p.adjust.method")= chr "none"
+##   ..- attr(*, "correction")= chr "none"
+##   ..- attr(*, "observed")= chr [1:2] "Heavy_use" "Problematic"
 ##  $ aov        :List of 13
 ##   ..- attr(*, "class")= chr [1:2] "aov" "lm"
 ##  $ Anova      :Classes 'anova' and 'data.frame':	5 obs. of  4 variables:
@@ -143,9 +155,9 @@ print(model$anova_table)
 ```
 
 ```
-## Anova Table (Type  tests)
+## Anova Table (Type 3 tests)
 ## 
-## Response: 
+## Response: MOGQ_Social
 ##                       num Df den Df    MSE      F        ges Pr(>F)
 ## Heavy_use                  1   5272 1.0005 0.0053 1.0140e-06 0.9417
 ## Problematic                1   5272 1.0005 0.4229 8.0207e-05 0.5155
@@ -160,6 +172,9 @@ súgóját, a `nice` függvény lesz a barátunk:
 ```
 
 ```
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 <.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 <.0001     .52
@@ -172,13 +187,17 @@ str(nice_table)
 ```
 
 ```
-## 'data.frame':	3 obs. of  6 variables:
+## Classes 'nice_table' and 'data.frame':	3 obs. of  6 variables:
 ##  $ Effect : chr  "Heavy_use" "Problematic" "Heavy_use:Problematic"
 ##  $ df     : chr  "1, 5272" "1, 5272" "1, 5272"
 ##  $ MSE    : chr  "1.00" "1.00" "1.00"
 ##  $ F      : chr  "0.01" "0.42" "0.03"
 ##  $ ges    : chr  "<.0001" "<.0001" "<.0001"
 ##  $ p.value: chr  ".94" ".52" ".87"
+##  - attr(*, "heading")= chr  "Anova Table (Type 3 tests)\n" "Response: MOGQ_Social"
+##  - attr(*, "p.adjust.method")= chr "none"
+##  - attr(*, "correction")= chr "none"
+##  - attr(*, "observed")= chr  "Heavy_use" "Problematic"
 ```
 
 
@@ -452,6 +471,9 @@ list(anova_table = nice_table,
 
 ```
 ## $anova_table
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 <.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 <.0001     .52
@@ -510,6 +532,9 @@ runAnova("MOGQ_Social", model_dat)
 
 ```
 ## $anova_table
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 <.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 <.0001     .52
@@ -560,7 +585,9 @@ pred_tables <- lapply(results, function(x) x$prediction_table)
 ```r
 # data.table betöltése
 library(data.table)
+```
 
+```r
 # összefűzés
 estimated_means <- rbindlist(pred_tables, idcol = "skala")
 

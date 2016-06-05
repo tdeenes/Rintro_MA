@@ -84,9 +84,10 @@ groups[, olv_helyes1 := scale(olv_helyes1), by = csoport]
 
 # többre
 vars <- c("olv_helyes1", "olv_helyes2", "olv_helyes3")
-groups <- data.table(dyslex)[,
-                             (vars) := scale(get(vars)),
-                             by = csoport]
+groups <- data.table(dyslex)[
+    , (vars) := lapply(.SD, function(x) as.vector(scale(x))),
+    by = csoport,
+    .SDcols = vars]
 ```
 
 - merge

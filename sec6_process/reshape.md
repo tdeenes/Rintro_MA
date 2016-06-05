@@ -55,7 +55,7 @@ head(dyslex_read)
 ## 6          36
 ```
 
-- alakítsuk át long formátumba (legyen egy 'blokk' és egy 'olv_helyes' valtozónk)
+- alakítsuk át long formátumba (legyen egy 'blokk' és egy 'olv_helyes' változónk)
 
 ```r
 dyslex_read_long <- reshape(dyslex_read, 
@@ -96,12 +96,7 @@ dyslex_read_long3 <- gather(dyslex_read, mutato, ertek,
                             olv_helyes1:olv_helyes3)
 ```
 
-- és szintén kellemes (es nagyon gyors) a *data.table* megoldása
-
-```
-## Error: package 'reshape2' is required by 'afex' so will not be detached
-```
-
+- és szintén kellemes (és nagyon gyors) a *data.table* megoldása
 
 ```r
 library(data.table)

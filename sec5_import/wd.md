@@ -32,9 +32,10 @@ dir()
 ```
 
 ```
-##  [1] "data"          "README.md"     "serialize.md"  "serialize.Rmd"
-##  [5] "spss.md"       "spss.Rmd"      "text.md"       "text.Rmd"     
-##  [9] "wd.md"         "wd.Rmd"
+##  [1] "data"           "index.html"     "README.md"      "serialize.html"
+##  [5] "serialize.md"   "serialize.Rmd"  "spss.html"      "spss.md"       
+##  [9] "spss.Rmd"       "text.html"      "text.md"        "text.Rmd"      
+## [13] "wd.html"        "wd.md"          "wd.Rmd"
 ```
 
 ```r

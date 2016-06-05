@@ -79,51 +79,35 @@ ls(e)
 ```
 
 ```
-##  [1] "arr"                 "count"               "createSequence"     
-##  [4] "createSequence2"     "dat"                 "datfr"              
-##  [7] "datfr_nofactor"      "dat_num"             "estimated_means"    
-## [10] "fac"                 "final_dat"           "fit"                
-## [13] "fit_summary"         "gg"                  "groups"             
-## [16] "i"                   "index"               "itemek"             
-## [19] "likert_valtozok"     "lt"                  "marginal_means"     
-## [22] "mat"                 "mat1"                "mat2"               
-## [25] "mat3"                "model"               "model_dat"          
-## [28] "model_dat_long"      "MOGQ_social"         "MOGQ_social_itemek" 
-## [31] "mydat"               "mylist"              "my_sequence"        
-## [34] "n"                   "newfac"              "nice_table"         
-## [37] "packs"               "plotAnova"           "plot_dat"           
-## [40] "pred_means"          "pred_table"          "pred_tables"        
-## [43] "print.specialVector" "results"             "runAnova"           
-## [46] "skala"               "skala_definiciok"    "skala_nevek"        
-## [49] "skalapontok"         "temporary"           "vec"                
-## [52] "vec_char"            "vec_down"            "vec_int"            
-## [55] "vec_logic"           "vec_num"             "vec.reference"      
-## [58] "vec.target"          "vec_up"              "x"                  
-## [61] "y"
+##  [1] "arr"                 "cfa_res"             "cfa_std"            
+##  [4] "corrs"               "count"               "createSequence"     
+##  [7] "createSequence2"     "dat"                 "datfr"              
+## [10] "datfr_nofactor"      "dat_num"             "estimated_means"    
+## [13] "fa5"                 "fa6"                 "fac"                
+## [16] "final_dat"           "fit"                 "fit_summary"        
+## [19] "gg"                  "groups"              "i"                  
+## [22] "index"               "index_mat"           "itemek"             
+## [25] "items"               "items_to_flip"       "likert_valtozok"    
+## [28] "lt"                  "marginal_means"      "mat"                
+## [31] "mat1"                "mat2"                "mat3"               
+## [34] "model"               "model_dat"           "model_dat_long"     
+## [37] "model_syntax"        "MOGQ_social"         "MOGQ_social_itemek" 
+## [40] "mydat"               "mylist"              "my_sequence"        
+## [43] "n"                   "newfac"              "nice_table"         
+## [46] "packs"               "plotAnova"           "plot_dat"           
+## [49] "pred_means"          "pred_table"          "pred_tables"        
+## [52] "print.specialVector" "results"             "runAnova"           
+## [55] "skala"               "skala_definiciok"    "skala_nevek"        
+## [58] "skalapontok"         "temporary"           "vec"                
+## [61] "vec_char"            "vec_down"            "vec_int"            
+## [64] "vec_logic"           "vec_num"             "vec.reference"      
+## [67] "vec.target"          "vec_up"              "x"                  
+## [70] "y"
 ```
 
 ```r
 # keresési út módosítása
 attach("all.RData")
-```
-
-```
-## The following objects are masked from file:all.RData (pos = 6):
-## 
-##     arr, count, createSequence, createSequence2, dat, datfr,
-##     datfr_nofactor, dat_num, estimated_means, fac, final_dat, fit,
-##     fit_summary, gg, groups, i, index, itemek, likert_valtozok,
-##     lt, marginal_means, mat, mat1, mat2, mat3, model, model_dat,
-##     model_dat_long, MOGQ_social, MOGQ_social_itemek, mydat,
-##     mylist, my_sequence, n, newfac, nice_table, packs, plotAnova,
-##     plot_dat, pred_means, pred_table, pred_tables,
-##     print.specialVector, results, runAnova, skala,
-##     skala_definiciok, skala_nevek, skalapontok, temporary, vec,
-##     vec_char, vec_down, vec_int, vec_logic, vec_num,
-##     vec.reference, vec.target, vec_up, x, y
-```
-
-```r
 x
 ```
 
