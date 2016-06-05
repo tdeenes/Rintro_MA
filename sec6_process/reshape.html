@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1095,7 +1097,7 @@ head(dyslex_read)
 ## 5          21
 ## 6          36
 </code></pre><ul>
-<li>alak&#xED;tsuk &#xE1;t long form&#xE1;tumba (legyen egy &apos;blokk&apos; &#xE9;s egy &apos;olv_helyes&apos; valtoz&#xF3;nk)</li>
+<li>alak&#xED;tsuk &#xE1;t long form&#xE1;tumba (legyen egy &apos;blokk&apos; &#xE9;s egy &apos;olv_helyes&apos; v&#xE1;ltoz&#xF3;nk)</li>
 </ul>
 <pre><code class="lang-r">dyslex_read_long &lt;- reshape(dyslex_read, 
                             varying = c(<span class="hljs-string">&quot;olv_helyes1&quot;</span>, <span class="hljs-string">&quot;olv_helyes2&quot;</span>, <span class="hljs-string">&quot;olv_helyes3&quot;</span>),
@@ -1129,10 +1131,9 @@ dyslex_read_long3 &lt;- gather(dyslex_read, mutato, ertek,
                             olv_helyes1:olv_helyes3)
 </code></pre>
 <ul>
-<li>&#xE9;s szint&#xE9;n kellemes (es nagyon gyors) a <em>data.table</em> megold&#xE1;sa</li>
+<li>&#xE9;s szint&#xE9;n kellemes (&#xE9;s nagyon gyors) a <em>data.table</em> megold&#xE1;sa</li>
 </ul>
-<pre><code>## Error: package &apos;reshape2&apos; is required by &apos;afex&apos; so will not be detached
-</code></pre><pre><code class="lang-r"><span class="hljs-keyword">library</span>(data.table)
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(data.table)
 dyslex_read_long4 &lt;- melt(data.table(dyslex_read), 
      measure.vars = c(<span class="hljs-string">&quot;olv_helyes1&quot;</span>, <span class="hljs-string">&quot;olv_helyes2&quot;</span>, <span class="hljs-string">&quot;olv_helyes3&quot;</span>),
      variable.name = <span class="hljs-string">&quot;mutato&quot;</span>,

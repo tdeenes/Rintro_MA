@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1070,12 +1072,12 @@ mat
 <span class="hljs-comment"># az 1-10 sz&#xE1;mokat:</span>
 ( vec &lt;- sample(<span class="hljs-number">10</span>) )
 </code></pre>
-<pre><code>##  [1]  7  3  4  6  1  5  2  9 10  8
+<pre><code>##  [1] 10  2  8  7  5  1  9  6  4  3
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># cser&#xE9;lj&#xFC;k ki az els&#x151; n&#xE9;gy elem&#xE9;t a 100 &#xE9;s 200 sz&#xE1;mokra</span>
 vec[<span class="hljs-number">1</span>:<span class="hljs-number">4</span>] &lt;- c(<span class="hljs-number">100</span>, <span class="hljs-number">200</span>)
 vec
 </code></pre>
-<pre><code>##  [1] 100 200 100 200   1   5   2   9  10   8
+<pre><code>##  [1] 100 200 100 200   5   1   9   6   4   3
 </code></pre><ul>
 <li>arra is figyelj&#xFC;nk, hogy az R-ben egy elemi vektor (ide soroland&#xF3; a m&#xE1;trix &#xE9;s
 a t&#xF6;mb is) csak egyf&#xE9;le t&#xED;pus&#xFA; (pl. csak integer vagy csak karakter) elemeket 
@@ -1122,24 +1124,24 @@ x[] &lt;- rnorm(<span class="hljs-number">9</span>)
 x
 </code></pre>
 <pre><code>##     dimB
-## dimA          A          B          C
-##    a -0.0593134 -0.1645236  0.5566632
-##    b  1.1000254 -0.2533617 -0.6887557
-##    c  0.7631757  0.6969634 -0.7074952
+## dimA          A         B          C
+##    a -0.4586827 -0.846736 -0.8918895
+##    b -2.0127796  1.283496  0.9607997
+##    c -0.3797165  1.109485 -0.2979221
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># vesd &#xF6;ssze ezzel a megold&#xE1;ssal:</span>
 ( y &lt;- rnorm(<span class="hljs-number">9</span>) )
 </code></pre>
-<pre><code>## [1]  0.3645820  0.7685329 -0.1123462  0.8811077  0.3981059 -0.6120264
-## [7]  0.3411197 -1.1293631  1.4330237
+<pre><code>## [1] -1.1324839  1.4626951 -0.4232417 -0.2489515 -0.8126135  0.2154602
+## [7] -1.5839960 -0.4587482  0.6288451
 </code></pre><pre><code class="lang-r">dim(y) &lt;- dim(x)
 dimnames(y) &lt;- dimnames(x)
 y
 </code></pre>
 <pre><code>##     dimB
 ## dimA          A          B          C
-##    a  0.3645820  0.8811077  0.3411197
-##    b  0.7685329  0.3981059 -1.1293631
-##    c -0.1123462 -0.6120264  1.4330237
+##    a -1.1324839 -0.2489515 -1.5839960
+##    b  1.4626951 -0.8126135 -0.4587482
+##    c -0.4232417  0.2154602  0.6288451
 </code></pre><ul>
 <li>a list&#xE1;k elemeinek m&#xF3;dos&#xED;t&#xE1;sa tr&#xFC;kk&#xF6;sebb tud lenni:</li>
 </ul>

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="5.4" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="5.4" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1110,44 +1112,33 @@ e &lt;- new.env(parent = emptyenv())
 load(<span class="hljs-string">&quot;all.RData&quot;</span>, e)
 ls(e)
 </code></pre>
-<pre><code>##  [1] &quot;arr&quot;                 &quot;count&quot;               &quot;createSequence&quot;     
-##  [4] &quot;createSequence2&quot;     &quot;dat&quot;                 &quot;datfr&quot;              
-##  [7] &quot;datfr_nofactor&quot;      &quot;dat_num&quot;             &quot;estimated_means&quot;    
-## [10] &quot;fac&quot;                 &quot;final_dat&quot;           &quot;fit&quot;                
-## [13] &quot;fit_summary&quot;         &quot;gg&quot;                  &quot;groups&quot;             
-## [16] &quot;i&quot;                   &quot;index&quot;               &quot;itemek&quot;             
-## [19] &quot;likert_valtozok&quot;     &quot;lt&quot;                  &quot;marginal_means&quot;     
-## [22] &quot;mat&quot;                 &quot;mat1&quot;                &quot;mat2&quot;               
-## [25] &quot;mat3&quot;                &quot;model&quot;               &quot;model_dat&quot;          
-## [28] &quot;model_dat_long&quot;      &quot;MOGQ_social&quot;         &quot;MOGQ_social_itemek&quot; 
-## [31] &quot;mydat&quot;               &quot;mylist&quot;              &quot;my_sequence&quot;        
-## [34] &quot;n&quot;                   &quot;newfac&quot;              &quot;nice_table&quot;         
-## [37] &quot;packs&quot;               &quot;plotAnova&quot;           &quot;plot_dat&quot;           
-## [40] &quot;pred_means&quot;          &quot;pred_table&quot;          &quot;pred_tables&quot;        
-## [43] &quot;print.specialVector&quot; &quot;results&quot;             &quot;runAnova&quot;           
-## [46] &quot;skala&quot;               &quot;skala_definiciok&quot;    &quot;skala_nevek&quot;        
-## [49] &quot;skalapontok&quot;         &quot;temporary&quot;           &quot;vec&quot;                
-## [52] &quot;vec_char&quot;            &quot;vec_down&quot;            &quot;vec_int&quot;            
-## [55] &quot;vec_logic&quot;           &quot;vec_num&quot;             &quot;vec.reference&quot;      
-## [58] &quot;vec.target&quot;          &quot;vec_up&quot;              &quot;x&quot;                  
-## [61] &quot;y&quot;
+<pre><code>##  [1] &quot;arr&quot;                 &quot;cfa_res&quot;             &quot;cfa_std&quot;            
+##  [4] &quot;corrs&quot;               &quot;count&quot;               &quot;createSequence&quot;     
+##  [7] &quot;createSequence2&quot;     &quot;dat&quot;                 &quot;datfr&quot;              
+## [10] &quot;datfr_nofactor&quot;      &quot;dat_num&quot;             &quot;estimated_means&quot;    
+## [13] &quot;fa5&quot;                 &quot;fa6&quot;                 &quot;fac&quot;                
+## [16] &quot;final_dat&quot;           &quot;fit&quot;                 &quot;fit_summary&quot;        
+## [19] &quot;gg&quot;                  &quot;groups&quot;              &quot;i&quot;                  
+## [22] &quot;index&quot;               &quot;index_mat&quot;           &quot;itemek&quot;             
+## [25] &quot;items&quot;               &quot;items_to_flip&quot;       &quot;likert_valtozok&quot;    
+## [28] &quot;lt&quot;                  &quot;marginal_means&quot;      &quot;mat&quot;                
+## [31] &quot;mat1&quot;                &quot;mat2&quot;                &quot;mat3&quot;               
+## [34] &quot;model&quot;               &quot;model_dat&quot;           &quot;model_dat_long&quot;     
+## [37] &quot;model_syntax&quot;        &quot;MOGQ_social&quot;         &quot;MOGQ_social_itemek&quot; 
+## [40] &quot;mydat&quot;               &quot;mylist&quot;              &quot;my_sequence&quot;        
+## [43] &quot;n&quot;                   &quot;newfac&quot;              &quot;nice_table&quot;         
+## [46] &quot;packs&quot;               &quot;plotAnova&quot;           &quot;plot_dat&quot;           
+## [49] &quot;pred_means&quot;          &quot;pred_table&quot;          &quot;pred_tables&quot;        
+## [52] &quot;print.specialVector&quot; &quot;results&quot;             &quot;runAnova&quot;           
+## [55] &quot;skala&quot;               &quot;skala_definiciok&quot;    &quot;skala_nevek&quot;        
+## [58] &quot;skalapontok&quot;         &quot;temporary&quot;           &quot;vec&quot;                
+## [61] &quot;vec_char&quot;            &quot;vec_down&quot;            &quot;vec_int&quot;            
+## [64] &quot;vec_logic&quot;           &quot;vec_num&quot;             &quot;vec.reference&quot;      
+## [67] &quot;vec.target&quot;          &quot;vec_up&quot;              &quot;x&quot;                  
+## [70] &quot;y&quot;
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># keres&#xE9;si &#xFA;t m&#xF3;dos&#xED;t&#xE1;sa</span>
 <span class="hljs-keyword">attach</span>(<span class="hljs-string">&quot;all.RData&quot;</span>)
-</code></pre>
-<pre><code>## The following objects are masked from file:all.RData (pos = 6):
-## 
-##     arr, count, createSequence, createSequence2, dat, datfr,
-##     datfr_nofactor, dat_num, estimated_means, fac, final_dat, fit,
-##     fit_summary, gg, groups, i, index, itemek, likert_valtozok,
-##     lt, marginal_means, mat, mat1, mat2, mat3, model, model_dat,
-##     model_dat_long, MOGQ_social, MOGQ_social_itemek, mydat,
-##     mylist, my_sequence, n, newfac, nice_table, packs, plotAnova,
-##     plot_dat, pred_means, pred_table, pred_tables,
-##     print.specialVector, results, runAnova, skala,
-##     skala_definiciok, skala_nevek, skalapontok, temporary, vec,
-##     vec_char, vec_down, vec_int, vec_logic, vec_num,
-##     vec.reference, vec.target, vec_up, x, y
-</code></pre><pre><code class="lang-r">x
+x
 </code></pre>
 <pre><code>## [1] 1 3 5 7
 </code></pre><pre><code class="lang-r">get(<span class="hljs-string">&quot;x&quot;</span>, pos = <span class="hljs-number">2</span>)

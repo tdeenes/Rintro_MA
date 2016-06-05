@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="11.2" data-basepath=".." data-revision="Thu Mar 17 2016 23:06:21 GMT+0100 (CET)">
+    <div class="book" data-level="11.2" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1066,7 +1066,8 @@ model_dat_long &lt;- gather(model_dat, alskala, pontszam,
 <p>Az &#xE1;talak&#xED;t&#xE1;s ut&#xE1;n az &#xE1;br&#xE1;zol&#xE1;s m&#xE1;r nagyon egyszer&#x171;. Haszn&#xE1;ljuk a <em>ggplot2</em> csomagot, 
 &#xE9;s &#xE1;br&#xE1;zoljuk a sk&#xE1;lapontsz&#xE1;mok eloszl&#xE1;s&#xE1;t, k&#xFC;l&#xF6;n-k&#xFC;l&#xF6;n a n&#xE9;gy csoportban:</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(ggplot2)
-<span class="hljs-comment"># &#xE1;br&#xE1;zol&#xE1;s (magyar&#xE1;zattal)</span>
+</code></pre>
+<pre><code class="lang-r"><span class="hljs-comment"># &#xE1;br&#xE1;zol&#xE1;s (magyar&#xE1;zattal)</span>
 ggplot(model_dat_long,        <span class="hljs-comment"># vedd a model_dat_long adatt&#xE1;bl&#xE1;t</span>
        aes(x = alskala, y = pontszam)) +  <span class="hljs-comment"># az &apos;alskala&apos; f&#xFC;ggv&#xE9;ny&#xE9;ben</span>
                                           <span class="hljs-comment"># &#xE1;br&#xE1;zold a mutat&#xF3; &#xE9;rt&#xE9;k&#xE9;t</span>
@@ -1097,7 +1098,8 @@ m&#xE9;gpedig magyar&#xE1;z&#xF3; v&#xE1;ltoz&#xF3;k&#xE9;nt a k&#xE9;t csoporto
                 between = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>),
                 observed = c(<span class="hljs-string">&quot;Heavy_use&quot;</span>, <span class="hljs-string">&quot;Problematic&quot;</span>))
 </code></pre>
-<p>A f&#xFC;ggv&#xE9;ny figyelmeztet minket, hogy a futtat&#xE1;skor megv&#xE1;ltoztatta az alap&#xE9;rtelmezett kontrasztokat a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;k eset&#xE9;ben. Val&#xF3;ban, III-as t&#xED;pus&#xFA; n&#xE9;gyzet&#x151;sszeg felbont&#xE1;sn&#xE1;l (ami megfelel az SPSS &#xE1;ltal folytatott gyakorlatnak, egy&#xFA;ttal az <code>aov_ez</code> alap&#xE9;rtelmezett v&#xE1;laszt&#xE1;sa is) ez mindenk&#xE9;ppen sz&#xFC;ks&#xE9;ges. Noha szakmailag a II-es t&#xED;pus&#xFA; felbont&#xE1;s jobban indokolhat&#xF3;, amelyhez a kontrasztok &#xE1;t&#xE1;ll&#xED;t&#xE1;sa nem felt&#xE9;tlen&#xFC;l sz&#xFC;ks&#xE9;ges, semmik&#xE9;ppen nem &#xE1;rt &#xF6;sszeg-kontrasztokat haszn&#xE1;lni (l&#xE1;sd <a href="../sec8_regr/model.html">itt</a>):</p>
+<pre><code>## Contrasts set to contr.sum for the following variables: Heavy_use, Problematic
+</code></pre><p>A f&#xFC;ggv&#xE9;ny figyelmeztet minket, hogy a futtat&#xE1;skor megv&#xE1;ltoztatta az alap&#xE9;rtelmezett kontrasztokat a &apos;Heavy_use&apos; &#xE9;s a &apos;Problematic&apos; v&#xE1;ltoz&#xF3;k eset&#xE9;ben. Val&#xF3;ban, III-as t&#xED;pus&#xFA; n&#xE9;gyzet&#x151;sszeg felbont&#xE1;sn&#xE1;l (ami megfelel az SPSS &#xE1;ltal folytatott gyakorlatnak, egy&#xFA;ttal az <code>aov_ez</code> alap&#xE9;rtelmezett v&#xE1;laszt&#xE1;sa is) ez mindenk&#xE9;ppen sz&#xFC;ks&#xE9;ges. Noha szakmailag a II-es t&#xED;pus&#xFA; felbont&#xE1;s jobban indokolhat&#xF3;, amelyhez a kontrasztok &#xE1;t&#xE1;ll&#xED;t&#xE1;sa nem felt&#xE9;tlen&#xFC;l sz&#xFC;ks&#xE9;ges, semmik&#xE9;ppen nem &#xE1;rt &#xF6;sszeg-kontrasztokat haszn&#xE1;lni (l&#xE1;sd <a href="../sec8_regr/model.html">itt</a>):</p>
 <pre><code class="lang-r">options(contrasts = c(<span class="hljs-string">&quot;contr.sum&quot;</span>, <span class="hljs-string">&quot;contr.poly&quot;</span>))
 </code></pre>
 <p>Futtassuk &#xFA;jra a modellt:</p>
@@ -1109,7 +1111,10 @@ m&#xE9;gpedig magyar&#xE1;z&#xF3; v&#xE1;ltoz&#xF3;k&#xE9;nt a k&#xE9;t csoporto
 <p>L&#xE1;ssuk az eredm&#xE9;nyeket:</p>
 <pre><code class="lang-r">print(model)
 </code></pre>
-<pre><code>##                  Effect      df  MSE    F    ges p.value
+<pre><code>## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
+##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
 ## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
@@ -1119,8 +1124,10 @@ str(model, max.level = <span class="hljs-number">1</span>)
 </code></pre>
 <pre><code>## List of 5
 ##  $ anova_table:Classes &apos;anova&apos; and &apos;data.frame&apos;:    3 obs. of  6 variables:
-##   ..- attr(*, &quot;heading&quot;)= chr [1:2] &quot;Anova Table (Type  tests)\n&quot; &quot;Response: &quot;
+##   ..- attr(*, &quot;heading&quot;)= chr [1:2] &quot;Anova Table (Type 3 tests)\n&quot; &quot;Response: MOGQ_Social&quot;
 ##   ..- attr(*, &quot;p.adjust.method&quot;)= chr &quot;none&quot;
+##   ..- attr(*, &quot;correction&quot;)= chr &quot;none&quot;
+##   ..- attr(*, &quot;observed&quot;)= chr [1:2] &quot;Heavy_use&quot; &quot;Problematic&quot;
 ##  $ aov        :List of 13
 ##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;aov&quot; &quot;lm&quot;
 ##  $ Anova      :Classes &apos;anova&apos; and &apos;data.frame&apos;:    5 obs. of  4 variables:
@@ -1138,9 +1145,9 @@ str(model, max.level = <span class="hljs-number">1</span>)
 eleme tartalmazza:</p>
 <pre><code class="lang-r">print(model$anova_table)
 </code></pre>
-<pre><code>## Anova Table (Type  tests)
+<pre><code>## Anova Table (Type 3 tests)
 ## 
-## Response: 
+## Response: MOGQ_Social
 ##                       num Df den Df    MSE      F        ges Pr(&gt;F)
 ## Heavy_use                  1   5272 1.0005 0.0053 1.0140e-06 0.9417
 ## Problematic                1   5272 1.0005 0.4229 8.0207e-05 0.5155
@@ -1149,20 +1156,27 @@ eleme tartalmazza:</p>
 s&#xFA;g&#xF3;j&#xE1;t, a <code>nice</code> f&#xFC;ggv&#xE9;ny lesz a bar&#xE1;tunk:</p>
 <pre><code class="lang-r">( nice_table &lt;- nice(model) )
 </code></pre>
-<pre><code>##                  Effect      df  MSE    F    ges p.value
+<pre><code>## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
+##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
 ## 3 Heavy_use:Problematic 1, 5272 1.00 0.03 &lt;.0001     .87
 </code></pre><pre><code class="lang-r"><span class="hljs-comment"># strukt&#xFA;ra:</span>
 str(nice_table)
 </code></pre>
-<pre><code>## &apos;data.frame&apos;:    3 obs. of  6 variables:
+<pre><code>## Classes &apos;nice_table&apos; and &apos;data.frame&apos;:    3 obs. of  6 variables:
 ##  $ Effect : chr  &quot;Heavy_use&quot; &quot;Problematic&quot; &quot;Heavy_use:Problematic&quot;
 ##  $ df     : chr  &quot;1, 5272&quot; &quot;1, 5272&quot; &quot;1, 5272&quot;
 ##  $ MSE    : chr  &quot;1.00&quot; &quot;1.00&quot; &quot;1.00&quot;
 ##  $ F      : chr  &quot;0.01&quot; &quot;0.42&quot; &quot;0.03&quot;
 ##  $ ges    : chr  &quot;&lt;.0001&quot; &quot;&lt;.0001&quot; &quot;&lt;.0001&quot;
 ##  $ p.value: chr  &quot;.94&quot; &quot;.52&quot; &quot;.87&quot;
+##  - attr(*, &quot;heading&quot;)= chr  &quot;Anova Table (Type 3 tests)\n&quot; &quot;Response: MOGQ_Social&quot;
+##  - attr(*, &quot;p.adjust.method&quot;)= chr &quot;none&quot;
+##  - attr(*, &quot;correction&quot;)= chr &quot;none&quot;
+##  - attr(*, &quot;observed&quot;)= chr  &quot;Heavy_use&quot; &quot;Problematic&quot;
 </code></pre><h2 id="csoport%C3%A1tlagok">Csoport&#xE1;tlagok</h2>
 <p>Az &#xE1;br&#xE1;zol&#xE1;shoz sz&#xFC;ks&#xE9;g&#xFC;nk lenne a becs&#xFC;lt sk&#xE1;lapontsz&#xE1;mokra &#xE9;s a becsl&#xE9;s konfidencia-intervallum&#xE1;ra. Olvassuk el figyelmesen az im&#xE9;nt megismert <code>aov_ez()</code> f&#xFC;ggv&#xE9;ny s&#xFA;g&#xF3;j&#xE1;t:</p>
 <pre><code class="lang-r">?aov_ez
@@ -1359,6 +1373,9 @@ list(anova_table = nice_table,
      prediction_table = pred_table)
 </code></pre>
 <pre><code>## $anova_table
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
@@ -1408,6 +1425,9 @@ list(anova_table = nice_table,
 <pre><code class="lang-r">runAnova(<span class="hljs-string">&quot;MOGQ_Social&quot;</span>, model_dat)
 </code></pre>
 <pre><code>## $anova_table
+## Anova Table (Type 3 tests)
+## 
+## Response: MOGQ_Social
 ##                  Effect      df  MSE    F    ges p.value
 ## 1             Heavy_use 1, 5272 1.00 0.01 &lt;.0001     .94
 ## 2           Problematic 1, 5272 1.00 0.42 &lt;.0001     .52
@@ -1450,8 +1470,8 @@ ilyen form&#xE1;ban. Ezt a k&#xF6;vetkez&#x151;k alapj&#xE1;n, gyakorl&#xE1;sk&#
 </ol>
 <pre><code class="lang-r"><span class="hljs-comment"># data.table bet&#xF6;lt&#xE9;se</span>
 <span class="hljs-keyword">library</span>(data.table)
-
-<span class="hljs-comment"># &#xF6;sszef&#x171;z&#xE9;s</span>
+</code></pre>
+<pre><code class="lang-r"><span class="hljs-comment"># &#xF6;sszef&#x171;z&#xE9;s</span>
 estimated_means &lt;- rbindlist(pred_tables, idcol = <span class="hljs-string">&quot;skala&quot;</span>)
 
 <span class="hljs-comment"># ellen&#x151;rz&#xE9;s</span>

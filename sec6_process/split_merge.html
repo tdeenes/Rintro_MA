@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
     
+        <link rel="stylesheet" href="../styles/website.css">
+    
 
         
     
@@ -36,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="6.2" data-basepath=".." data-revision="Sun Feb 21 2016 14:23:15 GMT+0100 (CET)">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1123,9 +1125,10 @@ groups[, olv_helyes1 := scale(olv_helyes1), by = csoport]
 
 <span class="hljs-comment"># t&#xF6;bbre</span>
 vars &lt;- c(<span class="hljs-string">&quot;olv_helyes1&quot;</span>, <span class="hljs-string">&quot;olv_helyes2&quot;</span>, <span class="hljs-string">&quot;olv_helyes3&quot;</span>)
-groups &lt;- data.table(dyslex)[,
-                             (vars) := scale(get(vars)),
-                             by = csoport]
+groups &lt;- data.table(dyslex)[
+    , (vars) := lapply(.SD, <span class="hljs-keyword">function</span>(x) as.vector(scale(x))),
+    by = csoport,
+    .SDcols = vars]
 </code></pre>
 <ul>
 <li>merge</li>

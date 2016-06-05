@@ -38,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="11.1" data-basepath=".." data-revision="Thu Mar 17 2016 23:06:21 GMT+0100 (CET)">
+    <div class="book" data-level="11.1" data-basepath=".." data-revision="Sun Jun 05 2016 18:42:21 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -1339,7 +1339,7 @@ A k&#xF6;vetkez&#x151; cser&#xE9;ket kell elv&#xE9;gezn&#xFC;nk:</p>
 <h3 id="sk%C3%A1lapontok-kisz%C3%A1m%C3%ADt%C3%A1sa">Sk&#xE1;lapontok kisz&#xE1;m&#xED;t&#xE1;sa</h3>
 <p>T&#xE9;rj&#xFC;nk vissza a kor&#xE1;bbi, &quot;k&#xE9;zi&quot; p&#xE9;ld&#xE1;hoz:</p>
 <pre><code class="lang-r">MOGQ_social_itemek &lt;- c(<span class="hljs-string">&quot;MOGQ1&quot;</span>, <span class="hljs-string">&quot;MOGQ8&quot;</span>, <span class="hljs-string">&quot;MOGQ15&quot;</span>, <span class="hljs-string">&quot;MOGQ22&quot;</span>)
-MOGQ_social &lt;- rowMeans(dat[, MOGQ_social_itemek])
+MOGQ_social &lt;- rowMeans(dat[, MOGQ_social_itemek], na.rm = <span class="hljs-literal">TRUE</span>)
 </code></pre>
 <p>Vegy&#xFC;k &#xE9;szre, hogy a fenti sorokat a sk&#xE1;ladefin&#xED;ci&#xF3;s list&#xE1;nk seg&#xED;ts&#xE9;g&#xE9;vel imm&#xE1;ron &#xED;gy is &#xED;rhatn&#xE1;nk:</p>
 <pre><code class="lang-r">itemek &lt;- skala_definiciok[[<span class="hljs-string">&quot;MOGQ_social&quot;</span>]]
