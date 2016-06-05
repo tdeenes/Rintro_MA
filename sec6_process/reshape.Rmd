@@ -19,7 +19,7 @@ dyslex_read <- subset(dyslex,
 head(dyslex_read)
 ```
 
-- alakítsuk át long formátumba (legyen egy 'blokk' és egy 'olv_helyes' valtozónk)
+- alakítsuk át long formátumba (legyen egy 'blokk' és egy 'olv_helyes' változónk)
 ```{r}
 dyslex_read_long <- reshape(dyslex_read, 
                             varying = c("olv_helyes1", "olv_helyes2", "olv_helyes3"),
@@ -47,7 +47,7 @@ dyslex_read_long3 <- gather(dyslex_read, mutato, ertek,
                             olv_helyes1:olv_helyes3)
 ```
 
-- és szintén kellemes (es nagyon gyors) a *data.table* megoldása
+- és szintén kellemes (és nagyon gyors) a *data.table* megoldása
 ```{r, echo=FALSE}
 detach(package:reshape2)
 ```
